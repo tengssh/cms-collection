@@ -8,9 +8,9 @@ This example demonstrates how to create vector databases and query using [Chroma
 - Python
 - ChromaDB
     - Create a database on [Chroma Cloud](https://www.trychroma.com/)
-    - Get the API key in "Settings/Connect to your database" after creating a database
+    - Get API key in a selected database via "Settings/Connect to your database"
     - Set the environment variables in `.env`
-        ```bash
+        ```bash=
         CHROMA_API_KEY=your_api_key
         CHROMA_TENANT=your_tenant_id
         CHROMA_DATABASE=your_database_id
