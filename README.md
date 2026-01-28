@@ -4,7 +4,7 @@ This repository is a curated collection of resources for computational materials
 
 ## Table of Contents
 - [Curated Lists](#Curated-Lists)
-- [Databases & Datasets](#Databases-amp-Datasets)
+- [Databases & Datasets](#Databases--Datasets)
 - WIP
 - [Glossary](#Glossary)
 - [License](#License)
