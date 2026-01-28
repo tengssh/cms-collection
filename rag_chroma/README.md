@@ -22,10 +22,6 @@ This example demonstrates how to create vector databases and query using [Chroma
     git clone https://github.com/tengssh/cms-collection.git
     cd cms-collection/rag_chroma
     ```
-- Initialize the environment
-    ```bash
-    pixi init
-    ```
 - Install dependencies (optional)
     ```bash
     pixi install
