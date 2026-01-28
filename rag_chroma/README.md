@@ -5,6 +5,7 @@ This example demonstrates how to create vector databases and query using [Chroma
 ## Prerequisites
 - [Pixi](https://pixi.prefix.dev/latest/): package management
     - `pixi.toml`: package dependencies
+    - `pixi.lock`: package lock file
 - Python
 - ChromaDB
     - Create a database on [Chroma Cloud](https://www.trychroma.com/)
