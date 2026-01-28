@@ -1,0 +1,8 @@
+# pixi environments
+.pixi/*
+!.pixi/config.toml
+
+# chroma database
+**/chroma_db/
+*.sqlite3
+.env
