@@ -8,7 +8,7 @@ description: Create, run, and analyze simulations. Manage data and utilize compu
 
 Computational Materials Science (CMS) is an interdisciplinary field that involves **defining problems** through the creation or selection of models for material systems of interest, **formulating system representations** (from atoms to continuum), **selecting methodologies/algorithms** (e.g., DFT, MD, Phase-field, or FEM) to solve problems, and **implementing models** on various computing systems. 
 
-Typical CMS activities include **managing and analyzing outputs**, **interpreting results**, **accelerating discovery**, and **optimizing specific targets or processes** as needed.
+Typical CMS activities include **preparing inputs**, **managing and analyzing outputs**, **interpreting results**, **accelerating discovery**, and **optimizing specific targets or processes** as needed.
 
 ## Capabilities
 - **Plan**: literature, data, tools
