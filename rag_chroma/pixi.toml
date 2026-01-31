@@ -2,13 +2,7 @@
 channels = ["conda-forge"]
 name = "chroma"
 platforms = ["linux-64"]
-version = "0.1.0"
-
-[tasks]
-ingest = "python ingest_md.py"
-search = "python chroma_search.py"
-clean = "rm -rf ./chroma_db"
-reindex = { depends-on = ["clean", "ingest"] }
+version = "0.2.0"
 
 [dependencies]
 python = ">=3.13.11,<3.14"
@@ -19,3 +13,16 @@ langchain-core = "*"
 fastembed = ">=0.7.4, <0.8"
 chromadb = "==1.4.1"
 snowballstemmer = ">=3.0.1, <4"
+
+[feature.test.dependencies]
+pytest = "*"
+
+[environments]
+test = ["test"]
+
+[tasks]
+ingest = "python ingest_md.py"
+search = "python chroma_search.py"
+clean = "rm -rf ./chroma_db"
+reindex = { depends-on = ["clean", "ingest"] }
+test = { cmd="python -m pytest tests", default-environment="test" }
