@@ -82,6 +82,7 @@ This repository is a curated collection of resources for computational materials
 | [ChemSpider](https://www.chemspider.com/) | A database for millions of chemical structures, properties, identifiers, and links, supporting SMILES/InChI text string searches. (free) | Data, App |
 
 ## Tools
+WIP
 
 ## Glossary
 | Tag       | Description          |
