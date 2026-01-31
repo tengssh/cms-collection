@@ -7,6 +7,7 @@ version = "0.2.0"
 [dependencies]
 python = ">=3.13.11,<3.14"
 langchain-text-splitters = ">=1.1.0,<2"
+python-dotenv = ">=1.2.1,<2"
 
 [pypi-dependencies]
 langchain-core = "*"
