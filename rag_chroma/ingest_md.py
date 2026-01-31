@@ -42,18 +42,24 @@ if os.getenv("CHROMA_API_KEY"): # Sparse index only available in cloud
 collection = client.get_or_create_collection(name="cms_collection", schema=schema)
 
 # --- STEP 2: Use LangChain to Parse ---
-def run_ingestion(text):
-    headers_to_split_on = [("##", "Section")]
+db_sections = ["Databases & Datasets", "Curated Lists"]
+
+def parse_markdown(text):
+    headers_to_split_on = [("#", "Title"), ("##", "Section")]
     splitter = MarkdownHeaderTextSplitter(headers_to_split_on=headers_to_split_on)
     sections = splitter.split_text(text)
     
-    n_lines = 0
+    n_lines = 1
     chunks = []
     for i_section, section in enumerate(sections):
         section_title = section.metadata.get("Section")
         content = section.page_content
         
         lines = content.split('\n')
+        if section_title not in db_sections:
+            n_lines += len(lines) + 1
+            continue
+
         for i_line, line in enumerate(lines):
             if '|' in line and not any(x in line for x in ['| :---', '| Item']):
                 cols = [c.strip() for c in line.split('|') if c.strip()]
@@ -80,9 +86,24 @@ def run_ingestion(text):
                         }
                     )
                     chunks.append(doc)
-        n_lines += len(lines) + i_section + 1
+            else:
+                doc = Document(
+                    page_content=f"Section: {section_title} | Resource: {line} | Description: None",
+                    metadata={
+                        "line": (i_line + 1) + (i_section + 1) + n_lines,
+                        "section": section_title,
+                        "url": "",
+                        "tags": "",
+                        "type": "table_row"
+                    }
+                )
+                chunks.append(doc)
+        n_lines += len(lines) + 1
+    return chunks
 
-    # --- STEP 3: Upload ---
+# --- STEP 3: Upload ---
+def run_ingestion(text):
+    chunks = parse_markdown(text)
     collection.add(
         ids=[str(uuid.uuid4()) for _ in chunks], 
         documents=[chunk.page_content for chunk in chunks], 
