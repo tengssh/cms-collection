@@ -1,10 +1,14 @@
-import os, re
+import os
+import re
 import uuid
+from dotenv import load_dotenv
 import chromadb
 from chromadb import Schema, VectorIndexConfig, SparseVectorIndexConfig, K
 from chromadb.utils.embedding_functions import DefaultEmbeddingFunction, ChromaBm25EmbeddingFunction
 from langchain_text_splitters import MarkdownHeaderTextSplitter
 from langchain_core.documents import Document
+
+load_dotenv()
 
 # --- STEP 0: Connect to Chroma ---
 if os.getenv("CHROMA_API_KEY"):
@@ -86,7 +90,7 @@ def parse_markdown(text):
                         }
                     )
                     chunks.append(doc)
-            else:
+            else: # for debug
                 doc = Document(
                     page_content=f"Section: {section_title} | Resource: {line} | Description: None",
                     metadata={
@@ -97,7 +101,6 @@ def parse_markdown(text):
                         "type": "table_row"
                     }
                 )
-                chunks.append(doc)
         n_lines += len(lines) + 1
     return chunks
 

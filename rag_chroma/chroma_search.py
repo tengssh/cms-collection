@@ -1,6 +1,9 @@
 import os
+from dotenv import load_dotenv
 from chromadb import Search, K, Knn, Rrf
 import chromadb
+
+load_dotenv()
 
 # --- STEP 0: Connect to Chroma ---
 if os.getenv("CHROMA_API_KEY"):
