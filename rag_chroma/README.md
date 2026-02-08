@@ -16,6 +16,13 @@ This example demonstrates how to create vector databases and query using [Chroma
         CHROMA_TENANT=your_tenant_id
         CHROMA_DATABASE=your_database_id
         ```
+- Ollama (for chat)
+    - Install [Ollama](https://ollama.com/)
+    - Pull the model (available models: https://ollama.com/library)
+        ```bash
+        ollama pull mistral
+        ```
+        - Choose models with tool-calling capability
 
 ## Getting-started
 - Clone the repository
@@ -37,4 +44,13 @@ This example demonstrates how to create vector databases and query using [Chroma
         ```bash
         pixi run search
         ```
-    - Chat with the database (WIP)
+    - Chat with the database
+        - Start the Ollama server (in one terminal)
+            ```bash
+            ollama serve
+            ```
+        - Run the chat (in another terminal)
+            ```bash
+            pixi run chat
+            ```
+        - Note that AI may hallucinate. Please verify the information.
