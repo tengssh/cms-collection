@@ -44,7 +44,7 @@ This example demonstrates how to create vector databases and query using [Chroma
         ```bash
         pixi run search
         ```
-    - Chat with the database
+    - Chat
         - Start the Ollama server (in one terminal)
             ```bash
             ollama serve
