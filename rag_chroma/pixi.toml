@@ -8,12 +8,17 @@ version = "0.2.0"
 python = ">=3.13.11,<3.14"
 langchain-text-splitters = ">=1.1.0,<2"
 python-dotenv = ">=1.2.1,<2"
+pytorch-cpu = "*"
 
 [pypi-dependencies]
 langchain-core = "*"
 fastembed = ">=0.7.4, <0.8"
-chromadb = "==1.4.1"
+chromadb = ">=1.4.1,<2"
 snowballstemmer = ">=3.0.1, <4"
+langchain-ollama = "*"
+langchain = ">=1.0.0"
+langgraph = "*"
+halo = "*"
 
 [feature.test.dependencies]
 pytest = "*"
@@ -27,3 +32,4 @@ search = "python chroma_search.py"
 clean = "rm -rf ./chroma_db"
 reindex = { depends-on = ["clean", "ingest"] }
 test = { cmd="python -m pytest tests", default-environment="test" }
+chat = "python ollama_chat.py"
