@@ -5,6 +5,7 @@ This repository is a curated collection of resources for computational materials
 ## Table of Contents
 - [Curated Lists](#Curated-Lists)
 - [Databases & Datasets](#Databases--Datasets)
+- [Tools: Crystal structures](#Tools-Crystal-structures)
 - WIP
 - [Glossary](#Glossary)
 - [License](#License)
