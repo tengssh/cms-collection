@@ -43,6 +43,7 @@ This repository is a curated collection of resources for computational materials
 | [Computational Materials Repository (CMR)](https://cmr.fysik.dtu.dk/) | A collection of project-specific materials databases with DFT datasets in standardized ASE-database formats. | Data |
 | [Open Catalyst Project](https://opencatalystproject.org/) | A massive open-source repository of DFT trajectories and benchmark tasks for catalysts. | Data, App |
 | [Quantum MOF (QMOF) Database](https://github.com/arosen93/QMOF) | A specialized dataset of quantum-chemical properties for metal–organic frameworks (MOFs) and coordination polymers derived from high-throughput periodic DFT calculations. | Data/Comp |
+| [MofasaDB](https://mofux.ai/explore) | An annotated dataset with generated MOF (Metal-Organic Framework) structures, trained on [QMOF](https://github.com/arosen93/QMOF). | Data/Comp, App |
 | [QM/ML Datasets](https://qmml.org/datasets.html) | A curated archive of benchmark datasets (molecules, solids, and liquids) for ML models. | Data/Comp |
 | [Minnesota Database 2.0](https://comp.chem.umn.edu/db/) | A curated collection of benchmark datasets for evaluating energetic and structural properties for chemistry and physics. | Data/Comp |
 | [Materials Platform for Data Science](https://mpds.io/) | A curated large-scale database of experimental inorganic materials data, extracted from scientific publications. | Data, App |
@@ -81,8 +82,18 @@ This repository is a curated collection of resources for computational materials
 | [SpringerMaterials](https://materials.springer.com/) | A curated database of materials and physical/chemical properties with interactive data visualization and analysis. (commercial) | Data, App |
 | [ChemSpider](https://www.chemspider.com/) | A database for millions of chemical structures, properties, identifiers, and links, supporting SMILES/InChI text string searches. (free) | Data, App |
 
-## Tools
-WIP
+## Tools: Crystal structures
+| Item (URL) | Description | Tags |
+| :--------- | :---------- | :--- |
+| [Atomsk](https://atomsk.univ-lille.fr/) | A command-line program tool to generate structure files for atomic-scale simulations. | Code/Lib |
+| [cif2cell](https://github.com/torbjornbjorkman/cif2cell) | A Python package to create structures for electronic structure calculations. | Code/Lib |
+| [PyXtal](https://github.com/MaterSim/PyXtal) | A Python package for atomic and molecular crystals. | Code/Lib |
+| [Ab initio random structure searching (AIRSS)](https://airss-docs.github.io/) | A tool for generating structures for random structure searching in ab initio calculations. | Code/Lib |
+| [Crystal Diffusion Variational AutoEncoder (CDVAE)](https://github.com/txie-93/cdvae) | A tool for generating the periodic structure of materials. | Code/Lib |
+| [Ab-initio Interface Materials Simulation Project for Grain Boundaries (AIMSGB)](https://github.com/ksyang2013/aimsgb) | A Python package for generating periodic grain boundary structures. | Code/Lib |
+| [SPuDS - Structure Prediction Diagnostic Software](https://lufaso.domains.unf.edu/spuds/index.html) | A software tool for generating crystal structures of perovskites, including tilting the octahedra. | Code/Lib |
+| [DiffCSP](https://github.com/jiaor17/DiffCSP) | A generative diffusion model for crystal structure prediction. | Code/Lib, Code/ML |
+| [DiffCSP++](https://github.com/jiaor17/DiffCSP-PP) | A generative diffusion model for crystal structure prediction with space group constraints. | Code/Lib, Code/ML |
 
 ## Glossary
 | Tag       | Description          |
