@@ -6,6 +6,7 @@ This repository is a curated collection of resources for computational materials
 - [Curated Lists](#Curated-Lists)
 - [Databases & Datasets](#Databases--Datasets)
 - [Tools: Crystal structures](#Tools-Crystal-structures)
+- [Tools: Molecular structures](#Tools-Molecular-structures)
 - WIP
 - [Glossary](#Glossary)
 - [License](#License)
@@ -95,6 +96,12 @@ This repository is a curated collection of resources for computational materials
 | [SPuDS - Structure Prediction Diagnostic Software](https://lufaso.domains.unf.edu/spuds/index.html) | A software tool for generating crystal structures of perovskites, including tilting the octahedra. | Code/Lib |
 | [DiffCSP](https://github.com/jiaor17/DiffCSP) | A generative diffusion model for crystal structure prediction. | Code/Lib, Code/ML |
 | [DiffCSP++](https://github.com/jiaor17/DiffCSP-PP) | A generative diffusion model for crystal structure prediction with space group constraints. | Code/Lib, Code/ML |
+
+## Tools: Molecular structures
+| Item (URL) | Description | Tags |
+| :--------- | :---------- | :--- |
+| [PACKMOL](https://m3g.github.io/packmol/) | A software tool for packing molecules in defined regions of space, considering short-range repulsions. | Code/Lib |
+| [Martini_mapping](https://github.com/eliobaby/Martini_mapping) | A Python package for generating coarse-grained models from SMILES strings. | Code/Lib |
 
 ## Glossary
 | Tag       | Description          |
