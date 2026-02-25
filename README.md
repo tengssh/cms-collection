@@ -7,6 +7,7 @@ This repository is a curated collection of resources for computational materials
 - [Databases & Datasets](#Databases--Datasets)
 - [Tools: Crystal structures](#Tools-Crystal-structures)
 - [Tools: Molecular structures](#Tools-Molecular-structures)
+- [Toolkits](#Toolkits)
 - WIP
 - [Glossary](#Glossary)
 - [License](#License)
@@ -102,6 +103,15 @@ This repository is a curated collection of resources for computational materials
 | :--------- | :---------- | :--- |
 | [PACKMOL](https://m3g.github.io/packmol/) | A software tool for packing molecules in defined regions of space, considering short-range repulsions. | Code/Lib |
 | [Martini_mapping](https://github.com/eliobaby/Martini_mapping) | A Python package for generating coarse-grained models from SMILES strings. | Code/Lib |
+
+## Toolkits
+| Item (URL) | Description | Tags |
+| :--------- | :---------- | :--- |
+| [Bilbao Crystallographic Server ](https://www.cryst.ehu.es/) | An online server providing programs and utilities for crystallography and solid state materials. | Data, Code/Lib, App |
+| [ISOTROPY Software Suite](https://iso.byu.edu/isotropy.php) | A collection of software using group theory to analyze phase transitions in crystalline solids. | Code/Lib, App |
+| [Atomic Simulation Environment](https://ase-lib.org/) | A Python toolkit for atomistic simulations. | Code/Lib, Code/ML |
+| [Pymatgen (Python Materials Genomics)](https://pymatgen.org/index.html) | A Python library for analyzing materials. | Code/Lib, Code/ML |
+| [RDKit](https://www.rdkit.org/docs/index.html) | A toolkit for cheminformatics and machine learning. | Code/Lib, Code/ML |
 
 ## Glossary
 | Tag       | Description          |
