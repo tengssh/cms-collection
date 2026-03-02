@@ -88,6 +88,7 @@ This repository is a curated collection of resources for computational materials
 ## Tools: Crystal structures
 | Item (URL) | Description | Tags |
 | :--------- | :---------- | :--- |
+| [Open Visualization Tool (OVITO)](https://www.ovito.org/) | A visualization tool for particle-based simulations. | Code/Lib, App |
 | [Atomsk](https://atomsk.univ-lille.fr/) | A command-line program tool to generate structure files for atomic-scale simulations. | Code/Lib |
 | [cif2cell](https://github.com/torbjornbjorkman/cif2cell) | A Python package to create structures for electronic structure calculations. | Code/Lib |
 | [PyXtal](https://github.com/MaterSim/PyXtal) | A Python package for atomic and molecular crystals. | Code/Lib |
@@ -97,10 +98,18 @@ This repository is a curated collection of resources for computational materials
 | [SPuDS - Structure Prediction Diagnostic Software](https://lufaso.domains.unf.edu/spuds/index.html) | A software tool for generating crystal structures of perovskites, including tilting the octahedra. | Code/Lib |
 | [DiffCSP](https://github.com/jiaor17/DiffCSP) | A generative diffusion model for crystal structure prediction. | Code/Lib, Code/ML |
 | [DiffCSP++](https://github.com/jiaor17/DiffCSP-PP) | A generative diffusion model for crystal structure prediction with space group constraints. | Code/Lib, Code/ML |
+| [SimplySQS](https://github.com/bracerino/atat-sqs-gui) | An interactive Python package for generating special quasi-random structures (SQS). | Code/Lib, App |
+| [xrayutilities](https://github.com/dkriegner/xrayutilities) | A collection of scripts for analyzing and simulating X-ray diffraction data. | Code/Lib |
+| [GenL](https://github.com/scatterer/GenL) | A fitting tool for X-ray diffraction data on single crystal films. | Code/Lib, App |
 
 ## Tools: Molecular structures
 | Item (URL) | Description | Tags |
 | :--------- | :---------- | :--- |
+| [IQmol](http://iqmol.org/) | A visualization tool for molecular systems. | App |
+| [PyMOL](https://github.com/schrodinger/pymol-open-source) | A visualization tool for molecular systems. | App, Code/Lib |
+| [TRajectory Analyzer and VISualizer (TRAVIS)](http://www.travis-analyzer.de/) | A visualization tool for molecular trajectories. | Code/Lib | 
+| [Visualization for Electronic and STructural Analysis (VESTA)](https://www.jp-minerals.org/vesta/en/) | A visualization tool for electron densities and crystal morphologies. | App |
+| [Visual Molecular Dynamics (VMD)](https://www.ks.uiuc.edu/Research/vmd/) | A visualization tool for molecular systems. | App, Code/Lib |
 | [PACKMOL](https://m3g.github.io/packmol/) | A software tool for packing molecules in defined regions of space, considering short-range repulsions. | Code/Lib |
 | [Martini_mapping](https://github.com/eliobaby/Martini_mapping) | A Python package for generating coarse-grained models from SMILES strings. | Code/Lib |
 
