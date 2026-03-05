@@ -9,6 +9,7 @@ This repository is a curated collection of resources for computational materials
 - [Tools: Molecular structures](#Tools-Molecular-structures)
 - [Toolkits](#Toolkits)
 - WIP
+- [OCW](#OCW)
 - [Glossary](#Glossary)
 - [License](#License)
 
@@ -121,6 +122,18 @@ This repository is a curated collection of resources for computational materials
 | [Atomic Simulation Environment](https://ase-lib.org/) | A Python toolkit for atomistic simulations. | Code/Lib, Code/ML |
 | [Pymatgen (Python Materials Genomics)](https://pymatgen.org/index.html) | A Python library for analyzing materials. | Code/Lib, Code/ML |
 | [RDKit](https://www.rdkit.org/docs/index.html) | A toolkit for cheminformatics and machine learning. | Code/Lib, Code/ML |
+
+## OCW
+| Item (URL) | Description | Tags |
+| :--------- | :---------- | :--- |
+| [The Space Group List Project](https://crystalsymmetry.wordpress.com/2014/08/15/the-space-group-list-project-as-a-poster/) | A gallery for the collection of 3D crystal examples for all 230 space groups. | Edu |
+| [MolSSI Education](https://education.molssi.org/) | Tutorials on programming, software development, and molecular modeling by the Molecular Sciences Software Institute (MolSSI). | Edu |
+| [Psi4Education](https://psicode.org/posts/psi4education/) | A collection of Jupyter Notebook labs for quantum chemistry by Psi4. | Edu, App |
+| [Ising simulation](https://mattbierbaum.github.io/ising.js/) | Interactive browser-based simulation of the 2D Ising model. | Edu, App |
+| [Soft Matter Demos](https://softmatterdemos.org/) | Interactive simulation demos for soft matter physics. | Edu, App |
+| [IBM Quantum Learning](https://quantum.cloud.ibm.com/learning/en) | Learning resources on quantum computing by IBM. | Edu |
+| [Google Quantum AI](https://quantumai.google/resources) | Learning resources on quantum computing by Google. | Edu |
+| [Microsoft Quantum](https://quantum.microsoft.com/en-us/insights/education) | Learning resources on quantum computing by Microsoft. | Edu |
 
 ## Glossary
 | Tag       | Description          |
