@@ -42,6 +42,7 @@ This repository is a curated collection of resources for computational materials
 | [Materials Data Repository (MDR)](https://mdr.nims.go.jp/) | A data repository for materials informatics that integrates research papers and presentations with materials data. | Data, App |
 | [Database of Zeolite Structures](https://www.iza-structure.org/databases/) | A database of validated zeolite structures featuring frameworks, NMR spectra, and channel system analysis. | Data, App |
 | [Materials Project](https://materialsproject.org/) | A comprehensive database for inorganic materials featuring interactive analysis web interfaces. | Data/Comp, App |
+| [Matbench Discovery](https://matbench-discovery.materialsproject.org/) | An interactive leaderboard for machine learning models on atomistic simulations. | Data/Sim, Code/ML, App |
 | [Open Quantum Materials Database (OQMD)](https://oqmd.org/) | A massive materials database of millions of DFT calculations, including thermodynamic and structural properties. | Data/Comp, App |
 | [OQMD+](https://hse.oqmd.org/) | A subset of the OQMD featuring hybrid functional (HSE) calculations, providing more accurate band gaps and electronic properties for inorganic materials. | Data/Comp, App |
 | [Computational Materials Repository (CMR)](https://cmr.fysik.dtu.dk/) | A collection of project-specific materials databases with DFT datasets in standardized ASE-database formats. | Data |
@@ -85,6 +86,13 @@ This repository is a curated collection of resources for computational materials
 | [MatWeb](https://www.matweb.com/index.aspx) | A database of materials information for engineering materials, including metals, plastics, ceramics, and composites, with tools for common engineering tasks. (free & premium services) | Data, App |
 | [SpringerMaterials](https://materials.springer.com/) | A curated database of materials and physical/chemical properties with interactive data visualization and analysis. (commercial) | Data, App |
 | [ChemSpider](https://www.chemspider.com/) | A database for millions of chemical structures, properties, identifiers, and links, supporting SMILES/InChI text string searches. (free) | Data, App |
+| [Libxc](https://libxc.gitlab.io/) | A library of exchange-correlation functionals for density-functional theory. | Data/Sim, Code/Lib |
+| [Standard solid-state pseudopotentials (SSSP)](https://www.materialscloud.org/discover/sssp/) | A collection of solid-state pseudopotentials optimized for precision or efficiency. | Data/Sim, Code/Lib, App |
+| [PseudoDojo.org](https://www.pseudo-dojo.org/) | A repository of pseudopotentials for various density-functional theory codes. | Data/Sim, Code/Lib, App |
+| [Basis Set Exchange (BSE)](https://www.basissetexchange.org/) | A repository of basis sets for computational chemistry calculations. | Data/Sim, Code/Lib, App |
+| [Pseudopotential Library](https://pseudopotentiallibrary.org/) | A repository of pseudopotentials for quantum Monte Carlo and quantum chemistry. | Data/Sim, Code/Lib, App |
+| [Interatomic Potentials Repository](https://www.ctcms.nist.gov/potentials/) | A repository of interatomic potentials (force fields) for various materials. | Data/Sim, Code/Lib, App |
+| [Open Knowledgebase of Interatomic Models (OpenKIM)](https://openkim.org/) | A curated repository of interatomic potentials for atomistic simulations. | Data/Sim, Code/Lib, Code/ML, App |
 
 ## Tools: Crystal structures
 | Item (URL) | Description | Tags |
@@ -111,6 +119,7 @@ This repository is a curated collection of resources for computational materials
 | [TRajectory Analyzer and VISualizer (TRAVIS)](http://www.travis-analyzer.de/) | A visualization tool for molecular trajectories. | Code/Lib | 
 | [Visualization for Electronic and STructural Analysis (VESTA)](https://www.jp-minerals.org/vesta/en/) | A visualization tool for electron densities and crystal morphologies. | App |
 | [Visual Molecular Dynamics (VMD)](https://www.ks.uiuc.edu/Research/vmd/) | A visualization tool for molecular systems. | App, Code/Lib |
+| [UCSF ChimeraX](https://www.cgl.ucsf.edu/chimerax/) | A visualization and analysis program for molecular systems. | App, Code/Lib |
 | [PACKMOL](https://m3g.github.io/packmol/) | A software tool for packing molecules in defined regions of space, considering short-range repulsions. | Code/Lib |
 | [Martini_mapping](https://github.com/eliobaby/Martini_mapping) | A Python package for generating coarse-grained models from SMILES strings. | Code/Lib |
 
@@ -122,6 +131,9 @@ This repository is a curated collection of resources for computational materials
 | [Atomic Simulation Environment](https://ase-lib.org/) | A Python toolkit for atomistic simulations. | Code/Lib, Code/ML |
 | [Pymatgen (Python Materials Genomics)](https://pymatgen.org/index.html) | A Python library for analyzing materials. | Code/Lib, Code/ML |
 | [RDKit](https://www.rdkit.org/docs/index.html) | A toolkit for cheminformatics and machine learning. | Code/Lib, Code/ML |
+| [rDock](https://github.com/CBDD/rDock) | A program for docking small molecules to proteins and nucleic acids. | Code/Sim, Code/Lib |
+| [mendeleev](https://github.com/lmmentel/mendeleev/) | A Python package for accessing properties of elements and isotopes from the periodic table of elements. | Code/Lib |
+| [Open Babel](https://github.com/openbabel/openbabel) | A toolbox for handling different formats of chemical data. | Code/Lib |
 
 ## OCW
 | Item (URL) | Description | Tags |
@@ -131,6 +143,9 @@ This repository is a curated collection of resources for computational materials
 | [Psi4Education](https://psicode.org/posts/psi4education/) | A collection of Jupyter Notebook labs for quantum chemistry by Psi4. | Edu, App |
 | [Ising simulation](https://mattbierbaum.github.io/ising.js/) | Interactive browser-based simulation of the 2D Ising model. | Edu, App |
 | [Soft Matter Demos](https://softmatterdemos.org/) | Interactive simulation demos for soft matter physics. | Edu, App |
+| [Landau theory](https://jeffjar.me/statmech/fun.html) | Lecture notes and interative demos for Landau theory. | Edu, App |
+| [ML-in-chemistry-101](https://github.com/BingqingCheng/ML-in-chemistry-101) | A graduate-level course for machine learning in chemistry. | Edu, Code/ML |
+| [matgenb](https://github.com/materialyzeai/matgenb) | A collection of Jupyter notebooks for materials science. |  Edu, Code/Sim, Code/Lib |
 | [IBM Quantum Learning](https://quantum.cloud.ibm.com/learning/en) | Learning resources on quantum computing by IBM. | Edu |
 | [Google Quantum AI](https://quantumai.google/resources) | Learning resources on quantum computing by Google. | Edu |
 | [Microsoft Quantum](https://quantum.microsoft.com/en-us/insights/education) | Learning resources on quantum computing by Microsoft. | Edu |
