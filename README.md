@@ -42,7 +42,7 @@ This repository is a curated collection of resources for computational materials
 | [Materials Data Repository (MDR)](https://mdr.nims.go.jp/) | A data repository for materials informatics that integrates research papers and presentations with materials data. | Data, App |
 | [Database of Zeolite Structures](https://www.iza-structure.org/databases/) | A database of validated zeolite structures featuring frameworks, NMR spectra, and channel system analysis. | Data, App |
 | [Materials Project](https://materialsproject.org/) | A comprehensive database for inorganic materials featuring interactive analysis web interfaces. | Data/Comp, App |
-| [Matbench Discovery](https://matbench-discovery.materialsproject.org/) | An interactive leaderboard for machine learning models on atomistic simulations. | Data/Sim, Code/ML, App |
+| [Matbench Discovery](https://matbench-discovery.materialsproject.org/) | An interactive leaderboard for machine learning models on atomistic simulations. | Data/Comp, Code/ML, App |
 | [Open Quantum Materials Database (OQMD)](https://oqmd.org/) | A massive materials database of millions of DFT calculations, including thermodynamic and structural properties. | Data/Comp, App |
 | [OQMD+](https://hse.oqmd.org/) | A subset of the OQMD featuring hybrid functional (HSE) calculations, providing more accurate band gaps and electronic properties for inorganic materials. | Data/Comp, App |
 | [Computational Materials Repository (CMR)](https://cmr.fysik.dtu.dk/) | A collection of project-specific materials databases with DFT datasets in standardized ASE-database formats. | Data |
@@ -86,13 +86,13 @@ This repository is a curated collection of resources for computational materials
 | [MatWeb](https://www.matweb.com/index.aspx) | A database of materials information for engineering materials, including metals, plastics, ceramics, and composites, with tools for common engineering tasks. (free & premium services) | Data, App |
 | [SpringerMaterials](https://materials.springer.com/) | A curated database of materials and physical/chemical properties with interactive data visualization and analysis. (commercial) | Data, App |
 | [ChemSpider](https://www.chemspider.com/) | A database for millions of chemical structures, properties, identifiers, and links, supporting SMILES/InChI text string searches. (free) | Data, App |
-| [Libxc](https://libxc.gitlab.io/) | A library of exchange-correlation functionals for density-functional theory. | Data/Sim, Code/Lib |
-| [Standard solid-state pseudopotentials (SSSP)](https://www.materialscloud.org/discover/sssp/) | A collection of solid-state pseudopotentials optimized for precision or efficiency. | Data/Sim, Code/Lib, App |
-| [PseudoDojo.org](https://www.pseudo-dojo.org/) | A repository of pseudopotentials for various density-functional theory codes. | Data/Sim, Code/Lib, App |
-| [Basis Set Exchange (BSE)](https://www.basissetexchange.org/) | A repository of basis sets for computational chemistry calculations. | Data/Sim, Code/Lib, App |
-| [Pseudopotential Library](https://pseudopotentiallibrary.org/) | A repository of pseudopotentials for quantum Monte Carlo and quantum chemistry. | Data/Sim, Code/Lib, App |
-| [Interatomic Potentials Repository](https://www.ctcms.nist.gov/potentials/) | A repository of interatomic potentials (force fields) for various materials. | Data/Sim, Code/Lib, App |
-| [Open Knowledgebase of Interatomic Models (OpenKIM)](https://openkim.org/) | A curated repository of interatomic potentials for atomistic simulations. | Data/Sim, Code/Lib, Code/ML, App |
+| [Libxc](https://libxc.gitlab.io/) | A library of exchange-correlation functionals for density-functional theory. | Data/Comp, Code/Lib |
+| [Standard solid-state pseudopotentials (SSSP)](https://www.materialscloud.org/discover/sssp/) | A collection of solid-state pseudopotentials optimized for precision or efficiency. | Data/Comp, Code/Lib, App |
+| [PseudoDojo.org](https://www.pseudo-dojo.org/) | A repository of pseudopotentials for various density-functional theory codes. | Data/Comp, Code/Lib, App |
+| [Basis Set Exchange (BSE)](https://www.basissetexchange.org/) | A repository of basis sets for computational chemistry calculations. | Data/Comp, Code/Lib, App |
+| [Pseudopotential Library](https://pseudopotentiallibrary.org/) | A repository of pseudopotentials for quantum Monte Carlo and quantum chemistry. | Data/Comp, Code/Lib, App |
+| [Interatomic Potentials Repository](https://www.ctcms.nist.gov/potentials/) | A repository of interatomic potentials (force fields) for various materials. | Data/Comp, Code/Lib, App |
+| [Open Knowledgebase of Interatomic Models (OpenKIM)](https://openkim.org/) | A curated repository of interatomic potentials for atomistic simulations. | Data/Comp, Code/Lib, Code/ML, App |
 
 ## Tools: Crystal structures
 | Item (URL) | Description | Tags |
