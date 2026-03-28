@@ -149,6 +149,8 @@ This repository is a curated collection of resources for computational materials
 | [IBM Quantum Learning](https://quantum.cloud.ibm.com/learning/en) | Learning resources on quantum computing by IBM. | Edu |
 | [Google Quantum AI](https://quantumai.google/resources) | Learning resources on quantum computing by Google. | Edu |
 | [Microsoft Quantum](https://quantum.microsoft.com/en-us/insights/education) | Learning resources on quantum computing by Microsoft. | Edu |
+| [The Carpentries Lessons](https://carpentries.org/lessons/) | Foundational coding and data science tutorials for researchers. | Edu |
+| [CodeRefinery lessons](https://coderefinery.org/lessons/) | Lessons on essential software development practices for computational scientists. | Edu |
 
 ## Glossary
 | Tag       | Description          |
