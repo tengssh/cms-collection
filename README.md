@@ -130,10 +130,12 @@ This repository is a curated collection of resources for computational materials
 | [ISOTROPY Software Suite](https://iso.byu.edu/isotropy.php) | A collection of software using group theory to analyze phase transitions in crystalline solids. | Code/Lib, App |
 | [Atomic Simulation Environment](https://ase-lib.org/) | A Python toolkit for atomistic simulations. | Code/Lib, Code/ML |
 | [Pymatgen (Python Materials Genomics)](https://pymatgen.org/index.html) | A Python library for analyzing materials. | Code/Lib, Code/ML |
+| [scikit-matter](https://github.com/scikit-learn-contrib/scikit-matter) | A scikit-learn compatible Python library for chemistry and materials science. | Code/Lib, Code/ML |
 | [RDKit](https://www.rdkit.org/docs/index.html) | A toolkit for cheminformatics and machine learning. | Code/Lib, Code/ML |
 | [rDock](https://github.com/CBDD/rDock) | A program for docking small molecules to proteins and nucleic acids. | Code/Sim, Code/Lib |
 | [mendeleev](https://github.com/lmmentel/mendeleev/) | A Python package for accessing properties of elements and isotopes from the periodic table of elements. | Code/Lib |
 | [Open Babel](https://github.com/openbabel/openbabel) | A toolbox for handling different formats of chemical data. | Code/Lib |
+| [VASP Transition State Theory (TST) Tools](https://theory.cm.utexas.edu/vtsttools/) | A collection of scripts and code extensions for applying transition state theory (Nudged Elastic Band, Dimer, etc.) in VASP. | Code/Lib, Code/Sim |
 
 ## OCW
 | Item (URL) | Description | Tags |
@@ -146,6 +148,7 @@ This repository is a curated collection of resources for computational materials
 | [Landau theory](https://jeffjar.me/statmech/fun.html) | Lecture notes and interative demos for Landau theory. | Edu, App |
 | [ML-in-chemistry-101](https://github.com/BingqingCheng/ML-in-chemistry-101) | A graduate-level course for machine learning in chemistry. | Edu, Code/ML |
 | [matgenb](https://github.com/materialyzeai/matgenb) | A collection of Jupyter notebooks for materials science. |  Edu, Code/Sim, Code/Lib |
+| [AI4Chemistry](https://schwallergroup.github.io/ai4chem_course/) | A hands-on course covering cheminformatics and machine learning for chemistry. | Edu, Code/ML |
 | [IBM Quantum Learning](https://quantum.cloud.ibm.com/learning/en) | Learning resources on quantum computing by IBM. | Edu |
 | [Google Quantum AI](https://quantumai.google/resources) | Learning resources on quantum computing by Google. | Edu |
 | [Microsoft Quantum](https://quantum.microsoft.com/en-us/insights/education) | Learning resources on quantum computing by Microsoft. | Edu |
