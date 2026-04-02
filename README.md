@@ -136,6 +136,10 @@ This repository is a curated collection of resources for computational materials
 | [mendeleev](https://github.com/lmmentel/mendeleev/) | A Python package for accessing properties of elements and isotopes from the periodic table of elements. | Code/Lib |
 | [Open Babel](https://github.com/openbabel/openbabel) | A toolbox for handling different formats of chemical data. | Code/Lib |
 | [VASP Transition State Theory (TST) Tools](https://theory.cm.utexas.edu/vtsttools/) | A collection of scripts and code extensions for applying transition state theory (Nudged Elastic Band, Dimer, etc.) in VASP. | Code/Lib, Code/Sim |
+| [High-Throughput Toolkit (httk)](https://github.com/httk) | A Python toolkit for preparing, running, and storing high-throughput atomistic calculations data. | Code/Lib, Code/ML |
+| [PyMKS](https://github.com/materialsinnovation/pymks/) | A Python package for building process-structure-property linkages for materials science applications. | Code/Lib, Code/ML |
+| [Phonopy](https://github.com/phonopy/phonopy/) | A Python package for phonon calculations of harmonic and quasi-harmonic properties. | Code/Lib |
+| [Phono3py](https://github.com/phonopy/phono3py) | A Python package for phonon-phonon interactions related properties. | Code/Lib |
 
 ## OCW
 | Item (URL) | Description | Tags |
@@ -146,6 +150,7 @@ This repository is a curated collection of resources for computational materials
 | [Ising simulation](https://mattbierbaum.github.io/ising.js/) | Interactive browser-based simulation of the 2D Ising model. | Edu, App |
 | [Soft Matter Demos](https://softmatterdemos.org/) | Interactive simulation demos for soft matter physics. | Edu, App |
 | [Landau theory](https://jeffjar.me/statmech/fun.html) | Lecture notes and interative demos for Landau theory. | Edu, App |
+| [Phonon website](https://henriquemiranda.github.io/phononwebsite/index.html) | An interactive website to visualize lattice vibrations and phonon dispersions (with extensions to wave functions and charge density) of materials. | App, Edu |
 | [ML-in-chemistry-101](https://github.com/BingqingCheng/ML-in-chemistry-101) | A graduate-level course for machine learning in chemistry. | Edu, Code/ML |
 | [matgenb](https://github.com/materialyzeai/matgenb) | A collection of Jupyter notebooks for materials science. |  Edu, Code/Sim, Code/Lib |
 | [AI4Chemistry](https://schwallergroup.github.io/ai4chem_course/) | A hands-on course covering cheminformatics and machine learning for chemistry. | Edu, Code/ML |
@@ -154,6 +159,7 @@ This repository is a curated collection of resources for computational materials
 | [Microsoft Quantum](https://quantum.microsoft.com/en-us/insights/education) | Learning resources on quantum computing by Microsoft. | Edu |
 | [The Carpentries Lessons](https://carpentries.org/lessons/) | Foundational coding and data science tutorials for researchers. | Edu |
 | [CodeRefinery lessons](https://coderefinery.org/lessons/) | Lessons on essential software development practices for computational scientists. | Edu |
+| [BestPractices](https://github.com/anthony-wang/BestPractices) | Best practices for materials informatics research. | Edu |
 
 ## Glossary
 | Tag       | Description          |
