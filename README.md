@@ -75,6 +75,7 @@ This repository is a curated collection of resources for computational materials
 | [facebook/OMAT24](https://huggingface.co/datasets/facebook/OMAT24) | A massive dataset of  millions of density functional theory calculations for inorganic materials, featuring both structural relaxations and non-equilibrium trajectories. | Data/Comp |
 | [facebook/OMol25+OPoly26](https://huggingface.co/facebook/OMol25) | A comprehensive, open dataset of millions of high-accuracy density functional theory calculations, including electronic densities, wavefunctions, and molecular orbital information. The Open Polymers 2026 (OPoly26) Dataset is an extension of the Open Molecules 2025 (OMol25) Dataset. | Data/Comp |
 | [SandboxAQ/aqcat25-dataset](https://huggingface.co/datasets/SandboxAQ/aqcat25-dataset) | A large-scale, spin-aware dataset with diverse DFT calculation trajectories for catalyst systems. | Data/Comp |
+| [DeFecTdb](https://db-amdis.org/defectdb) | A collection of DFT datasets of radiation-induced defect structures in materials for nuclear fusion/fission applications. | Data/Comp, App |
 | [ASM Databases](https://www.asminternational.org/materials-resources/online-databases/) | A databases of peer-reviewed engineering materials databases, featuring alloys, properties, phase diagrams, microstructures, and failure analysis (subscription access). | Data |
 | [MAGNDATA](https://cryst.ehu.es/magndata/) | A database of more than 2000 published commensurate and incommensurate magnetic structures with portable cif-type files. | Data, App |
 | [DataScribe.Cloud](https://datascribe.cloud/) | An AI-powered platform hosted by the Materials Science Department of Texas A&M University, accessible via [DataScribe Python API](https://github.com/DataScribe-Cloud/datascribe_api). | Data, App |
@@ -140,6 +141,7 @@ This repository is a curated collection of resources for computational materials
 | [PyMKS](https://github.com/materialsinnovation/pymks/) | A Python package for building process-structure-property linkages for materials science applications. | Code/Lib, Code/ML |
 | [Phonopy](https://github.com/phonopy/phonopy/) | A Python package for phonon calculations of harmonic and quasi-harmonic properties. | Code/Lib |
 | [Phono3py](https://github.com/phonopy/phono3py) | A Python package for phonon-phonon interactions related properties. | Code/Lib |
+| [Cheminfo](https://www.cheminfo.org/) | A platform with a collection of web applications for visualizing, analyzing, and organizing cheminformatics data. | App, Data |
 
 ## OCW
 | Item (URL) | Description | Tags |
