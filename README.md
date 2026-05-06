@@ -21,6 +21,7 @@ This repository is a curated collection of resources for computational materials
 | [data-resources-for-materials-science](https://github.com/sedaoturak/data-resources-for-materials-science) | A curated list of databases, datasets, and books/handbooks of materials properties for ML applications. | List, Data | 
 | [atomistic.software](https://atomistic.software/) | atomistic.software tracks the citation trends of all major atomistic simulation engines. | List, Code/Sim, App |
 | [Existing Workflow systems](https://s.apache.org/existing-workflow-systems) | A curated list of computational workflow systems, engines, and tools for bioinformatics, data analysis, HPC, and scientific computing. | List, Code/WF |
+| [Electronic Structure Library](https://esl.cecam.org/en/index.html) | A collection of community-maintained libraries and packages for electronic structure simulations. | List, Code/Sim |
 
 ## Databases & Datasets
 | Item (URL) | Description | Tags |
@@ -142,6 +143,7 @@ This repository is a curated collection of resources for computational materials
 | [Phonopy](https://github.com/phonopy/phonopy/) | A Python package for phonon calculations of harmonic and quasi-harmonic properties. | Code/Lib |
 | [Phono3py](https://github.com/phonopy/phono3py) | A Python package for phonon-phonon interactions related properties. | Code/Lib |
 | [Cheminfo](https://www.cheminfo.org/) | A platform with a collection of web applications for visualizing, analyzing, and organizing cheminformatics data. | App, Data |
+| [Graphical Interface for Materials Simulations](https://gims.ms1p.org/) | A browser-based graphical user interface of toolkits for electronic structure codes. | Code/Lib, App |
 
 ## OCW
 | Item (URL) | Description | Tags |
