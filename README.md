@@ -22,6 +22,7 @@ This repository is a curated collection of resources for computational materials
 | [atomistic.software](https://atomistic.software/) | atomistic.software tracks the citation trends of all major atomistic simulation engines. | List, Code/Sim, App |
 | [Existing Workflow systems](https://s.apache.org/existing-workflow-systems) | A curated list of computational workflow systems, engines, and tools for bioinformatics, data analysis, HPC, and scientific computing. | List, Code/WF |
 | [Electronic Structure Library](https://esl.cecam.org/en/index.html) | A collection of community-maintained libraries and packages for electronic structure simulations. | List, Code/Sim |
+| [Material Core (MatCore)](https://matcore.org/) | A community-specific metadata standard for computational materials science. | List |
 
 ## Databases & Datasets
 | Item (URL) | Description | Tags |
@@ -41,6 +42,7 @@ This repository is a curated collection of resources for computational materials
 | [Inorganic Material Database (AtomWork)](https://crystdb.nims.go.jp) | A database for crystal structure, x-ray diffraction, material properties and phase diagram data of inorganic and metallic materials. | Data, App |
 | [NIMS Materials Database (MatNavi)](https://mits.nims.go.jp/) | A massive, multi-domain materials data platform, integrating experimental and computational datasets for polymers, metals, and inorganic compounds with built-in property prediction tools. | Data, App |
 | [Materials Data Repository (MDR)](https://mdr.nims.go.jp/) | A data repository for materials informatics that integrates research papers and presentations with materials data. | Data, App |
+| [Polymer Database (PoLyInfo)](https://polymer.nims.go.jp/) | A database for polymers that includes information on processing methods, measurement conditions, and material properties (e.g., chemical, thermal, electrical, and mechanical properties). | Data, App |
 | [Database of Zeolite Structures](https://www.iza-structure.org/databases/) | A database of validated zeolite structures featuring frameworks, NMR spectra, and channel system analysis. | Data, App |
 | [Materials Project](https://materialsproject.org/) | A comprehensive database for inorganic materials featuring interactive analysis web interfaces. | Data/Comp, App |
 | [Matbench Discovery](https://matbench-discovery.materialsproject.org/) | An interactive leaderboard for machine learning models on atomistic simulations. | Data/Comp, Code/ML, App |
@@ -100,6 +102,7 @@ This repository is a curated collection of resources for computational materials
 | Item (URL) | Description | Tags |
 | :--------- | :---------- | :--- |
 | [Open Visualization Tool (OVITO)](https://www.ovito.org/) | A visualization tool for particle-based simulations. | Code/Lib, App |
+| [Visualization for Electronic and STructural Analysis (VESTA)](https://www.jp-minerals.org/vesta/en/) | A visualization tool for electron densities and crystal morphologies. | App |
 | [Atomsk](https://atomsk.univ-lille.fr/) | A command-line program tool to generate structure files for atomic-scale simulations. | Code/Lib |
 | [cif2cell](https://github.com/torbjornbjorkman/cif2cell) | A Python package to create structures for electronic structure calculations. | Code/Lib |
 | [PyXtal](https://github.com/MaterSim/PyXtal) | A Python package for atomic and molecular crystals. | Code/Lib |
@@ -112,18 +115,19 @@ This repository is a curated collection of resources for computational materials
 | [SimplySQS](https://github.com/bracerino/atat-sqs-gui) | An interactive Python package for generating special quasi-random structures (SQS). | Code/Lib, App |
 | [xrayutilities](https://github.com/dkriegner/xrayutilities) | A collection of scripts for analyzing and simulating X-ray diffraction data. | Code/Lib |
 | [GenL](https://github.com/scatterer/GenL) | A fitting tool for X-ray diffraction data on single crystal films. | Code/Lib, App |
+| [MOFBuilder](https://github.com/chenxili01/MOFBuilder) | A Python package for building Metal-Organic Framework (MOF) structures. | Code/Lib |
 
 ## Tools: Molecular structures
 | Item (URL) | Description | Tags |
 | :--------- | :---------- | :--- |
 | [IQmol](http://iqmol.org/) | A visualization tool for molecular systems. | App |
 | [PyMOL](https://github.com/schrodinger/pymol-open-source) | A visualization tool for molecular systems. | App, Code/Lib |
-| [TRajectory Analyzer and VISualizer (TRAVIS)](http://www.travis-analyzer.de/) | A visualization tool for molecular trajectories. | Code/Lib | 
-| [Visualization for Electronic and STructural Analysis (VESTA)](https://www.jp-minerals.org/vesta/en/) | A visualization tool for electron densities and crystal morphologies. | App |
+| [TRajectory Analyzer and VISualizer (TRAVIS)](http://www.travis-analyzer.de/) | A visualization tool for molecular trajectories. | Code/Lib |
 | [Visual Molecular Dynamics (VMD)](https://www.ks.uiuc.edu/Research/vmd/) | A visualization tool for molecular systems. | App, Code/Lib |
 | [UCSF ChimeraX](https://www.cgl.ucsf.edu/chimerax/) | A visualization and analysis program for molecular systems. | App, Code/Lib |
+| [PES-trotter](https://github.com/srampinogroup/PES-trotter) | A cross-platform, open-source application built on the Godot Engine for the 3D visualization and exploration of Potential Energy Surfaces (PES). | Code/Lib, App |
 | [PACKMOL](https://m3g.github.io/packmol/) | A software tool for packing molecules in defined regions of space, considering short-range repulsions. | Code/Lib |
-| [Martini_mapping](https://github.com/eliobaby/Martini_mapping) | A Python package for generating coarse-grained models from SMILES strings. | Code/Lib |
+| [Martini_mapping](https://github.com/eliobaby/Martini_mapping), [Martini_mapper](https://github.com/eliobaby/Martini_mapper) | A Python package for generating coarse-grained models from SMILES strings. | Code/Lib |
 
 ## Toolkits
 | Item (URL) | Description | Tags |
@@ -158,8 +162,9 @@ This repository is a curated collection of resources for computational materials
 | [ML-in-chemistry-101](https://github.com/BingqingCheng/ML-in-chemistry-101) | A graduate-level course for machine learning in chemistry. | Edu, Code/ML |
 | [matgenb](https://github.com/materialyzeai/matgenb) | A collection of Jupyter notebooks for materials science. |  Edu, Code/Sim, Code/Lib |
 | [AI4Chemistry](https://schwallergroup.github.io/ai4chem_course/) | A hands-on course covering cheminformatics and machine learning for chemistry. | Edu, Code/ML |
+| [Computational Materials Physics](https://www.compmatphys.org/) | A free online course on Density Functional Theory, with hands-on exercises based on Quantum ESPRESSO software. | Edu, App |
 | [Modeling Materials Using Density Functional Theory](https://github.com/jkitchin/dft-book) | A repository of learning resources for Density Functional Theory (DFT) using VASP and ASE. | Edu, App |
-| [nanoHUB](https://nanohub.org/) | An online platform providing various browser-basedsimulation tools and educational resources in nanotechnology and materials science. | Edu, App |
+| [nanoHUB](https://nanohub.org/) | An online platform providing various browser-based simulation tools and educational resources in nanotechnology and materials science. | Edu, App |
 | [IBM Quantum Learning](https://quantum.cloud.ibm.com/learning/en) | Learning resources on quantum computing by IBM. | Edu |
 | [Google Quantum AI](https://quantumai.google/resources) | Learning resources on quantum computing by Google. | Edu |
 | [Microsoft Quantum](https://quantum.microsoft.com/en-us/insights/education) | Learning resources on quantum computing by Microsoft. | Edu |
