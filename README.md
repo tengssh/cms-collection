@@ -165,6 +165,8 @@ This repository is a curated collection of resources for computational materials
 | [Computational Materials Physics](https://www.compmatphys.org/) | A free online course on Density Functional Theory, with hands-on exercises based on Quantum ESPRESSO software. | Edu, App |
 | [Modeling Materials Using Density Functional Theory](https://github.com/jkitchin/dft-book) | A repository of learning resources for Density Functional Theory (DFT) using VASP and ASE. | Edu, App |
 | [nanoHUB](https://nanohub.org/) | An online platform providing various browser-based simulation tools and educational resources in nanotechnology and materials science. | Edu, App |
+| [Lhumos](https://www.lhumos.org/) | An online learning platform for modelling and simulation of matters in computational materials science. | Edu |
+| [OSSCAR Course Applications](https://www.osscar.org/courses/index.html) | Educational resources on quantum mechanics and materials science, developed by the OSSCAR (Open Software Services for Classrooms and Research) Team. | Edu, App |
 | [IBM Quantum Learning](https://quantum.cloud.ibm.com/learning/en) | Learning resources on quantum computing by IBM. | Edu |
 | [Google Quantum AI](https://quantumai.google/resources) | Learning resources on quantum computing by Google. | Edu |
 | [Microsoft Quantum](https://quantum.microsoft.com/en-us/insights/education) | Learning resources on quantum computing by Microsoft. | Edu |
