@@ -5,6 +5,7 @@ This repository is a curated collection of resources for computational materials
 ## Table of Contents
 - [Curated Lists](#Curated-Lists)
 - [Databases & Datasets](#Databases--Datasets)
+- [Machine Learning](#Machine-Learning)
 - [Tools: Crystal structures](#Tools-Crystal-structures)
 - [Tools: Molecular structures](#Tools-Molecular-structures)
 - [Toolkits](#Toolkits)
@@ -98,6 +99,9 @@ This repository is a curated collection of resources for computational materials
 | [Open Knowledgebase of Interatomic Models (OpenKIM)](https://openkim.org/) | A curated repository of interatomic potentials for atomistic simulations. | Data/Comp, Code/Lib, Code/ML, App |
 | [Elementary Multiperspective Material Ontology (EMMO)](https://emmo-repo.github.io/) | A standardized representational ontology framework for materials modelling and characterization knowledge. | Data |
 | [Material Core (MatCore)](https://matcore.org/) | A community-specific metadata standard for computational materials science. | Data |
+
+## Machine Learning
+WIP
 
 ## Tools: Crystal structures
 | Item (URL) | Description | Tags |
