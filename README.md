@@ -22,7 +22,6 @@ This repository is a curated collection of resources for computational materials
 | [atomistic.software](https://atomistic.software/) | atomistic.software tracks the citation trends of all major atomistic simulation engines. | List, Code/Sim, App |
 | [Existing Workflow systems](https://s.apache.org/existing-workflow-systems) | A curated list of computational workflow systems, engines, and tools for bioinformatics, data analysis, HPC, and scientific computing. | List, Code/WF |
 | [Electronic Structure Library](https://esl.cecam.org/en/index.html) | A collection of community-maintained libraries and packages for electronic structure simulations. | List, Code/Sim |
-| [Material Core (MatCore)](https://matcore.org/) | A community-specific metadata standard for computational materials science. | List |
 
 ## Databases & Datasets
 | Item (URL) | Description | Tags |
@@ -97,6 +96,8 @@ This repository is a curated collection of resources for computational materials
 | [Pseudopotential Library](https://pseudopotentiallibrary.org/) | A repository of pseudopotentials for quantum Monte Carlo and quantum chemistry. | Data/Comp, Code/Lib, App |
 | [Interatomic Potentials Repository](https://www.ctcms.nist.gov/potentials/) | A repository of interatomic potentials (force fields) for various materials. | Data/Comp, Code/Lib, App |
 | [Open Knowledgebase of Interatomic Models (OpenKIM)](https://openkim.org/) | A curated repository of interatomic potentials for atomistic simulations. | Data/Comp, Code/Lib, Code/ML, App |
+| [Elementary Multiperspective Material Ontology (EMMO)](https://emmo-repo.github.io/) | A standardized representational ontology framework for materials modelling and characterization knowledge. | Data |
+| [Material Core (MatCore)](https://matcore.org/) | A community-specific metadata standard for computational materials science. | Data |
 
 ## Tools: Crystal structures
 | Item (URL) | Description | Tags |
@@ -178,7 +179,7 @@ This repository is a curated collection of resources for computational materials
 | Tag       | Description          |
 | --------- | -------------------- |
 | List      | Curated compilations |
-| Data      | Datasets & databases |
+| Data      | Data & metadata      |
 | Data/Exp  | Experimental data    |
 | Data/Comp | Computational data   |
 | Code/Lib  | Pre-/Post-processing |
