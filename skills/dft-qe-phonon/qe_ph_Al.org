@@ -15,9 +15,11 @@
 This is a step-by-step tutorial for the phonon calcuations of Al using [[https://www.quantum-espresso.org/][Quantum ESPRESSO]] (QE).
 
 * Resources
-- [[https://www.compmatphys.org/wp-content/uploads/2025/09/Si-lonsdaleite.pdf][Phonons by QE + visualizer]]
+- [[https://www.compmatphys.org/wp-content/uploads/2025/09/Si-lonsdaleite.pdf][Phonons by QE + visualizer by José Núñez]]
 - [[https://www.crystallography.net/cod/][Crystallography Open Database]]
 - [[https://github.com/torbjornbjorkman/cif2cell][Github repo - cif2cell]]
+- [[https://qeinputgenerator.materialscloud.io/][QE input generator and structure visualizer]]
+- [[https://seekpath.materialscloud.io/][SeeK-path]]
 - [[https://pseudopotentials.quantum-espresso.org/][QE Pseudopotentials]]
 - [[https://www.quantum-espresso.org/Doc/INPUT_PW.html][QE pw.x documentation]]
 - [[https://www.quantum-espresso.org/Doc/INPUT_PH.html][QE ph.x documentation]]
@@ -614,4 +616,4 @@ EOF
   3. al.modes
   #+end_src
 - Figure of Al phonon band structure + DOS
-  [[https://doi.org/10.6084/m9.figshare.32642127][Al phonon band structure & density of states]]
+  - [[https://doi.org/10.6084/m9.figshare.32642127][Al phonon band structure & density of states]]
