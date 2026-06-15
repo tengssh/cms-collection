@@ -130,7 +130,7 @@ EOF
     Al   0.000000000000000   0.000000000000000   0.000000000000000
     #+end_example
 
-- Get pseudopotential (.psf)
+- Get pseudopotential (.UPF)
   #+begin_src shell :session *shell* :results output :exports both
   wget http://pseudopotentials.quantum-espresso.org/upf_files/Al.pbe-rrkj.UPF
   ls
