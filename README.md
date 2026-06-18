@@ -152,7 +152,8 @@ WIP
 | [Phonopy](https://github.com/phonopy/phonopy/) | A Python package for phonon calculations of harmonic and quasi-harmonic properties. | Code/Lib |
 | [Phono3py](https://github.com/phonopy/phono3py) | A Python package for phonon-phonon interactions related properties. | Code/Lib |
 | [Cheminfo](https://www.cheminfo.org/) | A platform with a collection of web applications for visualizing, analyzing, and organizing cheminformatics data. | App, Data |
-| [Graphical Interface for Materials Simulations](https://gims.ms1p.org/) | A browser-based graphical user interface of toolkits for electronic structure codes. | Code/Lib, App |
+| [Graphical Interface for Materials Simulations](https://gims.ms1p.org/) | A browser-based graphical user interface of toolkits for electronic structure codes. | App, Code/Lib |
+| [CP2K Lab](https://lab.cp2k.com/) | A cloud platform for using the CP2K software package with a variety of utilities. | App, Code/Sim, Code/Lib, Edu |
 
 ## OCW
 | Item (URL) | Description | Tags |
