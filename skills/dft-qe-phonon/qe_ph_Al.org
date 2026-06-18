@@ -89,7 +89,7 @@ EOF
     2026-06-10 21:20:12 (531 MB/s) - ‘9008460.cif’ saved [4541/4541]
     '   9008460.cif	 pixi.lock   pixi.toml	 qe_ph_Al.org
     #+end_example
-  - Convert cif using `cif2cell`
+  - Convert cif using =cif2cell=
     #+begin_src shell :session *shell* :results output :exports both
     pixi run cif2cell 9008460.cif -p quantum-espresso -o 01-al.in
     ls
@@ -130,7 +130,7 @@ EOF
     Al   0.000000000000000   0.000000000000000   0.000000000000000
     #+end_example
 
-- Get pseudopotential (.UPF)
+- Get pseudopotential (=.UPF=)
   #+begin_src shell :session *shell* :results output :exports both
   wget http://pseudopotentials.quantum-espresso.org/upf_files/Al.pbe-rrkj.UPF
   ls
@@ -152,8 +152,8 @@ EOF
    01-al.in	   Al.pbe-rrkj.UPF   pixi.toml
   #+end_example
 
-- Run relaxation using `pw.x`
-  (Initial cell parameters from 01-al.in)
+- Run relaxation using =pw.x=
+  (Initial cell parameters from =01-al.in=)
   #+begin_src shell :session *shell* :results output :exports both
   cat << EOF > 02-relax.in
 &CONTROL
@@ -229,7 +229,7 @@ EOF
   :    0.501364271   0.000000000   0.501364271
   :    0.000000000   0.501364271   0.501364271
 
-- Run SCF with the relaxed structure using `pw.x`
+- Run SCF with the relaxed structure using =pw.x=
   #+begin_src shell :session *shell* :results output :exports both
   cat << EOF > 03-scf.in
 &CONTROL
@@ -284,7 +284,7 @@ EOF
   : =------------------------------------------------------------------------------=
   : DONE@Wed Jun 10 21:22:19 CEST 2026
 
-- Generate dynamical matrices using `ph.x`
+- Generate dynamical matrices using =ph.x=
   #+begin_src shell :session *shell* :results output :exports both
   cat << EOF > 04-ph.in
 &inputph
@@ -318,7 +318,7 @@ EOF
   : =------------------------------------------------------------------------------=
   : DONE@Wed Jun 10 21:26:39 CEST 2026
 
-- Calculate IFC from the dynamical matrices using `q2r.x`
+- Calculate IFC from the dynamical matrices using =q2r.x=
   #+begin_src shell :session *shell* :results output :exports both
   cat << EOF > 05-q2r.in
 &input
@@ -351,7 +351,7 @@ EOF
   : =------------------------------------------------------------------------------=
   : DONE@Wed Jun 10 21:27:23 CEST 2026
 
-- Interpolate force constants along high-symmetry points using `matdyn.x`
+- Interpolate force constants along high-symmetry points using =matdyn.x=
   (\Gamma-X-W-L-\Gamma-X)
   #+begin_src shell :session *shell* :results output :exports both
   cat << EOF > 06-matdyn.in
@@ -423,7 +423,7 @@ EOF
               0.112500  0.000000  0.112500  0.159099
   #+end_example
 
-- Plot band using `plotband.x`
+- Plot band using =plotband.x=
   #+begin_src shell :session *shell* :results output :exports both
   qe bash -c 'plotband.x << EOF
 al.freq
@@ -450,7 +450,7 @@ EOF'
   DONE@Wed Jun 10 21:30:17 CEST 2026
   #+end_example
 
-- Calculate phonon DOS using `matdyn.x` 
+- Calculate phonon DOS using =matdyn.x=
   #+begin_src shell :session *shell* :results output :exports both
   cat << EOF > 07-dos.in
 &input
