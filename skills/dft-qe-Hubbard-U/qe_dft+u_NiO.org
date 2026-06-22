@@ -15,13 +15,21 @@
 This is a step-by-step tutorial for DFT+U calculations of NiO using [[https://www.quantum-espresso.org/][Quantum ESPRESSO]] (QE). 
 
 * Resources                                                            :Text:
-- [[https://sites.google.com/view/hubbard-koopmans/home][Advanced Quantum ESPRESSO tutorial: Hubbard and Koopmans functionals from linear response]]
-- [[https://drive.google.com/file/d/1l_k78mETCDi3jbDGEg0K0V2LDM5vRyRl/view][DFT+Hubbard hands-on by Iurii Timrov and Matteo Cococcioni]]
-- [[https://www.materialscloud.org/learn/videos/pzixYCjocLT7/2022-timrov-cococcioni-hands-on-dft-u-and-dft-u-v-how-does-it-work][Hands-on - DFT+U and DFT+U+V: How does it work? by Iurii Timrov& Matteo Cococcioni]]
-- [[https://www.materialscloud.org/learn/videos/ofq9f8pFtHxA/2022-timrov-cococcioni-hands-on-first-principles-calculation-of-hubbard-paramete][Hands-on - First-principles calculation of Hubbard parameters by Iurii Timrov& Matteo Cococcioni]]
+- QE DFT+U tutorials
+  - [[https://sites.google.com/view/hubbard-koopmans/home][Advanced Quantum ESPRESSO tutorial: Hubbard and Koopmans functionals from linear response]]
+  - [[https://drive.google.com/file/d/1l_k78mETCDi3jbDGEg0K0V2LDM5vRyRl/view][DFT+Hubbard hands-on by Iurii Timrov and Matteo Cococcioni]]
+  - [[https://www.materialscloud.org/learn/videos/pzixYCjocLT7/2022-timrov-cococcioni-hands-on-dft-u-and-dft-u-v-how-does-it-work][Hands-on - DFT+U and DFT+U+V: How does it work? by Iurii Timrov& Matteo Cococcioni]]
+  - [[https://www.materialscloud.org/learn/videos/ofq9f8pFtHxA/2022-timrov-cococcioni-hands-on-first-principles-calculation-of-hubbard-paramete][Hands-on - First-principles calculation of Hubbard parameters by Iurii Timrov& Matteo Cococcioni]]
+- DFT+U calculations of NiO
+  - [[https://gitlab.com/QEF/q-e/-/blob/develop/HP/examples/example02/README][QE/HP/example2]]
+  - [[https://pubs.aip.org/aip/jcp/article/162/5/054709/3333334/Development-of-interatomic-potential-suitable-for][G. Plummer, et al., Development of interatomic potential suitable for molecular dynamics simulation of Ni oxidation and Ni–NiO interface. The Journal of Chemical Physics 162, 054709 (2025).]]
+    - Appendix A: QE GGA+U PDOS (U: 0-8 eV)
+  - [[https://journals.aps.org/prb/abstract/10.1103/PhysRevB.91.235304][L. Li, et al., Antiferromagnetic structures and electronic energy levels at reconstructed NiO(111) surfaces: A DFT + U study. Phys. Rev. B 91, 235304 (2015).]]
+    - Table II: VASP lattice constants of NiO (AFM, PBEsol) = 4.120 \AA
 
 * Journal
-** 2026.06.18 17:06
+** 2026.06.18 17:06                                               :noexport:
+This section used an incorrect crystal structure for NiO. Re-caculation was done in [2026.06.20 21:39]
 *** Environment
 **** Set aliases                                                    :Code:
 #+begin_src shell :session *shell* :results output :exports both
@@ -455,7 +463,7 @@ qed
 : PWSCF        :   6m 5.86s CPU     56.03s WALL
 : DONE@Thu Jun 18 17:23:01 CEST 2026
 
-**** Run non-SCF calculation for pDOS using =pw.x=
+**** Run non-SCF calculation for PDOS using =pw.x=
 - Add =nband= & increase k-points
 #+begin_src shell :session *shell* :results output :exports both
 cat << 'EOF' > 04-nscf.in
@@ -695,9 +703,6 @@ qed
 : Reading total DOS from: nio_afm.pdos.pdos_tot
 : Figure saved successfully to: nio_pdos_pbesol.png
 : DONE@Thu Jun 18 17:27:53 CEST 2026
-
-#+ATTR_ORG: :width 600
-[[./nio_pdos_pbesol.png]]
 
 **** run DFT+U calculations
 - Run DFT+U SCF
@@ -1584,9 +1589,1943 @@ qed
   : 
   :   =-------------------------------------------------------------------------------=
 - Calculate PBEsol PDOS
-  #+ATTR_ORG: :width 600
-  [[./nio_pdos_pbesol.png]]
 - Calculate PBEsol+U PDOS
+
+** 2026.06.21 19:25
+*** Environment
+**** Set aliases                                                    :Code:
+#+begin_src shell :session *shell* :results output :exports both
+alias pixi='apptainer exec $SIF_HOME/base/utilities_ubuntu.sif pixi'
+alias ls='ls --color=none'
+alias qe='apptainer exec $SIF_HOME/Quantum_ESPRESSO/qe_ubuntu.sif '
+alias qed='echo "DONE@$(date)"'
+ls
+#+end_src
+
+#+RESULTS:
+: qe_dft+u_NiO.org
+
+**** Pixi env                                                       :Code:
+#+begin_src shell :session *shell* :results output :exports both 
+cat << EOF > pixi.toml
+[workspace]
+channels = ["conda-forge"]
+name = "qe"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+python = "3.10.*"
+EOF
+pixi add cif2cell matplotlib numpy
+pixi install
+#+end_src
+
+#+RESULTS:
+: =2.1.0,<3
+: =3.10.9,<4
+: =2.2.6,<3
+: ✔ The default environment has been installed.
+
+#+begin_src shell :results output :exports both
+cat pixi.toml
+#+end_src
+
+#+RESULTS:
+#+begin_example
+[workspace]
+channels = ["conda-forge"]
+name = "qe"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+python = "3.10.*"
+cif2cell = ">=2.1.0,<3"
+matplotlib = ">=3.10.9,<4"
+numpy = ">=2.2.6,<3"
+#+end_example
+
+*** Actions                                                 :Code:Protocol:
+**** Prepare inputs for NiO
+- Download cif
+#+begin_src shell :session *shell* :results output :exports both
+wget https://www.crystallography.net/cod/1010093.cif
+#+end_src
+
+#+RESULTS:
+: --2026-06-21 19:25:20--  https://www.crystallography.net/cod/1010093.cif
+: Resolving www.crystallography.net (www.crystallography.net)... 158.129.170.82
+: Connecting to www.crystallography.net (www.crystallography.net)|158.129.170.82|:443... connected.
+: HTTP request sent, awaiting response... 200 OK
+: Length: 4656 (4.5K) [chemical/x-cif]
+: Saving to: ‘1010093.cif’
+: ]   4.55K  --.-KB/s    in 0s      
+: 
+: 2026-06-21 19:25:20 (515 MB/s) - ‘1010093.cif’ saved [4656/4656]
+
+#+begin_src shell :results output :exports both
+ls
+#+end_src
+
+#+RESULTS:
+: 1010093.cif
+: pixi.lock
+: pixi.toml
+: qe_dft+u_NiO.org
+
+- Download PBEsol pseudopotentials (=.UPF=)
+#+begin_src shell :session *shell* :results output :exports both
+mkdir -p pseudo
+cd pseudo
+wget https://pseudopotentials.quantum-espresso.org/upf_files/Ni.pbesol-spn-kjpaw_psl.1.0.0.UPF
+wget https://pseudopotentials.quantum-espresso.org/upf_files/O.pbesol-n-kjpaw_psl.1.0.0.UPF
+cd ../
+qed
+#+end_src
+
+#+RESULTS:
+#+begin_example
+--2026-06-21 19:25:25--  https://pseudopotentials.quantum-espresso.org/upf_files/Ni.pbesol-spn-kjpaw_psl.1.0.0.UPF
+Resolving pseudopotentials.quantum-espresso.org (pseudopotentials.quantum-espresso.org)... 93.186.242.122
+Connecting to pseudopotentials.quantum-espresso.org (pseudopotentials.quantum-espresso.org)|93.186.242.122|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1819082 (1.7M)
+Saving to: ‘Ni.pbesol-spn-kjpaw_psl.1.0.0.UPF’
+]   1.73M  8.63MB/s    in 0.2s    
+
+2026-06-21 19:25:26 (8.63 MB/s) - ‘Ni.pbesol-spn-kjpaw_psl.1.0.0.UPF’ saved [1819082/1819082]
+--2026-06-21 19:25:26--  https://pseudopotentials.quantum-espresso.org/upf_files/O.pbesol-n-kjpaw_psl.1.0.0.UPF
+Resolving pseudopotentials.quantum-espresso.org (pseudopotentials.quantum-espresso.org)... 93.186.242.122
+Connecting to pseudopotentials.quantum-espresso.org (pseudopotentials.quantum-espresso.org)|93.186.242.122|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 875308 (855K)
+Saving to: ‘O.pbesol-n-kjpaw_psl.1.0.0.UPF’
+] 854.79K  4.43MB/s    in 0.2s    
+
+2026-06-21 19:25:26 (4.43 MB/s) - ‘O.pbesol-n-kjpaw_psl.1.0.0.UPF’ saved [875308/875308]
+DONE@Sun Jun 21 19:25:26 CEST 2026
+#+end_example
+
+#+begin_src shell :results output :exports both
+ls pseudo/
+#+end_src
+
+#+RESULTS:
+: Ni.pbesol-spn-kjpaw_psl.1.0.0.UPF
+: O.pbesol-n-kjpaw_psl.1.0.0.UPF
+
+- Convert cif using =cif2cell=
+#+begin_src shell :session *shell* :results output :exports both
+pixi run cif2cell 1010093.cif -p quantum-espresso -o 01-nio.in
+cat 01-nio.in
+#+end_src
+
+#+RESULTS:
+#+begin_example
+,***************************************************************************************
+,*                     Generated by cif2cell 2.1.0 2026-06-21 19:26                    *
+,*    T. Bjorkman, Comp. Phys. Commun. 182, 1183-1186 (2011). Please cite generously.  *
+,*                                                                                     *
+,*                                NI O   (Nickel oxide)                                *
+,* Cairns, R W and Ott, E, Journal of the American Chemical Society 55, 527-533 (1933) *
+,***************************************************************************************
+
+&SYSTEM
+  ibrav = 0
+  A =    4.16840
+  nat = 2
+  ntyp = 2
+/
+CELL_PARAMETERS {alat}
+  0.500000000000000   0.500000000000000   0.000000000000000 
+  0.500000000000000   0.000000000000000   0.500000000000000 
+  0.000000000000000   0.500000000000000   0.500000000000000 
+ATOMIC_SPECIES
+  Ni   58.69340  Ni_PSEUDO
+   O   15.99900   O_PSEUDO
+ATOMIC_POSITIONS {crystal}
+Ni   0.500000000000000   0.500000000000000   0.500000000000000 
+ O   0.000000000000000   0.000000000000000   0.000000000000000
+#+end_example
+
+**** Run relaxation using =pw.x=
+#+begin_src python :results output :exports both
+print(4.16840*0.5)
+#+end_src
+
+#+RESULTS:
+: 2.0842
+
+#+begin_src shell :session *shell* :results output :exports both
+cat << 'EOF' > 02-relax.in
+&CONTROL
+  calculation   = 'vc-relax'
+  restart_mode  = 'from_scratch'
+  prefix        = 'nio_afm'
+  outdir        = './tmp/'
+  pseudo_dir    = './pseudo/'
+  verbosity     = 'high'
+  etot_conv_thr = 1.0D-4
+  forc_conv_thr = 1.0D-3
+/
+&SYSTEM
+  ibrav     = 0
+  nat       = 4
+  ntyp      = 3
+  ecutwfc   = 75
+  ecutrho   = 480
+  nspin     = 2
+  starting_magnetization(1) =  0.5
+  starting_magnetization(2) = -0.5
+  occupations               = 'smearing'
+  smearing                  = 'mv'
+  degauss                   = 0.001
+/
+&ELECTRONS
+  conv_thr    = 1.0d-10
+/
+&IONS
+  ion_dynamics = 'bfgs'
+/
+&CELL
+  cell_dynamics = 'bfgs'
+/
+CELL_PARAMETERS {angstrom}
+  2.084200000000000   2.084200000000000   4.168400000000000 
+  2.084200000000000   4.168400000000000   2.084200000000000 
+  4.168400000000000   2.084200000000000   2.084200000000000 
+ATOMIC_SPECIES
+  Ni1  58.69340  Ni.pbesol-spn-kjpaw_psl.1.0.0.UPF
+  Ni2  58.69340  Ni.pbesol-spn-kjpaw_psl.1.0.0.UPF
+   O   15.99900  O.pbesol-n-kjpaw_psl.1.0.0.UPF
+ATOMIC_POSITIONS {crystal}
+Ni1  0.000000000000000   0.000000000000000   0.000000000000000 
+Ni2  0.500000000000000   0.500000000000000   0.500000000000000 
+ O   0.250000000000000   0.250000000000000   0.250000000000000
+ O   0.750000000000000   0.750000000000000   0.750000000000000
+
+K_POINTS {automatic}
+4 4 4 1 1 1
+EOF
+#+end_src
+
+#+RESULTS:
+
+#+begin_src shell :results output :exports both
+ls
+#+end_src
+
+#+RESULTS:
+: #qe_dft+u_NiO.org#
+: 01-nio.in
+: 02-relax.in
+: 1010093.cif
+: pixi.lock
+: pixi.toml
+: pseudo
+: qe_dft+u_NiO.org
+
+#+begin_src shell :session *shell* :results output :exports both
+qe bash -c "export OMP_NUM_THREADS=2; mpirun -np 4 pw.x -npool 2 < 02-relax.in > 02-relax.out"
+grep "WALL" 02-*.out | tail -1
+qed
+#+end_src
+
+#+RESULTS:
+: Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+: Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+: Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+: Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+: PWSCF        :   9m40.72s CPU   4m55.32s WALL
+: DONE@Sun Jun 21 19:31:40 CEST 2026
+
+#+begin_src shell :session *shell* :results output :exports both
+grep -A 4 "CELL_PARAMETERS" 02-relax.in | tail -n 5
+grep -A 4 "CELL_PARAMETERS" 02-relax.out | tail -n 5
+#+end_src
+
+#+RESULTS:
+: CELL_PARAMETERS {angstrom}
+:   2.084200000000000   2.084200000000000   4.168400000000000 
+:   2.084200000000000   4.168400000000000   2.084200000000000 
+:   4.168400000000000   2.084200000000000   2.084200000000000 
+: ATOMIC_SPECIES
+: CELL_PARAMETERS (angstrom)
+:    2.023296980   2.023296980   4.085096282
+:    2.023296980   4.085096282   2.023296980
+:    4.085096282   2.023296980   2.023296980
+
+**** Run SCF with the relaxed structure using =pw.x=
+#+begin_src shell :session *shell* :results output :exports both
+cat << 'EOF' > 03-scf.in
+&CONTROL
+  calculation   = 'scf'
+  restart_mode  = 'from_scratch'
+  prefix        = 'nio_afm'
+  outdir        = './tmp/'
+  pseudo_dir    = './pseudo/'
+  verbosity     = 'high'
+/
+&SYSTEM
+  ibrav     = 0
+  nat       = 4
+  ntyp      = 3
+  ecutwfc   = 75.0
+  ecutrho   = 480.0
+  nspin                     = 2
+  starting_magnetization(1) =  0.5
+  starting_magnetization(2) = -0.5
+  occupations               = 'smearing'
+  smearing                  = 'mv'
+  degauss                   = 0.001
+/
+&ELECTRONS
+  conv_thr    = 1.0d-10
+/
+CELL_PARAMETERS (angstrom)
+   2.023296980   2.023296980   4.085096282
+   2.023296980   4.085096282   2.023296980
+   4.085096282   2.023296980   2.023296980
+ATOMIC_SPECIES
+  Ni1  58.69340  Ni.pbesol-spn-kjpaw_psl.1.0.0.UPF
+  Ni2  58.69340  Ni.pbesol-spn-kjpaw_psl.1.0.0.UPF
+   O   15.99900  O.pbesol-n-kjpaw_psl.1.0.0.UPF
+ATOMIC_POSITIONS {crystal}
+Ni1  0.000000000000000   0.000000000000000   0.000000000000000 
+Ni2  0.500000000000000   0.500000000000000   0.500000000000000 
+ O   0.250000000000000   0.250000000000000   0.250000000000000
+ O   0.750000000000000   0.750000000000000   0.750000000000000
+K_POINTS {automatic}
+2 2 2 1 1 1
+EOF
+#+end_src
+
+#+RESULTS:
+
+#+begin_src shell :results output :exports both
+ls
+#+end_src
+
+#+RESULTS:
+#+begin_example
+#qe_dft+u_NiO.org#
+01-nio.in
+02-relax.in
+02-relax.out
+03-scf.in
+1010093.cif
+pixi.lock
+pixi.toml
+pseudo
+qe_dft+u_NiO.org
+tmp
+#+end_example
+
+#+begin_src shell :session *shell* :results output :exports both
+qe bash -c "export OMP_NUM_THREADS=2; mpirun -np 4 pw.x -npool 2 < 03-scf.in > 03-scf.out"
+grep "WALL" 03-*.out | tail -1
+qed
+#+end_src
+
+#+RESULTS:
+: PWSCF        :     42.17s CPU     25.53s WALL
+: DONE@Sun Jun 21 19:33:51 CEST 2026
+
+**** Run non-SCF calculation for PDOS using =pw.x=
+- Add =nband= & increase k-points
+#+begin_src shell :session *shell* :results output :exports both
+cat << 'EOF' > 04-nscf.in
+&CONTROL
+  calculation   = 'nscf'
+  restart_mode  = 'from_scratch'
+  prefix        = 'nio_afm'
+  outdir        = './tmp/'
+  pseudo_dir    = './pseudo/'
+  verbosity     = 'high'
+/
+&SYSTEM
+  ibrav     = 0
+  nat       = 4
+  ntyp      = 3
+  ecutwfc   = 75.0
+  ecutrho   = 480.0
+  nbnd      = 40
+  nspin                     = 2
+  starting_magnetization(1) =  0.5
+  starting_magnetization(2) = -0.5
+  occupations               = 'smearing'
+  smearing                  = 'mv'
+  degauss                   = 0.001
+/
+&ELECTRONS
+  conv_thr    = 1.0d-10
+/
+CELL_PARAMETERS (angstrom)
+   2.023296980   2.023296980   4.085096282
+   2.023296980   4.085096282   2.023296980
+   4.085096282   2.023296980   2.023296980
+ATOMIC_SPECIES
+  Ni1  58.69340  Ni.pbesol-spn-kjpaw_psl.1.0.0.UPF
+  Ni2  58.69340  Ni.pbesol-spn-kjpaw_psl.1.0.0.UPF
+   O   15.99900  O.pbesol-n-kjpaw_psl.1.0.0.UPF
+ATOMIC_POSITIONS {crystal}
+Ni1  0.000000000000000   0.000000000000000   0.000000000000000 
+Ni2  0.500000000000000   0.500000000000000   0.500000000000000 
+ O   0.250000000000000   0.250000000000000   0.250000000000000
+ O   0.750000000000000   0.750000000000000   0.750000000000000
+K_POINTS {automatic}
+4 4 4 1 1 1
+EOF
+#+end_src
+
+#+RESULTS:
+
+#+begin_src shell :results output :exports both
+ls
+#+end_src
+
+#+RESULTS:
+#+begin_example
+#qe_dft+u_NiO.org#
+01-nio.in
+02-relax.in
+02-relax.out
+03-scf.in
+03-scf.out
+04-nscf.in
+1010093.cif
+pixi.lock
+pixi.toml
+pseudo
+qe_dft+u_NiO.org
+tmp
+#+end_example
+
+#+begin_src shell :session *shell* :results output :exports both
+qe bash -c "export OMP_NUM_THREADS=2; mpirun -np 4 pw.x -npool 2 < 04-nscf.in > 04-nscf.out"
+grep "WALL" 04-*.out | tail -1
+qed
+#+end_src
+
+#+RESULTS:
+: PWSCF        :   1m28.17s CPU     42.56s WALL
+: DONE@Sun Jun 21 19:35:30 CEST 2026
+
+**** Calculate PDOS using =projwfc.x=
+#+begin_src shell :session *shell* :results output :exports both
+cat << 'EOF' > 05-projwfc.in
+&PROJWFC
+  prefix      = 'nio_afm'
+  outdir      = './tmp/'
+  ngauss      = 0
+  degauss     = 0.005
+  Emin        = -15.0
+  Emax        = 30.0
+  DeltaE      = 0.01
+/
+EOF
+#+end_src
+
+#+RESULTS:
+
+#+begin_src shell :results output :exports both
+ls
+#+end_src
+
+#+RESULTS:
+#+begin_example
+#qe_dft+u_NiO.org#
+01-nio.in
+02-relax.in
+02-relax.out
+03-scf.in
+03-scf.out
+04-nscf.in
+04-nscf.out
+05-projwfc.in
+1010093.cif
+pixi.lock
+pixi.toml
+pseudo
+qe_dft+u_NiO.org
+tmp
+#+end_example
+
+#+begin_src shell :session *shell* :results output :exports both
+qe bash -c "OMP_NUM_THREADS=8 projwfc.x < 05-projwfc.in > 05-projwfc.out"
+grep "WALL" 05-*.out | tail -1
+qed
+#+end_src
+
+#+RESULTS:
+: PROJWFC      :     12.27s CPU      4.13s WALL
+: DONE@Sun Jun 21 19:35:58 CEST 2026
+
+#+begin_src shell :results output :exports both
+ls
+#+end_src
+
+#+RESULTS:
+#+begin_example
+#qe_dft+u_NiO.org#
+01-nio.in
+02-relax.in
+02-relax.out
+03-scf.in
+03-scf.out
+04-nscf.in
+04-nscf.out
+05-projwfc.in
+05-projwfc.out
+1010093.cif
+nio_afm.pdos_atm#1(Ni1)_wfc#1(s)
+nio_afm.pdos_atm#1(Ni1)_wfc#2(s)
+nio_afm.pdos_atm#1(Ni1)_wfc#3(p)
+nio_afm.pdos_atm#1(Ni1)_wfc#4(d)
+nio_afm.pdos_atm#2(Ni2)_wfc#1(s)
+nio_afm.pdos_atm#2(Ni2)_wfc#2(s)
+nio_afm.pdos_atm#2(Ni2)_wfc#3(p)
+nio_afm.pdos_atm#2(Ni2)_wfc#4(d)
+nio_afm.pdos_atm#3(O)_wfc#1(s)
+nio_afm.pdos_atm#3(O)_wfc#2(p)
+nio_afm.pdos_atm#4(O)_wfc#1(s)
+nio_afm.pdos_atm#4(O)_wfc#2(p)
+nio_afm.pdos_tot
+pixi.lock
+pixi.toml
+pseudo
+qe_dft+u_NiO.org
+tmp
+#+end_example
+
+#+begin_src shell :session *shell* :results output :exports both
+cat << 'EOF' > plot_pdos.py
+import argparse
+import numpy as np
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+import subprocess
+
+# 1. Parse command-line arguments
+parser = argparse.ArgumentParser(description="Plot PDOS from Quantum ESPRESSO outputs.")
+parser.add_argument("-i", "--input_log", type=str, default="nscf.out",
+                    help="Path to the NSCF output log file (default: nscf.out)")
+parser.add_argument("-p", "--prefix", type=str, default="prefix",
+                    help="The prefix used in your projwfc.x / files (default: prefix)")
+parser.add_argument("-o", "--output_fig", type=str, default="pdos.png",
+                    help="Path/filename for the output figure (default: pdos.png)")
+args = parser.parse_args()
+
+# 2. Dynamically grab the true Fermi/Highest Occupied Energy from the log
+fermi_energy = 0.0
+try:
+    # First, try parsing as an insulator (fixed occupations)
+    res = subprocess.check_output(f"grep 'highest occupied, lowest unoccupied' {args.input_log}", shell=True).decode()
+    # Extract the highest occupied level (the first number after the colon)
+    levels = res.split(':')[1].split()
+    fermi_energy = float(levels[0])
+    print(f"Parsed Insulating Valence Band Max (Highest Occupied): {fermi_energy} eV")
+except Exception:
+    try:
+        # Fallback to metallic smearing string if it's a smeared run
+        res = subprocess.check_output(f"grep 'the Fermi energy is' {args.input_log}", shell=True).decode()
+        fermi_energy = float(res.split('is')[1].split('ev')[0].strip())
+        print(f"Parsed Metallic Fermi Energy: {fermi_energy} eV")
+    except Exception:
+        print(f"Could not parse energy reference from {args.input_log}, defaulting to 0.0 eV")
+
+print(f"Using Reference Energy: {fermi_energy} eV")
+
+# 3. Extract base energy grid from total DOS file using the dynamic prefix
+tot_file = f"{args.prefix}.pdos_tot"
+print(f"Reading total DOS from: {tot_file}")
+tot_data = np.loadtxt(tot_file)
+energy = tot_data[:, 0] - fermi_energy
+
+# 4. Explicitly parse the specific orbital files using the dynamic prefix
+try:
+    ni1_file = f"{args.prefix}.pdos_atm#1(Ni1)_wfc#4(d)"
+    ni2_file = f"{args.prefix}.pdos_atm#2(Ni2)_wfc#4(d)"
+    
+    ni1_data = np.loadtxt(ni1_file)
+    ni2_data = np.loadtxt(ni2_file)
+    
+    ni_majority = ni1_data[:, 1] + ni2_data[:, 2]
+    ni_minority = ni1_data[:, 2] + ni2_data[:, 1]
+except Exception as e:
+    print(f"Failed to load Ni files with prefix {args.prefix}: {e}")
+    raise e
+
+# Oxygen p-orbitals
+try:
+    o3_file = f"{args.prefix}.pdos_atm#3(O)_wfc#2(p)"
+    o4_file = f"{args.prefix}.pdos_atm#4(O)_wfc#2(p)"
+    
+    o3_data = np.loadtxt(o3_file)
+    o4_data = np.loadtxt(o4_file)
+    o_total = (o3_data[:, 1] + o3_data[:, 2]) + (o4_data[:, 1] + o4_data[:, 2])
+except Exception as e:
+    print(f"Failed to load Oxygen files with prefix {args.prefix}: {e}")
+    raise e
+
+# 5. Generate the Plot
+plt.figure(figsize=(9, 6))
+
+plt.plot(energy, ni_majority, color='red', label='Ni-3d (majority spin)', linewidth=1.2)
+plt.plot(energy, ni_minority, color='limegreen', label='Ni-3d (minority spin)', linewidth=1.2)
+plt.plot(energy, o_total, color='blue', label='O-2p', linewidth=1.2)
+
+# Styling elements
+plt.axvline(x=0.0, color='black', linestyle='-', linewidth=0.8)
+plt.xlabel('E - E$_F$ (eV)', fontsize=12)
+plt.ylabel('PDOS (states/eV/atom)', fontsize=12)
+plt.xlim(-10.0, 8.0)
+plt.ylim(0, None)
+plt.legend(frameon=False, loc='upper right', fontsize=11)
+plt.tight_layout()
+
+# Save image file
+plt.savefig(args.output_fig, dpi=300)
+print(f"Figure saved successfully to: {args.output_fig}")
+EOF
+pixi run python plot_pdos.py -i 04-nscf.out -p nio_afm -o nio_pdos_pbesol.png
+qed
+#+end_src
+
+#+RESULTS:
+: Parsed Metallic Fermi Energy: 15.2322 eV
+: Using Reference Energy: 15.2322 eV
+: Reading total DOS from: nio_afm.pdos_tot
+: Figure saved successfully to: nio_pdos_pbesol.png
+: DONE@Sun Jun 21 19:36:15 CEST 2026
+
+#+ATTR_ORG: :width 600
+[[./nio_pdos_pbesol.png]]
+
+**** Run DFT+U calculations
+- Run DFT+U SCF using =pw.x=
+#+begin_src shell :session *shell* :results output :exports both
+cat << 'EOF' > 06-dft+u_scf1.in
+&CONTROL
+  calculation   = 'scf'
+  restart_mode  = 'from_scratch'
+  prefix        = 'nio_afm_u'
+  outdir        = './tmp/'
+  pseudo_dir    = './pseudo/'
+  verbosity     = 'high'
+/
+&SYSTEM
+  ibrav     = 0
+  nat       = 4
+  ntyp      = 3
+  ecutwfc   = 75.0
+  ecutrho   = 480.0
+  nspin                     = 2
+  starting_magnetization(1) =  0.5
+  starting_magnetization(2) = -0.5
+  occupations               = 'smearing'
+  smearing                  = 'mv'
+  degauss                   = 0.001
+/
+&ELECTRONS
+  conv_thr    = 1.0d-10
+/
+CELL_PARAMETERS (angstrom)
+   2.023296980   2.023296980   4.085096282
+   2.023296980   4.085096282   2.023296980
+   4.085096282   2.023296980   2.023296980
+ATOMIC_SPECIES
+  Ni1  58.69340  Ni.pbesol-spn-kjpaw_psl.1.0.0.UPF
+  Ni2  58.69340  Ni.pbesol-spn-kjpaw_psl.1.0.0.UPF
+   O   15.99900  O.pbesol-n-kjpaw_psl.1.0.0.UPF
+ATOMIC_POSITIONS {crystal}
+Ni1  0.000000000000000   0.000000000000000   0.000000000000000 
+Ni2  0.500000000000000   0.500000000000000   0.500000000000000 
+ O   0.250000000000000   0.250000000000000   0.250000000000000
+ O   0.750000000000000   0.750000000000000   0.750000000000000
+K_POINTS {automatic}
+2 2 2 1 1 1
+
+HUBBARD {ortho-atomic}
+U Ni1-3d 0.0001
+U Ni2-3d 0.0001
+EOF
+#+end_src
+
+#+RESULTS:
+
+#+begin_src shell :results output :exports both
+ls
+#+end_src
+
+#+RESULTS:
+#+begin_example
+#qe_dft+u_NiO.org#
+01-nio.in
+02-relax.in
+02-relax.out
+03-scf.in
+03-scf.out
+04-nscf.in
+04-nscf.out
+05-projwfc.in
+05-projwfc.out
+06-dft+u_scf1.in
+1010093.cif
+nio_afm.pdos_atm#1(Ni1)_wfc#1(s)
+nio_afm.pdos_atm#1(Ni1)_wfc#2(s)
+nio_afm.pdos_atm#1(Ni1)_wfc#3(p)
+nio_afm.pdos_atm#1(Ni1)_wfc#4(d)
+nio_afm.pdos_atm#2(Ni2)_wfc#1(s)
+nio_afm.pdos_atm#2(Ni2)_wfc#2(s)
+nio_afm.pdos_atm#2(Ni2)_wfc#3(p)
+nio_afm.pdos_atm#2(Ni2)_wfc#4(d)
+nio_afm.pdos_atm#3(O)_wfc#1(s)
+nio_afm.pdos_atm#3(O)_wfc#2(p)
+nio_afm.pdos_atm#4(O)_wfc#1(s)
+nio_afm.pdos_atm#4(O)_wfc#2(p)
+nio_afm.pdos_tot
+nio_pdos_pbesol.png
+pixi.lock
+pixi.toml
+plot_pdos.py
+pseudo
+qe_dft+u_NiO.org
+tmp
+#+end_example
+
+#+begin_src shell :session *shell* :results output :exports both
+qe bash -c "OMP_NUM_THREADS=8 pw.x < 06-dft+u_scf1.in > 06-dft+u_scf1.out"
+grep "WALL" 06-*1.out | tail -1
+qed
+#+end_src
+
+#+RESULTS:
+: Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+: PWSCF        :   6m19.02s CPU     58.59s WALL
+: DONE@Sun Jun 21 19:38:35 CEST 2026
+
+- Calculate Hubbard U parameters using =hp.x=
+#+begin_src shell :session *shell* :results output :exports both
+cat << 'EOF' > 07-hp.in
+&inputhp
+  prefix = 'nio_afm_u'
+  outdir = './tmp/'
+  nq1 = 2, nq2 = 2, nq3 = 2
+  conv_thr_chi = 1.0d-6
+/
+EOF
+#+end_src
+
+#+RESULTS:
+
+#+begin_src shell :results output :exports both
+ls
+#+end_src
+
+#+RESULTS:
+#+begin_example
+#qe_dft+u_NiO.org#
+01-nio.in
+02-relax.in
+02-relax.out
+03-scf.in
+03-scf.out
+04-nscf.in
+04-nscf.out
+05-projwfc.in
+05-projwfc.out
+06-dft+u_scf1.in
+06-dft+u_scf1.out
+07-hp.in
+1010093.cif
+nio_afm.pdos_atm#1(Ni1)_wfc#1(s)
+nio_afm.pdos_atm#1(Ni1)_wfc#2(s)
+nio_afm.pdos_atm#1(Ni1)_wfc#3(p)
+nio_afm.pdos_atm#1(Ni1)_wfc#4(d)
+nio_afm.pdos_atm#2(Ni2)_wfc#1(s)
+nio_afm.pdos_atm#2(Ni2)_wfc#2(s)
+nio_afm.pdos_atm#2(Ni2)_wfc#3(p)
+nio_afm.pdos_atm#2(Ni2)_wfc#4(d)
+nio_afm.pdos_atm#3(O)_wfc#1(s)
+nio_afm.pdos_atm#3(O)_wfc#2(p)
+nio_afm.pdos_atm#4(O)_wfc#1(s)
+nio_afm.pdos_atm#4(O)_wfc#2(p)
+nio_afm.pdos_tot
+nio_pdos_pbesol.png
+pixi.lock
+pixi.toml
+plot_pdos.py
+pseudo
+qe_dft+u_NiO.org
+tmp
+#+end_example
+
+#+begin_src shell :session *shell* :results output :exports both
+qe bash -c "export OMP_NUM_THREADS=2; mpirun -np 4 hp.x -npool 2 < 07-hp.in > 07-hp.out"
+grep "WALL" 07-*.out | tail -1
+qed
+#+end_src
+
+#+RESULTS:
+#+begin_example
+STOP 1
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+STOP 1
+STOP 1
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+STOP 1
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[13552,1],1]
+  Exit code:    1
+--------------------------------------------------------------------------
+HP           :     18.64s CPU     10.75s WALL
+DONE@Sun Jun 21 19:39:19 CEST 2026
+#+end_example
+
+- Run 2nd SCF using =pw.x=
+#+begin_src shell :session *shell* :results output :exports both
+grep 'number of Kohn-Sham states' 06-*1.out
+grep 'total magnetization' 06-*1.out | tail -1
+#+end_src 
+
+#+RESULTS:
+: number of Kohn-Sham states=           29
+: total magnetization       =     0.00 Bohr mag/cell
+
+#+begin_src shell :session *shell* :results output :exports both
+cat << 'EOF' > 06-dft+u_scf2.in
+&CONTROL
+  calculation   = 'scf'
+  restart_mode  = 'from_scratch'
+  prefix        = 'nio_afm_u'
+  outdir        = './tmp/'
+  pseudo_dir    = './pseudo/'
+  verbosity     = 'high'
+/
+&SYSTEM
+  ibrav     = 0
+  nat       = 4
+  ntyp      = 3
+  ecutwfc   = 75.0
+  ecutrho   = 480.0
+  nbnd      = 29
+  occupations = 'fixed'
+  nspin                     = 2
+  tot_magnetization         = 0
+/
+&ELECTRONS
+  conv_thr    = 1.0d-15
+  mixing_beta = 0.7
+  startingpot = 'file'
+  startingwfc = 'file'
+/
+CELL_PARAMETERS (angstrom)
+   2.023296980   2.023296980   4.085096282
+   2.023296980   4.085096282   2.023296980
+   4.085096282   2.023296980   2.023296980
+ATOMIC_SPECIES
+  Ni1  58.69340  Ni.pbesol-spn-kjpaw_psl.1.0.0.UPF
+  Ni2  58.69340  Ni.pbesol-spn-kjpaw_psl.1.0.0.UPF
+   O   15.99900  O.pbesol-n-kjpaw_psl.1.0.0.UPF
+ATOMIC_POSITIONS {crystal}
+Ni1  0.000000000000000   0.000000000000000   0.000000000000000 
+Ni2  0.500000000000000   0.500000000000000   0.500000000000000 
+ O   0.250000000000000   0.250000000000000   0.250000000000000
+ O   0.750000000000000   0.750000000000000   0.750000000000000
+K_POINTS {automatic}
+2 2 2 1 1 1
+
+HUBBARD {ortho-atomic}
+U Ni1-3d 0.0001
+U Ni2-3d 0.0001
+EOF
+#+end_src
+
+#+RESULTS:
+
+#+begin_src shell :results output :exports both
+ls
+#+end_src
+
+#+RESULTS:
+#+begin_example
+#qe_dft+u_NiO.org#
+01-nio.in
+02-relax.in
+02-relax.out
+03-scf.in
+03-scf.out
+04-nscf.in
+04-nscf.out
+05-projwfc.in
+05-projwfc.out
+06-dft+u_scf1.in
+06-dft+u_scf1.out
+06-dft+u_scf2.in
+07-hp.in
+07-hp.out
+1010093.cif
+nio_afm.pdos_atm#1(Ni1)_wfc#1(s)
+nio_afm.pdos_atm#1(Ni1)_wfc#2(s)
+nio_afm.pdos_atm#1(Ni1)_wfc#3(p)
+nio_afm.pdos_atm#1(Ni1)_wfc#4(d)
+nio_afm.pdos_atm#2(Ni2)_wfc#1(s)
+nio_afm.pdos_atm#2(Ni2)_wfc#2(s)
+nio_afm.pdos_atm#2(Ni2)_wfc#3(p)
+nio_afm.pdos_atm#2(Ni2)_wfc#4(d)
+nio_afm.pdos_atm#3(O)_wfc#1(s)
+nio_afm.pdos_atm#3(O)_wfc#2(p)
+nio_afm.pdos_atm#4(O)_wfc#1(s)
+nio_afm.pdos_atm#4(O)_wfc#2(p)
+nio_afm.pdos_tot
+nio_pdos_pbesol.png
+pixi.lock
+pixi.toml
+plot_pdos.py
+pseudo
+qe_dft+u_NiO.org
+tmp
+#+end_example
+
+#+begin_src shell :session *shell* :results output :exports both
+qe bash -c "OMP_NUM_THREADS=8 pw.x < 06-dft+u_scf2.in > 08-dft+u_scf2.out"
+grep "WALL" 08-*2.out | tail -1
+qed
+#+end_src
+
+#+RESULTS:
+: Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+: PWSCF        :   5m17.36s CPU     50.76s WALL
+: DONE@Sun Jun 21 19:41:03 CEST 2026
+
+- Calculate Hubbard U parameters using =hp.x=
+#+begin_src shell :session *shell* :results output :exports both
+qe bash -c "export OMP_NUM_THREADS=2; mpirun -np 4 hp.x -npool 2 < 07-hp.in > 09-hp.out"
+grep "WALL" 09-*.out | tail -1
+qed
+cat nio_afm_u.Hubbard_parameters.dat
+#+end_src
+
+#+RESULTS:
+#+begin_example
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+HP           :  20m43.48s CPU  12m11.34s WALL
+DONE@Sun Jun 21 19:53:33 CEST 2026
+=-------------------------------------------------------------------------------=
+
+                                 Hubbard U parameters:
+
+       site n.  type  label  spin  new_type  new_label  manifold  Hubbard U (eV)
+         1        1   Ni1      1      1         Ni1        3d       7.3535
+         2        2   Ni2     -1      1         Ni1        3d       7.3535
+
+  =-------------------------------------------------------------------------------=
+#+end_example
+
+- Relax with U parameters using =pw.x=
+#+begin_src shell :session *shell* :results output :exports both
+cat << 'EOF' > 10-dft+u_relax.in
+&CONTROL
+  calculation   = 'vc-relax'
+  restart_mode  = 'from_scratch'
+  prefix        = 'nio_afm_u'
+  outdir        = './tmp/'
+  pseudo_dir    = './pseudo/'
+  verbosity     = 'high'
+  etot_conv_thr = 1.0d-4
+  forc_conv_thr = 1.0d-3
+/
+&SYSTEM
+  ibrav     = 0
+  nat       = 4
+  ntyp      = 3
+  ecutwfc   = 75.0
+  ecutrho   = 480.0
+  nspin                     = 2
+  starting_magnetization(1) =  0.5
+  starting_magnetization(2) = -0.5
+  occupations               = 'smearing'
+  smearing                  = 'mv'
+  degauss                   = 0.001
+/
+&ELECTRONS
+  conv_thr    = 1.0d-10
+/
+&IONS
+  ion_dynamics = 'bfgs'
+/
+&CELL
+  cell_dynamics = 'bfgs'
+/
+CELL_PARAMETERS (angstrom)
+   2.023296980   2.023296980   4.085096282
+   2.023296980   4.085096282   2.023296980
+   4.085096282   2.023296980   2.023296980
+ATOMIC_SPECIES
+  Ni1  58.69340  Ni.pbesol-spn-kjpaw_psl.1.0.0.UPF
+  Ni2  58.69340  Ni.pbesol-spn-kjpaw_psl.1.0.0.UPF
+   O   15.99900  O.pbesol-n-kjpaw_psl.1.0.0.UPF
+ATOMIC_POSITIONS {crystal}
+Ni1  0.000000000000000   0.000000000000000   0.000000000000000 
+Ni2  0.500000000000000   0.500000000000000   0.500000000000000 
+ O   0.250000000000000   0.250000000000000   0.250000000000000
+ O   0.750000000000000   0.750000000000000   0.750000000000000
+K_POINTS {automatic}
+4 4 4 1 1 1
+
+HUBBARD {ortho-atomic}
+U Ni1-3d 7.3535
+U Ni2-3d 7.3535
+EOF
+#+end_src
+
+#+RESULTS:
+
+#+begin_src shell :results output :exports both
+ls
+#+end_src
+
+#+RESULTS:
+#+begin_example
+#qe_dft+u_NiO.org#
+01-nio.in
+02-relax.in
+02-relax.out
+03-scf.in
+03-scf.out
+04-nscf.in
+04-nscf.out
+05-projwfc.in
+05-projwfc.out
+06-dft+u_scf1.in
+06-dft+u_scf1.out
+06-dft+u_scf2.in
+07-hp.in
+07-hp.out
+08-dft+u_scf2.out
+09-hp.out
+10-dft+u_relax.in
+1010093.cif
+nio_afm.pdos_atm#1(Ni1)_wfc#1(s)
+nio_afm.pdos_atm#1(Ni1)_wfc#2(s)
+nio_afm.pdos_atm#1(Ni1)_wfc#3(p)
+nio_afm.pdos_atm#1(Ni1)_wfc#4(d)
+nio_afm.pdos_atm#2(Ni2)_wfc#1(s)
+nio_afm.pdos_atm#2(Ni2)_wfc#2(s)
+nio_afm.pdos_atm#2(Ni2)_wfc#3(p)
+nio_afm.pdos_atm#2(Ni2)_wfc#4(d)
+nio_afm.pdos_atm#3(O)_wfc#1(s)
+nio_afm.pdos_atm#3(O)_wfc#2(p)
+nio_afm.pdos_atm#4(O)_wfc#1(s)
+nio_afm.pdos_atm#4(O)_wfc#2(p)
+nio_afm.pdos_tot
+nio_afm_u.Hubbard_parameters.dat
+nio_pdos_pbesol.png
+pixi.lock
+pixi.toml
+plot_pdos.py
+pseudo
+qe_dft+u_NiO.org
+tmp
+#+end_example
+
+#+begin_src shell :session *shell* :results output :exports both
+qe bash -c "OMP_NUM_THREADS=8 pw.x < 10-dft+u_relax.in > 10-dft+u_relax.out"
+grep "WALL" 10-*.out | tail -1
+qed
+#+end_src
+
+#+RESULTS:
+: Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+: PWSCF        :      3h 1m CPU  21m44.80s WALL
+: DONE@Sun Jun 21 20:20:01 CEST 2026
+
+#+begin_src shell :session *shell* :results output :exports both
+grep -A 4 "CELL_PARAMETERS" 10-dft+u_relax.in | tail -n 5
+grep -A 4 "CELL_PARAMETERS" 10-dft+u_relax.out | tail -n 5
+#+end_src
+
+#+RESULTS:
+: CELL_PARAMETERS (angstrom)
+:    2.023296980   2.023296980   4.085096282
+:    2.023296980   4.085096282   2.023296980
+:    4.085096282   2.023296980   2.023296980
+: ATOMIC_SPECIES
+: CELL_PARAMETERS (angstrom)
+:    2.079888198   2.079888198   4.167709174
+:    2.079888198   4.167709174   2.079888198
+:    4.167709174   2.079888198   2.079888198
+
+- Run SCF with the relaxed structure using =pw.x=
+#+begin_src shell :session *shell* :results output :exports both
+cat << 'EOF' > 06-dft+u_scf1.in
+&CONTROL
+  calculation   = 'scf'
+  restart_mode  = 'from_scratch'
+  prefix        = 'nio_afm_u'
+  outdir        = './tmp/'
+  pseudo_dir    = './pseudo/'
+  verbosity     = 'high'
+/
+&SYSTEM
+  ibrav     = 0
+  nat       = 4
+  ntyp      = 3
+  ecutwfc   = 75.0
+  ecutrho   = 480.0
+  nspin                     = 2
+  starting_magnetization(1) =  0.5
+  starting_magnetization(2) = -0.5
+  occupations               = 'smearing'
+  smearing                  = 'mv'
+  degauss                   = 0.001
+/
+&ELECTRONS
+  conv_thr    = 1.0d-10
+  mixing_beta = 0.3
+/
+CELL_PARAMETERS (angstrom)
+   2.079888198   2.079888198   4.167709174
+   2.079888198   4.167709174   2.079888198
+   4.167709174   2.079888198   2.079888198
+ATOMIC_SPECIES
+  Ni1  58.69340  Ni.pbesol-spn-kjpaw_psl.1.0.0.UPF
+  Ni2  58.69340  Ni.pbesol-spn-kjpaw_psl.1.0.0.UPF
+   O   15.99900  O.pbesol-n-kjpaw_psl.1.0.0.UPF
+ATOMIC_POSITIONS {crystal}
+Ni1  0.000000000000000   0.000000000000000   0.000000000000000 
+Ni2  0.500000000000000   0.500000000000000   0.500000000000000 
+ O   0.250000000000000   0.250000000000000   0.250000000000000
+ O   0.750000000000000   0.750000000000000   0.750000000000000
+K_POINTS {automatic}
+2 2 2 1 1 1
+
+HUBBARD {ortho-atomic}
+U Ni1-3d 7.3535
+U Ni2-3d 7.3535
+EOF
+#+end_src
+
+#+RESULTS:
+
+#+begin_src shell :results output :exports both
+ls
+#+end_src
+
+#+RESULTS:
+#+begin_example
+#qe_dft+u_NiO.org#
+01-nio.in
+02-relax.in
+02-relax.out
+03-scf.in
+03-scf.out
+04-nscf.in
+04-nscf.out
+05-projwfc.in
+05-projwfc.out
+06-dft+u_scf1.in
+06-dft+u_scf1.out
+06-dft+u_scf2.in
+07-hp.in
+07-hp.out
+08-dft+u_scf2.out
+09-hp.out
+10-dft+u_relax.in
+10-dft+u_relax.out
+1010093.cif
+nio_afm.pdos_atm#1(Ni1)_wfc#1(s)
+nio_afm.pdos_atm#1(Ni1)_wfc#2(s)
+nio_afm.pdos_atm#1(Ni1)_wfc#3(p)
+nio_afm.pdos_atm#1(Ni1)_wfc#4(d)
+nio_afm.pdos_atm#2(Ni2)_wfc#1(s)
+nio_afm.pdos_atm#2(Ni2)_wfc#2(s)
+nio_afm.pdos_atm#2(Ni2)_wfc#3(p)
+nio_afm.pdos_atm#2(Ni2)_wfc#4(d)
+nio_afm.pdos_atm#3(O)_wfc#1(s)
+nio_afm.pdos_atm#3(O)_wfc#2(p)
+nio_afm.pdos_atm#4(O)_wfc#1(s)
+nio_afm.pdos_atm#4(O)_wfc#2(p)
+nio_afm.pdos_tot
+nio_afm_u.Hubbard_parameters.dat
+nio_pdos_pbesol.png
+pixi.lock
+pixi.toml
+plot_pdos.py
+pseudo
+qe_dft+u_NiO.org
+tmp
+#+end_example
+
+#+begin_src shell :session *shell* :results output :exports both
+qe bash -c "OMP_NUM_THREADS=8 pw.x < 06-dft+u_scf1.in > 11-dft+u_scf1.out"
+grep "WALL" 11-*1.out | tail -1
+qed
+#+end_src
+
+#+RESULTS:
+: Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+: PWSCF        :   9m 7.43s CPU   1m20.71s WALL
+: DONE@Sun Jun 21 20:24:12 CEST 2026
+
+- Run SCF with fixed occupations using =pw.x=
+#+begin_src shell :session *shell* :results output :exports both
+grep 'number of Kohn-Sham states' 11-*1.out
+grep 'total magnetization' 11-*1.out | tail -1
+#+end_src
+
+#+RESULTS:
+: number of Kohn-Sham states=           29
+: total magnetization       =    -0.00 Bohr mag/cell
+
+#+begin_src shell :session *shell* :results output :exports both
+cat << 'EOF' > 06-dft+u_scf2.in
+&CONTROL
+  calculation   = 'scf'
+  restart_mode  = 'from_scratch'
+  prefix        = 'nio_afm_u'
+  outdir        = './tmp/'
+  pseudo_dir    = './pseudo/'
+  verbosity     = 'high'
+/
+&SYSTEM
+  ibrav     = 0
+  nat       = 4
+  ntyp      = 3
+  ecutwfc   = 75.0
+  ecutrho   = 480.0
+  nspin             = 2
+  tot_magnetization = 0.00
+  occupations       = 'fixed'
+  nbnd              = 29
+/
+&ELECTRONS
+  conv_thr      = 1.0d-10
+  startingwfc   = 'file'
+  startingpot   = 'file'
+/
+CELL_PARAMETERS (angstrom)
+   2.079888198   2.079888198   4.167709174
+   2.079888198   4.167709174   2.079888198
+   4.167709174   2.079888198   2.079888198
+ATOMIC_SPECIES
+  Ni1  58.69340  Ni.pbesol-spn-kjpaw_psl.1.0.0.UPF
+  Ni2  58.69340  Ni.pbesol-spn-kjpaw_psl.1.0.0.UPF
+   O   15.99900  O.pbesol-n-kjpaw_psl.1.0.0.UPF
+ATOMIC_POSITIONS {crystal}
+Ni1  0.000000000000000   0.000000000000000   0.000000000000000 
+Ni2  0.500000000000000   0.500000000000000   0.500000000000000 
+ O   0.250000000000000   0.250000000000000   0.250000000000000
+ O   0.750000000000000   0.750000000000000   0.750000000000000
+K_POINTS {automatic}
+2 2 2 1 1 1
+
+HUBBARD {ortho-atomic}
+U Ni1-3d 7.3535
+U Ni2-3d 7.3535
+EOF
+#+end_src
+
+#+RESULTS:
+
+#+begin_src shell :results output :exports both
+ls
+#+end_src
+
+#+RESULTS:
+#+begin_example
+#qe_dft+u_NiO.org#
+01-nio.in
+02-relax.in
+02-relax.out
+03-scf.in
+03-scf.out
+04-nscf.in
+04-nscf.out
+05-projwfc.in
+05-projwfc.out
+06-dft+u_scf1.in
+06-dft+u_scf1.out
+06-dft+u_scf2.in
+07-hp.in
+07-hp.out
+08-dft+u_scf2.out
+09-hp.out
+10-dft+u_relax.in
+10-dft+u_relax.out
+1010093.cif
+11-dft+u_scf1.out
+nio_afm.pdos_atm#1(Ni1)_wfc#1(s)
+nio_afm.pdos_atm#1(Ni1)_wfc#2(s)
+nio_afm.pdos_atm#1(Ni1)_wfc#3(p)
+nio_afm.pdos_atm#1(Ni1)_wfc#4(d)
+nio_afm.pdos_atm#2(Ni2)_wfc#1(s)
+nio_afm.pdos_atm#2(Ni2)_wfc#2(s)
+nio_afm.pdos_atm#2(Ni2)_wfc#3(p)
+nio_afm.pdos_atm#2(Ni2)_wfc#4(d)
+nio_afm.pdos_atm#3(O)_wfc#1(s)
+nio_afm.pdos_atm#3(O)_wfc#2(p)
+nio_afm.pdos_atm#4(O)_wfc#1(s)
+nio_afm.pdos_atm#4(O)_wfc#2(p)
+nio_afm.pdos_tot
+nio_afm_u.Hubbard_parameters.dat
+nio_pdos_pbesol.png
+pixi.lock
+pixi.toml
+plot_pdos.py
+pseudo
+qe_dft+u_NiO.org
+tmp
+#+end_example
+
+#+begin_src shell :session *shell* :results output :exports both
+qe bash -c "OMP_NUM_THREADS=8 pw.x < 06-dft+u_scf2.in > 11-dft+u_scf2.out"
+grep "WALL" 11-*2.out | tail -1
+qed
+#+end_src
+
+#+RESULTS:
+: Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+: PWSCF        :     57.83s CPU     10.70s WALL
+: DONE@Sun Jun 21 20:28:40 CEST 2026
+
+#+begin_src shell :session *shell* :results output :exports both
+grep -A 25 'Fermi energy' 11-*1.out
+#+end_src
+
+#+RESULTS:
+#+begin_example
+the Fermi energy is    14.2210 ev
+
+!    total energy              =    -935.12058871 Ry
+     total all-electron energy =     -6377.761873 Ry
+     estimated scf accuracy    <          6.3E-11 Ry
+     smearing contrib. (-TS)   =       0.00000000 Ry
+     internal energy E=F+TS    =    -935.12058871 Ry
+
+     The total energy is F=E-TS. E is the sum of the following terms:
+     one-electron contribution =    -417.24336816 Ry
+     hartree contribution      =     239.20471698 Ry
+     xc contribution           =     -82.73686992 Ry
+     ewald contribution        =    -478.46170468 Ry
+     Hubbard energy            =       0.16946220 Ry
+     one-center paw contrib.   =    -196.05282513 Ry
+PAW hartree energy AE =     586.33436361 Ry
+PAW hartree energy PS =    -582.82580539 Ry
+PAW xc energy AE      =    -278.65276787 Ry
+PAW xc energy PS      =      79.09138452 Ry
+total E_H with PAW    =     242.71327521 Ry
+total E_XC with PAW   =    -282.29825327 Ry
+
+     total magnetization       =    -0.00 Bohr mag/cell
+     absolute magnetization    =     3.52 Bohr mag/cell
+
+     convergence has been achieved in  18 iterations
+#+end_example
+
+#+begin_src shell :session *shell* :results output :exports both
+grep -A 22 'highest occupied' 11-*2.out
+#+end_src
+
+#+RESULTS:
+#+begin_example
+highest occupied, lowest unoccupied level (ev):    12.5993   17.0572
+
+!    total energy              =    -935.12058632 Ry
+     total all-electron energy =     -6377.761871 Ry
+     estimated scf accuracy    <          5.7E-11 Ry
+
+     The total energy is the sum of the following terms:
+     one-electron contribution =    -417.24337029 Ry
+     hartree contribution      =     239.20473131 Ry
+     xc contribution           =     -82.73687732 Ry
+     ewald contribution        =    -478.46170468 Ry
+     Hubbard energy            =       0.16946051 Ry
+     one-center paw contrib.   =    -196.05282585 Ry
+PAW hartree energy AE =     586.33442160 Ry
+PAW hartree energy PS =    -582.82586295 Ry
+PAW xc energy AE      =    -278.65278152 Ry
+PAW xc energy PS      =      79.09139703 Ry
+total E_H with PAW    =     242.71328996 Ry
+total E_XC with PAW   =    -282.29826182 Ry
+
+     total magnetization       =     0.00 Bohr mag/cell
+     absolute magnetization    =     3.52 Bohr mag/cell
+#+end_example
+
+- Calculate Hubbard U parameters using =hp.x= 
+#+begin_src shell :session *shell* :results output :exports both
+qe bash -c "export OMP_NUM_THREADS=2; mpirun -np 4 hp.x -npool 4 < 07-hp.in > 12-hp.out"
+grep "WALL" 12-*.out | tail -1
+qed
+cat nio_afm_u.Hubbard_parameters.dat
+#+end_src
+
+#+RESULTS:
+#+begin_example
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+HP           :  19m49.18s CPU  12m28.30s WALL
+DONE@Sun Jun 21 20:43:48 CEST 2026
+=-------------------------------------------------------------------------------=
+
+                                 Hubbard U parameters:
+
+       site n.  type  label  spin  new_type  new_label  manifold  Hubbard U (eV)
+         1        1   Ni1      1      1         Ni1        3d       5.8333
+         2        2   Ni2     -1      1         Ni1        3d       5.8333
+
+  =-------------------------------------------------------------------------------=
+#+end_example
+
+**** Iterate until U parameters converge
+- Get the previous cell & U parameters (run once)
+#+begin_src shell :session *shell* :results output :exports both
+cellparams=$(grep -A 4 "CELL_PARAMETERS" 10-dft+u_relax.out | tail -n 5)
+echo "$cellparams" >> 13-dft+u_relax.out
+echo "$cellparams" >> 13-u_conv.log
+uparam1=`grep '1   Ni1' nio_afm_u.Hubbard_parameters.dat | awk '{print $8}'`
+uparam2=`grep '2   Ni2' nio_afm_u.Hubbard_parameters.dat | awk '{print $8}'`
+echo "u:" $uparam1 $uparam2 >> 13-u_conv.log
+#+end_src
+
+#+RESULTS:
+
+- Set the U parameters
+#+begin_src shell :session *shell* :results output :exports both
+uparam1=`grep '1   Ni1' nio_afm_u.Hubbard_parameters.dat | awk '{print $8}'`
+uparam2=`grep '2   Ni2' nio_afm_u.Hubbard_parameters.dat | awk '{print $8}'`
+echo $uparam1 $uparam2
+#+end_src
+
+#+RESULTS:
+: 6.0252 6.0252
+
+- Set the initial cell parameters
+#+begin_src shell :session *shell* :results output :exports both
+cellparams=$(grep -A 4 "CELL_PARAMETERS" 13-dft+u_relax.out | tail -n 5)
+echo "$cellparams"
+#+end_src
+
+#+RESULTS:
+: CELL_PARAMETERS (angstrom)
+:    2.072282807   2.072282807   4.153926068
+:    2.072282807   4.153926068   2.072282807
+:    4.153926068   2.072282807   2.072282807
+
+- Relax with the updated U parameters
+#+begin_src shell :session *shell* :results output :exports both
+cat << EOF > 13-dft+u_relax.in
+&CONTROL
+  calculation   = 'vc-relax'
+  restart_mode  = 'from_scratch'
+  prefix        = 'nio_afm_u'
+  outdir        = './tmp/'
+  pseudo_dir    = './pseudo/'
+  verbosity     = 'high'
+  etot_conv_thr = 1.0d-4
+  forc_conv_thr = 1.0d-3
+/
+&SYSTEM
+  ibrav     = 0
+  nat       = 4
+  ntyp      = 3
+  ecutwfc   = 75.0
+  ecutrho   = 480.0
+  nspin                     = 2
+  starting_magnetization(1) =  0.5
+  starting_magnetization(2) = -0.5
+  occupations               = 'smearing'
+  smearing                  = 'mv'
+  degauss                   = 0.001
+/
+&ELECTRONS
+  conv_thr    = 1.0d-10
+/
+&IONS
+  ion_dynamics = 'bfgs'
+/
+&CELL
+  cell_dynamics = 'bfgs'
+/
+$cellparams
+ATOMIC_SPECIES
+  Ni1  58.69340  Ni.pbesol-spn-kjpaw_psl.1.0.0.UPF
+  Ni2  58.69340  Ni.pbesol-spn-kjpaw_psl.1.0.0.UPF
+   O   15.99900  O.pbesol-n-kjpaw_psl.1.0.0.UPF
+ATOMIC_POSITIONS {crystal}
+Ni1  0.000000000000000   0.000000000000000   0.000000000000000 
+Ni2  0.500000000000000   0.500000000000000   0.500000000000000 
+ O   0.250000000000000   0.250000000000000   0.250000000000000
+ O   0.750000000000000   0.750000000000000   0.750000000000000
+K_POINTS {automatic}
+4 4 4 1 1 1
+
+HUBBARD {ortho-atomic}
+U Ni1-3d $uparam1
+U Ni2-3d $uparam2
+EOF
+#+end_src
+
+#+RESULTS:
+
+#+begin_src shell :session *shell* :results output :exports both
+qe bash -c "OMP_NUM_THREADS=8 pw.x < 13-dft+u_relax.in > 13-dft+u_relax.out"
+grep "WALL" 13-*relax.out | tail -1
+qed
+#+end_src
+
+#+RESULTS:
+: Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+: PWSCF        :      1h16m CPU   9m10.06s WALL
+: DONE@Mon Jun 22 01:12:35 CEST 2026
+
+- Get the new relaxed cell parameters
+#+begin_src shell :session *shell* :results output :exports both
+cellparams=$(grep -A 4 "CELL_PARAMETERS" 13-dft+u_relax.out | tail -n 5)
+echo "$cellparams" >> 13-u_conv.log
+echo "$cellparams"
+#+end_src
+
+#+RESULTS:
+: CELL_PARAMETERS (angstrom)
+:    2.072282807   2.072282807   4.153926068
+:    2.072282807   4.153926068   2.072282807
+:    4.153926068   2.072282807   2.072282807
+
+- Run SCF with the relaxed structure
+#+begin_src shell :session *shell* :results output :exports both
+cat << EOF > 13-dft+u_scf1.in
+&CONTROL
+  calculation   = 'scf'
+  restart_mode  = 'from_scratch'
+  prefix        = 'nio_afm_u'
+  outdir        = './tmp/'
+  pseudo_dir    = './pseudo/'
+  verbosity     = 'high'
+/
+&SYSTEM
+  ibrav     = 0
+  nat       = 4
+  ntyp      = 3
+  ecutwfc   = 75.0
+  ecutrho   = 480.0
+  nspin                     = 2
+  starting_magnetization(1) =  0.5
+  starting_magnetization(2) = -0.5
+  occupations               = 'smearing'
+  smearing                  = 'mv'
+  degauss                   = 0.001
+/
+&ELECTRONS
+  conv_thr    = 1.0d-10
+  mixing_beta = 0.3
+/
+$cellparams
+ATOMIC_SPECIES
+  Ni1  58.69340  Ni.pbesol-spn-kjpaw_psl.1.0.0.UPF
+  Ni2  58.69340  Ni.pbesol-spn-kjpaw_psl.1.0.0.UPF
+   O   15.99900  O.pbesol-n-kjpaw_psl.1.0.0.UPF
+ATOMIC_POSITIONS {crystal}
+Ni1  0.000000000000000   0.000000000000000   0.000000000000000 
+Ni2  0.500000000000000   0.500000000000000   0.500000000000000 
+ O   0.250000000000000   0.250000000000000   0.250000000000000
+ O   0.750000000000000   0.750000000000000   0.750000000000000
+K_POINTS {automatic}
+2 2 2 1 1 1
+
+HUBBARD {ortho-atomic}
+U Ni1-3d $uparam1
+U Ni2-3d $uparam2
+EOF
+#+end_src
+
+#+RESULTS:
+
+#+begin_src shell :session *shell* :results output :exports both
+qe bash -c "OMP_NUM_THREADS=8 pw.x < 13-dft+u_scf1.in > 13-dft+u_scf1.out"
+grep "WALL" 13-*1.out | tail -1
+qed
+#+end_src
+
+#+RESULTS:
+: Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+: PWSCF        :   9m 5.71s CPU   1m21.93s WALL
+: DONE@Mon Jun 22 01:14:28 CEST 2026
+
+- Run SCF with fixed occupations
+#+begin_src shell :session *shell* :results output :exports both
+nbnd=$(grep 'number of Kohn-Sham states' 13-*1.out | awk '{print $5}')
+mtot=$(grep 'total magnetization' 13-*1.out | tail -1 | awk '{print $4}')
+echo $nbnd $mtot
+#+end_src
+
+#+RESULTS:
+: 29 0.00
+
+#+begin_src shell :session *shell* :results output :exports both
+cat << EOF > 13-dft+u_scf2.in
+&CONTROL
+  calculation   = 'scf'
+  restart_mode  = 'from_scratch'
+  prefix        = 'nio_afm_u'
+  outdir        = './tmp/'
+  pseudo_dir    = './pseudo/'
+  verbosity     = 'high'
+/
+&SYSTEM
+  ibrav     = 0
+  nat       = 4
+  ntyp      = 3
+  ecutwfc   = 75.0
+  ecutrho   = 480.0
+  nspin             = 2
+  tot_magnetization = $mtot
+  occupations       = 'fixed'
+  nbnd              = $nbnd
+/
+&ELECTRONS
+  conv_thr      = 1.0d-10
+  startingwfc   = 'file'
+  startingpot   = 'file'
+/
+$cellparams
+ATOMIC_SPECIES
+  Ni1  58.69340  Ni.pbesol-spn-kjpaw_psl.1.0.0.UPF
+  Ni2  58.69340  Ni.pbesol-spn-kjpaw_psl.1.0.0.UPF
+   O   15.99900  O.pbesol-n-kjpaw_psl.1.0.0.UPF
+ATOMIC_POSITIONS {crystal}
+Ni1  0.000000000000000   0.000000000000000   0.000000000000000 
+Ni2  0.500000000000000   0.500000000000000   0.500000000000000 
+ O   0.250000000000000   0.250000000000000   0.250000000000000
+ O   0.750000000000000   0.750000000000000   0.750000000000000
+K_POINTS {automatic}
+2 2 2 1 1 1
+
+HUBBARD {ortho-atomic}
+U Ni1-3d $uparam1
+U Ni2-3d $uparam2
+EOF
+#+end_src
+
+#+RESULTS:
+
+#+begin_src shell :session *shell* :results output :exports both
+qe bash -c "OMP_NUM_THREADS=8 pw.x < 13-dft+u_scf2.in > 13-dft+u_scf2.out"
+grep "WALL" 13-*2.out | tail -1
+qed
+#+end_src
+
+#+RESULTS:
+: Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+: PWSCF        :   2m 2.07s CPU     20.22s WALL
+: DONE@Mon Jun 22 01:15:20 CEST 2026
+
+- Calculate Hubbard U parameters 
+#+begin_src shell :session *shell* :results output :exports both
+qe bash -c "export OMP_NUM_THREADS=2; mpirun -np 4 hp.x -npool 4 < 07-hp.in > 13-hp.out"
+grep "WALL" 13-hp.out | tail -1
+qed
+#+end_src
+
+#+RESULTS:
+: Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+: Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+: Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+: Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+: HP           :  21m42.01s CPU  13m36.69s WALL
+: DONE@Mon Jun 22 01:29:40 CEST 2026
+
+#+begin_src shell :session *shell* :results output :exports both
+uparam1=`grep '1   Ni1' nio_afm_u.Hubbard_parameters.dat | awk '{print $8}'`
+uparam2=`grep '2   Ni2' nio_afm_u.Hubbard_parameters.dat | awk '{print $8}'`
+echo "u:" $uparam1 $uparam2 >> 13-u_conv.log
+echo $uparam1 $uparam2
+#+end_src
+
+#+RESULTS:
+: 6.0252 6.0252
+
+- Check U values
+#+begin_src shell :session *shell* :results output :exports both
+grep "u:" 13-u_conv.log
+#+end_src
+
+#+RESULTS:
+: u: 5.8333 5.8333
+: u: 6.0543 6.0543
+: u: 6.0199 6.0199
+: u: 6.0259 6.0259
+: u: 6.0251 6.0251
+: u: 6.0252 6.0252
+: u: 6.0252 6.0252
+
+**** Calculate DFT+U PDOS
+- Run a non-SCF calculation
+#+begin_src shell :session *shell* :results output :exports both
+cat << 'EOF' > 14-dft+u_nscf.in
+&CONTROL
+  calculation   = 'nscf'
+  restart_mode  = 'from_scratch'
+  prefix        = 'nio_afm_u'
+  outdir        = './tmp/'
+  pseudo_dir    = './pseudo/'
+  verbosity     = 'high'
+/
+&SYSTEM
+  ibrav     = 0
+  nat       = 4
+  ntyp      = 3
+  ecutwfc   = 75.0
+  ecutrho   = 480.0
+  nspin             = 2
+  tot_magnetization = 0.00
+  occupations       = 'fixed'
+  nbnd              = 40
+/
+&ELECTRONS
+  conv_thr    = 1.0d-10
+/
+CELL_PARAMETERS (angstrom)
+   2.072282807   2.072282807   4.153926068
+   2.072282807   4.153926068   2.072282807
+   4.153926068   2.072282807   2.072282807
+ATOMIC_SPECIES
+  Ni1  58.69340  Ni.pbesol-spn-kjpaw_psl.1.0.0.UPF
+  Ni2  58.69340  Ni.pbesol-spn-kjpaw_psl.1.0.0.UPF
+   O   15.99900  O.pbesol-n-kjpaw_psl.1.0.0.UPF
+ATOMIC_POSITIONS {crystal}
+Ni1  0.000000000000000   0.000000000000000   0.000000000000000 
+Ni2  0.500000000000000   0.500000000000000   0.500000000000000 
+ O   0.250000000000000   0.250000000000000   0.250000000000000
+ O   0.750000000000000   0.750000000000000   0.750000000000000
+K_POINTS {automatic}
+4 4 4 1 1 1
+
+HUBBARD {ortho-atomic}
+U Ni1-3d 6.0252
+U Ni2-3d 6.0252
+EOF
+#+end_src
+
+#+RESULTS:
+
+#+begin_src shell :results output :exports both
+ls
+#+end_src
+
+#+RESULTS:
+#+begin_example
+#qe_dft+u_NiO.org#
+01-nio.in
+02-relax.in
+02-relax.out
+03-scf.in
+03-scf.out
+04-nscf.in
+04-nscf.out
+05-projwfc.in
+05-projwfc.out
+06-dft+u_scf1.in
+06-dft+u_scf1.out
+06-dft+u_scf2.in
+07-hp.in
+07-hp.out
+08-dft+u_scf2.out
+09-hp.out
+10-dft+u_relax.in
+10-dft+u_relax.out
+1010093.cif
+11-dft+u_scf1.out
+11-dft+u_scf2.out
+12-hp.out
+13-dft+u_relax.in
+13-dft+u_relax.out
+13-dft+u_scf1.in
+13-dft+u_scf1.out
+13-dft+u_scf2.in
+13-dft+u_scf2.out
+13-hp.out
+13-u_conv.log
+14-dft+u_nscf.in
+nio_afm.pdos_atm#1(Ni1)_wfc#1(s)
+nio_afm.pdos_atm#1(Ni1)_wfc#2(s)
+nio_afm.pdos_atm#1(Ni1)_wfc#3(p)
+nio_afm.pdos_atm#1(Ni1)_wfc#4(d)
+nio_afm.pdos_atm#2(Ni2)_wfc#1(s)
+nio_afm.pdos_atm#2(Ni2)_wfc#2(s)
+nio_afm.pdos_atm#2(Ni2)_wfc#3(p)
+nio_afm.pdos_atm#2(Ni2)_wfc#4(d)
+nio_afm.pdos_atm#3(O)_wfc#1(s)
+nio_afm.pdos_atm#3(O)_wfc#2(p)
+nio_afm.pdos_atm#4(O)_wfc#1(s)
+nio_afm.pdos_atm#4(O)_wfc#2(p)
+nio_afm.pdos_tot
+nio_afm_u.Hubbard_parameters.dat
+nio_pdos_pbesol.png
+pixi.lock
+pixi.toml
+plot_pdos.py
+pseudo
+qe_dft+u_NiO.org
+tmp
+#+end_example
+
+#+begin_src shell :session *shell* :results output :exports both
+qe bash -c "OMP_NUM_THREADS=8 pw.x < 14-dft+u_nscf.in > 14-dft+u_nscf.out"
+grep "WALL" 14-*.out | tail -1
+qed
+#+end_src
+
+#+RESULTS:
+: Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+: PWSCF        :  34m58.34s CPU   3m51.06s WALL
+: DONE@Mon Jun 22 01:42:03 CEST 2026
+
+- Calculate DFT+U PDOS using =projwfc.x=
+#+begin_src shell :session *shell* :results output :exports both
+cat << 'EOF' > 15-dft+u_projwfc.in
+&PROJWFC
+  prefix      = 'nio_afm_u'
+  outdir      = './tmp/'
+  ngauss      = 0
+  degauss     = 0.005
+  Emin        = -15.0
+  Emax        = 30.0
+  DeltaE      = 0.01
+/
+EOF
+#+end_src
+
+#+RESULTS:
+
+#+begin_src shell :results output :exports both
+ls
+#+end_src
+
+#+RESULTS:
+#+begin_example
+#qe_dft+u_NiO.org#
+01-nio.in
+02-relax.in
+02-relax.out
+03-scf.in
+03-scf.out
+04-nscf.in
+04-nscf.out
+05-projwfc.in
+05-projwfc.out
+06-dft+u_scf1.in
+06-dft+u_scf1.out
+06-dft+u_scf2.in
+07-hp.in
+07-hp.out
+08-dft+u_scf2.out
+09-hp.out
+10-dft+u_relax.in
+10-dft+u_relax.out
+1010093.cif
+11-dft+u_scf1.out
+11-dft+u_scf2.out
+12-hp.out
+13-dft+u_relax.in
+13-dft+u_relax.out
+13-dft+u_scf1.in
+13-dft+u_scf1.out
+13-dft+u_scf2.in
+13-dft+u_scf2.out
+13-hp.out
+13-u_conv.log
+14-dft+u_nscf.in
+14-dft+u_nscf.out
+15-dft+u_projwfc.in
+nio_afm.pdos_atm#1(Ni1)_wfc#1(s)
+nio_afm.pdos_atm#1(Ni1)_wfc#2(s)
+nio_afm.pdos_atm#1(Ni1)_wfc#3(p)
+nio_afm.pdos_atm#1(Ni1)_wfc#4(d)
+nio_afm.pdos_atm#2(Ni2)_wfc#1(s)
+nio_afm.pdos_atm#2(Ni2)_wfc#2(s)
+nio_afm.pdos_atm#2(Ni2)_wfc#3(p)
+nio_afm.pdos_atm#2(Ni2)_wfc#4(d)
+nio_afm.pdos_atm#3(O)_wfc#1(s)
+nio_afm.pdos_atm#3(O)_wfc#2(p)
+nio_afm.pdos_atm#4(O)_wfc#1(s)
+nio_afm.pdos_atm#4(O)_wfc#2(p)
+nio_afm.pdos_tot
+nio_afm_u.Hubbard_parameters.dat
+nio_pdos_pbesol.png
+pixi.lock
+pixi.toml
+plot_pdos.py
+pseudo
+qe_dft+u_NiO.org
+tmp
+#+end_example
+
+#+begin_src shell :session *shell* :results output :exports both
+qe bash -c "OMP_NUM_THREADS=8 projwfc.x < 15-dft+u_projwfc.in > 15-dft+u_projwfc.out"
+grep "WALL" 15-*.out | tail -1
+qed
+#+end_src
+
+#+RESULTS:
+: PROJWFC      :     12.82s CPU      4.38s WALL
+: DONE@Mon Jun 22 01:43:12 CEST 2026
+
+#+begin_src shell :session *shell* :results output :exports both
+pixi run python plot_pdos.py -i 14-dft+u_nscf.out -p nio_afm_u -o nio_pdos_pbesol+u.png
+qed
+#+end_src
+
+#+RESULTS:
+: Parsed Insulating Valence Band Max (Highest Occupied): 13.0156 eV
+: Using Reference Energy: 13.0156 eV
+: Reading total DOS from: nio_afm_u.pdos_tot
+: Figure saved successfully to: nio_pdos_pbesol+u.png
+: DONE@Mon Jun 22 01:43:46 CEST 2026
+
+#+ATTR_ORG: :width 600
+[[./nio_pdos_pbesol+u.png]]
+
+*** Milestones                                        :Text:Visualization:
+- Determine Hubbard U parameters for NiO (AFM)
+  #+begin_src shell :session *shell* :results output :exports both
+  cat nio_afm_u.Hubbard_parameters.dat
+  #+end_src
+
+  #+RESULTS:
+  : =-------------------------------------------------------------------------------=
+  : 
+  :                                  Hubbard U parameters:
+  : 
+  :        site n.  type  label  spin  new_type  new_label  manifold  Hubbard U (eV)
+  :          1        1   Ni1      1      1         Ni1        3d       6.0252
+  :          2        2   Ni2     -1      1         Ni1        3d       6.0252
+  : 
+  :   =-------------------------------------------------------------------------------=
+- Calculate PBEsol PDOS of NiO (AFM)
+  - a = 4.085 \AA
   #+ATTR_ORG: :width 600
-  [[./nio_pdos_pbesol+u.png]]
+  [[https://figshare.com/ndownloader/files/65739144/preview/65739144/preview.jpg]]
+- Calculate PBEsol+U PDOS of NiO (AFM)
+  - a = 4.154 \AA
+  #+ATTR_ORG: :width 600
+  [[https://figshare.com/ndownloader/files/65739141/preview/65739141/preview.jpg]]
 
