@@ -3522,10 +3522,12 @@ qed
   :   =-------------------------------------------------------------------------------=
 - Calculate PBEsol PDOS of NiO (AFM)
   - a = 4.085 \AA
+  - [[https://doi.org/10.6084/m9.figshare.32751579][Projected density of states of antiferromagnetic NiO]]
   #+ATTR_ORG: :width 600
-  [[https://figshare.com/ndownloader/files/65739144/preview/65739144/preview.jpg]]
+  [[https://s3-eu-west-1.amazonaws.com/pfigshare-u-previews/65739144/thumb.png]]
 - Calculate PBEsol+U PDOS of NiO (AFM)
   - a = 4.154 \AA
+  - [[https://doi.org/10.6084/m9.figshare.32751582][Projected density of states (DFT+U) of antiferromagnetic NiO]]
   #+ATTR_ORG: :width 600
-  [[https://figshare.com/ndownloader/files/65739141/preview/65739141/preview.jpg]]
+  [[https://s3-eu-west-1.amazonaws.com/pfigshare-u-previews/65739141/thumb.png]]
 
