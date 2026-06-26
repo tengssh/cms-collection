@@ -42,10 +42,10 @@ graph TD
 ### Step 4: Classification & Structural Placement (Use [classify_resource.py](./scripts/classify_resource.py))
 Determine the file target based on architectural purpose:
 1. **Simulation Bundles vs. Process Managers:**
-   - **Bundles & Solvers (`multiscale.md`):** If the resource bundles multiple physical calculation packages/solvers (DFT, MD, MC, thermal solvers) or couples physical scales concurrently (QM/MM, PIMD), catalog it in multiscale.md. Add the `Code/Sim` tag.
-   - **Process & Workflow Managers (`workflows.md`):** If the resource only orchestrates execution, pipelines, or database access without bundling its own solvers (e.g., AiiDA, pyiron, Rescale), catalog it in workflows.md.Add the `Code/WF` tag.
-2. **Machine Learning Toolkits (`ml_toolkits.md`):** If the tool is a developer framework or utility for machine learning in chemistry/materials (e.g., training pipelines, tensor operations), place it in ml_toolkits.md. Add the `Code/ML` tag.
-3. **Out-of-Scope Backlog (`backlog.md`):** If the tool is general-purpose (e.g., general PDE/physics solvers, non-materials specific agents) or a static research database publication record (Zenodo, Figshare), catalog it in backlog.md.
+   - **Bundles & Solvers (`sim-multiscale-multiphysics.md`):** If the resource bundles multiple physical calculation packages/solvers (DFT, MD, MC, thermal solvers) or couples physical scales concurrently (QM/MM, PIMD), catalog it in `doc/sim-multiscale-multiphysics.md`. Add the `Code/Sim` tag.
+   - **Process & Workflow Managers (`wf-toolkits.md`):** If the resource only orchestrates execution, pipelines, or database access without bundling its own solvers (e.g., AiiDA, pyiron, Rescale), catalog it in `doc/wf-toolkits.md`. Add the `Code/WF` tag.
+2. **Machine Learning Toolkits (`ml-toolkits.md`):** If the tool is a developer framework or utility for machine learning in chemistry/materials (e.g., training pipelines, tensor operations), place it in `doc/ml-toolkits.md`. Add the `Code/ML` tag.
+3. **Out-of-Scope Backlog (`backlog.md`):** If the tool is general-purpose (e.g., general PDE/physics solvers, non-materials specific agents) or a static research database publication record (Zenodo, Figshare), catalog it in `doc/backlog.md`.
 
 ### Step 5: Cataloging & Description Styling (Use [format_catalog_entry.py](./scripts/format_catalog_entry.py))
 Adhere to the following stylistic guidelines when formatting entries:
