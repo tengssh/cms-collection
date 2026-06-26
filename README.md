@@ -2,29 +2,35 @@
 
 This repository is a curated collection of resources for computational materials science (CMS).
 
+Given the rapidly evolving nature of this field, the proposed categories are designed to be as simple as possible, while being as comprehensive as necessary.
+
 ## Table of Contents
+
 - [Curated Lists](#Curated-Lists)
 - [Databases & Datasets](#Databases--Datasets)
+- [Computing & Workflows](#Computing--Workflows)
 - [Machine Learning](#Machine-Learning)
 - [Tools: Crystal structures](#Tools-Crystal-structures)
 - [Tools: Molecular structures](#Tools-Molecular-structures)
 - [Toolkits](#Toolkits)
-- WIP
 - [OCW](#OCW)
 - [Glossary](#Glossary)
 - [License](#License)
 
 ## Curated Lists
+
 | Item (URL) | Description | Tags |
 | :--------- | :---------- | :--- |
 | [awesome-materials-informatics](https://github.com/tilde-lab/awesome-materials-informatics) | A curated list of known efforts in materials informatics. | List |
 | [awesome-matchem-datasets](https://github.com/blaiszik/awesome-matchem-datasets) | A curated list of datasets in materials science for AI/ML. | List, Data |
 | [data-resources-for-materials-science](https://github.com/sedaoturak/data-resources-for-materials-science) | A curated list of databases, datasets, and books/handbooks of materials properties for ML applications. | List, Data | 
 | [atomistic.software](https://atomistic.software/) | atomistic.software tracks the citation trends of all major atomistic simulation engines. | List, Code/Sim, App |
-| [Existing Workflow systems](https://s.apache.org/existing-workflow-systems) | A curated list of computational workflow systems, engines, and tools for bioinformatics, data analysis, HPC, and scientific computing. | List, Code/WF |
 | [Electronic Structure Library](https://esl.cecam.org/en/index.html) | A collection of community-maintained libraries and packages for electronic structure simulations. | List, Code/Sim |
+| [Existing Workflow systems](https://s.apache.org/existing-workflow-systems) | A curated list of computational workflow systems, engines, and tools for bioinformatics, data analysis, HPC, and scientific computing. | List, Code/WF |
+| [Workflows Community Systems](https://workflows.community/systems) | Community directory and registry of computational workflow systems and execution engines. | List, App |
 
 ## Databases & Datasets
+
 | Item (URL) | Description | Tags |
 | :--------- | :---------- | :--- |
 | [International Tables for Crystallography](https://it.iucr.org/) | The definitive resource and reference work for crystallography, providing standardized data on crystal symmetry, space groups, and diffraction methods. | Data |
@@ -100,10 +106,25 @@ This repository is a curated collection of resources for computational materials
 | [Elementary Multiperspective Material Ontology (EMMO)](https://emmo-repo.github.io/) | A standardized representational ontology framework for materials modelling and characterization knowledge. | Data |
 | [Material Core (MatCore)](https://matcore.org/) | A community-specific metadata standard for computational materials science. | Data |
 
+## Computing & Workflows
+
+| Item (URL) | Description | Tags |
+| :--------- | :---------- | :--- |
+| [Multiscale & Multiphysics](./doc/sim-multiscale-multiphysics.md) | Software packages, tools, and platforms for multiscale and multiphysics materials modeling and simulation. | List, Code/Sim, Code/WF, Code/Lib, Code/ML, App |
+| [Integrated workflows](./doc/wf-toolkits.md) | Integrated workflows and management tools for materials science research. | List, Code/WF, Code/Sim, Code/ML, App |
+
 ## Machine Learning
-WIP
+
+| Item (URL) | Description | Tags |
+| :--------- | :---------- | :--- |
+| [Predictive models](./doc/ml-predictive-models.md) | Machine learning interatomic potentials (MLIPs) and predictive models for material property prediction. | List, Code/ML, Code/Lib |
+| [Generative models](./doc/ml-generative-models.md) | Machine learning models for generating crystal structures, molecular structures, spectra, etc. | List, Code/ML, Code/Lib, Code/WF |
+| [Uncertainty quantification](./doc/ml-uncertainty-quantification.md) | Uncertainty quantification, active learning, and optimization tools for materials science. | List, Code/ML, Code/Lib, Code/WF |
+| [Benchmarks](./doc/ml-benchmarks.md) | Benchmarks for machine learning models and applications in materials science. | List, Data, Code/ML, App |
+| [Machine learning toolkits](./doc/ml-toolkits.md) | General-purpose machine learning toolkits for materials science. | List, Code/ML, Code/Lib, Code/WF, App |
 
 ## Tools: Crystal structures
+
 | Item (URL) | Description | Tags |
 | :--------- | :---------- | :--- |
 | [Open Visualization Tool (OVITO)](https://www.ovito.org/) | A visualization tool for particle-based simulations. | Code/Lib, App |
@@ -121,8 +142,12 @@ WIP
 | [xrayutilities](https://github.com/dkriegner/xrayutilities) | A collection of scripts for analyzing and simulating X-ray diffraction data. | Code/Lib |
 | [GenL](https://github.com/scatterer/GenL) | A fitting tool for X-ray diffraction data on single crystal films. | Code/Lib, App |
 | [MOFBuilder](https://github.com/chenxili01/MOFBuilder) | A Python package for building Metal-Organic Framework (MOF) structures. | Code/Lib |
+| [pyscal](https://github.com/pyscal/pyscal) | Python library for calculation of local atomic structural environment. | Code/Lib |
+| [CALYPSO](https://www.calypso.cn/home/) | Crystal structure prediction using particle swarm optimization. | Code/Sim, App |
+| [virp](https://github.com/andypaulchen/virp) | Virtual cell generation from crystal structures containing site disorder. | Code/Lib |
 
 ## Tools: Molecular structures
+
 | Item (URL) | Description | Tags |
 | :--------- | :---------- | :--- |
 | [IQmol](http://iqmol.org/) | A visualization tool for molecular systems. | App |
@@ -135,6 +160,7 @@ WIP
 | [Martini_mapping](https://github.com/eliobaby/Martini_mapping), [Martini_mapper](https://github.com/eliobaby/Martini_mapper) | A Python package for generating coarse-grained models from SMILES strings. | Code/Lib |
 
 ## Toolkits
+
 | Item (URL) | Description | Tags |
 | :--------- | :---------- | :--- |
 | [Bilbao Crystallographic Server ](https://www.cryst.ehu.es/) | An online server providing programs and utilities for crystallography and solid state materials. | Data, Code/Lib, App |
@@ -152,10 +178,9 @@ WIP
 | [Phonopy](https://github.com/phonopy/phonopy/) | A Python package for phonon calculations of harmonic and quasi-harmonic properties. | Code/Lib |
 | [Phono3py](https://github.com/phonopy/phono3py) | A Python package for phonon-phonon interactions related properties. | Code/Lib |
 | [Cheminfo](https://www.cheminfo.org/) | A platform with a collection of web applications for visualizing, analyzing, and organizing cheminformatics data. | App, Data |
-| [Graphical Interface for Materials Simulations](https://gims.ms1p.org/) | A browser-based graphical user interface of toolkits for electronic structure codes. | App, Code/Lib |
-| [CP2K Lab](https://lab.cp2k.com/) | A cloud platform for using the CP2K software package with a variety of utilities. | App, Code/Sim, Code/Lib, Edu |
 
 ## OCW
+
 | Item (URL) | Description | Tags |
 | :--------- | :---------- | :--- |
 | [The Space Group List Project](https://crystalsymmetry.wordpress.com/2014/08/15/the-space-group-list-project-as-a-poster/) | A gallery for the collection of 3D crystal examples for all 230 space groups. | Edu |
@@ -181,6 +206,7 @@ WIP
 | [BestPractices](https://github.com/anthony-wang/BestPractices) | Best practices for materials informatics research. | Edu |
 
 ## Glossary
+
 | Tag       | Description          |
 | --------- | -------------------- |
 | List      | Curated compilations |
@@ -197,6 +223,7 @@ WIP
 > Go to [Table of Contents](#Table-of-Contents)
 
 ## License
+
 <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/cc-zero.png" width="100">
 
 > While the curated collection and overall contents of this page are dedicated to the public domain (CC0), the copyright and specific usage instructions for individual items remain with their respective creators. Users must refer to the original source page for licensing terms and requirements for attribution or reuse.
