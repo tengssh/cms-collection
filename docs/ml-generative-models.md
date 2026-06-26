@@ -42,4 +42,5 @@ tags: ["Code/ML", "Code/Lib", "Code/WF"]
 | [G-SchNet](https://github.com/atomistic-machine-learning/schnetpack-gschnet) | Generative neural network extension for molecular design and structure prediction. | Code/ML, Code/Lib |
 | [PLaID](https://github.com/andaero/PLaID) | Preference-aligned language model for targeted inorganic materials design. | Code/ML, Code/Lib |
 | [ProtoCSP](https://github.com/rogeriog/ProtoCSP) | Discovery of solid solutions, high-entropy alloys, and complex crystals through prototype transmutation and machine learning interatomic potential validation. | Code/ML, Code/Lib |
+| [alm](https://github.com/learningmatter-mit/alm) | Unified modeling of natural language and 3D atomic structures to understand, generate, and optimize materials. | Code/ML, Code/Lib |
 

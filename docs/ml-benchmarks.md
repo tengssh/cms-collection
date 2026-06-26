@@ -25,3 +25,7 @@ tags: ["Data", "Code/ML", "App"]
 | [MatFormBench](https://github.com/DeepVerse/MatFormBench) | Benchmarking ecosystem evaluating generative strategies for target-driven formulation. | Data, Code/ML |
 | [WF-Bench](https://github.com/L0bsterkun/WF-Bench) | Benchmark dataset evaluating the expressivity and scaling laws of neural-network wavefunctions. | Data/Comp, Code/ML |
 | [ML-PEG](https://github.com/ddmms/ml-peg) | Interactive benchmarking and extrapolation guide for machine learning interatomic potentials. | App, Code/ML |
+| [SciVerseGym](https://github.com/Bin-Cao/SciVerseGym) | Gymnasium-compatible environment for reinforcement learning and Bayesian optimization in crystal discovery. | Code/WF, Code/ML |
+| [physci-deepresearch](https://github.com/yigengjiang/physci-deepresearch) | Benchmark evaluating LLM agent systems on multi-step scientific reasoning tasks in physics and chemistry. | Code/WF, Code/ML |
+| [UniFFBench](https://github.com/M3RG-IITD/UniFFBench) | Evaluation of universal machine learning force fields against experimental materials data. | Data, Code/ML |
+| [incarbench](https://github.com/liuzhiyangnku/incarbench) | Benchmark evaluating LLMs on generating and repairing VASP INCAR configuration files. | Data, Code/ML |

@@ -178,6 +178,7 @@ Given the rapidly evolving nature of this field, the proposed categories are des
 | [Phonopy](https://github.com/phonopy/phonopy/) | A Python package for phonon calculations of harmonic and quasi-harmonic properties. | Code/Lib |
 | [Phono3py](https://github.com/phonopy/phono3py) | A Python package for phonon-phonon interactions related properties. | Code/Lib |
 | [Cheminfo](https://www.cheminfo.org/) | A platform with a collection of web applications for visualizing, analyzing, and organizing cheminformatics data. | App, Data |
+| [aim2dat](https://github.com/aim2dat/aim2dat) | Pre-processing, post-processing, and data management of high-throughput ab initio workflows. | Code/Lib, Code/WF |
 
 ## OCW
 
