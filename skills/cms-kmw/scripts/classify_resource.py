@@ -50,20 +50,20 @@ def classify_and_tag(name, description, readme_content):
     rationale = ""
     
     if out_hits > 1 or (out_hits >= 1 and sim_hits == 0 and wf_hits == 0):
-        target_file = "doc/backlog.md"
+        target_file = "docs/backlog.md"
         primary_tag = "Backlog"
         rationale = "Contains general/out-of-scope engineering or publication keywords."
     elif wf_hits > sim_hits and wf_hits > ml_hits:
-        target_file = "doc/wf-toolkits.md"
+        target_file = "docs/wf-toolkits.md"
         primary_tag = "Code/WF"
         rationale = "Focuses on pipeline, automation, agent orchestration, or execution managers."
     elif ml_hits > sim_hits:
-        target_file = "doc/ml-toolkits.md"
+        target_file = "docs/ml-toolkits.md"
         primary_tag = "Code/ML"
         rationale = "Focuses on ML frameworks, representations, or model development toolkits."
     else:
         # Defaults to Simulation/Solvers
-        target_file = "doc/sim-multiscale-multiphysics.md"
+        target_file = "docs/sim-multiscale-multiphysics.md"
         primary_tag = "Code/Sim"
         rationale = "Bundles atomistic solvers, calculations (DFT/MD), or concurrent scale solvers."
 

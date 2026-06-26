@@ -111,17 +111,17 @@ Given the rapidly evolving nature of this field, the proposed categories are des
 | Item (URL) | Description | Tags |
 | :--------- | :---------- | :--- |
 | [Multiscale & Multiphysics](./doc/sim-multiscale-multiphysics.md) | Software packages, tools, and platforms for multiscale and multiphysics materials modeling and simulation. | List, Code/Sim, Code/WF, Code/Lib, Code/ML, App |
-| [Integrated workflows](./doc/wf-toolkits.md) | Integrated workflows and management tools for materials science research. | List, Code/WF, Code/Sim, Code/ML, App |
+| [Integrated workflows](./docs/wf-toolkits.md) | Integrated workflows and management tools for materials science research. | List, Code/WF, Code/Sim, Code/ML, App |
 
 ## Machine Learning
 
 | Item (URL) | Description | Tags |
 | :--------- | :---------- | :--- |
-| [Predictive models](./doc/ml-predictive-models.md) | Machine learning interatomic potentials (MLIPs) and predictive models for material property prediction. | List, Code/ML, Code/Lib |
-| [Generative models](./doc/ml-generative-models.md) | Machine learning models for generating crystal structures, molecular structures, spectra, etc. | List, Code/ML, Code/Lib, Code/WF |
-| [Uncertainty quantification](./doc/ml-uncertainty-quantification.md) | Uncertainty quantification, active learning, and optimization tools for materials science. | List, Code/ML, Code/Lib, Code/WF |
-| [Benchmarks](./doc/ml-benchmarks.md) | Benchmarks for machine learning models and applications in materials science. | List, Data, Code/ML, App |
-| [Machine learning toolkits](./doc/ml-toolkits.md) | General-purpose machine learning toolkits for materials science. | List, Code/ML, Code/Lib, Code/WF, App |
+| [Predictive models](./docs/ml-predictive-models.md) | Machine learning interatomic potentials (MLIPs) and predictive models for material property prediction. | List, Code/ML, Code/Lib |
+| [Generative models](./docs/ml-generative-models.md) | Machine learning models for generating crystal structures, molecular structures, spectra, etc. | List, Code/ML, Code/Lib, Code/WF |
+| [Uncertainty quantification](./docs/ml-uncertainty-quantification.md) | Uncertainty quantification, active learning, and optimization tools for materials science. | List, Code/ML, Code/Lib, Code/WF |
+| [Benchmarks](./docs/ml-benchmarks.md) | Benchmarks for machine learning models and applications in materials science. | List, Data, Code/ML, App |
+| [Machine learning toolkits](./docs/ml-toolkits.md) | General-purpose machine learning toolkits for materials science. | List, Code/ML, Code/Lib, Code/WF, App |
 
 ## Tools: Crystal structures
 
