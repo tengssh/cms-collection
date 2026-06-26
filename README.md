@@ -110,7 +110,7 @@ Given the rapidly evolving nature of this field, the proposed categories are des
 
 | Item (URL) | Description | Tags |
 | :--------- | :---------- | :--- |
-| [Multiscale & Multiphysics](./doc/sim-multiscale-multiphysics.md) | Software packages, tools, and platforms for multiscale and multiphysics materials modeling and simulation. | List, Code/Sim, Code/WF, Code/Lib, Code/ML, App |
+| [Multiscale & Multiphysics](./docs/sim-multiscale-multiphysics.md) | Software packages, tools, and platforms for multiscale and multiphysics materials modeling and simulation. | List, Code/Sim, Code/WF, Code/Lib, Code/ML, App |
 | [Integrated workflows](./docs/wf-toolkits.md) | Integrated workflows and management tools for materials science research. | List, Code/WF, Code/Sim, Code/ML, App |
 
 ## Machine Learning
