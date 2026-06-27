@@ -64,9 +64,17 @@ def get_collection(client, name="cms_collection"):
     """
     return client.get_collection(name=name)
 
+def get_workspace_root():
+    """
+    Resolves the absolute path to the repository root directory (cms-collection/).
+    Based on the location of this file in: skills/rag-chroma/scripts/chroma_utils.py
+    """
+    return os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+
 def parse_markdown(text, db_sections=None):
     """
     Parses a markdown document into Document chunks based on section headers and tables.
+    Also recursively parses local markdown files referenced in the tables.
     """
     if db_sections is None:
         db_sections = [
@@ -117,10 +125,67 @@ def parse_markdown(text, db_sections=None):
                             "section": section_title,
                             "url": url,
                             "tags": tags,
+                            "file": "README.md",
                             "type": "table_row"
                         }
                     )
                     chunks.append(doc)
+                    
+                    # Recursively parse local markdown file if URL points to one
+                    if url and (url.startswith("./docs/") or url.startswith("docs/")) and url.endswith(".md"):
+                        clean_url = url.lstrip("./")
+                        workspace_root = get_workspace_root()
+                        child_path = os.path.join(workspace_root, clean_url)
+                        if os.path.exists(child_path):
+                            with open(child_path, 'r', encoding='utf-8') as cf:
+                                child_text = cf.read()
+                                
+                                yaml_metadata = {}
+                                content_body = child_text
+                                if child_text.startswith("---"):
+                                    parts = child_text.split("---", 2)
+                                    if len(parts) >= 3:
+                                        yaml_block = parts[1]
+                                        content_body = parts[2]
+                                        for ym_line in yaml_block.split("\n"):
+                                            if ":" in ym_line:
+                                                k, v = ym_line.split(":", 1)
+                                                k = k.strip()
+                                                v = v.strip().strip('"').strip("'")
+                                                if v.startswith("[") and v.endswith("]"):
+                                                    v = [x.strip().strip('"').strip("'") for x in v[1:-1].split(",") if x.strip()]
+                                                yaml_metadata[k] = v
+                                                
+                                topic_name = yaml_metadata.get("name") or section_title
+                                
+                                child_lines = content_body.split('\n')
+                                for ci_line, cline in enumerate(child_lines):
+                                    if '|' in cline and not any(x in cline for x in ['| :---', '| Item']):
+                                        ccols = [c.strip() for c in cline.split('|') if c.strip()]
+                                        if len(ccols) >= 2:
+                                            citem_raw = ccols[0]
+                                            cdesc = ccols[1]
+                                            ctags = ccols[2] if len(ccols) > 2 else ""
+                                            
+                                            cname_match = re.search(r'\[(.*?)\]', citem_raw)
+                                            curl_match = re.search(r'\]\((.*?)\)', citem_raw)
+                                            
+                                            cname = cname_match.group(1) if cname_match else citem_raw
+                                            curl = curl_match.group(1) if curl_match else ""
+                                            
+                                            child_doc = Document(
+                                                page_content=f"Section: {section_title} > {topic_name} | Resource: {cname} | Description: {cdesc}",
+                                                metadata={
+                                                    "line": ci_line + 1,
+                                                    "section": section_title,
+                                                    "sub_section": topic_name,
+                                                    "url": curl,
+                                                    "tags": ctags,
+                                                    "file": clean_url,
+                                                    "type": "table_row"
+                                                }
+                                            )
+                                            chunks.append(child_doc)
             else: # for debug
                 doc = Document(
                     page_content=f"Section: {section_title} | Resource: {line} | Description: None",
