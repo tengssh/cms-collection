@@ -7,6 +7,10 @@ tags: ["Data", "Code/ML", "App"]
 
 | Item (URL) | Description | Tags |
 | :--------- | :---------- | :--- |
+| [Matbench Discovery](https://matbench-discovery.materialsproject.org/) | Interactive leaderboard for machine learning models on atomistic simulations. | Data/Comp, Code/ML, App |
+| [QM/ML Datasets](https://qmml.org/datasets.html) | Curated archive of benchmark datasets (molecules, solids, and liquids) for ML models. | Data/Comp |
+| [Minnesota Database 2.0](https://comp.chem.umn.edu/db/) | Curated collection of benchmark datasets for evaluating energetic and structural properties in chemistry and physics. | Data/Comp |
+| [JARVIS-Leaderboard](https://pages.nist.gov/jarvis_leaderboard/) | Open benchmarking resource comparing the performance of AI models, DFT codes, and classical force fields against high-quality reference data. | App, Data |
 | [LeMaterial](https://huggingface.co/blog/lematerial) | Open-source collaborative dataset and benchmark platform for materials science. | Data |
 | [MatTools](https://github.com/Grenzlinie/MatTools) | Benchmarking Large Language Models for materials science tools. | Data, Code/ML |
 | [BOOM](https://github.com/FLASK-LLNL/BOOM) | Benchmarking out-of-distribution molecular property predictions of machine learning models. | Data, Code/ML |

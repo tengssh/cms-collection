@@ -7,6 +7,9 @@ tags: ["Code/ML", "Code/Lib", "Code/WF", "App"]
 
 | Item (URL) | Description | Tags |
 | :--------- | :---------- | :--- |
+| [scikit-matter](https://github.com/scikit-learn-contrib/scikit-matter) | Scikit-learn compatible library for chemistry and materials science. | Code/Lib, Code/ML |
+| [RDKit](https://www.rdkit.org/docs/index.html) | Cheminformatics and machine learning toolkit. | Code/Lib, Code/ML |
+| [PyMKS](https://github.com/materialsinnovation/pymks/) | Building process-structure-property linkages for materials science applications. | Code/Lib, Code/ML |
 | [Weights & Biases](https://wandb.ai/) | Experiment tracking, visualization, and optimization for machine learning. (commercial) | App, Code/ML |
 | [DGL (Deep Graph Library)](https://www.dgl.ai/) | Deep learning on graph neural networks. | Code/Lib, Code/ML |
 | [NVIDIA Physics-NeMo](https://github.com/NVIDIA/physicsnemo) | Building, training, and fine-tuning of physics-informed AI models. | Code/Lib, Code/ML |

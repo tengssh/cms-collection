@@ -7,6 +7,9 @@ tags: ["Code/ML", "Code/Lib", "Code/WF"]
 
 | Item (URL) | Description | Tags |
 | :--------- | :---------- | :--- |
+| [Crystal Diffusion Variational AutoEncoder (CDVAE)](https://github.com/txie-93/cdvae) | Generating the periodic structure of materials. | Code/ML, Code/Lib |
+| [DiffCSP](https://github.com/jiaor17/DiffCSP) | Generative diffusion model for crystal structure prediction. | Code/Lib, Code/ML |
+| [DiffCSP++](https://github.com/jiaor17/DiffCSP-PP) | Generative diffusion model for crystal structure prediction with space group constraints. | Code/Lib, Code/ML |
 | [CrysBFN](https://github.com/wu-han-lin/CrysBFN) | A periodic Bayesian flow for material generation. | Code/ML, Code/Lib |
 | [CrystalFormer](https://github.com/deepmodeling/CrystalFormer) | A foundation model for crystal structure generation and prediction. | Code/ML, Code/Lib |
 | [DM2](https://github.com/digital-synthesis-lab/DM2) | Diffusion models for disordered materials. | Code/ML, Code/Lib |
@@ -44,4 +47,3 @@ tags: ["Code/ML", "Code/Lib", "Code/WF"]
 | [ProtoCSP](https://github.com/rogeriog/ProtoCSP) | Discovery of solid solutions, high-entropy alloys, and complex crystals through prototype transmutation and machine learning interatomic potential validation. | Code/ML, Code/Lib |
 | [alm](https://github.com/learningmatter-mit/alm) | Unified modeling of natural language and 3D atomic structures to understand, generate, and optimize materials. | Code/ML, Code/Lib |
 | [xtaledit](https://github.com/WMD-group/xtaledit) | Elemental-substitution-based analysis of structural novelty in AI-generated crystals. | Code/ML, Code/Lib |
-

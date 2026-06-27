@@ -52,6 +52,8 @@ tags: ["Code/WF", "Code/Sim", "Code/ML", "App"]
 | [automat](https://github.com/m-cobelli/automat) | Autoresearch workflow for designing chemical composition descriptors for materials science. | Code/WF |
 | [Paimon](https://github.com/MDIL-SNU/Paimon) | Platform for agentic integration in materials optimization and nanoscale-simulations. | Code/WF, Code/ML |
 | [PhyNex](https://github.com/lhhhappy/PhyNex) | Language model based agent for automated discovery in computational physics and semiconductor property prediction. | Code/WF, Code/ML |
+| [High-Throughput Toolkit (httk)](https://github.com/httk) | Preparing, running, and storing high-throughput atomistic calculations data. | Code/WF, Code/Lib, Code/ML |
+| [aim2dat](https://github.com/aim2dat/aim2dat) | Pre-processing, post-processing, and data management of high-throughput ab initio workflows. | Code/Lib, Code/WF |
 
 ## Skills
 
