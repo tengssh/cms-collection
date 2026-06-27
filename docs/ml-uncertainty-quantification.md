@@ -21,3 +21,4 @@ tags: ["Code/ML", "Code/Lib", "Code/WF"]
 | [chemfit](https://github.com/MSallermann/chemfit) | Parameter fitting of objective functions in model parameterization. | Code/ML, Code/Lib |
 | [UQ-uMLIP](https://github.com/Kai-Liu-MSE/UQ-uMLIP) | Uncertainty quantification framework for universal interatomic potentials. | Code/ML, Code/Lib |
 | [GNN_Uncertainty](https://github.com/heisammoustafa/GNN_Uncertainty) | Uncertainty quantification and error estimation scripts for graph neural networks. | Code/ML, Code/Lib |
+| [bayesaenet](https://github.com/farrisric/bayesaenet) | Benchmarking uncertainty quantification methods in machine learning interatomic potentials. | Code/ML, Code/Lib |
