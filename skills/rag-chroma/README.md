@@ -28,7 +28,7 @@ This example demonstrates how to create vector databases and query using [Chroma
 - Clone the repository
     ```bash
     git clone https://github.com/tengssh/cms-collection.git
-    cd cms-collection/rag_chroma
+    cd cms-collection/skills/rag-chroma
     ```
 - Install dependencies (optional)
     ```bash
@@ -37,13 +37,26 @@ This example demonstrates how to create vector databases and query using [Chroma
 - Run the tasks
     - Ingestion
         ```bash
+        # Ingest the default markdown file (../../../README.md)
         pixi run ingest
+
+        # Or specify a custom markdown file path
+        pixi run ingest --file ../../README.md
         ```
         - Without an API key, a local database will be created in `./chroma_db`.
     - Search
         ```bash
+        # Search using default parameters
         pixi run search
+
+        # Search using custom query, limit, sections, or tags
+        pixi run search --query "DFT software" --limit 5 --sections "Curated Lists" "Tools"
         ```
+        - Available search arguments:
+            - `--query`: Query text to search for (default: `"database for 2D materials"`)
+            - `--limit`: Number of results to return (default: `10`)
+            - `--sections`: Filter results by specific sections (default: `"Curated Lists" "Databases & Datasets" "Tools"`)
+            - `--tags`: Filter results by specific tags (default: `None`)
     - Chat
         - Start the Ollama server (in one terminal)
             ```bash

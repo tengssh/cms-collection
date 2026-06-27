@@ -1,7 +1,7 @@
 [workspace]
 channels = ["conda-forge"]
 name = "chroma"
-platforms = ["linux-64"]
+platforms = ["linux-64", "osx-64", "osx-arm64", "win-64"]
 version = "0.2.0"
 
 [dependencies]
@@ -27,9 +27,9 @@ pytest = "*"
 test = ["test"]
 
 [tasks]
-ingest = "python ingest_md.py"
-search = "python chroma_search.py"
+ingest = "python scripts/ingest_md.py"
+search = "python scripts/chroma_search.py"
 clean = "rm -rf ./chroma_db"
 reindex = { depends-on = ["clean", "ingest"] }
-test = { cmd="python -m pytest tests", default-environment="test" }
-chat = "python ollama_chat.py"
+test = { cmd="PYTHONPATH=scripts python -m pytest tests", default-environment="test" }
+chat = "python scripts/ollama_chat.py"

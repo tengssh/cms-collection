@@ -5,7 +5,7 @@ from langchain_text_splitters import MarkdownHeaderTextSplitter
 # read the README
 @pytest.fixture
 def text():
-    with open('../README.md', 'r', encoding='utf-8') as f:
+    with open('../../README.md', 'r', encoding='utf-8') as f:
         text = f.read()
     return text
 
