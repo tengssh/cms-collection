@@ -22,3 +22,4 @@ tags: ["Code/Sim", "Code/WF", "Code/Lib", "Code/ML", "App"]
 | [kUPS](https://github.com/cusp-ai-oss/kups) | Simulation library for high-performance atomistic simulations implemented in JAX. | Code/Lib, Code/ML, Code/Sim |
 | [MLAtom](https://github.com/dralgroup/mlatom) | AI-enhanced computational chemistry package for atomistic simulations and machine learning potentials. | Code/Sim, Code/ML |
 | [SCALE-TRACK](https://github.com/Wikki-GmbH/SCALE-TRACK) | Lagrangian particle tracking for dispersed multiphase CFD flows. | Code/Sim |
+| [ChemShell](https://chemshell.org/) | Computational chemistry environment for QM/MM simulations. | Code/Lib, Code/Sim |
