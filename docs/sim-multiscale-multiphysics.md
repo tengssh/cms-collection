@@ -23,3 +23,7 @@ tags: ["Code/Sim", "Code/WF", "Code/Lib", "Code/ML", "App"]
 | [MLAtom](https://github.com/dralgroup/mlatom) | AI-enhanced computational chemistry package for atomistic simulations and machine learning potentials. | Code/Sim, Code/ML |
 | [SCALE-TRACK](https://github.com/Wikki-GmbH/SCALE-TRACK) | Lagrangian particle tracking for dispersed multiphase CFD flows. | Code/Sim |
 | [ChemShell](https://chemshell.org/) | Computational chemistry environment for QM/MM simulations. | Code/Lib, Code/Sim |
+| [AMReX](https://github.com/AMReX-Codes/amrex) | Block-structured adaptive mesh refinement (AMR) framework for parallel simulations. | Code/Sim, Code/Lib |
+| [BatCat](https://batcat.list.lu/) | Digital twin modeling and simulation of battery manufacturing. | App, Code/Sim |
+| [DoNOFsw](https://github.com/DoNOF/DoNOFsw) | Electronic structure calculations based on natural orbital functional theory (NOFT). | Code/Sim, Code/Lib |
+| [FEniCS](https://fenicsproject.org/) | Automated solution of partial differential equations (PDEs) using the finite element method (FEM). | Code/Sim, Code/Lib |
