@@ -26,4 +26,4 @@ tags: ["Code/Sim", "Code/WF", "Code/Lib", "Code/ML", "App"]
 | [AMReX](https://github.com/AMReX-Codes/amrex) | Block-structured adaptive mesh refinement (AMR) framework for parallel simulations. | Code/Sim, Code/Lib |
 | [BatCat](https://batcat.list.lu/) | Digital twin modeling and simulation of battery manufacturing. | App, Code/Sim |
 | [DoNOFsw](https://github.com/DoNOF/DoNOFsw) | Electronic structure calculations based on natural orbital functional theory (NOFT). | Code/Sim, Code/Lib |
-| [FEniCS](https://fenicsproject.org/) | Automated solution of partial differential equations (PDEs) using the finite element method (FEM). | Code/Sim, Code/Lib |
+| [FEniCS](https://fenicsproject.org/) | Integrated platform of solving partial differential equations (PDEs) with the finite element method (FEM). | Code/Sim, Code/Lib |
