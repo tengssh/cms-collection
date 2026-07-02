@@ -61,3 +61,4 @@ tags: ["Code/WF", "Code/Sim", "Code/ML", "App"]
 | :--------- | :---------- | :--- |
 | [computational-chemistry-agent-skills](https://github.com/jinzhezenggroup/computational-chemistry-agent-skills) | Agent skills running computational chemistry tasks within the OpenClaw framework. | Code/WF |
 | [ChatMaterials](https://github.com/chatmaterials) | Agent skills for computational materials science, DFT workflows, and physics-oriented analysis. | Code/WF |
+| [materials-simulation-skills](https://github.com/HeshamFS/materials-simulation-skills) | Agent skills for numerical stability, solvers, meshing, convergence, and simulation workflows in computational materials science. | Code/WF |
