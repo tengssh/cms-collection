@@ -54,6 +54,8 @@ tags: ["Code/WF", "Code/Sim", "Code/ML", "App"]
 | [PhyNex](https://github.com/lhhhappy/PhyNex) | Language model based agent for automated discovery in computational physics and semiconductor property prediction. | Code/WF, Code/ML |
 | [High-Throughput Toolkit (httk)](https://github.com/httk) | Preparing, running, and storing high-throughput atomistic calculations data. | Code/WF, Code/Lib, Code/ML |
 | [aim2dat](https://github.com/aim2dat/aim2dat) | Pre-processing, post-processing, and data management of high-throughput ab initio workflows. | Code/Lib, Code/WF |
+| [Vitriflow](https://github.com/Olsson-Materials-Modelling/Vitriflow) | Automation of melt-quench, custom-stage molecular dynamics, and post-run structural analysis for amorphous and disordered materials. | Code/WF |
+| [PolyRapid](https://github.com/paolacarbone/PolyRapid) | High-throughput workflow for molecular dynamics simulation of polymer equilibration from monomer SMILES. | Code/WF |
 
 ## Skills
 
