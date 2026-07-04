@@ -20,4 +20,7 @@ tags: ["Code/ML", "Code/Lib", "Code/WF", "App"]
 | [Metatensor](https://metatensor.org/) | Toolkit and ecosystem for tensor operations and machine learning in atomistic modeling. | Code/Lib, Code/ML |
 | [chipsff](https://github.com/usnistgov/chipsff) | Evaluation framework for universal machine learning force fields. | Code/Lib, Code/ML |
 | [ALCHEMI Toolkit](https://github.com/NVIDIA/nvalchemi-toolkit) | Developer toolkit for accelerating training and inference of artificial intelligence models in chemistry and materials science. | Code/Lib, Code/ML |
+| [atompack](https://github.com/LeMaterial/atompack) | High-performance storage engine and library for atomistic machine learning datasets. | Code/Lib, Code/ML |
+| [MatMMExtract](https://github.com/CMEG-IITR/matmmextract) | Multimodal data extraction pipeline for parsing and annotating figures in materials science literature. | Code/Lib, Code/ML |
+
 
