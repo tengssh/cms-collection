@@ -96,3 +96,5 @@ tags: ["Code/ML", "Code/Lib"]
 | [Zeolite Classifier](https://zeolite-classifier-20bbd9.gitlab.io/) | Web interface for classifying zeolite structures. | App, Code/ML |
 | [Battery-Capacity-Prediction-Using-Regression](https://github.com/alg-x/Battery-Capacity-Prediction-Using-Regression) | Lithium-ion battery capacity prediction using machine learning regression models. | Code/ML, Code/Lib |
 | [SR-CGCNN](https://github.com/sata-deep/SR-CGCNN) | Shared recurrent convolution in crystal graph neural networks for materials property prediction. | Code/ML, Code/Lib |
+| [HIP](https://github.com/BurgerAndreas/hip) | Deep learning framework for predicting molecular Hessians from interatomic potentials. | Code/ML, Code/Lib |
+| [HIP-MACE](https://github.com/BurgerAndreas/hip-mace) | Integration of MACE equivariant interatomic potentials with the HIP Hessian prediction framework. | Code/ML, Code/Lib |
