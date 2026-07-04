@@ -33,3 +33,6 @@ tags: ["Data", "Code/ML", "App"]
 | [physci-deepresearch](https://github.com/yigengjiang/physci-deepresearch) | Benchmark evaluating LLM agent systems on multi-step scientific reasoning tasks in physics and chemistry. | Code/WF, Code/ML |
 | [UniFFBench](https://github.com/M3RG-IITD/UniFFBench) | Evaluation of universal machine learning force fields against experimental materials data. | Data, Code/ML |
 | [incarbench](https://github.com/liuzhiyangnku/incarbench) | Benchmark evaluating LLMs on generating and repairing VASP INCAR configuration files. | Data, Code/ML |
+| [MatSciFig](https://huggingface.co/datasets/CMEG-IITR/MatSciFig) | Multimodal dataset of panel-level images and scientific text extracted from materials science literature. | Data |
+| [MaterialScope](https://huggingface.co/datasets/CMEG-IITR/MaterialScope) | Object detection dataset for layout analysis and panel localization in materials science figures. | Data |
+| [TheNanotechnologyMolecularOptimizationBenchmark](https://github.com/blaschma/TheNanotechnologyMolecularOptimizationBenchmark) | Benchmark suite evaluating generative molecular design models on nanotechnology applications. | Data, Code/ML |
