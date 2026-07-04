@@ -57,6 +57,9 @@ tags: ["Code/WF", "Code/Sim", "Code/ML", "App"]
 | [Vitriflow](https://github.com/Olsson-Materials-Modelling/Vitriflow) | Automation of melt-quench, custom-stage molecular dynamics, and post-run structural analysis for amorphous and disordered materials. | Code/WF |
 | [PolyRapid](https://github.com/paolacarbone/PolyRapid) | High-throughput workflow for molecular dynamics simulation of polymer equilibration from monomer SMILES. | Code/WF |
 | [TengClaw](https://github.com/helloi1/tengclaw) | Physics-grounded multi-agent simulation lab for triboelectric nanogenerators (TENG) research. | App, Code/WF, Code/ML |
+| [LitMOF](https://github.com/honghuikim/litmof) | Large language model-driven multi-agent framework to improve metal-organic framework databases. | Code/WF, Code/ML |
+| [ElectrideFlow](https://github.com/MaterSim/ElectrideFlow) | Density functional theory and machine learning workflow for high-throughput screening of inorganic electrides. | Code/WF, Code/ML |
+| [LLM4MOF](https://github.com/kn1218/LLM4MOF) | Large language model-based multi-agent framework for closed-loop inverse design of metal-organic frameworks. | Code/WF, Code/ML |
 
 ## Skills
 

@@ -81,7 +81,6 @@ tags: ["Code/ML", "Code/Lib"]
 | [CGCNN](https://github.com/txie-93/cgcnn) | Crystal Graph Convolutional Neural Networks for predicting material properties from crystal structure. | Code/ML, Code/Lib |
 | [AutoPot](https://gitlab.com/mhodapp/autopot) | Automated and massively parallelized construction of machine-learning interatomic potentials. | Code/ML, Code/WF |
 | [BEE-NET](https://github.com/henniggroup/BEE-NET) | Bootstrapped Ensemble of Equivariant Graph Neural Networks (BEE-NET) for predicting the Eliashberg spectral function and superconducting critical temperature. | Code/ML, Code/Lib |
-| [ElectrideFlow](https://github.com/MaterSim/ElectrideFlow) | Density functional theory and machine learning workflow for high-throughput screening of inorganic electrides. | Code/ML, Code/WF |
 | [materials_discovery](https://github.com/google-deepmind/materials_discovery) | Graph networks for active learning and materials discovery of stable inorganic crystals. | Code/ML, Code/Lib |
 | [novel-materials-screening](https://github.com/mattmcdermott/novel-materials-screening) | Materials Project screening tool for discovering novel materials to be synthesized by the autonomous laboratory (A-Lab). | Code/ML, Code/Lib |
 | [s4](https://github.com/CederGroupHub/s4) | Solid-state synthesis science analyzer utilizing thermodynamics, features, and machine learning. | Code/ML, Code/Lib |
@@ -99,3 +98,4 @@ tags: ["Code/ML", "Code/Lib"]
 | [HIP](https://github.com/BurgerAndreas/hip) | Deep learning framework for predicting molecular Hessians from interatomic potentials. | Code/ML, Code/Lib |
 | [HIP-MACE](https://github.com/BurgerAndreas/hip-mace) | Integration of MACE equivariant interatomic potentials with the HIP Hessian prediction framework. | Code/ML, Code/Lib |
 | [UMA](https://aidemos.atmeta.com/uma) | Interactive molecular simulation playground for the Universal Model for Atoms (UMA). | App, Edu |
+| [CarNet](https://github.com/wengroup/carnet) | Equivariant atomistic machine learning using Cartesian natural tensor networks. | Code/ML, Code/Lib |
