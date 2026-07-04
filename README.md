@@ -167,6 +167,8 @@ Given the rapidly evolving nature of this field, the proposed categories are des
 | [Phonopy](https://github.com/phonopy/phonopy/) | A Python package for phonon calculations of harmonic and quasi-harmonic properties. | Code/Lib |
 | [Phono3py](https://github.com/phonopy/phono3py) | A Python package for phonon-phonon interactions related properties. | Code/Lib |
 | [Cheminfo](https://www.cheminfo.org/) | A platform with a collection of web applications for visualizing, analyzing, and organizing cheminformatics data. | App, Data |
+| [QMatSuite](https://github.com/QMatSuite/QMatSuite) | Graphical user interface for the Quantum ESPRESSO ab-initio simulation suite. | App, Code/Lib |
+
 
 ## OCW
 
