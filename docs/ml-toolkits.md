@@ -22,5 +22,6 @@ tags: ["Code/ML", "Code/Lib", "Code/WF", "App"]
 | [ALCHEMI Toolkit](https://github.com/NVIDIA/nvalchemi-toolkit) | Developer toolkit for accelerating training and inference of artificial intelligence models in chemistry and materials science. | Code/Lib, Code/ML |
 | [atompack](https://github.com/LeMaterial/atompack) | High-performance storage engine and library for atomistic machine learning datasets. | Code/Lib, Code/ML |
 | [MatMMExtract](https://github.com/CMEG-IITR/matmmextract) | Multimodal data extraction pipeline for parsing and annotating figures in materials science literature. | Code/Lib, Code/ML |
+| [natt](https://github.com/wengroup/natt) | Natural tensor operations for constructing irreducible Cartesian natural tensors in equivariant machine learning. | Code/Lib, Code/ML |
 
 
