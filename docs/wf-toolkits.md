@@ -56,6 +56,7 @@ tags: ["Code/WF", "Code/Sim", "Code/ML", "App"]
 | [aim2dat](https://github.com/aim2dat/aim2dat) | Pre-processing, post-processing, and data management of high-throughput ab initio workflows. | Code/Lib, Code/WF |
 | [Vitriflow](https://github.com/Olsson-Materials-Modelling/Vitriflow) | Automation of melt-quench, custom-stage molecular dynamics, and post-run structural analysis for amorphous and disordered materials. | Code/WF |
 | [PolyRapid](https://github.com/paolacarbone/PolyRapid) | High-throughput workflow for molecular dynamics simulation of polymer equilibration from monomer SMILES. | Code/WF |
+| [TengClaw](https://github.com/helloi1/tengclaw) | Physics-grounded multi-agent simulation lab for triboelectric nanogenerators (TENG) research. | App, Code/WF, Code/ML |
 
 ## Skills
 
