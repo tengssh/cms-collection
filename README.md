@@ -168,6 +168,8 @@ Given the rapidly evolving nature of this field, the proposed categories are des
 | [Phono3py](https://github.com/phonopy/phono3py) | A Python package for phonon-phonon interactions related properties. | Code/Lib |
 | [Cheminfo](https://www.cheminfo.org/) | A platform with a collection of web applications for visualizing, analyzing, and organizing cheminformatics data. | App, Data |
 | [QMatSuite](https://github.com/QMatSuite/QMatSuite) | Graphical user interface for the Quantum ESPRESSO ab-initio simulation suite. | App, Code/Lib |
+| [LOBSTER](https://schmeling.ac.rwth-aachen.de/cohp/index.php) | Chemical-bonding analysis including Crystal Orbital Hamilton Population (COHP) and Overlap Population (COOP) from plane-wave DFT outputs. | Code/Lib |
+| [LobsterPy](https://github.com/JaGeo/LobsterPy) | Automatic bonding analysis and feature generation from [Lobster](https://schmeling.ac.rwth-aachen.de/cohp/index.php) calculations. | Code/Lib, Code/ML |
 
 
 ## OCW
@@ -189,6 +191,7 @@ Given the rapidly evolving nature of this field, the proposed categories are des
 | [nanoHUB](https://nanohub.org/) | An online platform providing various browser-based simulation tools and educational resources in nanotechnology and materials science. | Edu, App |
 | [Lhumos](https://www.lhumos.org/) | An online learning platform for modelling and simulation of matters in computational materials science. | Edu |
 | [OSSCAR Course Applications](https://www.osscar.org/courses/index.html) | Educational resources on quantum mechanics and materials science, developed by the OSSCAR (Open Software Services for Classrooms and Research) Team. | Edu, App |
+| [The Atomistic Cookbook](https://atomistic-cookbook.org/index.html) | Computational recipes for modeling matter at the atomic scale, featuring interactive guides and templates for simulations. | Edu, App |
 | [IBM Quantum Learning](https://quantum.cloud.ibm.com/learning/en) | Learning resources on quantum computing by IBM. | Edu |
 | [Google Quantum AI](https://quantumai.google/resources) | Learning resources on quantum computing by Google. | Edu |
 | [Microsoft Quantum](https://quantum.microsoft.com/en-us/insights/education) | Learning resources on quantum computing by Microsoft. | Edu |
