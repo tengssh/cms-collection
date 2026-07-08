@@ -15,19 +15,20 @@
 This is a step-by-step tutorial for the phonon calcuations of Al using [[https://www.quantum-espresso.org/][Quantum ESPRESSO]] (QE).
 
 * Resources
-- [[https://www.compmatphys.org/wp-content/uploads/2025/09/Si-lonsdaleite.pdf][Phonons by QE + visualizer by José Núñez]]
-- [[https://www.crystallography.net/cod/][Crystallography Open Database]]
-- [[https://github.com/torbjornbjorkman/cif2cell][Github repo - cif2cell]]
-- [[https://qeinputgenerator.materialscloud.io/][QE input generator and structure visualizer]]
-- [[https://seekpath.materialscloud.io/][SeeK-path]]
-- [[https://pseudopotentials.quantum-espresso.org/][QE Pseudopotentials]]
-- [[https://www.quantum-espresso.org/Doc/INPUT_PW.html][QE pw.x documentation]]
-- [[https://www.quantum-espresso.org/Doc/INPUT_PH.html][QE ph.x documentation]]
-- [[https://www.quantum-espresso.org/Doc/INPUT_Q2R.html][QE q2r.x documentation]]
-- [[https://www.quantum-espresso.org/Doc/INPUT_MATDYN.html][QE matdyn.x documentation]]
+- QE tutorials & documentation
+  - [[https://www.compmatphys.org/wp-content/uploads/2025/09/Si-lonsdaleite.pdf][Phonons by QE + visualizer]]
+  - [[https://www.crystallography.net/cod/][Crystallography Open Database]]
+  - [[https://github.com/torbjornbjorkman/cif2cell][Github repo - cif2cell]]
+  - [[https://pseudopotentials.quantum-espresso.org/][QE Pseudopotentials]]
+  - [[https://www.quantum-espresso.org/Doc/INPUT_PW.html][QE pw.x documentation]]
+  - [[https://www.quantum-espresso.org/Doc/INPUT_PH.html][QE ph.x documentation]]
+  - [[https://www.quantum-espresso.org/Doc/INPUT_Q2R.html][QE q2r.x documentation]]
+  - [[https://www.quantum-espresso.org/Doc/INPUT_MATDYN.html][QE matdyn.x documentation]]
+- Workflow manager
+  - [[https://snakemake.github.io/][Snakemake]] 
 
 * Journal
-** 2026.06.10 21:17
+** 2026.06.10 21:17                                               :noexport:
 *** Environment
 - Set aliases
   #+begin_src shell :session *shell* :results output :exports both
@@ -617,5 +618,725 @@ EOF
   #+end_src
 - Figure of Al phonon band structure + DOS
   - [[https://doi.org/10.6084/m9.figshare.32642127][Al phonon band structure & density of states]]
+  #+ATTR_ORG: :width 600
+  [[https://s3-eu-west-1.amazonaws.com/pfigshare-u-previews/65455269/preview.jpg]]
+
+** 2026.07.08 19:07
+*** Environment
+**** Set aliases
+#+begin_src shell :session *shell* :results output :exports both
+alias pixi='apptainer exec $SIF_HOME/base/utilities_ubuntu.sif pixi'
+alias ls='ls --color=none'
+alias qe='apptainer exec $SIF_HOME/Quantum_ESPRESSO/qe_ubuntu.sif '
+alias qed='echo "DONE@$(date)"'
+qed
+#+end_src
+
+#+RESULTS:
+: DONE@Wed Jul  8 19:07:13 CEST 2026
+
+**** Pixi env
+#+begin_src shell :session *shell* :results output :exports both
+cat << EOF > pixi.toml
+[workspace]
+channels = ["conda-forge", "bioconda"]
+name = "qe_ph"
+platforms = ["linux-64"]
+version = "0.2.0"
+
+[tasks]
+
+[dependencies]
+python = ">=3.10"
+cif2cell = ">=2.1.0,<3"
+matplotlib = ">=3.10.9,<4"
+numpy = ">=2.2.6,<3"
+snakemake-minimal = "8.5.3.*"
+graphviz = ">=14.1.2,<15"
+EOF
+pixi install
+#+end_src
+
+#+RESULTS:
+: ✔ The default environment has been installed.
+
+#+begin_src shell :session *shell* :results output :exports both
+alias snakemake='PATH=".pixi/envs/default/bin/:$PATH" snakemake '
+#+end_src
+
+#+RESULTS:
+
+*** Actions 
+**** Prepare Snakefile & shell scripts                     :Code:Protocol:
+(use =C-c C-v t= to export files)
+***** System parameters
+#+begin_src python :tangle qe_Al_pbe.smk
+SIF_HOME = "../../"
+QE = f"apptainer exec {SIF_HOME}/Quantum_ESPRESSO/qe_ubuntu.sif"
+ncores = 4
+
+atom = 'Al'
+cif_file = '9008460.cif'
+upf_file = 'Al.pbe-rrkj.UPF'
+in_file = '01-qe.in'
+#+end_src
+***** Download cif, upf & convert to QE input
+#+begin_src python :tangle Snakefile
+include: "qe_Al_pbe.smk"
+PROCESSES, = glob_wildcards("get_{process}.sh")
+
+rule all:
+    input: [expand("{process}.out", process=PROCESSES), 'phonon_bands_dos.png']
+
+# Download cif
+rule get_cif:
+    output: cif_file
+    params:
+        url = 'https://www.crystallography.net/cod/' + cif_file
+    shell: 'wget -O {output} {params.url}'
+
+# Convert cif to CELL_PARAMETERS
+rule convert_cif2in:
+    input: cif_file
+    output: in_file
+    params:
+        atom = atom,
+        upf = upf_file
+    shell:
+        """
+        cif2cell {input} -p quantum-espresso -o {output}
+        sed -i 's/{params.atom}_PSEUDO/{params.upf}/g' {output}
+        """
+
+# Download UPF
+rule get_upf:
+    output: upf_file
+    params:
+        url = 'http://pseudopotentials.quantum-espresso.org/upf_files/' + upf_file
+    shell: 'wget -O {output} {params.url}'
+
+#+end_src
+***** Run relaxation
+#+begin_src bash :tangle get_02-relax.sh
+#!/bin/sh
+a=$(grep "A =" 01-qe.in)
+cellparams=$(grep -A 8 "CELL_PARAMETERS" 01-qe.in)
+cat << EOF > 02-relax.in
+&CONTROL
+    calculation  = 'vc-relax'
+    prefix       = 'al'
+    pseudo_dir   = './'
+    outdir       = './tmp/'
+    forc_conv_thr = 1.0d-5
+/
+&SYSTEM
+  ibrav = 0
+  $a
+  nat = 1
+  ntyp = 1
+  ecutwfc = 30.0
+  occupations = 'smearing'
+  smearing    = 'mv'
+  degauss     = 0.02
+/
+&ELECTRONS
+  conv_thr    = 1.0d-8
+/
+&IONS
+/
+&CELL
+    cell_dynamics = 'bfgs'
+/
+$cellparams
+K_POINTS (automatic)
+ 8 8 8  0 0 0
+EOF
+#+end_src
+
+#+begin_src python :tangle Snakefile
+# Run relaxation
+rule run_relax:
+    input:
+        script = 'get_02-relax.sh',
+        upf = upf_file,
+        dep = in_file
+    output: '02-relax.out'
+    params:
+        ncores = ncores,
+        qe = QE
+    shell:
+        """
+        bash {input.script} && 
+        OMP_NUM_THREADS={params.ncores} {params.qe} pw.x < 02-relax.in > {output}
+        """
+
+#+end_src
+***** Run SCF
+#+begin_src bash :tangle get_03-scf.sh
+#!/bin/sh
+a=$(grep "A =" 02-relax.in)
+params1=$(grep -A 3 "CELL_PARAMETERS" 02-relax.out | tail -3)
+params2=$(grep -A 6 "ATOMIC_SPECIES" 02-relax.in)
+cat << EOF > 03-scf.in
+&CONTROL
+    calculation  = 'scf'
+    prefix       = 'al'
+    pseudo_dir   = './'
+    outdir       = './tmp/'
+/
+&SYSTEM
+  ibrav = 0
+  $a
+  nat = 1
+  ntyp = 1
+  ecutwfc = 40.0
+  occupations = 'smearing'
+  smearing    = 'mv'
+  degauss     = 0.02
+/
+&ELECTRONS
+  conv_thr    = 1.0d-8
+/
+CELL_PARAMETERS (alat)
+$params1
+$params2
+EOF
+#+end_src
+
+#+begin_src python :tangle Snakefile
+# Run SCF
+rule run_scf:
+    input:
+        script = 'get_03-scf.sh',
+        upf = upf_file,
+        dep = '02-relax.out'
+    output: '03-scf.out'
+    params:
+        ncores = ncores,
+        qe = QE
+    shell:
+        """
+        bash {input.script} && 
+        OMP_NUM_THREADS={params.ncores} {params.qe} pw.x < 03-scf.in > {output} 
+        """
+
+#+end_src
+***** Calculate dynamical matrices
+#+begin_src bash :tangle get_04-ph.sh
+cat << EOF > 04-ph.in
+&inputph
+  tr2_ph   = 1.0d-12
+  prefix   = 'al'
+  fildyn   = 'al.dyn'
+  outdir   = './tmp/'
+  ldisp    = .true.
+  nq1=4, nq2=4, nq3=4
+/
+EOF
+#+end_src
+
+#+begin_src python :tangle Snakefile
+# Calculate dynamical matrices
+rule run_ph:
+    input:
+        script = 'get_04-ph.sh',
+        upf = upf_file,
+        dep = '03-scf.out'
+    output: '04-ph.out'
+    params:
+        ncores = ncores,
+        qe = QE
+    shell:
+        """
+        bash {input.script} && 
+        OMP_NUM_THREADS={params.ncores} {params.qe} ph.x < 04-ph.in > {output} 
+        """
+
+#+end_src
+***** Calculate IFC
+#+begin_src bash :tangle get_05-q2r.sh
+cat << EOF > 05-q2r.in
+&input
+  fildyn = 'al.dyn'
+  zasr   = 'crystal'
+  flfrc  = 'al.fc'
+/
+EOF
+#+end_src
+
+#+begin_src python :tangle Snakefile
+# Calculate dynamical matrices
+rule run_q2r:
+    input:
+        script = 'get_05-q2r.sh',
+        upf = upf_file,
+        dep = '04-ph.out'
+    output: '05-q2r.out'
+    params:
+        ncores = ncores,
+        qe = QE
+    shell:
+        """
+        bash {input.script} && 
+        OMP_NUM_THREADS={params.ncores} {params.qe} q2r.x < 05-q2r.in > {output} 
+        """
+
+#+end_src
+***** Interpolate force constants along high-symmetry points
+(\Gamma-X-W-L-\Gamma-X)
+#+begin_src bash :tangle get_06-matdyn.sh
+cat << EOF > 06-matdyn.in
+&input
+    asr='crystal'
+    flfrc='al.fc'
+    flfrq='al.freq'
+    flvec='al.modes'
+    q_in_band_form = .true.
+/
+6
+  0.0 0.0 0.0  40
+  0.5 0.0 0.5  20
+  0.5 0.25 0.75 20
+  0.5 0.5 0.5  40
+  0.0 0.0 0.0  40
+  0.5 0.0 0.5  1
+EOF
+#+end_src
+
+#+begin_src python :tangle Snakefile
+# Calculate dynamical matrices
+rule run_matdyn:
+    input:
+        script = 'get_06-matdyn.sh',
+        upf = upf_file,
+        dep = '05-q2r.out'
+    output:
+        out = '06-matdyn.out',
+        freq = atom.lower()+'.freq'
+    params:
+        ncores = ncores,
+        qe = QE
+    shell:
+        """
+        bash {input.script} &&
+        OMP_NUM_THREADS={params.ncores} {params.qe} matdyn.x < 06-matdyn.in > {output.out} 
+        """
+
+rule create_dat:
+    input:
+        freq = atom.lower()+'.freq'
+    output:
+        dat = atom.lower()+'_bands.dat',
+        ps = atom.lower()+'_bands.ps'
+    params:
+        ncores = ncores,
+        qe = QE
+    shell:
+        """
+        OMP_NUM_THREADS={params.ncores} {params.qe} bash -c 'plotband.x << EOF
+{input.freq}
+0 400
+{output.dat}
+{output.ps}
+0.0
+50.0 0.0
+EOF'
+        """
+
+#+end_src
+***** Calculate phonon DOS
+#+begin_src bash :tangle get_07-dos.sh
+cat << EOF > 07-dos.in
+&input
+    asr='crystal'
+    flfrc='al.fc'
+    flfrq='al.freq_dos'
+    fldos='al.dos'
+    dos=.true.
+    nk1=50, nk2=50, nk3=50
+/
+EOF
+#+end_src
+
+#+begin_src python :tangle Snakefile
+# Calculate phonon DOS
+rule run_dos:
+    input:
+        script = 'get_07-dos.sh',
+        upf = upf_file,
+        dep = '06-matdyn.out'
+    output:
+        out = '07-dos.out',
+        dos = atom.lower()+'.dos'
+    params:
+        ncores = ncores,
+        qe = QE
+    shell:
+        """
+        bash {input.script} &&
+        OMP_NUM_THREADS={params.ncores} {params.qe} matdyn.x < 07-dos.in > {output.out} 
+        """
+
+#+end_src
+***** Plot phonon bands+DOS
+#+begin_src python :tangle plot_bands_dos.py
+import sys
+import matplotlib.pyplot as plt
+import numpy as np
+
+f_dat = sys.argv[1]
+f_dos = sys.argv[2]
+
+# 1. Conversion Factor from cm^-1 to meV
+cm_to_mev = 0.123984
+
+# 2. Parse al_bands.dat by splitting blocks on blank lines
+with open(f_dat, 'r') as f:
+    raw_content = f.read()
+
+blocks = [b.strip() for b in raw_content.split('\n\n') if b.strip()]
+
+# 3. Load DOS Data
+dos_data = np.loadtxt(f_dos, skiprows=1)
+dos_freq = dos_data[:, 0] * cm_to_mev
+dos_val = dos_data[:, 1]
+
+# 4. Setup Plots
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 6), sharey=True, 
+                               gridspec_kw={'width_ratios': [3, 1]})
+
+## Left Plot: Phonon Dispersion
+q_path_reference = None
+
+for block in blocks:
+    mode_data = np.fromstring(block, sep='\n').reshape(-1, 2)
+    q_path = mode_data[:, 0]
+    freq_mev = mode_data[:, 1] * cm_to_mev
+    ax1.plot(q_path, freq_mev, color='tab:blue', lw=2)
+    
+    if q_path_reference is None:
+        q_path_reference = q_path
+
+idx_ticks = [0, 40, 40+20, 40+20+20, 40+20+20+40, len(q_path_reference)-1]
+true_ticks = [q_path_reference[i] for i in idx_ticks]
+labels = [r'$\Gamma$', 'X', 'W', 'L', r'$\Gamma$', 'X']
+
+ax1.set_xticks(true_ticks)
+ax1.set_xticklabels(labels)
+
+for tick in true_ticks:
+    ax1.axvline(tick, color='gray', linestyle='--', alpha=0.5)
+
+ax1.set_ylabel('Frequency (meV)', fontsize=12)
+ax1.set_xlim(q_path_reference.min(), q_path_reference.max())
+ax1.set_ylim(0, 42)  
+ax1.grid(axis='y', alpha=0.3)
+ax1.set_title('Phonon Dispersion', fontsize=12)
+
+## Right Plot: Phonon DOS
+ax2.plot(dos_val, dos_freq, color='tab:orange', lw=2)
+ax2.fill_betweenx(dos_freq, 0, dos_val, color='tab:orange', alpha=0.3)
+ax2.set_xlabel('DOS', fontsize=12)
+ax2.set_xlim(0, None)
+ax2.grid(axis='both', alpha=0.3)
+ax2.set_title('Phonon DOS', fontsize=12)
+
+plt.tight_layout()
+plt.savefig('phonon_bands_dos.png', dpi=300)
+#+end_src
+
+#+begin_src python :tangle Snakefile
+# Plot phonon bands+DOS
+rule plot_bands_dos:
+    input:
+        script = 'plot_bands_dos.py',
+        dat = atom.lower()+'_bands.dat',
+        dos = atom.lower()+'.dos'
+    output: 'phonon_bands_dos.png'
+    shell: 'python3 {input.script} {input.dat} {input.dos}'
+#+end_src
+**** Generate DAG
+#+begin_src shell :session *shell* :results output :exports both
+pixi run bash -c 'snakemake --dag -c1 | dot -Tpng > dag.png'
+qed
+#+end_src
+
+#+RESULTS:
+: Building DAG of jobs...
+: DONE@Wed Jul  8 19:15:57 CEST 2026
+**** Run the workflow 
+#+begin_src shell :session *shell* :results output :exports both
+snakemake -c4 -p
+qed
+#+end_src
+
+#+RESULTS:
+#+begin_example
+Assuming unrestricted shared filesystem usage for local execution.
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job               count
+--------------  -------
+all                   1
+convert_cif2in        1
+create_dat            1
+get_cif               1
+get_upf               1
+plot_bands_dos        1
+run_dos               1
+run_matdyn            1
+run_ph                1
+run_q2r               1
+run_relax             1
+run_scf               1
+total                12
+
+Select jobs to execute...
+./.pixi/envs/default/lib/python3.12/site-packages/stopit/__init__.py:10: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+Execute 2 jobs...
+
+[Wed Jul  8 19:16:54 2026]
+localrule get_cif:
+    output: 9008460.cif
+    jobid: 4
+    reason: Missing output files: 9008460.cif
+    resources: tmpdir=/tmp
+
+wget -O 9008460.cif https://www.crystallography.net/cod/9008460.cif
+
+[Wed Jul  8 19:16:54 2026]
+localrule get_upf:
+    output: Al.pbe-rrkj.UPF
+    jobid: 2
+    reason: Missing output files: Al.pbe-rrkj.UPF
+    resources: tmpdir=/tmp
+
+wget -O Al.pbe-rrkj.UPF http://pseudopotentials.quantum-espresso.org/upf_files/Al.pbe-rrkj.UPF
+URL transformed to HTTPS due to an HSTS policy
+--2026-07-08 19:16:54--  https://pseudopotentials.quantum-espresso.org/upf_files/Al.pbe-rrkj.UPF
+--2026-07-08 19:16:54--  https://www.crystallography.net/cod/9008460.cif
+Resolving www.crystallography.net (www.crystallography.net)... Resolving pseudopotentials.quantum-espresso.org (pseudopotentials.quantum-espresso.org)... 93.186.242.122
+Connecting to pseudopotentials.quantum-espresso.org (pseudopotentials.quantum-espresso.org)|93.186.242.122|:443... 158.129.170.82
+Connecting to www.crystallography.net (www.crystallography.net)|158.129.170.82|:443... connected.
+connected.
+HTTP request sent, awaiting response... HTTP request sent, awaiting response... 200 OK
+Length: 187107 (183K)
+Saving to: ‘Al.pbe-rrkj.UPF’
+[                    ]       0  --.-KB/s               200 OK
+Length: 4541 (4.4K) [chemical/x-cif]
+Saving to: ‘9008460.cif’
+]   4.43K  --.-KB/s    in 0s      
+
+2026-07-08 19:16:55 (450 MB/s) - ‘9008460.cif’ saved [4541/4541]
+
+[Wed Jul  8 19:16:55 2026]
+Finished job 4.
+) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Jul  8 19:16:55 2026]
+localrule convert_cif2in:
+    input: 9008460.cif
+    output: 01-qe.in
+    jobid: 3
+    reason: Missing output files: 01-qe.in; Input files updated by another job: 9008460.cif
+    resources: tmpdir=/tmp
+
+
+        cif2cell 9008460.cif -p quantum-espresso -o 01-qe.in
+        sed -i 's/Al_PSEUDO/Al.pbe-rrkj.UPF/g' 01-qe.in
+] 182.72K  --.-KB/s    in 0.1s    
+
+2026-07-08 19:16:55 (1.51 MB/s) - ‘Al.pbe-rrkj.UPF’ saved [187107/187107]
+
+[Wed Jul  8 19:16:55 2026]
+Finished job 2.
+) done
+,***Warning : Site occupancies not found, assuming all occupancies = 1.
+[Wed Jul  8 19:16:59 2026]
+Finished job 3.
+) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Jul  8 19:16:59 2026]
+localrule run_relax:
+    input: get_02-relax.sh, Al.pbe-rrkj.UPF, 01-qe.in
+    output: 02-relax.out
+    jobid: 1
+    reason: Missing output files: 02-relax.out; Input files updated by another job: Al.pbe-rrkj.UPF, 01-qe.in
+    resources: tmpdir=/tmp
+
+
+        bash get_02-relax.sh &&
+02-relax.out
+        
+[Wed Jul  8 19:17:05 2026]
+Finished job 1.
+) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Jul  8 19:17:05 2026]
+localrule run_scf:
+    input: get_03-scf.sh, Al.pbe-rrkj.UPF, 02-relax.out
+    output: 03-scf.out
+    jobid: 5
+    reason: Missing output files: 03-scf.out; Input files updated by another job: Al.pbe-rrkj.UPF, 02-relax.out
+    resources: tmpdir=/tmp
+
+
+        bash get_03-scf.sh &&
+03-scf.out 
+        
+[Wed Jul  8 19:17:10 2026]
+Finished job 5.
+) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Jul  8 19:17:10 2026]
+localrule run_ph:
+    input: get_04-ph.sh, Al.pbe-rrkj.UPF, 03-scf.out
+    output: 04-ph.out
+    jobid: 6
+    reason: Missing output files: 04-ph.out; Input files updated by another job: Al.pbe-rrkj.UPF, 03-scf.out
+    resources: tmpdir=/tmp
+
+
+        bash get_04-ph.sh &&
+04-ph.out 
+        
+[Wed Jul  8 19:19:04 2026]
+Finished job 6.
+) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Jul  8 19:19:04 2026]
+localrule run_q2r:
+    input: get_05-q2r.sh, Al.pbe-rrkj.UPF, 04-ph.out
+    output: 05-q2r.out
+    jobid: 7
+    reason: Missing output files: 05-q2r.out; Input files updated by another job: Al.pbe-rrkj.UPF, 04-ph.out; Params have changed since last execution
+    resources: tmpdir=/tmp
+
+
+        bash get_05-q2r.sh &&
+05-q2r.out 
+        
+[Wed Jul  8 19:19:07 2026]
+Finished job 7.
+) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Jul  8 19:19:07 2026]
+localrule run_matdyn:
+    input: get_06-matdyn.sh, Al.pbe-rrkj.UPF, 05-q2r.out
+    output: 06-matdyn.out, al.freq
+    jobid: 8
+    reason: Missing output files: 06-matdyn.out, al.freq; Input files updated by another job: Al.pbe-rrkj.UPF, 05-q2r.out
+    resources: tmpdir=/tmp
+
+
+        bash get_06-matdyn.sh &&
+06-matdyn.out 
+        
+[Wed Jul  8 19:19:09 2026]
+Finished job 8.
+) done
+Select jobs to execute...
+Execute 2 jobs...
+
+[Wed Jul  8 19:19:10 2026]
+localrule create_dat:
+    input: al.freq
+    output: al_bands.dat, al_bands.ps
+    jobid: 11
+    reason: Missing output files: al_bands.dat; Input files updated by another job: al.freq
+    resources: tmpdir=/tmp
+
+
+        OMP_NUM_THREADS=4 apptainer exec ../..//Quantum_ESPRESSO/qe_ubuntu.sif bash -c 'plotband.x << EOF
+al.freq
+0 400
+al_bands.dat
+al_bands.ps
+0.0
+50.0 0.0
+EOF'
+        
+
+[Wed Jul  8 19:19:10 2026]
+localrule run_dos:
+    input: get_07-dos.sh, Al.pbe-rrkj.UPF, 06-matdyn.out
+    output: 07-dos.out, al.dos
+    jobid: 9
+    reason: Missing output files: al.dos, 07-dos.out; Input files updated by another job: 06-matdyn.out, Al.pbe-rrkj.UPF
+    resources: tmpdir=/tmp
+
+
+        bash get_07-dos.sh &&
+07-dos.out
+Reading    3 bands at    161 k-points
+high-symmetry point:  0.0000 0.0000 0.0000   x coordinate   0.0000
+high-symmetry point:  0.5000 0.0000 0.5000   x coordinate   0.7071
+high-symmetry point:  0.5000 0.2500 0.7500   x coordinate   1.0607
+high-symmetry point:  0.5000 0.5000 0.5000   x coordinate   1.4142
+high-symmetry point:  0.0000 0.0000 0.0000   x coordinate   2.2802
+high-symmetry point:  0.5000 0.0000 0.5000   x coordinate   2.9873
+bands in gnuplot/xmgr format written to file al_bands.dat
+deltaE, reference E (for tics) bands in PostScript format written to file al_bands.ps                                                                                                                                                                                                                                                     
+[Wed Jul  8 19:19:12 2026]
+Finished job 11.
+) done
+[Wed Jul  8 19:23:08 2026]
+Finished job 9.
+) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Jul  8 19:23:08 2026]
+localrule plot_bands_dos:
+    input: plot_bands_dos.py, al_bands.dat, al.dos
+    output: phonon_bands_dos.png
+    jobid: 10
+    reason: Missing output files: phonon_bands_dos.png; Input files updated by another job: al.dos, al_bands.dat
+    resources: tmpdir=/tmp
+
+python3 plot_bands_dos.py al_bands.dat al.dos
+Failed to create wl_display (No such file or directory)
+qt.qpa.plugin: Could not load the Qt platform plugin "wayland" in "" even though it was found.
+[Wed Jul  8 19:23:19 2026]
+Finished job 10.
+) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Jul  8 19:23:19 2026]
+localrule all:
+    input: 02-relax.out, 03-scf.out, 04-ph.out, 05-q2r.out, 06-matdyn.out, 07-dos.out, phonon_bands_dos.png
+    jobid: 0
+    reason: Input files updated by another job: 06-matdyn.out, 04-ph.out, 03-scf.out, 02-relax.out, 07-dos.out, phonon_bands_dos.png, 05-q2r.out
+    resources: tmpdir=/tmp
+
+[Wed Jul  8 19:23:19 2026]
+Finished job 0.
+) done
+Complete log: .snakemake/log/2026-07-08T191652.245728.snakemake.log
+DONE@Wed Jul  8 19:23:20 CEST 2026
+#+end_example
+
+*** Milestones                                              :Visualization:
+- DAG for Al phonon calculations
+  https://doi.org/10.6084/m9.figshare.32940989
+- Figure of Al phonon band structure + DOS
+  https://doi.org/10.6084/m9.figshare.32642127
   #+ATTR_ORG: :width 600
   [[https://s3-eu-west-1.amazonaws.com/pfigshare-u-previews/65455269/preview.jpg]]
