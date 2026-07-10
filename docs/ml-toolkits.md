@@ -23,5 +23,6 @@ tags: ["Code/ML", "Code/Lib", "Code/WF", "App"]
 | [atompack](https://github.com/LeMaterial/atompack) | High-performance storage engine and library for atomistic machine learning datasets. | Code/Lib, Code/ML |
 | [MatMMExtract](https://github.com/CMEG-IITR/matmmextract) | Multimodal data extraction pipeline for parsing and annotating figures in materials science literature. | Code/Lib, Code/ML |
 | [natt](https://github.com/wengroup/natt) | Natural tensor operations for constructing irreducible Cartesian natural tensors in equivariant machine learning. | Code/Lib, Code/ML |
+| [AI2Pot](https://github.com/lhycms/AI2Pot) | PyTorch-compatible framework utilizing C++ and CUDA implementations of Moment Tensor Potentials (MTP) and Neuroevolution Potentials (NEP) for development, training, and deployment, including the companion command-line interface [AI2Pot-cli](https://github.com/lhycms/AI2Pot-cli). | Code/Lib, Code/ML |
 
 

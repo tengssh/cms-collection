@@ -22,3 +22,4 @@ tags: ["Code/ML", "Code/Lib", "Code/WF"]
 | [UQ-uMLIP](https://github.com/Kai-Liu-MSE/UQ-uMLIP) | Uncertainty quantification framework for universal interatomic potentials. | Code/ML, Code/Lib |
 | [GNN_Uncertainty](https://github.com/heisammoustafa/GNN_Uncertainty) | Uncertainty quantification and error estimation scripts for graph neural networks. | Code/ML, Code/Lib |
 | [bayesaenet](https://github.com/farrisric/bayesaenet) | Benchmarking uncertainty quantification methods in machine learning interatomic potentials. | Code/ML, Code/Lib |
+| [Bgolearn](https://github.com/Bin-Cao/Bgolearn) | Bayesian optimization and active learning for materials discovery and design. | Code/ML, Code/WF |
