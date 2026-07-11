@@ -62,7 +62,9 @@ tags: ["Code/WF", "Code/Sim", "Code/ML", "App"]
 | [LLM4MOF](https://github.com/kn1218/LLM4MOF) | Large language model-based multi-agent framework for closed-loop inverse design of metal-organic frameworks. | Code/WF, Code/ML |
 | [dpti](https://github.com/deepmodeling/dpti) | Automating thermodynamic integration calculations for free energy and phase diagram construction using molecular dynamics simulations. | Code/Lib, Code/WF |
 | [AGAPI](https://github.com/atomgptlab/agapi) | Orchestration framework connecting large language models to materials science tools, databases, and simulation engines. | Code/WF, Code/ML |
+| [BatteryMat](https://atomgpt.org/battery) | Predicting battery cathode voltage profiles and theoretical capacity using the ALIGNN force field. | App |
 | [PolyJarvis](https://github.com/arz-2/PolyJarvis) | Autonomous large language model agent framework for all-atom molecular dynamics simulations of polymers. | Code/WF, Code/ML |
+| [VASP Agent](https://github.com/Phoinikas03/VASP_Agent) | Agentic framework for autonomous first-principles calculations. | Code/WF, Code/ML |
 
 ## Skills
 
