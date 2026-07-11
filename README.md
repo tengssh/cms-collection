@@ -27,6 +27,7 @@ Given the rapidly evolving nature of this field, the proposed categories are des
 | [atomistic.software](https://atomistic.software/) | atomistic.software tracks the citation trends of all major atomistic simulation engines. | List, Code/Sim, App |
 | [Electronic Structure Library](https://esl.cecam.org/en/index.html) | A collection of community-maintained libraries and packages for electronic structure simulations. | List, Code/Sim |
 | [Existing Workflow systems](https://s.apache.org/existing-workflow-systems) | A curated list of computational workflow systems, engines, and tools for bioinformatics, data analysis, HPC, and scientific computing. | List, Code/WF |
+| [WorkflowHub](https://workflowhub.eu/) | Registry for sharing and publishing scientific computational workflows. | List, App |
 | [Workflows Community Systems](https://workflows.community/systems) | Community directory and registry of computational workflow systems and execution engines. | List, App |
 
 ## Databases & Datasets

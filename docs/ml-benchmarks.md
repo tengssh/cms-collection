@@ -37,3 +37,4 @@ tags: ["Data", "Code/ML", "App"]
 | [MaterialScope](https://huggingface.co/datasets/CMEG-IITR/MaterialScope) | Object detection dataset for layout analysis and panel localization in materials science figures. | Data |
 | [TheNanotechnologyMolecularOptimizationBenchmark](https://github.com/blaschma/TheNanotechnologyMolecularOptimizationBenchmark) | Benchmark suite evaluating generative molecular design models on nanotechnology applications. | Data, Code/ML |
 | [Charlotte Electride Database](https://mmi.charlotte.edu/electride) | Database of computationally screened inorganic electride materials. | Data/Comp, App |
+| [MatPhaseBench](https://github.com/Davidwhw/MatPhaseBench) | Semantics-guided benchmark evaluating vision-language models on materials phase diagrams understanding. | Data, Code/ML |
