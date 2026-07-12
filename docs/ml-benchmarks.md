@@ -38,3 +38,4 @@ tags: ["Data", "Code/ML", "App"]
 | [TheNanotechnologyMolecularOptimizationBenchmark](https://github.com/blaschma/TheNanotechnologyMolecularOptimizationBenchmark) | Benchmark suite evaluating generative molecular design models on nanotechnology applications. | Data, Code/ML |
 | [Charlotte Electride Database](https://mmi.charlotte.edu/electride) | Database of computationally screened inorganic electride materials. | Data/Comp, App |
 | [MatPhaseBench](https://github.com/Davidwhw/MatPhaseBench) | Semantics-guided benchmark evaluating vision-language models on materials phase diagrams understanding. | Data, Code/ML |
+| [MatPES](https://matpes.ai/) | Potential energy surface dataset computed using PBE and r2SCAN functionals for machine learning interatomic potentials. | App, Data/Comp, Code/ML |

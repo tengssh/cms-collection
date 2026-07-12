@@ -102,6 +102,7 @@ Given the rapidly evolving nature of this field, the proposed categories are des
 | [Open Knowledgebase of Interatomic Models (OpenKIM)](https://openkim.org/) | A curated repository of interatomic potentials for atomistic simulations. | Data/Comp, Code/Lib, Code/ML, App |
 | [Elementary Multiperspective Material Ontology (EMMO)](https://emmo-repo.github.io/) | A standardized representational ontology framework for materials modelling and characterization knowledge. | Data |
 | [Material Core (MatCore)](https://matcore.org/) | A community-specific metadata standard for computational materials science. | Data |
+| [Lightweight BatCAT Core Ontologies (LBCO)](https://github.com/HE-BatCAT/lbco) | Ontology framework for vanadium redox-flow and lithium-ion battery design, manufacturing, and operation. | Data |
 
 ## Computing & Workflows
 
