@@ -47,3 +47,4 @@ tags: ["Code/ML", "Code/Lib", "Code/WF"]
 | [ProtoCSP](https://github.com/rogeriog/ProtoCSP) | Discovery of solid solutions, high-entropy alloys, and complex crystals through prototype transmutation and machine learning interatomic potential validation. | Code/ML, Code/Lib |
 | [alm](https://github.com/learningmatter-mit/alm) | Unified modeling of natural language and 3D atomic structures to understand, generate, and optimize materials. | Code/ML, Code/Lib |
 | [xtaledit](https://github.com/WMD-group/xtaledit) | Elemental-substitution-based analysis of structural novelty in AI-generated crystals. | Code/ML, Code/Lib |
+| [MolMiner](https://github.com/raulorteg/molminer) | Fragment-based, geometry-aware, and order-agnostic autoregressive model for molecular design. | Code/ML, Code/Lib |

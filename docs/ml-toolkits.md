@@ -24,5 +24,4 @@ tags: ["Code/ML", "Code/Lib", "Code/WF", "App"]
 | [MatMMExtract](https://github.com/CMEG-IITR/matmmextract) | Multimodal data extraction pipeline for parsing and annotating figures in materials science literature. | Code/Lib, Code/ML |
 | [natt](https://github.com/wengroup/natt) | Natural tensor operations for constructing irreducible Cartesian natural tensors in equivariant machine learning. | Code/Lib, Code/ML |
 | [AI2Pot](https://github.com/lhycms/AI2Pot) | PyTorch-compatible framework utilizing C++ and CUDA implementations of Moment Tensor Potentials (MTP) and Neuroevolution Potentials (NEP) for development, training, and deployment, including the companion command-line interface [AI2Pot-cli](https://github.com/lhycms/AI2Pot-cli). | Code/Lib, Code/ML |
-
-
+| [TXL Fusion](https://github.com/Arif-PhyChem/txl_fusion) | Hybrid machine learning framework integrating chemical heuristics and LLM embeddings for topological materials discovery. | Code/Lib, Code/ML |
