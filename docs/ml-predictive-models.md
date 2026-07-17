@@ -43,6 +43,7 @@ tags: ["Code/ML", "Code/Lib"]
 | [SO3krates-LR](https://github.com/general-molecular-simulations/so3lr) | Equivariant transformer potential for long-range interactions in molecular simulations. | Code/ML, Code/Lib |
 | [MatterSim](https://github.com/microsoft/mattersim) | Deep learning atomistic model across elements, temperatures, and pressures. | Code/ML, Code/Lib |
 | [SevenNet](https://github.com/MDIL-SNU/SEVENNet) | Graph neural network potential package supporting multi-GPU parallel molecular dynamics. | Code/ML, Code/Lib |
+| [SevenNet-Polar](https://github.com/AugustinLu/SevenNet-Polar) | Graph neural network (GNN) package extending SevenNet with Born effective charge (BEC) prediction for charge-aware molecular dynamics under electric fields. | Code/ML, Code/Lib |
 | [Nanocluster Transformers](https://github.com/KIT-Workflows/Nanocluster_Transformers) | Transformer-based model for evaluating structural and energetic properties of transition-metal-doped nanoclusters. | Code/ML, Code/Lib |
 | [PET-MAD](https://github.com/lab-cosmo/pet-mad) | Point edge transformer models for atomistic simulations. | Code/ML, Code/Lib |
 | [UPET](https://github.com/lab-cosmo/upet/) | Point edge transformer architectures for universal machine learning potentials. | Code/ML, Code/Lib |
