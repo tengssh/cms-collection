@@ -27,3 +27,6 @@ tags: ["Code/Sim", "Code/WF", "Code/Lib", "Code/ML", "App"]
 | [BatCat](https://batcat.list.lu/) | Digital twin modeling and simulation of battery manufacturing. | App, Code/Sim |
 | [DoNOFsw](https://github.com/DoNOF/DoNOFsw) | Electronic structure calculations based on natural orbital functional theory (NOFT). | Code/Sim, Code/Lib |
 | [FEniCS](https://fenicsproject.org/) | Integrated platform of solving partial differential equations (PDEs) with the finite element method (FEM). | Code/Sim, Code/Lib |
+| [EPW](https://epw-code.org/) | Calculation of electron-phonon interactions, carrier transport, and temperature-dependent properties using Wannier-Fourier interpolation. | Code/Sim |
+| [BerkeleyGW](https://berkeleygw.org/) | Many-body perturbation theory calculations of excited-state properties of materials using the GW method and the Bethe-Salpeter equation. | Code/Sim |
+| [Perturbo](https://perturbo-code.github.io/index.html) | Ab initio calculations of electron-phonon interactions, charge transport, and ultrafast carrier dynamics in materials. | Code/Sim |
