@@ -65,6 +65,7 @@ tags: ["Code/WF", "Code/Sim", "Code/ML", "App"]
 | [BatteryMat](https://atomgpt.org/battery) | Predicting battery cathode voltage profiles and theoretical capacity using the ALIGNN force field. | App |
 | [PolyJarvis](https://github.com/arz-2/PolyJarvis) | Autonomous large language model agent framework for all-atom molecular dynamics simulations of polymers. | Code/WF, Code/ML |
 | [VASP Agent](https://github.com/Phoinikas03/VASP_Agent) | Agentic framework for autonomous first-principles calculations. | Code/WF, Code/ML |
+| [QCEngine](https://github.com/MolSSI/QCEngine) | Standardized execution and input/output wrapping of quantum chemistry, semi-empirical, and molecular mechanics programs. | Code/WF, Code/Lib |
 
 ## Skills
 
