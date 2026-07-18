@@ -103,8 +103,7 @@ Given the rapidly evolving nature of this field, the proposed categories are des
 | [Elementary Multiperspective Material Ontology (EMMO)](https://emmo-repo.github.io/) | A standardized representational ontology framework for materials modelling and characterization knowledge. | Data |
 | [Material Core (MatCore)](https://matcore.org/) | A community-specific metadata standard for computational materials science. | Data |
 | [Lightweight BatCAT Core Ontologies (LBCO)](https://github.com/HE-BatCAT/lbco) | Ontology framework for vanadium redox-flow and lithium-ion battery design, manufacturing, and operation. | Data |
-| [Electrospinning
-Data Hub](https://electrospinning-data.org/) | Experimental data platform for electrospinning parameters, solution properties, and nanofiber characteristics. | Data/Exp, App |
+| [Electrospinning Data Hub](https://electrospinning-data.org/) | Experimental data platform for electrospinning parameters, solution properties, and nanofiber characteristics. | Data/Exp, App |
 
 ## Computing & Workflows
 
