@@ -30,3 +30,5 @@ tags: ["Code/Sim", "Code/WF", "Code/Lib", "Code/ML", "App"]
 | [EPW](https://epw-code.org/) | Calculation of electron-phonon interactions, carrier transport, and temperature-dependent properties using Wannier-Fourier interpolation. | Code/Sim |
 | [BerkeleyGW](https://berkeleygw.org/) | Many-body perturbation theory calculations of excited-state properties of materials using the GW method and the Bethe-Salpeter equation. | Code/Sim |
 | [Perturbo](https://perturbo-code.github.io/index.html) | Ab initio calculations of electron-phonon interactions, charge transport, and ultrafast carrier dynamics in materials. | Code/Sim |
+| [CONQUEST](https://github.com/OrderN/CONQUEST-release) | Large-scale and linear-scaling DFT calculations. | Code/Sim |
+| [Koopmans](https://github.com/epfl-theos/koopmans) | Implementation of Koopmans-compliant functionals in Quantum ESPRESSO. | Code/Sim, Code/Lib |
