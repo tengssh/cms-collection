@@ -32,3 +32,7 @@ tags: ["Code/Sim", "Code/WF", "Code/Lib", "Code/ML", "App"]
 | [Perturbo](https://perturbo-code.github.io/index.html) | Ab initio calculations of electron-phonon interactions, charge transport, and ultrafast carrier dynamics in materials. | Code/Sim |
 | [CONQUEST](https://github.com/OrderN/CONQUEST-release) | Large-scale and linear-scaling DFT calculations. | Code/Sim |
 | [Koopmans](https://github.com/epfl-theos/koopmans) | Implementation of Koopmans-compliant functionals in Quantum ESPRESSO. | Code/Sim, Code/Lib |
+| [OpenCALPHAD](https://www.opencalphad.com/) | Phase equilibrium and phase diagram calculations using the CALPHAD method. | Code/Sim, Code/Lib |
+| [PyCalphad](https://github.com/pycalphad/pycalphad) | Thermodynamic property and phase diagram calculations using the CALPHAD method. | Code/Sim, Code/Lib |
+| [exa-pd](https://github.com/ML-AMD/exa-pd) | Parallelizable workflow for constructing multi-element phase diagrams using molecular dynamics and Monte Carlo simulations in LAMMPS coupled with CALPHAD modeling via PyCALPHAD. | Code/Sim, Code/WF |
+| [calphy](https://github.com/ICAMS/calphy) | Automated free energy calculations using thermodynamic integration for solid and liquid phases, based on molecular dynamics simulations via LAMMPS. | Code/Sim, Code/WF, Code/Lib |
