@@ -61,8 +61,7 @@ tags: ["Code/WF", "Code/Sim", "Code/ML", "App"]
 | [ElectrideFlow](https://github.com/MaterSim/ElectrideFlow) | Density functional theory and machine learning workflow for high-throughput screening of inorganic electrides. | Code/WF, Code/ML |
 | [LLM4MOF](https://github.com/kn1218/LLM4MOF) | Large language model-based multi-agent framework for closed-loop inverse design of metal-organic frameworks. | Code/WF, Code/ML |
 | [dpti](https://github.com/deepmodeling/dpti) | Automating thermodynamic integration calculations for free energy and phase diagram construction using molecular dynamics simulations. | Code/Lib, Code/WF |
-| [AGAPI](https://github.com/atomgptlab/agapi) | Orchestration framework connecting large language models to materials science tools, databases, and simulation engines. | Code/WF, Code/ML |
-| [BatteryMat](https://atomgpt.org/battery) | Predicting battery cathode voltage profiles and theoretical capacity using the ALIGNN force field. | App |
+| [AtomGPT](https://atomgpt.org/) | Deep learning framework, web interface, and orchestration API ([AGAPI](https://github.com/atomgptlab/agapi)) integrating language models with materials science tools for forward/inverse design and specialized workflows as detailed in the [documentation](https://atomgptlab.github.io/agapi/). | App, Code/ML, Code/WF |
 | [PolyJarvis](https://github.com/arz-2/PolyJarvis) | Autonomous large language model agent framework for all-atom molecular dynamics simulations of polymers. | Code/WF, Code/ML |
 | [VASP Agent](https://github.com/Phoinikas03/VASP_Agent) | Agentic framework for autonomous first-principles calculations. | Code/WF, Code/ML |
 | [QCEngine](https://github.com/MolSSI/QCEngine) | Standardized execution and input/output wrapping of quantum chemistry, semi-empirical, and molecular mechanics programs. | Code/WF, Code/Lib |
