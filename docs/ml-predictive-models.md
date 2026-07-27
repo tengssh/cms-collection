@@ -79,6 +79,7 @@ tags: ["Code/ML", "Code/Lib"]
 | [StructLLM](https://github.com/snu-micc/StructLLM/) | Explainable synthesizability prediction of inorganic crystal polymorphs using Large Language Models. | Code/ML, Code/Lib |
 | [MOFSimplify](https://mofsimplify.mit.edu/) | Predicting the stability of metal-organic frameworks. | App, Code/ML |
 | [CGCNN](https://github.com/txie-93/cgcnn) | Crystal Graph Convolutional Neural Networks for predicting material properties from crystal structure. | Code/ML, Code/Lib |
+| [CEGANN](https://github.com/sbanik2/CEGANN) | Crystal Edge Graph Attention Neural Network for multiscale classification of materials environment. | Code/ML, Code/Lib |
 | [AutoPot](https://gitlab.com/mhodapp/autopot) | Automated and massively parallelized construction of machine-learning interatomic potentials. | Code/ML, Code/WF |
 | [BEE-NET](https://github.com/henniggroup/BEE-NET) | Bootstrapped Ensemble of Equivariant Graph Neural Networks (BEE-NET) for predicting the Eliashberg spectral function and superconducting critical temperature. | Code/ML, Code/Lib |
 | [materials_discovery](https://github.com/google-deepmind/materials_discovery) | Graph networks for active learning and materials discovery of stable inorganic crystals. | Code/ML, Code/Lib |
