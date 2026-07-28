@@ -39,3 +39,4 @@ tags: ["Data", "Code/ML", "App"]
 | [Charlotte Electride Database](https://mmi.charlotte.edu/electride) | Database of computationally screened inorganic electride materials. | Data/Comp, App |
 | [MatPhaseBench](https://github.com/Davidwhw/MatPhaseBench) | Semantics-guided benchmark evaluating vision-language models on materials phase diagrams understanding. | Data, Code/ML |
 | [MatPES](https://matpes.ai/) | Potential energy surface dataset computed using PBE and r2SCAN functionals for machine learning interatomic potentials. | App, Data/Comp, Code/ML |
+| [Ab-PXRD-Solver Dataset](https://mmi.charlotte.edu/ab_pxrd_solver) | Data repository hosting solved crystal structures and experimental powder X-ray diffraction benchmark datasets. | App, Data/Comp, Data/Exp |
