@@ -26,6 +26,7 @@ tags: ["Code/ML", "Code/Lib"]
 | [TACE](https://github.com/xvzemin/tace) | Tensor atomic cluster expansion interatomic potentials. | Code/ML, Code/Lib |
 | [Cartesian MACE](https://github.com/xvzemin/cartesian_mace) | Cartesian version of the MACE interatomic potential. | Code/ML, Code/Lib |
 | [PE-MACE](https://github.com/xke123502/PE_MACE) | Potential-embedded MACE interatomic potential. | Code/ML, Code/Lib |
+| [MACE-Field](https://github.com/mdi-group/mace-field) | Extension of the MACE architecture to incorporate external electric fields for dielectric property prediction. | Code/ML, Code/Lib |
 | [GRACE](https://github.com/ICAMS/grace-tensorpotential) | Machine learning interatomic potentials based on the GRACE tensor potential formulation. | Code/ML, Code/Lib |
 | [MatGL](https://github.com/materialsvirtuallab/matgl) | Graph deep learning library for materials properties and interatomic potentials. | Code/ML, Code/Lib |
 | [e3nn](https://e3nn.org/) | Modular PyTorch framework for Euclidean neural networks. | Code/Lib, Code/ML |
