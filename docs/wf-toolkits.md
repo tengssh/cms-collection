@@ -60,6 +60,7 @@ tags: ["Code/WF", "Code/Sim", "Code/ML", "App"]
 | [LitMOF](https://github.com/honghuikim/litmof) | Large language model-driven multi-agent framework to improve metal-organic framework databases. | Code/WF, Code/ML |
 | [ElectrideFlow](https://github.com/MaterSim/ElectrideFlow) | Density functional theory and machine learning workflow for high-throughput screening of inorganic electrides. | Code/WF, Code/ML |
 | [LLM4MOF](https://github.com/kn1218/LLM4MOF) | Large language model-based multi-agent framework for closed-loop inverse design of metal-organic frameworks. | Code/WF, Code/ML |
+| [LangSim](https://github.com/jan-janssen/LangSim) | Application of Large Language Model (LLM) agents to interface with scientific simulation codes and calculate physical properties. | Code/WF, Code/ML |
 | [dpti](https://github.com/deepmodeling/dpti) | Automating thermodynamic integration calculations for free energy and phase diagram construction using molecular dynamics simulations. | Code/Lib, Code/WF |
 | [AtomGPT](https://atomgpt.org/) | Deep learning framework, web interface, and orchestration API ([AGAPI](https://github.com/atomgptlab/agapi)) integrating language models with materials science tools for forward/inverse design and specialized workflows as detailed in the [documentation](https://atomgptlab.github.io/agapi/). | App, Code/ML, Code/WF |
 | [PolyJarvis](https://github.com/arz-2/PolyJarvis) | Autonomous large language model agent framework for all-atom molecular dynamics simulations of polymers. | Code/WF, Code/ML |
