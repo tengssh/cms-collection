@@ -40,3 +40,10 @@ tags: ["Code/Sim", "Code/WF", "Code/Lib", "Code/ML", "App"]
 | [PySCF](https://github.com/pyscf/pyscf) | Ab initio quantum chemistry and electronic structure calculations for molecular and periodic systems. | Code/Sim |
 | [exciting](https://github.com/exciting/exciting) | Full-potential all-electron density functional theory and many-body perturbation theory calculations using the (L)APW+lo method. | Code/Sim |
 | [TorchSim](https://github.com/TorchSim/torch-sim) | PyTorch-native atomistic simulation engine supporting batched molecular dynamics and structure relaxation for machine learning interatomic potentials. | Code/Sim, Code/ML |
+| [OpenMolcas](https://gitlab.com/Molcas/OpenMolcas) | Quantum chemistry software package focusing on multiconfigurational approaches to electronic structure calculations. | Code/Sim |
+| [artemis](https://github.com/AMReX-Microelectronics/artemis) | Coupled electrodynamics-micromagnetics solver integrating Maxwell equations in WarpX with Landau-Lifshitz-Gilbert and London equations for microelectronics modeling. | Code/Sim, Code/Lib |
+| [elphbolt](https://github.com/nakib/elphbolt) | Coupled and decoupled electron and phonon Boltzmann transport equation solver. | Code/Sim |
+| [quatrex](https://github.com/quatrex/quatrex) | Quantum transport simulations for nanoelectronic devices at exascale. | Code/Sim |
+| [Zandpack](https://github.com/AleksBL/Zandpack) | Time-dependent quantum transport calculations based on non-equilibrium Green's function theory for nanoelectronic device simulations. | Code/Sim, Code/Lib |
+| [Phoebe](https://github.com/phoebe-team/phoebe) | Ab initio computation of electron and phonon Boltzmann transport equations and thermal/electrical transport properties. | Code/Sim |
+| [GiftBTE](https://github.com/GiftBTE-developer/GiftBTE) | Deterministic solver for the phonon Boltzmann transport equation. | Code/Sim |
