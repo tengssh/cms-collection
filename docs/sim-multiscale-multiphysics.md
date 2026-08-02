@@ -28,6 +28,8 @@ tags: ["Code/Sim", "Code/WF", "Code/Lib", "Code/ML", "App"]
 | [DoNOFsw](https://github.com/DoNOF/DoNOFsw) | Electronic structure calculations based on natural orbital functional theory (NOFT). | Code/Sim, Code/Lib |
 | [FEniCS](https://fenicsproject.org/) | Integrated platform of solving partial differential equations (PDEs) with the finite element method (FEM). | Code/Sim, Code/Lib |
 | [EPW](https://epw-code.org/) | Calculation of electron-phonon interactions, carrier transport, and temperature-dependent properties using Wannier-Fourier interpolation. | Code/Sim |
+| [Wannier90](https://github.com/wannier-developers/wannier90) | Calculation of maximally-localized Wannier functions and electronic properties of materials. | Code/Lib, Code/Sim |
+| [Wannier-Berri](https://github.com/wannier-berri/wannier-berri) | Wannier interpolation and integration of k-space integrals. | Code/Lib |
 | [BerkeleyGW](https://berkeleygw.org/) | Many-body perturbation theory calculations of excited-state properties of materials using the GW method and the Bethe-Salpeter equation. | Code/Sim |
 | [Perturbo](https://perturbo-code.github.io/index.html) | Ab initio calculations of electron-phonon interactions, charge transport, and ultrafast carrier dynamics in materials. | Code/Sim |
 | [CONQUEST](https://github.com/OrderN/CONQUEST-release) | Large-scale and linear-scaling DFT calculations. | Code/Sim |
