@@ -47,5 +47,6 @@ tags: ["Code/Sim", "Code/WF", "Code/Lib", "Code/ML", "App"]
 | [elphbolt](https://github.com/nakib/elphbolt) | Coupled and decoupled electron and phonon Boltzmann transport equation solver. | Code/Sim |
 | [quatrex](https://github.com/quatrex/quatrex) | Quantum transport simulations for nanoelectronic devices at exascale. | Code/Sim |
 | [Zandpack](https://github.com/AleksBL/Zandpack) | Time-dependent quantum transport calculations based on non-equilibrium Green's function theory for nanoelectronic device simulations. | Code/Sim, Code/Lib |
+| [Kwant](https://kwant-project.org/) | Numerical calculations on tight-binding models for quantum transport simulations. | Code/Sim, Code/Lib |
 | [Phoebe](https://github.com/phoebe-team/phoebe) | Ab initio computation of electron and phonon Boltzmann transport equations and thermal/electrical transport properties. | Code/Sim |
 | [GiftBTE](https://github.com/GiftBTE-developer/GiftBTE) | Deterministic solver for the phonon Boltzmann transport equation. | Code/Sim |
