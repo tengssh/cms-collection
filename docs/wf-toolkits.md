@@ -65,6 +65,7 @@ tags: ["Code/WF", "Code/Sim", "Code/ML", "App"]
 | [AtomGPT](https://atomgpt.org/) | Deep learning framework, web interface, and orchestration API ([AGAPI](https://github.com/atomgptlab/agapi)) integrating language models with materials science tools for forward/inverse design and specialized workflows as detailed in the [documentation](https://atomgptlab.github.io/agapi/). | App, Code/ML, Code/WF |
 | [PolyJarvis](https://github.com/arz-2/PolyJarvis) | Autonomous large language model agent framework for all-atom molecular dynamics simulations of polymers. | Code/WF, Code/ML |
 | [VASP Agent](https://github.com/Phoinikas03/VASP_Agent) | Agentic framework for autonomous first-principles calculations. | Code/WF, Code/ML |
+| [LAMMPS-Agents](https://github.com/ANL-NST/LAMMPS-Agents) | Multi-agent AI framework coordinating specialized agents for end-to-end atomistic simulations and materials property calculations. | Code/WF, Code/ML |
 | [QCEngine](https://github.com/MolSSI/QCEngine) | Standardized execution and input/output wrapping of quantum chemistry, semi-empirical, and molecular mechanics programs. | Code/WF, Code/Lib |
 
 ## Model Context Protocol (MCP) & Skills
