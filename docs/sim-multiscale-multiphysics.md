@@ -27,6 +27,8 @@ tags: ["Code/Sim", "Code/WF", "Code/Lib", "Code/ML", "App"]
 | [BatCat](https://batcat.list.lu/) | Digital twin modeling and simulation of battery manufacturing. | App, Code/Sim |
 | [DoNOFsw](https://github.com/DoNOF/DoNOFsw) | Electronic structure calculations based on natural orbital functional theory (NOFT). | Code/Sim, Code/Lib |
 | [FEniCS](https://fenicsproject.org/) | Integrated platform of solving partial differential equations (PDEs) with the finite element method (FEM). | Code/Sim, Code/Lib |
+| [Elmer](https://github.com/ElmerCSC/elmerfem) | Finite element multiphysics simulation software for fluid dynamics, structural mechanics, electromagnetics, and heat transfer. | Code/Sim, Code/Lib |
+| [MFEM](https://github.com/mfem/mfem) | Modular C++ library for high-order finite element discretization and parallel solving of partial differential equations. | Code/Lib, Code/Sim |
 | [EPW](https://epw-code.org/) | Calculation of electron-phonon interactions, carrier transport, and temperature-dependent properties using Wannier-Fourier interpolation. | Code/Sim |
 | [Wannier90](https://github.com/wannier-developers/wannier90) | Calculation of maximally-localized Wannier functions and electronic properties of materials. | Code/Lib, Code/Sim |
 | [Wannier-Berri](https://github.com/wannier-berri/wannier-berri) | Wannier interpolation and integration of k-space integrals. | Code/Lib |
