@@ -102,3 +102,4 @@ tags: ["Code/ML", "Code/Lib"]
 | [UMA](https://aidemos.atmeta.com/uma) | Interactive molecular simulation playground for the Universal Model for Atoms (UMA). | App, Edu |
 | [CarNet](https://github.com/wengroup/carnet) | Equivariant atomistic machine learning using Cartesian natural tensor networks. | Code/ML, Code/Lib |
 | [SAGE-Net](https://github.com/zhanggh1999/SAGE-Net) | Multimodal framework integrating description-derived chemical and crystallographic semantics into geometric message passing for material property prediction. | Code/ML, Code/Lib |
+| [MegaFold](https://github.com/Supercomputing-System-AI-Lab/MegaFold) | Accelerated training framework and kernel optimizations for biomolecular structure prediction models. | Code/ML, Code/Lib |
