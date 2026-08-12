@@ -67,6 +67,7 @@ tags: ["Code/WF", "Code/Sim", "Code/ML", "App"]
 | [VASP Agent](https://github.com/Phoinikas03/VASP_Agent) | Agentic framework for autonomous first-principles calculations. | Code/WF, Code/ML |
 | [LAMMPS-Agents](https://github.com/ANL-NST/LAMMPS-Agents) | Multi-agent AI framework coordinating specialized agents for end-to-end atomistic simulations and materials property calculations. | Code/WF, Code/ML |
 | [QCEngine](https://github.com/MolSSI/QCEngine) | Standardized execution and input/output wrapping of quantum chemistry, semi-empirical, and molecular mechanics programs. | Code/WF, Code/Lib |
+| [CrystaLyse.AI](https://github.com/ryannduma/CrystaLyse.AI) | Orchestration of compositional screening, crystal structure generation, and machine learning force field evaluation for inorganic crystal design. | Code/WF, Code/ML |
 
 ## Model Context Protocol (MCP) & Skills
 
