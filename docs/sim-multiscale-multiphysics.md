@@ -43,6 +43,7 @@ tags: ["Code/Sim", "Code/WF", "Code/Lib", "Code/ML", "App"]
 | [dftworks](https://github.com/dftworks/dftworks) | Plane-wave pseudopotential density functional theory simulation package written in Rust. | Code/Sim |
 | [PySCF](https://github.com/pyscf/pyscf) | Ab initio quantum chemistry and electronic structure calculations for molecular and periodic systems. | Code/Sim |
 | [exciting](https://github.com/exciting/exciting) | Full-potential all-electron density functional theory and many-body perturbation theory calculations using the (L)APW+lo method. | Code/Sim |
+| [VeloxChem](https://github.com/VeloxChem/VeloxChem) | Quantum chemistry software package for molecular property and spectroscopy calculations using density functional theory. | Code/Sim, Code/Lib |
 | [TorchSim](https://github.com/TorchSim/torch-sim) | PyTorch-native atomistic simulation engine supporting batched molecular dynamics and structure relaxation for machine learning interatomic potentials. | Code/Sim, Code/ML |
 | [OpenMolcas](https://gitlab.com/Molcas/OpenMolcas) | Quantum chemistry software package focusing on multiconfigurational approaches to electronic structure calculations. | Code/Sim |
 | [artemis](https://github.com/AMReX-Microelectronics/artemis) | Coupled electrodynamics-micromagnetics solver integrating Maxwell equations in WarpX with Landau-Lifshitz-Gilbert and London equations for microelectronics modeling. | Code/Sim, Code/Lib |
@@ -52,3 +53,5 @@ tags: ["Code/Sim", "Code/WF", "Code/Lib", "Code/ML", "App"]
 | [Kwant](https://kwant-project.org/) | Numerical calculations on tight-binding models for quantum transport simulations. | Code/Sim, Code/Lib |
 | [Phoebe](https://github.com/phoebe-team/phoebe) | Ab initio computation of electron and phonon Boltzmann transport equations and thermal/electrical transport properties. | Code/Sim |
 | [GiftBTE](https://github.com/GiftBTE-developer/GiftBTE) | Deterministic solver for the phonon Boltzmann transport equation. | Code/Sim |
+| [abTEM](https://github.com/abtem/abtem) | Transmission electron microscopy (TEM) and scanning transmission electron microscopy (STEM) simulations using multislice and PRISM algorithms. | Code/Sim, Code/Lib |
+| [mrfmsim](https://github.com/Marohn-Group/mrfmsim) | Simulation framework for magnetic resonance force microscopy (MRFM) experiments built on directed acyclic graph models. | Code/Sim, Code/Lib |
