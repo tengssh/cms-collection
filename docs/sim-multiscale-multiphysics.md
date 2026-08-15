@@ -55,3 +55,6 @@ tags: ["Code/Sim", "Code/WF", "Code/Lib", "Code/ML", "App"]
 | [GiftBTE](https://github.com/GiftBTE-developer/GiftBTE) | Deterministic solver for the phonon Boltzmann transport equation. | Code/Sim |
 | [abTEM](https://github.com/abtem/abtem) | Transmission electron microscopy (TEM) and scanning transmission electron microscopy (STEM) simulations using multislice and PRISM algorithms. | Code/Sim, Code/Lib |
 | [mrfmsim](https://github.com/Marohn-Group/mrfmsim) | Simulation framework for magnetic resonance force microscopy (MRFM) experiments built on directed acyclic graph models. | Code/Sim, Code/Lib |
+| [QAssemble](https://github.com/QAssemble/qassemble) | Electronic property calculations of materials using tight-binding, Hartree-Fock, and GW approximations with discrete Lehmann representations. | Code/Sim, Code/Lib |
+| [TUNA](https://github.com/h-brough/TUNA) | Quantum chemistry program for electronic structure and geometry optimization calculations of atoms and diatomics. | Code/Sim |
+| [CP-PAW](https://github.com/cp-paw/cp-paw) | Electronic structure calculations and ab initio molecular dynamics based on the projector augmented wave (PAW) method and Car-Parrinello dynamics. | Code/Sim |
