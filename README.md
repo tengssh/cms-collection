@@ -175,6 +175,7 @@ Given the rapidly evolving nature of this field, the proposed categories are des
 | [QMatSuite](https://github.com/QMatSuite/QMatSuite) | Graphical user interface for the Quantum ESPRESSO ab-initio simulation suite. | App, Code/Lib |
 | [LOBSTER](https://schmeling.ac.rwth-aachen.de/cohp/index.php) | Chemical-bonding analysis including Crystal Orbital Hamilton Population (COHP) and Overlap Population (COOP) from plane-wave DFT outputs. | Code/Lib |
 | [LobsterPy](https://github.com/JaGeo/LobsterPy) | Automatic bonding analysis and feature generation from [Lobster](https://schmeling.ac.rwth-aachen.de/cohp/index.php) calculations. | Code/Lib, Code/ML |
+| [arpespythontools](https://github.com/pranabdas/arpespythontools) | Explore, analyze, and visualize Angle-Resolved Photoemission Spectroscopy (ARPES) data. | Code/Lib |
 
 ## OCW
 
