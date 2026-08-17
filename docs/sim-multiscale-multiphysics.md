@@ -58,3 +58,4 @@ tags: ["Code/Sim", "Code/WF", "Code/Lib", "Code/ML", "App"]
 | [QAssemble](https://github.com/QAssemble/qassemble) | Electronic property calculations of materials using tight-binding, Hartree-Fock, and GW approximations with discrete Lehmann representations. | Code/Sim, Code/Lib |
 | [TUNA](https://github.com/h-brough/TUNA) | Quantum chemistry program for electronic structure and geometry optimization calculations of atoms and diatomics. | Code/Sim |
 | [CP-PAW](https://github.com/cp-paw/cp-paw) | Electronic structure calculations and ab initio molecular dynamics based on the projector augmented wave (PAW) method and Car-Parrinello dynamics. | Code/Sim |
+| [NuMagSANS](https://github.com/AdamsMP92/NuMagSANS) | GPU-accelerated computation of nuclear and magnetic small-angle neutron scattering (SANS) cross sections and correlation functions from atomistic and micromagnetic configurations. | Code/Sim, Code/Lib |
