@@ -28,7 +28,7 @@ tags: ["Code/ML", "Code/Lib"]
 | [PE-MACE](https://github.com/xke123502/PE_MACE) | Potential-embedded MACE interatomic potential. | Code/ML, Code/Lib |
 | [MACE-Field](https://github.com/mdi-group/mace-field) | Extension of the MACE architecture to incorporate external electric fields for dielectric property prediction. | Code/ML, Code/Lib |
 | [GRACE](https://github.com/ICAMS/grace-tensorpotential) | Machine learning interatomic potentials based on the GRACE tensor potential formulation. | Code/ML, Code/Lib |
-| [MatGL](https://github.com/materialsvirtuallab/matgl) | Graph deep learning library for materials properties and interatomic potentials. | Code/ML, Code/Lib |
+| [MatGL](https://github.com/materialyzeai/matgl) | Graph deep learning library for materials properties and interatomic potentials. | Code/ML, Code/Lib |
 | [e3nn](https://e3nn.org/) | Modular PyTorch framework for Euclidean neural networks. | Code/Lib, Code/ML |
 | [Equiformer](https://github.com/atomicarchitects/equiformer) | Equivariant graph attention transformer for 3D atomistic graphs. | Code/ML, Code/Lib |
 | [EquiformerV2](https://github.com/atomicarchitects/equiformer_v2) | Equivariant transformer with improved scaling to higher-degree representations. | Code/ML, Code/Lib |
@@ -103,3 +103,4 @@ tags: ["Code/ML", "Code/Lib"]
 | [CarNet](https://github.com/wengroup/carnet) | Equivariant atomistic machine learning using Cartesian natural tensor networks. | Code/ML, Code/Lib |
 | [SAGE-Net](https://github.com/zhanggh1999/SAGE-Net) | Multimodal framework integrating description-derived chemical and crystallographic semantics into geometric message passing for material property prediction. | Code/ML, Code/Lib |
 | [MegaFold](https://github.com/Supercomputing-System-AI-Lab/MegaFold) | Accelerated training framework and kernel optimizations for biomolecular structure prediction models. | Code/ML, Code/Lib |
+| [orb-models](https://github.com/orbital-materials/orb-models) | Universal neural network interatomic potentials for atomistic simulations and materials property prediction. | Code/ML, Code/Lib |
