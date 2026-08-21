@@ -177,6 +177,7 @@ Given the rapidly evolving nature of this field, the proposed categories are des
 | [LobsterPy](https://github.com/JaGeo/LobsterPy) | Automatic bonding analysis and feature generation from [Lobster](https://schmeling.ac.rwth-aachen.de/cohp/index.php) calculations. | Code/Lib, Code/ML |
 | [arpespythontools](https://github.com/pranabdas/arpespythontools) | Explore, analyze, and visualize Angle-Resolved Photoemission Spectroscopy (ARPES) data. | Code/Lib |
 | [MatCalc](https://github.com/materialyzeai/matcalc) | Calculating materials properties from potential energy surfaces using machine learning interatomic potentials and DFT. | Code/Lib, Code/ML |
+| [auto-kappa](https://github.com/phonix-db/auto-kappa) | Automated calculation of anharmonic phonon properties. | Code/WF, Code/Lib |
 
 ## OCW
 
