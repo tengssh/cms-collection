@@ -179,6 +179,7 @@ Given the rapidly evolving nature of this field, the proposed categories are des
 | [MatCalc](https://github.com/materialyzeai/matcalc) | Calculating materials properties from potential energy surfaces using machine learning interatomic potentials and DFT. | Code/Lib, Code/ML |
 | [auto-kappa](https://github.com/phonix-db/auto-kappa) | Automated calculation of anharmonic phonon properties. | Code/WF, Code/Lib |
 | [AMDAT](https://github.com/dssimmons-codes/AMDAT) | C++ toolkit for post-processing molecular dynamics trajectories, with a focus on static and dynamic analyses of amorphous, glassy, and polymer materials. | Code/Lib |
+| [PLUMED2](https://github.com/plumed/plumed2) | Free energy calculations, enhanced-sampling algorithms, and trajectory analysis for molecular dynamics simulations. | Code/Lib, Code/Sim |
 
 ## OCW
 
