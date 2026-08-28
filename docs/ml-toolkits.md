@@ -29,3 +29,4 @@ tags: ["Code/ML", "Code/Lib", "Code/WF", "App"]
 | [RuNNerASE 2.0](https://gitlab.com/runner-suite/runnerase-2.0) | Collection of packages for training, evaluating, and analyzing machine learning potentials with RuNNer. | Code/ML, Code/Lib, Code/WF |
 | [MatText](https://github.com/lamalab-org/MatText) | Framework for converting crystal structures into text representations and benchmarking language models for materials modeling. | Code/Lib, Code/ML |
 | [MAML](https://github.com/materialyzeai/maml) | Materials machine learning library for descriptors, interatomic potentials, and deep learning models. | Code/Lib, Code/ML |
+| [PyAMFF](https://gitlab.com/pyamff/pyamff) | Fitting and utilizing atom-centered machine learning potentials for atomistic simulations. | Code/Lib, Code/ML |
