@@ -182,6 +182,7 @@ Given the rapidly evolving nature of this field, the proposed categories are des
 | [AMDAT](https://github.com/dssimmons-codes/AMDAT) | C++ toolkit for post-processing molecular dynamics trajectories, with a focus on static and dynamic analyses of amorphous, glassy, and polymer materials. | Code/Lib |
 | [PLUMED2](https://github.com/plumed/plumed2) | Free energy calculations, enhanced-sampling algorithms, and trajectory analysis for molecular dynamics simulations. | Code/Lib, Code/Sim |
 | [DL_FIELD](https://www.ccp5.ac.uk/dl_field/) | Force field construction and conversion utility for molecular simulations (DL_POLY, GROMACS, LAMMPS). | Code/Lib |
+| [LAMMPS-AST](https://github.com/ethanholbrook/LAMMPS-AST) | Sanitizing, parsing, and transforming LAMMPS input scripts into abstract syntax trees (ASTs) for linting, validation, and workflow integration. | Code/Lib |
 
 ## OCW
 
