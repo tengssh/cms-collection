@@ -22,7 +22,7 @@ tags: ["Code/Sim", "Code/WF", "Code/Lib", "Code/ML", "App"]
 | [kUPS](https://github.com/cusp-ai-oss/kups) | Simulation library for high-performance atomistic simulations implemented in JAX. | Code/Lib, Code/ML, Code/Sim |
 | [MLAtom](https://github.com/dralgroup/mlatom) | AI-enhanced computational chemistry package for atomistic simulations and machine learning potentials. | Code/Sim, Code/ML |
 | [SCALE-TRACK](https://github.com/Wikki-GmbH/SCALE-TRACK) | Lagrangian particle tracking for dispersed multiphase CFD flows. | Code/Sim |
-| [ChemShell](https://chemshell.org/) | Computational chemistry environment for QM/MM simulations. | Code/Lib, Code/Sim |
+| [ChemShell](https://www.chemshell.org/) | Computational chemistry environment with Python and Tcl interfaces for multiscale QM/MM simulations. | Code/Lib, Code/Sim |
 | [AMReX](https://github.com/AMReX-Codes/amrex) | Block-structured adaptive mesh refinement (AMR) framework for parallel simulations. | Code/Sim, Code/Lib |
 | [BatCat](https://batcat.list.lu/) | Digital twin modeling and simulation of battery manufacturing. | App, Code/Sim |
 | [DoNOFsw](https://github.com/DoNOF/DoNOFsw) | Electronic structure calculations based on natural orbital functional theory (NOFT). | Code/Sim, Code/Lib |
