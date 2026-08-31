@@ -104,6 +104,11 @@ Given the rapidly evolving nature of this field, the proposed categories are des
 | [Elementary Multiperspective Material Ontology (EMMO)](https://emmo-repo.github.io/) | A standardized representational ontology framework for materials modelling and characterization knowledge. | Data |
 | [Material Core (MatCore)](https://matcore.org/) | A community-specific metadata standard for computational materials science. | Data |
 | [Lightweight BatCAT Core Ontologies (LBCO)](https://github.com/HE-BatCAT/lbco) | Ontology framework for vanadium redox-flow and lithium-ion battery design, manufacturing, and operation. | Data |
+| [Materials Design Ontology (MDO)](https://github.com/LiUSemWeb/Materials-Design-Ontology) | Ontology representing domain knowledge in materials design, solid-state physics, and computational materials science across structure, calculation, and provenance modules. | Data |
+| [Computational Material Sample Ontology (CMSO)](https://github.com/OCDO/cmso) | Ontology describing computational materials science samples and structures, including atomic-scale arrangements and crystalline defects. | Data |
+| [Atomistic Simulation Methods Ontology (ASMO)](https://github.com/OCDO/asmo) | Ontology defining concepts and metadata for atomic-scale simulation methods, including DFT, molecular dynamics, and Monte Carlo techniques. | Data |
+| [Planar Defects Ontology (PLDO)](https://github.com/OCDO/pldo) | Ontology describing planar defects in crystalline materials, focusing on atomic-scale structure and properties of grain boundaries and stacking faults. | Data |
+| [PROV-O: The PROV Ontology](https://www.w3.org/TR/prov-o/) | OWL2 ontology defining the W3C PROV data model for expressing and interchanging provenance information. | Data |
 | [MatPortal](https://matportal.org/) | Ontology repository and web platform for materials science, providing tools for ontology search, visualization, annotation, and mapping. | Data, App |
 | [Electrospinning Data Hub](https://electrospinning-data.org/) | Experimental data platform for electrospinning parameters, solution properties, and nanofiber characteristics. | Data/Exp, App |
 
