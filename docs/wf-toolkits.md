@@ -70,6 +70,7 @@ tags: ["Code/WF", "Code/Sim", "Code/ML", "App"]
 | [CrystaLyse.AI](https://github.com/ryannduma/CrystaLyse.AI) | Orchestration of compositional screening, crystal structure generation, and machine learning force field evaluation for inorganic crystal design. | Code/WF, Code/ML |
 | [NIMO](https://github.com/NIMS-DA/nimo) | Closed-loop automation of robotic experiments and artificial intelligence for materials exploration. | Code/WF, Code/ML |
 | [reeds](https://github.com/rinikerlab/reeds) | Pipeline for executing Replica Exchange - Enveloping Distribution Sampling (RE-EDS) runs for relative free energy calculations. | Code/WF, Code/Lib |
+| [CatDT](https://github.com/AI4QC/catdt-gs) | Self-evolving multi-agent system for autonomous heterogeneous catalysis discovery. | Code/WF, Code/ML |
 
 ## Model Context Protocol (MCP) & Skills
 
