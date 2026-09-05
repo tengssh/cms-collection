@@ -32,7 +32,7 @@ Ensure the LLM backend (supporting tool calling) is running, then run the tasks 
    pixi run search
    
    # Search with arguments
-   pixi run search --query "DFT software" --limit 5 --sections "Tools: Crystal structures"
+   pixi run search --query "DFT software" --limit 5 --sections "Tools & Toolkits"
    ```
 3. **Interactive RAG Chat:**
    ```bash

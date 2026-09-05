@@ -12,9 +12,7 @@ db_sections = [
     "Curated Lists",
     "Computing & Workflows",
     "Machine Learning",
-    "Tools: Crystal structures",
-    "Tools: Molecular structures",
-    "Toolkits",
+    "Tools & Toolkits",
     "OCW"
 ]
 

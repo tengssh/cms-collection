@@ -82,9 +82,7 @@ def parse_markdown(text, db_sections=None):
             "Curated Lists",
             "Computing & Workflows",
             "Machine Learning",
-            "Tools: Crystal structures",
-            "Tools: Molecular structures",
-            "Toolkits",
+            "Tools & Toolkits",
             "OCW"
         ]
         
