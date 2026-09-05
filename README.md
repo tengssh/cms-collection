@@ -10,9 +10,7 @@ Given the rapidly evolving nature of this field, the proposed categories are des
 - [Databases & Datasets](#Databases--Datasets)
 - [Computing & Workflows](#Computing--Workflows)
 - [Machine Learning](#Machine-Learning)
-- [Tools: Crystal structures](#Tools-Crystal-structures)
-- [Tools: Molecular structures](#Tools-Molecular-structures)
-- [Toolkits](#Toolkits)
+- [Tools & Toolkits](#Tools--Toolkits)
 - [OCW](#OCW)
 - [Glossary](#Glossary)
 - [License](#License)
@@ -56,65 +54,13 @@ Given the rapidly evolving nature of this field, the proposed categories are des
 | [Benchmarks](./docs/ml-benchmarks.md) | Benchmarks for machine learning models and applications in materials science. | List, Data, Code/ML, App |
 | [Machine learning toolkits](./docs/ml-toolkits.md) | General-purpose machine learning toolkits for materials science. | List, Code/ML, Code/Lib, Code/WF, App |
 
-## Tools: Crystal structures
+## Tools & Toolkits
 
 | Item (URL) | Description | Tags |
 | :--------- | :---------- | :--- |
-| [Open Visualization Tool (OVITO)](https://www.ovito.org/) | A visualization tool for particle-based simulations. | Code/Lib, App |
-| [Visualization for Electronic and STructural Analysis (VESTA)](https://www.jp-minerals.org/vesta/en/) | A visualization tool for electron densities and crystal morphologies. | App |
-| [Atomsk](https://atomsk.univ-lille.fr/) | A command-line program tool to generate structure files for atomic-scale simulations. | Code/Lib |
-| [cif2cell](https://github.com/torbjornbjorkman/cif2cell) | A Python package to create structures for electronic structure calculations. | Code/Lib |
-| [PyXtal](https://github.com/MaterSim/PyXtal) | A Python package for atomic and molecular crystals. | Code/Lib |
-| [Ab initio random structure searching (AIRSS)](https://airss-docs.github.io/) | A tool for generating structures for random structure searching in ab initio calculations. | Code/Lib |
-| [Ab-initio Interface Materials Simulation Project for Grain Boundaries (AIMSGB)](https://github.com/ksyang2013/aimsgb) | A Python package for generating periodic grain boundary structures. | Code/Lib |
-| [SPuDS - Structure Prediction Diagnostic Software](https://lufaso.domains.unf.edu/spuds/index.html) | A software tool for generating crystal structures of perovskites, including tilting the octahedra. | Code/Lib |
-| [SimplySQS](https://github.com/bracerino/atat-sqs-gui) | An interactive Python package for generating special quasi-random structures (SQS). | Code/Lib, App |
-| [xrayutilities](https://github.com/dkriegner/xrayutilities) | A collection of scripts for analyzing and simulating X-ray diffraction data. | Code/Lib |
-| [GenL](https://github.com/scatterer/GenL) | A fitting tool for X-ray diffraction data on single crystal films. | Code/Lib, App |
-| [MOFBuilder](https://github.com/chenxili01/MOFBuilder) | A Python package for building Metal-Organic Framework (MOF) structures. | Code/Lib |
-| [pyscal](https://github.com/pyscal/pyscal) | Python library for calculation of local atomic structural environment. | Code/Lib |
-| [CALYPSO](https://www.calypso.cn/home/) | Crystal structure prediction using particle swarm optimization. | Code/Sim, App |
-| [virp](https://github.com/andypaulchen/virp) | Virtual cell generation from crystal structures containing site disorder. | Code/Lib |
-
-## Tools: Molecular structures
-
-| Item (URL) | Description | Tags |
-| :--------- | :---------- | :--- |
-| [IQmol](http://iqmol.org/) | A visualization tool for molecular systems. | App |
-| [PyMOL](https://github.com/schrodinger/pymol-open-source) | A visualization tool for molecular systems. | App, Code/Lib |
-| [TRajectory Analyzer and VISualizer (TRAVIS)](http://www.travis-analyzer.de/) | A visualization tool for molecular trajectories. | Code/Lib |
-| [Visual Molecular Dynamics (VMD)](https://www.ks.uiuc.edu/Research/vmd/) | A visualization tool for molecular systems. | App, Code/Lib |
-| [UCSF ChimeraX](https://www.cgl.ucsf.edu/chimerax/) | A visualization and analysis program for molecular systems. | App, Code/Lib |
-| [PES-trotter](https://github.com/srampinogroup/PES-trotter) | A cross-platform, open-source application built on the Godot Engine for the 3D visualization and exploration of Potential Energy Surfaces (PES). | Code/Lib, App |
-| [PACKMOL](https://m3g.github.io/packmol/) | A software tool for packing molecules in defined regions of space, considering short-range repulsions. | Code/Lib |
-| [Martini_mapping](https://github.com/eliobaby/Martini_mapping), [Martini_mapper](https://github.com/eliobaby/Martini_mapper) | A Python package for generating coarse-grained models from SMILES strings. | Code/Lib |
-
-## Toolkits
-
-| Item (URL) | Description | Tags |
-| :--------- | :---------- | :--- |
-| [Bilbao Crystallographic Server ](https://www.cryst.ehu.es/) | An online server providing programs and utilities for crystallography and solid state materials. | Data, Code/Lib, App |
-| [ISOTROPY Software Suite](https://iso.byu.edu/isotropy.php) | A collection of software using group theory to analyze phase transitions in crystalline solids. | Code/Lib, App |
-| [Atomic Simulation Environment](https://ase-lib.org/) | A Python toolkit for atomistic simulations. | Code/Lib, Code/ML |
-| [Pymatgen (Python Materials Genomics)](https://pymatgen.org/index.html) | A Python library for analyzing materials. | Code/Lib, Code/ML |
-| [rDock](https://github.com/CBDD/rDock) | A program for docking small molecules to proteins and nucleic acids. | Code/Sim, Code/Lib |
-| [mendeleev](https://github.com/lmmentel/mendeleev/) | A Python package for accessing properties of elements and isotopes from the periodic table of elements. | Code/Lib |
-| [Open Babel](https://github.com/openbabel/openbabel) | A toolbox for handling different formats of chemical data. | Code/Lib |
-| [VASP Transition State Theory (TST) Tools](https://theory.cm.utexas.edu/vtsttools/) | A collection of scripts and code extensions for applying transition state theory (Nudged Elastic Band, Dimer, etc.) in VASP. | Code/Lib, Code/Sim |
-| [bader](https://github.com/henkelmangroup/bader) | Bader charge and electronic population analysis from electronic charge density grids. | Code/Lib |
-| [Phonopy](https://github.com/phonopy/phonopy/) | A Python package for phonon calculations of harmonic and quasi-harmonic properties. | Code/Lib |
-| [Phono3py](https://github.com/phonopy/phono3py) | A Python package for phonon-phonon interactions related properties. | Code/Lib |
-| [Cheminfo](https://www.cheminfo.org/) | A platform with a collection of web applications for visualizing, analyzing, and organizing cheminformatics data. | App, Data |
-| [QMatSuite](https://github.com/QMatSuite/QMatSuite) | Graphical user interface for the Quantum ESPRESSO ab-initio simulation suite. | App, Code/Lib |
-| [LOBSTER](https://schmeling.ac.rwth-aachen.de/cohp/index.php) | Chemical-bonding analysis including Crystal Orbital Hamilton Population (COHP) and Overlap Population (COOP) from plane-wave DFT outputs. | Code/Lib |
-| [LobsterPy](https://github.com/JaGeo/LobsterPy) | Automatic bonding analysis and feature generation from [Lobster](https://schmeling.ac.rwth-aachen.de/cohp/index.php) calculations. | Code/Lib, Code/ML |
-| [arpespythontools](https://github.com/pranabdas/arpespythontools) | Explore, analyze, and visualize Angle-Resolved Photoemission Spectroscopy (ARPES) data. | Code/Lib |
-| [MatCalc](https://github.com/materialyzeai/matcalc) | Calculating materials properties from potential energy surfaces using machine learning interatomic potentials and DFT. | Code/Lib, Code/ML |
-| [auto-kappa](https://github.com/phonix-db/auto-kappa) | Automated calculation of anharmonic phonon properties. | Code/WF, Code/Lib |
-| [AMDAT](https://github.com/dssimmons-codes/AMDAT) | C++ toolkit for post-processing molecular dynamics trajectories, with a focus on static and dynamic analyses of amorphous, glassy, and polymer materials. | Code/Lib |
-| [PLUMED2](https://github.com/plumed/plumed2) | Free energy calculations, enhanced-sampling algorithms, and trajectory analysis for molecular dynamics simulations. | Code/Lib, Code/Sim |
-| [DL_FIELD](https://www.ccp5.ac.uk/dl_field/) | Force field construction and conversion utility for molecular simulations (DL_POLY, GROMACS, LAMMPS). | Code/Lib |
-| [LAMMPS-AST](https://github.com/ethanholbrook/LAMMPS-AST) | Sanitizing, parsing, and transforming LAMMPS input scripts into abstract syntax trees (ASTs) for linting, validation, and workflow integration. | Code/Lib |
+| [Crystal structures](./docs/tools-crystal-structures.md) | Generation, transformation, analysis, and visualization tools for crystal structures and periodic systems. | List, Code/Lib, App |
+| [Molecular structures](./docs/tools-molecular-structures.md) | Modeling, packing, coarse-graining, and 3D visualization tools for molecular systems and trajectories. | List, Code/Lib, App |
+| [Simulation & analysis toolkits](./docs/tools-simulation-analysis.md) | Atomistic simulation toolkits, post-processing utilities, electronic structure analysis, and property calculation libraries. | List, Code/Lib, Code/Sim, App |
 
 ## OCW
 
