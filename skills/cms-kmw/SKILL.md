@@ -40,12 +40,28 @@ graph TD
 - **Licensing:** Prioritize resources with standard open-source licenses (MIT, Apache 2.0, BSD, GPL). Explicitly label commercial platforms.
 
 ### Step 4: Classification & Structural Placement (Use [classify_resource.py](./scripts/classify_resource.py))
-Determine the file target based on architectural purpose:
-1. **Simulation Bundles vs. Process Managers:**
-   - **Bundles & Solvers (`sim-multiscale-multiphysics.md`):** If the resource bundles multiple physical calculation packages/solvers (DFT, MD, MC, thermal solvers) or couples physical scales concurrently (QM/MM, PIMD), catalog it in `docs/sim-multiscale-multiphysics.md`. Add the `Code/Sim` tag.
-   - **Process & Workflow Managers (`wf-toolkits.md`):** If the resource only orchestrates execution, pipelines, or database access without bundling its own solvers (e.g., AiiDA, pyiron, Rescale), catalog it in `docs/wf-toolkits.md`. Add the `Code/WF` tag.
-2. **Machine Learning Toolkits (`ml-toolkits.md`):** If the tool is a developer framework or utility for machine learning in chemistry/materials (e.g., training pipelines, tensor operations), place it in `docs/ml-toolkits.md`. Add the `Code/ML` tag.
-3. **Out-of-Scope Backlog (`backlog.md`):** If the tool is general-purpose (e.g., general PDE/physics solvers, non-materials specific agents) or a static research database publication record (Zenodo, Figshare), catalog it in `docs/backlog.md`.
+Determine the file target based on architectural purpose and domain role:
+1. **Databases & Datasets (`data-*.md`):**
+   - **Structures & Properties (`docs/data-exp-comp.md`):** Databases of experimental, computational, or hybrid crystal structures, spectra, and thermophysical properties (`Data/Exp`, `Data/Comp`).
+   - **Potentials & Parameters (`docs/data-potentials-parameters.md`):** Pseudopotential libraries, basis sets, exchange-correlation functionals, and interatomic force field repositories (`Data/Comp`, `Code/Lib`).
+   - **Data Infrastructure (`docs/data-infrastructure.md`):** Multidisciplinary data registries, domain ontologies, metadata schemas, and database interoperability APIs (`Data`, `App`).
+2. **Computing & Workflows (`sim-*.md`, `wf-*.md`):**
+   - **Multiscale & Multiphysics (`docs/sim-multiscale-multiphysics.md`):** Simulation engines, ab initio DFT/MD solvers, and multiscale/concurrent scale coupling packages (`Code/Sim`).
+   - **Integrated Workflows (`docs/wf-toolkits.md`):** Workflow managers, pipeline orchestrators, agentic automation systems, and MCP servers (`Code/WF`).
+3. **Machine Learning (`ml-*.md`):**
+   - **Predictive Models (`docs/ml-predictive-models.md`):** Machine learning interatomic potentials (MLIPs) and property prediction models (`Code/ML`).
+   - **Generative Models (`docs/ml-generative-models.md`):** Generative crystal/molecular structure models and inverse materials design (`Code/ML`).
+   - **Uncertainty Quantification (`docs/ml-uncertainty-quantification.md`):** UQ, active learning loops, and Bayesian optimization tools (`Code/ML`).
+   - **Benchmarks (`docs/ml-benchmarks.md`):** Evaluation harnesses, benchmark datasets, and model leaderboards (`Data`, `Code/ML`).
+   - **Machine Learning Toolkits (`docs/ml-toolkits.md`):** General ML development frameworks, molecular descriptors, and graph neural network libraries (`Code/ML`, `Code/Lib`).
+4. **Tools & Toolkits (`tools-*.md`):**
+   - **Crystal Structures (`docs/tools-crystal-structures.md`):** Pre/post-processing tools for crystal structure generation, space group analysis, and 3D visualizers (`Code/Lib`, `App`).
+   - **Molecular Structures (`docs/tools-molecular-structures.md`):** Molecular modeling, packing, trajectory visualization, and coarse-graining tools (`Code/Lib`, `App`).
+   - **Simulation & Analysis (`docs/tools-simulation-analysis.md`):** Core computational libraries (ASE, Pymatgen), phonon solvers, electronic structure analyzers, and sampling plugins (`Code/Lib`, `Code/Sim`).
+5. **Educational Resources (`ocw-*.md`):**
+   - **Educational Resources (`docs/ocw-cms.md`):** Academic courses, interactive simulation applets, computational cookbooks, and research computing lessons (`Edu`).
+6. **Out-of-Scope Backlog (`backlog.md`):**
+   - Resources that are general-purpose (e.g., non-materials specific tools), archived/abandoned repositories, or raw dataset publications (`docs/backlog.md`).
 
 ### Step 5: Cataloging & Description Styling (Use [format_catalog_entry.py](./scripts/format_catalog_entry.py))
 Adhere to the following stylistic guidelines when formatting entries:
