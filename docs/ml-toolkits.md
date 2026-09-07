@@ -30,3 +30,4 @@ tags: ["Code/ML", "Code/Lib", "Code/WF", "App"]
 | [MatText](https://github.com/lamalab-org/MatText) | Framework for converting crystal structures into text representations and benchmarking language models for materials modeling. | Code/Lib, Code/ML |
 | [MAML](https://github.com/materialyzeai/maml) | Materials machine learning library for descriptors, interatomic potentials, and deep learning models. | Code/Lib, Code/ML |
 | [PyAMFF](https://gitlab.com/pyamff/pyamff) | Fitting and utilizing atom-centered machine learning potentials for atomistic simulations. | Code/Lib, Code/ML |
+| [GPUMDkit](https://github.com/zhyan0603/GPUMDkit) | Toolkit for [GPUMD](https://github.com/brucefan1983/GPUMD) and neuroevolution potentials (NEPs) providing dataset preparation, active-learning workflows, and property analysis. | Code/ML, Code/Lib, Code/WF |

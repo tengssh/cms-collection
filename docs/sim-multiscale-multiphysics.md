@@ -63,3 +63,4 @@ tags: ["Code/Sim", "Code/WF", "Code/Lib", "Code/ML", "App"]
 | [RMGDFT](https://github.com/RMGDFT/rmgdft) | Electronic structure calculations and modeling of materials and molecules based on real-space grids and pseudopotentials. | Code/Sim |
 | [FEBio](https://github.com/febiosoftware/FEBio) | Nonlinear finite element solver designed for biomechanical applications. | Code/Sim, Code/Lib |
 | [EON](https://github.com/henkelmangroup/eon) | Long-timescale atomic dynamics and rare-event simulations using accelerated dynamics and adaptive kinetic Monte Carlo. | Code/Sim |
+| [GPUMD](https://github.com/brucefan1983/GPUMD) | General-purpose molecular dynamics package implemented on GPUs with support for training and simulation using neuroevolution potentials (NEPs). | Code/Sim, Code/ML |
