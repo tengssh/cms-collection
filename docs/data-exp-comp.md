@@ -34,6 +34,8 @@ tags: ["Data/Exp", "Data/Comp", "App"]
 | [SpringerMaterials](https://materials.springer.com/) | A curated database of materials and physical/chemical properties with interactive data visualization and analysis. (commercial) | Data, App |
 | [ChemSpider](https://www.chemspider.com/) | A database for millions of chemical structures, properties, identifiers, and links, supporting SMILES/InChI text string searches. (free) | Data, App |
 | [Electrospinning Data Hub](https://electrospinning-data.org/) | Experimental data platform for electrospinning parameters, solution properties, and nanofiber characteristics. | Data/Exp, App |
+| [Material Hub](https://www.materialhub.de/en/) | Search and comparison platform for engineering materials properties, standards, and technical datasheets across metals, polymers, ceramics, and composites. | Data/Exp, App |
+| [Precursor Genome](https://github.com/lauren-walters/precursor-genome) | Experimental dataset of 1,035 pairwise solid-state ceramic synthesis reactions generated autonomously by the A-Lab, including precursor parameters, heating profiles, XRD patterns, and Rietveld refinement outcomes. | Data/Exp |
 
 ## Computational data
 
