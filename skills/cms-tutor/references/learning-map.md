@@ -1,0 +1,9 @@
+- Classical mechanics
+- Solid-state physics
+- Quantum mechanics
+- Statistical mechanics
+- Thermodynamics
+- Materials characterization
+- Materials modeling and simulation
+- Data science & machine learning
+- Programming & software engineering
