@@ -104,3 +104,4 @@ tags: ["Code/ML", "Code/Lib"]
 | [SAGE-Net](https://github.com/zhanggh1999/SAGE-Net) | Multimodal framework integrating description-derived chemical and crystallographic semantics into geometric message passing for material property prediction. | Code/ML, Code/Lib |
 | [MegaFold](https://github.com/Supercomputing-System-AI-Lab/MegaFold) | Accelerated training framework and kernel optimizations for biomolecular structure prediction models. | Code/ML, Code/Lib |
 | [orb-models](https://github.com/orbital-materials/orb-models) | Universal neural network interatomic potentials for atomistic simulations and materials property prediction. | Code/ML, Code/Lib |
+| [mcv2v-cGAN](https://mcv2v-cgan.nipne.ro/) | Electronic charge density prediction using conditional generative adversarial networks (GANs) to accelerate SIESTA DFT calculations for organic molecules. | App, Code/ML |
