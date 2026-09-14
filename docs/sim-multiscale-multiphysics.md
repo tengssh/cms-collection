@@ -64,3 +64,4 @@ tags: ["Code/Sim", "Code/WF", "Code/Lib", "Code/ML", "App"]
 | [FEBio](https://github.com/febiosoftware/FEBio) | Nonlinear finite element solver designed for biomechanical applications. | Code/Sim, Code/Lib |
 | [EON](https://github.com/henkelmangroup/eon) | Long-timescale atomic dynamics and rare-event simulations using accelerated dynamics and adaptive kinetic Monte Carlo. | Code/Sim |
 | [GPUMD](https://github.com/brucefan1983/GPUMD) | General-purpose molecular dynamics package implemented on GPUs with support for training and simulation using neuroevolution potentials (NEPs). | Code/Sim, Code/ML |
+| [DYNAMITE](https://github.com/DMFT-evolution/DYNAMITE) | Numerical renormalization and time evolution solver for non-stationary dynamics governed by dynamical mean-field equations. | Code/Sim, Code/Lib |

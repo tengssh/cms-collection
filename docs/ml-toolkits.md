@@ -31,3 +31,4 @@ tags: ["Code/ML", "Code/Lib", "Code/WF", "App"]
 | [MAML](https://github.com/materialyzeai/maml) | Materials machine learning library for descriptors, interatomic potentials, and deep learning models. | Code/Lib, Code/ML |
 | [PyAMFF](https://gitlab.com/pyamff/pyamff) | Fitting and utilizing atom-centered machine learning potentials for atomistic simulations. | Code/Lib, Code/ML |
 | [GPUMDkit](https://github.com/zhyan0603/GPUMDkit) | Toolkit for [GPUMD](https://github.com/brucefan1983/GPUMD) and neuroevolution potentials (NEPs) providing dataset preparation, active-learning workflows, and property analysis. | Code/ML, Code/Lib, Code/WF |
+| [FlashMD](https://github.com/UNITES-Lab/flash-molecular-dynamics) | GPU kernels and simulation drivers for coarse-grained neural network molecular dynamics. | Code/Lib, Code/ML |
