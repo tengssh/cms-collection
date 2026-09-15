@@ -71,6 +71,8 @@ tags: ["Code/WF", "Code/Sim", "Code/ML", "App"]
 | [NIMO](https://github.com/NIMS-DA/nimo) | Closed-loop automation of robotic experiments and artificial intelligence for materials exploration. | Code/WF, Code/ML |
 | [reeds](https://github.com/rinikerlab/reeds) | Pipeline for executing Replica Exchange - Enveloping Distribution Sampling (RE-EDS) runs for relative free energy calculations. | Code/WF, Code/Lib |
 | [CatDT](https://github.com/AI4QC/catdt-gs) | Self-evolving multi-agent system for autonomous heterogeneous catalysis discovery. | Code/WF, Code/ML |
+| [Ax](https://github.com/facebook/Ax) | Platform for managing, deploying, and automating adaptive experiments and Bayesian optimization. | Code/WF, Code/ML |
+
 
 ## Model Context Protocol (MCP) & Skills
 
