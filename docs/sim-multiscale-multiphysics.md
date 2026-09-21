@@ -68,3 +68,5 @@ tags: ["Code/Sim", "Code/WF", "Code/Lib", "Code/ML", "App"]
 | [JAX-FEM](https://github.com/deepmodeling/jax-fem) | Differentiable finite element method for linear and nonlinear multiphysics simulations and inverse problems based on JAX. | Code/Sim, Code/Lib |
 | [JAX-PF](https://github.com/SuperkakaSCU/JAX-PF) | GPU-accelerated simulation of differentiable phase-field models based on JAX and JAX-FEM. | Code/Sim, Code/Lib |
 | [JAX-CPFEM](https://github.com/SuperkakaSCU/JAX-CPFEM) | GPU-accelerated simulation for differentiable crystal plasticity finite element modeling based on JAX and JAX-FEM. | Code/Sim, Code/Lib |
+| [Vampire](https://vampire.york.ac.uk/) | Atomistic simulation of magnetic materials using stochastic Landau-Lifshitz-Gilbert dynamics and Monte Carlo methods. | Code/Sim |
+| [UppASD](https://github.com/UppASD/UppASD) | Atomistic spin dynamics and Monte Carlo simulations of Heisenberg spin systems. | Code/Sim |
