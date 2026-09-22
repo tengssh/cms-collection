@@ -23,3 +23,4 @@ tags: ["Code/Lib", "App"]
 | [pyscal](https://github.com/pyscal/pyscal) | Python library for calculation of local atomic structural environment. | Code/Lib |
 | [CALYPSO](https://www.calypso.cn/home/) | Crystal structure prediction using particle swarm optimization. | Code/Sim, App |
 | [virp](https://github.com/andypaulchen/virp) | Virtual cell generation from crystal structures containing site disorder. | Code/Lib |
+| [Symmetr](https://github.com/zeleznyj/symmetr) | Determination of symmetry properties for magnetic and nonmagnetic crystals. | Code/Lib |

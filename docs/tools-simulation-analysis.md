@@ -30,3 +30,4 @@ tags: ["Code/Lib", "Code/Sim", "App"]
 | [PLUMED2](https://github.com/plumed/plumed2) | Free energy calculations, enhanced-sampling algorithms, and trajectory analysis for molecular dynamics simulations. | Code/Lib, Code/Sim |
 | [DL_FIELD](https://www.ccp5.ac.uk/dl_field/) | Force field construction and conversion utility for molecular simulations (DL_POLY, GROMACS, LAMMPS). | Code/Lib |
 | [LAMMPS-AST](https://github.com/ethanholbrook/LAMMPS-AST) | Sanitizing, parsing, and transforming LAMMPS input scripts into abstract syntax trees (ASTs) for linting, validation, and workflow integration. | Code/Lib |
+| [Nexus-CAT](https://github.com/jperradin/nexus) | Network and cluster analysis of atomistic simulation trajectories using percolation theory. | Code/Lib |
