@@ -33,3 +33,6 @@ tags: ["Code/Lib", "Code/Sim", "App"]
 | [Nexus-CAT](https://github.com/jperradin/nexus) | Network and cluster analysis of atomistic simulation trajectories using percolation theory. | Code/Lib |
 | [MDAnalysis](https://www.mdanalysis.org/) | Analysis of molecular dynamics simulations and trajectory data across multiple formats. | Code/Lib |
 | [MDTraj](https://github.com/mdtraj/mdtraj) | Analysis of molecular dynamics trajectories for a wide range of file formats. | Code/Lib |
+| [MagSymMultipoles](https://mag-sym-multipoles.com/) | Determination of symmetry-adapted magnetic and electric multipoles for magnetic space groups, Cartesian tensors, and 3D visualization. | App |
+| [IRSSG](https://github.com/zjwang11/IRSSG) | Identification of spin space groups and band co-representation assignment for magnetic materials from VASP and Wannier tight-binding models. | Code/Lib, Code/WF |
+| [Dopyqo](https://github.com/dlr-wf/Dopyqo) | Many-body Hamiltonian construction and electron correlation analysis on top of Quantum ESPRESSO calculations using classical and quantum solvers. | Code/Lib |
