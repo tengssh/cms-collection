@@ -70,3 +70,6 @@ tags: ["Code/Sim", "Code/WF", "Code/Lib", "Code/ML", "App"]
 | [JAX-CPFEM](https://github.com/SuperkakaSCU/JAX-CPFEM) | GPU-accelerated simulation for differentiable crystal plasticity finite element modeling based on JAX and JAX-FEM. | Code/Sim, Code/Lib |
 | [Vampire](https://vampire.york.ac.uk/) | Atomistic simulation of magnetic materials using stochastic Landau-Lifshitz-Gilbert dynamics and Monte Carlo methods. | Code/Sim |
 | [UppASD](https://github.com/UppASD/UppASD) | Atomistic spin dynamics and Monte Carlo simulations of Heisenberg spin systems. | Code/Sim |
+| [iDEA](https://github.com/iDEA-org/iDEA) | Exact and approximate many-electron quantum mechanics simulation framework for benchmarking density functional theory (DFT) and many-body perturbation theory. | Code/Sim, Code/Lib, Edu |
+| [SPARC-atomSFE](https://github.com/SPARC-X/SPARC-atomSFE) | Atomic Kohn-Sham density functional theory calculations using spectral finite element (SFE) discretization. | Code/Sim, Code/Lib |
+| [SIRIUS](https://github.com/electronic-structure/SIRIUS) | Domain-specific library and GPU-accelerated engine for pseudopotential and full-potential electronic structure calculations. | Code/Sim, Code/Lib |
