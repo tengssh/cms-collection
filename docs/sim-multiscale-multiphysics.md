@@ -73,3 +73,5 @@ tags: ["Code/Sim", "Code/WF", "Code/Lib", "Code/ML", "App"]
 | [iDEA](https://github.com/iDEA-org/iDEA) | Exact and approximate many-electron quantum mechanics simulation framework for benchmarking density functional theory (DFT) and many-body perturbation theory. | Code/Sim, Code/Lib, Edu |
 | [SPARC-atomSFE](https://github.com/SPARC-X/SPARC-atomSFE) | Atomic Kohn-Sham density functional theory calculations using spectral finite element (SFE) discretization. | Code/Sim, Code/Lib |
 | [SIRIUS](https://github.com/electronic-structure/SIRIUS) | Domain-specific library and GPU-accelerated engine for pseudopotential and full-potential electronic structure calculations. | Code/Sim, Code/Lib |
+| [OOMMF](https://math.nist.gov/oommf/) | Micromagnetic modeling and simulation framework solving the Landau-Lifshitz-Gilbert equation. | Code/Sim |
+| [mumax3](https://github.com/mumax/3) | GPU-accelerated micromagnetic simulations solving the Landau-Lifshitz-Gilbert equation. | Code/Sim |
