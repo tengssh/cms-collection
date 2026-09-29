@@ -15,3 +15,4 @@ tags: ["Data/Comp", "Code/Lib", "App"]
 | [Pseudopotential Library](https://pseudopotentiallibrary.org/) | A repository of pseudopotentials for quantum Monte Carlo and quantum chemistry. | Data/Comp, Code/Lib, App |
 | [Interatomic Potentials Repository](https://www.ctcms.nist.gov/potentials/) | A repository of interatomic potentials (force fields) for various materials. | Data/Comp, Code/Lib, App |
 | [Open Knowledgebase of Interatomic Models (OpenKIM)](https://openkim.org/) | A curated repository of interatomic potentials for atomistic simulations. | Data/Comp, Code/Lib, Code/ML, App |
+| [openmmforcefields](https://github.com/openmm/openmmforcefields) | AMBER, CHARMM, OpenFF, and Espaloma force fields with small molecule parameterization for OpenMM. | Data/Comp, Code/Lib |

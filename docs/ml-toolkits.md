@@ -32,3 +32,6 @@ tags: ["Code/ML", "Code/Lib", "Code/WF", "App"]
 | [PyAMFF](https://gitlab.com/pyamff/pyamff) | Fitting and utilizing atom-centered machine learning potentials for atomistic simulations. | Code/Lib, Code/ML |
 | [GPUMDkit](https://github.com/zhyan0603/GPUMDkit) | Toolkit for [GPUMD](https://github.com/brucefan1983/GPUMD) and neuroevolution potentials (NEPs) providing dataset preparation, active-learning workflows, and property analysis. | Code/ML, Code/Lib, Code/WF |
 | [FlashMD](https://github.com/UNITES-Lab/flash-molecular-dynamics) | GPU kernels and simulation drivers for coarse-grained neural network molecular dynamics. | Code/Lib, Code/ML |
+| [OpenMM-ML](https://github.com/openmm/openmm-ml) | High-level API for using machine learning pretrained models in OpenMM simulations. | Code/Lib, Code/ML |
+| [openmm-torch](https://github.com/openmm/openmm-torch) | Plugin to define forces and compute energies using PyTorch neural networks in OpenMM simulations. | Code/Lib, Code/ML |
+| [MLIPOps](https://github.com/openmm/mlipops) | PyTorch and Triton operations for creating machine learning interatomic potentials. | Code/Lib, Code/ML |

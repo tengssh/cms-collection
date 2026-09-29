@@ -37,6 +37,7 @@ tags: ["Edu", "App", "Code/ML", "Code/Sim", "Code/Lib"]
 | [matgenb](https://github.com/materialyzeai/matgenb) | A collection of Jupyter notebooks for materials science. | Edu, Code/Sim, Code/Lib |
 | [Modeling Materials Using Density Functional Theory](https://github.com/jkitchin/dft-book) | A repository of learning resources for Density Functional Theory (DFT) using VASP and ASE. | Edu, App |
 | [The Atomistic Cookbook](https://atomistic-cookbook.org/index.html) | Computational recipes for modeling matter at the atomic scale, featuring interactive guides and templates for simulations. | Edu, App |
+| [OpenMM Cookbook](https://github.com/openmm/openmm-cookbook) | Interactive cookbooks and tutorials for molecular dynamics simulations using OpenMM. | Edu, App |
 | [The Carpentries Lessons](https://carpentries.org/lessons/) | Foundational coding and data science tutorials for researchers. | Edu |
 | [CodeRefinery lessons](https://coderefinery.org/lessons/) | Lessons on essential software development practices for computational scientists. | Edu |
 | [BestPractices](https://github.com/anthony-wang/BestPractices) | Best practices for materials informatics research. | Edu |
