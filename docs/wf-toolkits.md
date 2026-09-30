@@ -72,6 +72,7 @@ tags: ["Code/WF", "Code/Sim", "Code/ML", "App"]
 | [reeds](https://github.com/rinikerlab/reeds) | Pipeline for executing Replica Exchange - Enveloping Distribution Sampling (RE-EDS) runs for relative free energy calculations. | Code/WF, Code/Lib |
 | [CatDT](https://github.com/AI4QC/catdt-gs) | Self-evolving multi-agent system for autonomous heterogeneous catalysis discovery. | Code/WF, Code/ML |
 | [Ax](https://github.com/facebook/Ax) | Platform for managing, deploying, and automating adaptive experiments and Bayesian optimization. | Code/WF, Code/ML |
+| [quacc](https://github.com/Quantum-Accelerators/quacc) | Platform for automating and dispatching computational materials science and quantum chemistry workflows across diverse compute environments. | Code/WF, Code/Lib, Code/ML |
 
 
 ## Model Context Protocol (MCP) & Skills
