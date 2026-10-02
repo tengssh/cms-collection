@@ -41,3 +41,5 @@ tags: ["Edu", "App", "Code/ML", "Code/Sim", "Code/Lib"]
 | [The Carpentries Lessons](https://carpentries.org/lessons/) | Foundational coding and data science tutorials for researchers. | Edu |
 | [CodeRefinery lessons](https://coderefinery.org/lessons/) | Lessons on essential software development practices for computational scientists. | Edu |
 | [BestPractices](https://github.com/anthony-wang/BestPractices) | Best practices for materials informatics research. | Edu |
+| [DEEP Inspection for Materials Science](https://seaif-ms.github.io/DEEP-Inspection-Material-Science/) | Workshop lessons on deep learning computer vision methods for defect analysis and inspection. | Edu, Code/ML |
+| [Universal MLIPs on HPC: hands-on](https://enccs.github.io/mlip-hands-on/) | Hands-on lessons on universal machine-learned interatomic potentials. | Edu, Code/ML, Code/Sim |
