@@ -35,3 +35,4 @@ tags: ["Code/ML", "Code/Lib", "Code/WF", "App"]
 | [OpenMM-ML](https://github.com/openmm/openmm-ml) | High-level API for using machine learning pretrained models in OpenMM simulations. | Code/Lib, Code/ML |
 | [openmm-torch](https://github.com/openmm/openmm-torch) | Plugin to define forces and compute energies using PyTorch neural networks in OpenMM simulations. | Code/Lib, Code/ML |
 | [MLIPOps](https://github.com/openmm/mlipops) | PyTorch and Triton operations for creating machine learning interatomic potentials. | Code/Lib, Code/ML |
+| [DeePKS-kit](https://github.com/deepmodeling/deepks-kit) | Training, testing, and iterative self-consistent field evaluation of neural network energy and density functional models. | Code/Lib, Code/ML |
