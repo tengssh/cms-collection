@@ -16,3 +16,6 @@ tags: ["Data/Comp", "Code/Lib", "App"]
 | [Interatomic Potentials Repository](https://www.ctcms.nist.gov/potentials/) | A repository of interatomic potentials (force fields) for various materials. | Data/Comp, Code/Lib, App |
 | [Open Knowledgebase of Interatomic Models (OpenKIM)](https://openkim.org/) | A curated repository of interatomic potentials for atomistic simulations. | Data/Comp, Code/Lib, Code/ML, App |
 | [openmmforcefields](https://github.com/openmm/openmmforcefields) | AMBER, CHARMM, OpenFF, and Espaloma force fields with small molecule parameterization for OpenMM. | Data/Comp, Code/Lib |
+| [DM21](https://github.com/google-deepmind/deepmind-research/tree/master/density_functional_approximation_dm21) | Neural network exchange-correlation functionals addressing fractional electron and spin errors, with PySCF integration. | Data/Comp, Code/Lib, Code/ML |
+| [GauXC](https://github.com/wavefunction91/GauXC) | Evaluation of exchange-correlation and exact-exchange quantities in Gaussian basis set Kohn-Sham DFT on heterogeneous architectures. | Data/Comp, Code/Lib |
+| [Skala](https://github.com/microsoft/skala) | Neural network exchange-correlation functional predicting energies from electron density features, with PySCF, GPU4PySCF, and ASE interfaces. | Data/Comp, Code/Lib, Code/ML |
