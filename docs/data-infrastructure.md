@@ -4,7 +4,7 @@ description: Multidisciplinary data registries, repositories, domain ontologies,
 tags: ["Data", "App"]
 ---
 
-## Registries & repositories
+## Data registries & repositories
 
 | Item (URL) | Description | Tags |
 | :--------- | :---------- | :--- |
