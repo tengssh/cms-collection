@@ -22,6 +22,7 @@ tags: ["Data", "App"]
 | :--------- | :---------- | :--- |
 | [Elementary Multiperspective Material Ontology (EMMO)](https://emmo-repo.github.io/) | A standardized representational ontology framework for materials modelling and characterization knowledge. | Data |
 | [Material Core (MatCore)](https://matcore.org/) | A community-specific metadata standard for computational materials science. | Data |
+| [Platform MaterialDigital Core Ontology (PMDco)](https://github.com/materialdigital/core-ontology) | Mid-level ontology framework for materials science and engineering based on Basic Formal Ontology (BFO) and ISO/IEC 21838-2, modeling processing, structure, and properties. | Data |
 | [Lightweight BatCAT Core Ontologies (LBCO)](https://github.com/HE-BatCAT/lbco) | Ontology framework for vanadium redox-flow and lithium-ion battery design, manufacturing, and operation. | Data |
 | [Materials Design Ontology (MDO)](https://github.com/LiUSemWeb/Materials-Design-Ontology) | Ontology representing domain knowledge in materials design, solid-state physics, and computational materials science across structure, calculation, and provenance modules. | Data |
 | [Computational Material Sample Ontology (CMSO)](https://github.com/OCDO/cmso) | Ontology describing computational materials science samples and structures, including atomic-scale arrangements and crystalline defects. | Data |
