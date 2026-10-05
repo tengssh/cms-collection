@@ -1,8 +1,16 @@
 ---
 name: Integrated workflows
 description: Integrated workflows and management tools for materials science research.
-tags: ["Code/WF", "Code/Sim", "Code/ML", "App"]
+tags: ["Code/WF", "Code/Sim", "Code/ML", "App", "List"]
 ---
+
+## Workflow registries & repositories
+
+| Item (URL) | Description | Tags |
+| :--------- | :---------- | :--- |
+| [Existing Workflow systems](https://s.apache.org/existing-workflow-systems) | Curated compilation of computational workflow systems, engines, and tools for scientific computing and HPC. | List, Code/WF |
+| [WorkflowHub](https://workflowhub.eu/) | Registry for sharing, publishing, and citing scientific computational workflows. | List, App |
+| [Workflows Community Systems](https://workflows.community/systems) | Community directory and registry of computational workflow systems and execution engines. | List, App |
 
 ## Workflow managers & Agents
 
