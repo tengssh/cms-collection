@@ -36,3 +36,4 @@ tags: ["Code/ML", "Code/Lib", "Code/WF", "App"]
 | [openmm-torch](https://github.com/openmm/openmm-torch) | Plugin to define forces and compute energies using PyTorch neural networks in OpenMM simulations. | Code/Lib, Code/ML |
 | [MLIPOps](https://github.com/openmm/mlipops) | PyTorch and Triton operations for creating machine learning interatomic potentials. | Code/Lib, Code/ML |
 | [DeePKS-kit](https://github.com/deepmodeling/deepks-kit) | Training, testing, and iterative self-consistent field evaluation of neural network energy and density functional models. | Code/Lib, Code/ML |
+| [aims-PAX](https://github.com/tohenkes/aims-PAX) | Parallel active learning framework for machine learning force fields coupling FHI-aims and MACE. | Code/ML, Code/WF |
