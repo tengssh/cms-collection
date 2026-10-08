@@ -77,3 +77,4 @@ tags: ["Code/Sim", "Code/WF", "Code/Lib", "Code/ML", "App"]
 | [mumax3](https://github.com/mumax/3) | GPU-accelerated micromagnetic simulations solving the Landau-Lifshitz-Gilbert equation. | Code/Sim |
 | [OpenMM](https://github.com/openmm/openmm) | A high-performance molecular simulation library and toolkit, along with its [OpenMM ecosystem](https://openmm.org/ecosystem). | Code/Sim, Code/Lib |
 | [xtb](https://github.com/grimme-lab/xtb) | Semiempirical extended tight-binding program package for electronic structure, geometry optimization, and molecular dynamics. | Code/Sim, Code/Lib |
+| [dxtb](https://github.com/grimme-lab/dxtb) | Fully differentiable extended tight-binding framework in PyTorch for molecular property calculations and machine learning integration. | Code/Sim, Code/ML |
