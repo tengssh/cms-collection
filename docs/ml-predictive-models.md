@@ -1,7 +1,7 @@
 --- 
 name: Predictive models
 description: Machine learning interatomic potentials (MLIPs) and predictive models for material property prediction.
-tags: ["Code/ML", "Code/Lib"]
+tags: ["Code/ML", "Code/Lib", "App"]
 ---
 ## Predictive models
 
@@ -32,6 +32,7 @@ tags: ["Code/ML", "Code/Lib"]
 | [e3nn](https://e3nn.org/) | Modular PyTorch framework for Euclidean neural networks. | Code/Lib, Code/ML |
 | [Equiformer](https://github.com/atomicarchitects/equiformer) | Equivariant graph attention transformer for 3D atomistic graphs. | Code/ML, Code/Lib |
 | [EquiformerV2](https://github.com/atomicarchitects/equiformer_v2) | Equivariant transformer with improved scaling to higher-degree representations. | Code/ML, Code/Lib |
+| [EquiformerV3](https://github.com/atomicarchitects/equiformer_v3) | Equivariant graph attention transformer with SwiGLU-$S^2$ activations and smooth-cutoff attention for atomistic modeling. | Code/ML, Code/Lib |
 | [Nequix](https://github.com/atomicarchitects/nequix/) | Foundation model for materials property prediction and phonon fine-tuning. | Code/ML, Code/Lib |
 | [NequIP](https://github.com/mir-group/nequip) | Equivariant interatomic potentials for molecular dynamics simulations. | Code/ML, Code/Lib |
 | [Cartesian NequIP](https://github.com/xvzemin/cartesian_nequip) | Cartesian version of the NequIP equivariant interatomic potential. | Code/ML, Code/Lib |
