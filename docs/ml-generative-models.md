@@ -50,3 +50,4 @@ tags: ["Code/ML", "Code/Lib", "Code/WF"]
 | [MolMiner](https://github.com/raulorteg/molminer) | Fragment-based, geometry-aware, and order-agnostic autoregressive model for molecular design. | Code/ML, Code/Lib |
 | [CatDiT](https://github.com/doouv/CatDiT) | Latent diffusion transformer for multi-property conditioned inverse design of heterogeneous catalysts. | Code/ML, Code/Lib |
 | [Ab-PXRD-Solver](https://github.com/MaterSim/Ab-PXRD-Solver) | Automated crystal structure generation and determination pipeline from powder X-ray diffraction (PXRD) patterns and chemical formulas. | Code/ML, Code/Lib |
+| [GLASS](https://github.com/henk789/glass) | All-atom crystal generation framework combining global latent autoencoding with slot-based set decoding and latent flow generative models. | Code/ML, Code/Lib |
