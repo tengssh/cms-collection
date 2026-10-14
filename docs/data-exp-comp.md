@@ -71,6 +71,7 @@ tags: ["Data/Exp", "Data/Comp", "App"]
 | [Database of Collinear Magnetic Materials](https://matgen.nju.edu.cn/collinearmagnets/icsd/) | Database of symmetry-allowed candidate and DFT-computed ground-state collinear magnetic structures derived from the ICSD, featuring spin space group symmetry analysis, electronic band structures, and magnetic topological classifications. | Data/Comp, App |
 | [google-deepmind/materials_discovery](https://github.com/google-deepmind/materials_discovery) | Dataset of over 380,000 stable and near-hull inorganic crystal structures predicted via Graph Networks for Materials Exploration (GNoME) alongside baseline PBE and r²SCAN DFT calculations. | Data/Comp |
 | [LeMaterial](https://huggingface.co/LeMaterial/datasets) | Curated collection of open-access materials datasets standardizing crystal structures, DFT relaxation trajectories, charge densities, and synthesis procedures across major repositories. | Data/Comp, List |
+| [DXMag Computational HeuslerDB](https://www.nims.go.jp/group/spintheory/database/) | Database of DFT and machine-learning-calculated crystal structures, magnetic configurations, electronic band structures, density of states, phonon stability, and Curie/Néel temperatures for ternary, quaternary, and all-d Heusler compounds. | Data/Comp |
 
 ## Hybrid data
 
