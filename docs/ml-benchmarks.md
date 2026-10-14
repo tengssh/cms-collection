@@ -11,7 +11,6 @@ tags: ["Data", "Code/ML", "App"]
 | [QM/ML Datasets](https://qmml.org/datasets.html) | Curated archive of benchmark datasets (molecules, solids, and liquids) for ML models. | Data/Comp |
 | [Minnesota Database 2.0](https://comp.chem.umn.edu/db/) | Curated collection of benchmark datasets for evaluating energetic and structural properties in chemistry and physics. | Data/Comp |
 | [JARVIS-Leaderboard](https://pages.nist.gov/jarvis_leaderboard/) | Open benchmarking resource comparing the performance of AI models, DFT codes, and classical force fields against high-quality reference data. | App, Data |
-| [LeMaterial](https://huggingface.co/blog/lematerial) | Open-source collaborative dataset and benchmark platform for materials science. | Data |
 | [MatTools](https://github.com/Grenzlinie/MatTools) | Benchmarking Large Language Models for materials science tools. | Data, Code/ML |
 | [BOOM](https://github.com/FLASK-LLNL/BOOM) | Benchmarking out-of-distribution molecular property predictions of machine learning models. | Data, Code/ML |
 | [ZEBRA-dataset](https://github.com/oba-group/ZEBRA-dataset) | Materials Project dataset for evaluating materials property prediction models. | Data, Code/ML |
@@ -40,3 +39,7 @@ tags: ["Data", "Code/ML", "App"]
 | [MatPhaseBench](https://github.com/Davidwhw/MatPhaseBench) | Semantics-guided benchmark evaluating vision-language models on materials phase diagrams understanding. | Data, Code/ML |
 | [MatPES](https://matpes.ai/) | Potential energy surface dataset computed using PBE and r2SCAN functionals for machine learning interatomic potentials. | App, Data/Comp, Code/ML |
 | [Ab-PXRD-Solver Dataset](https://mmi.charlotte.edu/ab_pxrd_solver) | Data repository hosting solved crystal structures and experimental powder X-ray diffraction benchmark datasets. | App, Data/Comp, Data/Exp |
+| [LeMat-GenBench](https://github.com/LeMaterial/lemat-genbench) | Evaluation framework and benchmark metrics evaluating crystal generative models across validity, distribution similarity, diversity, novelty, uniqueness, and thermodynamic stability. | Data, Code/ML |
+| [MLIP Arena](https://github.com/atomind-ai/mlip-arena) | Benchmarking platform and leaderboard evaluating machine learning interatomic potentials across physical validity, chemical reactivity, and thermodynamic stability under non-equilibrium conditions. | App, Code/ML |
+| [mlipbenchmarks](https://github.com/peastman/mlipbenchmarks) | Benchmarks evaluating accuracy, computational speed, memory usage, and trajectory stability for pretrained machine learning interatomic potentials in molecular simulations. | Data, Code/ML |
+| [FP-DeErr](https://github.com/mogroupumd/FP-DeErr) | Application-oriented error decomposition benchmark evaluating foundation potentials across force prediction, phase stability, elemental ordering, and ion migration barrier calculations. | App, Data/Comp, Code/ML |
