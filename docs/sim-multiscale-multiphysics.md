@@ -78,3 +78,5 @@ tags: ["Code/Sim", "Code/WF", "Code/Lib", "Code/ML", "App"]
 | [OpenMM](https://github.com/openmm/openmm) | A high-performance molecular simulation library and toolkit, along with its [OpenMM ecosystem](https://openmm.org/ecosystem). | Code/Sim, Code/Lib |
 | [xtb](https://github.com/grimme-lab/xtb) | Semiempirical extended tight-binding program package for electronic structure, geometry optimization, and molecular dynamics. | Code/Sim, Code/Lib |
 | [dxtb](https://github.com/grimme-lab/dxtb) | Fully differentiable extended tight-binding framework in PyTorch for molecular property calculations and machine learning integration. | Code/Sim, Code/ML |
+| [feram](https://github.com/t-nissie/feram) | Molecular dynamics simulation of bulk and thin-film ferroelectrics based on a first-principles effective Hamiltonian. | Code/Sim |
+| [OpenFerro](https://github.com/salinelake/OpenFerro) | Lattice Hamiltonian simulation and on-lattice atomistic dynamics using automatic differentiation in JAX. | Code/Sim, Code/Lib |
