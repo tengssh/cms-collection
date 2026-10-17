@@ -64,6 +64,6 @@ This example demonstrates how to create vector databases and query using [Chroma
             ```
         - Run the chat (in another terminal)
             ```bash
-            pixi run chat
+            pixi run chat [model_name]
             ```
         - Note that AI may hallucinate. Please verify the information.
