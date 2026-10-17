@@ -39,6 +39,7 @@ tags: ["Code/ML", "Code/Lib", "Code/WF"]
 | [MatterGen](https://github.com/microsoft/mattergen) | Inorganic materials design across the periodic table guided by property constraints. | Code/ML, Code/Lib |
 | [mattergenbis](https://github.com/Inirius/mattergenbis) | Adaptive constraint guidance for fine-tuning-free inorganic crystal structure generation using the MatterGen model. | Code/ML, Code/Lib |
 | [MagMatLLM](https://github.com/Qiulin-1018/MagMatLLM) | Hybrid framework integrating Large Language Model crystal generation with genetic algorithms and data augmentation. | Code/ML, Code/Lib |
+| [MatterGen-e-](https://github.com/nmdl-mizo/mattergen-e-) | Joint generation of crystal structures and local electronic descriptors extending MatterGen. | Code/ML, Code/Lib |
 | [Perovskite-R1](https://github.com/WD928/Perovskite-R1) | Domain-specialized Large Language Model for precursor additive discovery and experimental design in perovskite solar cell research. | Code/ML, Code/Lib |
 | [atomcomposer](https://github.com/bhastrup/atomcomposer) | Autonomous reinforcement learning agent for first-principles 3D isomer discovery. | Code/ML, Code/Lib |
 | [AMDEN-code](https://github.com/Logan-Lin/AMDEN-code) | Diffusion-model-based framework for inverse design of amorphous materials. | Code/ML, Code/Lib |
