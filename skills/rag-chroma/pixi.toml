@@ -27,9 +27,9 @@ pytest = "*"
 test = ["test"]
 
 [tasks]
-ingest = "python scripts/ingest_md.py"
-search = "python scripts/chroma_search.py"
-clean = "rm -rf ./chroma_db"
-reindex = { depends-on = ["clean", "ingest"] }
-test = { cmd="PYTHONPATH=scripts python -m pytest tests", default-environment="test" }
-chat = "python scripts/ollama_chat.py"
+ingest = { cmd = "python scripts/ingest_md.py", description = "Ingest documents into Chroma database." }
+search = { cmd = "python scripts/chroma_search.py", description = "Search documents in ingested Chroma database." }
+clean = { cmd = "rm -rf ./chroma_db", description = "Clean the local Chroma database." }
+reindex = { depends-on = ["clean", "ingest"], description = "Reindex the Chroma database." }
+test = { cmd="PYTHONPATH=scripts python -m pytest tests", default-environment="test", description = "Run the tests." }
+chat = { cmd = "python scripts/ollama_chat.py", description = "Chat with the Chroma database using Ollama." }
