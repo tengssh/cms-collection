@@ -45,10 +45,10 @@ Ensure the LLM backend (supporting tool calling) is running, then run the tasks 
 
 ## Scripts
 
-* [chroma_utils.py](file:///mnt/d/project/RSE/rag/cms-collection/skills/rag-chroma/scripts/chroma_utils.py): Centralized module containing connections, collections creation, markdown parser, and query search execution.
-* [ingest_md.py](file:///mnt/d/project/RSE/rag/cms-collection/skills/rag-chroma/scripts/ingest_md.py): Ingestion CLI task.
-* [chroma_search.py](file:///mnt/d/project/RSE/rag/cms-collection/skills/rag-chroma/scripts/chroma_search.py): Search CLI task.
-* [ollama_chat.py](file:///mnt/d/project/RSE/rag/cms-collection/skills/rag-chroma/scripts/ollama_chat.py): Chat agent loop task.
+* [chroma_utils.py](./scripts/chroma_utils.py): Centralized module containing connections, collections creation, markdown parser, and query search execution.
+* [ingest_md.py](./scripts/ingest_md.py): Ingestion CLI task.
+* [chroma_search.py](./scripts/chroma_search.py): Search CLI task.
+* [ollama_chat.py](./scripts/ollama_chat.py): Chat agent loop task.
 
 ## Best practices
 
