@@ -1,4 +1,4 @@
-import os
+import os, sys
 from langchain_ollama import ChatOllama
 from langchain_core.tools import tool
 from langchain.agents import create_agent
@@ -78,13 +78,13 @@ def cms_collection_search(query: Union[str, dict]):
         )
     return "\n\n---\n\n".join(output) if output else "No results found."
 
-def get_agent_executor():
+def get_agent_executor(model: str):
     """
     Lazily constructs the ChatOllama agent executor.
     """
     global _agent_executor
     if _agent_executor is None:
-        llm = ChatOllama(model="llama3.2:3b", temperature=0, num_ctx=8192)
+        llm = ChatOllama(model=model, temperature=0, num_ctx=8192)
         memory = MemorySaver()
 
         system_prompt = """You are a Research Assistant.
@@ -102,8 +102,8 @@ def get_agent_executor():
         )
     return _agent_executor
 
-def start_chat():
-    agent_executor = get_agent_executor()
+def start_chat(model: str):
+    agent_executor = get_agent_executor(model)
     config = {"configurable": {"thread_id": "repl_session_1"}}
     
     print("\n" + "="*42)
@@ -141,4 +141,5 @@ def start_chat():
             print(f"Error: {e}")
 
 if __name__ == "__main__":
-    start_chat()
+    selected_model = sys.argv[1] if len(sys.argv) > 1 else "qwen3.5:4b"
+    start_chat(selected_model)
