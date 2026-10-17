@@ -37,7 +37,7 @@ This example demonstrates how to create vector databases and query using [Chroma
 - Run the tasks
     - Ingestion
         ```bash
-        # Ingest the default markdown file (../../../README.md)
+        # Ingest the default markdown file (../../README.md)
         pixi run ingest
 
         # Or specify a custom markdown file path
