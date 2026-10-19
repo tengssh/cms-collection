@@ -36,3 +36,4 @@ tags: ["Code/Lib", "Code/Sim", "App"]
 | [MagSymMultipoles](https://mag-sym-multipoles.com/) | Determination of symmetry-adapted magnetic and electric multipoles for magnetic space groups, Cartesian tensors, and 3D visualization. | App |
 | [IRSSG](https://github.com/zjwang11/IRSSG) | Identification of spin space groups and band co-representation assignment for magnetic materials from VASP and Wannier tight-binding models. | Code/Lib, Code/WF |
 | [Dopyqo](https://github.com/dlr-wf/Dopyqo) | Many-body Hamiltonian construction and electron correlation analysis on top of Quantum ESPRESSO calculations using classical and quantum solvers. | Code/Lib |
+| [ZStar](https://github.com/xdzhu/ZStar) | A unified toolkit for polarization, Born effective charges, dielectric and piezoelectric responses, and infrared and Raman spectra. | Code/Lib, Code/WF |
