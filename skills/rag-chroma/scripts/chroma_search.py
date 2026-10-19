@@ -64,7 +64,12 @@ def main():
         "--sections", 
         type=str, 
         nargs="*",
-        default=["Curated Lists", "Databases & Datasets", "Tools"],
+        default=["Curated Lists", 
+                 "Databases & Datasets",
+                 "Computing & Workflows", 
+                 "Machine Learning", 
+                 "Tools & Toolkits", 
+                 "OCW"],
         help="Filter results by specific sections."
     )
     parser.add_argument(
