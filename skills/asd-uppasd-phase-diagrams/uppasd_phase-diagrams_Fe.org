@@ -1,0 +1,720 @@
+# -*- mode: org -*-
+# -*- coding: utf-8 -*-
+#+TITLE:       UppASD exercises
+#+AUTHOR:      tengssh
+#+LANGUAGE:    en
+#+STARTUP:     indent
+#+TAGS: Text(T) Code(C) Visualization(V) Protocol(P) noexport(n)
+#+OPTIONS: toc:3
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport inlineimages
+#+COLUMNS: %25ITEM %TODO %3PRIORITY %TAGS
+#+PROPERTY: header-args:python :python /opt/python/bin/python3
+
+* Project overview
+** Objectives (Who/When/Why)
+The goal is to (M/A)
+- Run spin-lattice dynamics using UppASD
+- Familiarize with UppASD input/output
+by (T)
+- [W43]2026/10/23
+because (R)
+- for further usage
+** Key Results (What/Where/How)
+To be done (S)
+*** DONE Finish BCC Fe phase diagram :[[ex02]]
+CLOSED: [2026-10-21 Wed 16:10]
+* Resources
+- https://uppasd.github.io/UppASD-manual/
+  - <<UppASDinstall>> https://uppasd.github.io/UppASD-manual/introduction/#installation
+- https://uppasd.github.io/UppASD-tutorial/
+  - <<tu01>> https://uppasd.github.io/UppASD-manual/tutorial/#dynamics-of-a-single-spin
+  - <<ex01>> https://uppasd.github.io/UppASD-tutorial/sld/sld/#exercise-1-sld-simulation-of-a-dimer
+    - <<Hellsvik2019>> https://journals.aps.org/prb/abstract/10.1103/PhysRevB.99.104302
+  - <<ex02>> https://uppasd.github.io/UppASD-tutorial/basics/basics/#exercise-2-phase-diagram-for-bcc-fe
+    - <<Skubic2008>> https://iopscience.iop.org/article/10.1088/0953-8984/20/31/315203
+* Journal
+** 2026.10.20 15:01
+*** Environment
+**** Shell
+#+begin_src shell :session *shell* :results output :exports both
+alias ls="ls --color=none"
+export SD_BINARY="apptainer run /containers/UppASD/uppasd_ubuntu.sif"
+alias python3="/opt/python/bin/python3"
+date
+#+end_src
+
+#+RESULTS:
+: Tue Oct 20 15:11:46 CEST 2026
+**** Github repo
+#+begin_src shell :results output :exports both
+git clone https://github.com/UppASD/UppASD.git
+ls
+#+end_src
+
+#+RESULTS:
+: UppASD
+: uppasd.org
+
+*** Actions
+**** BCC Fe M-T phase diagram :[[ex02]]                            :noexport:
+***** Run heating simulations                                      :Code:
+#+begin_src shell :results output :exports both
+ls UppASD/examples/PhaseDiagrams/bccFe-Tsweep/*
+#+end_src
+
+#+RESULTS:
+#+begin_example
+UppASD/examples/PhaseDiagrams/bccFe-Tsweep/README.txt
+UppASD/examples/PhaseDiagrams/bccFe-Tsweep/plot.gnu
+UppASD/examples/PhaseDiagrams/bccFe-Tsweep/printM.sh
+UppASD/examples/PhaseDiagrams/bccFe-Tsweep/runme.sh
+
+UppASD/examples/PhaseDiagrams/bccFe-Tsweep/Base:
+inpsd.dat
+jfile
+momfile
+posfile
+runme.sh
+#+end_example
+
+#+begin_src shell :session *shell* :results output :exports both
+#cd UppASD/examples/PhaseDiagrams/bccFe-Tsweep/
+bash runme.sh
+#+end_src
+
+#+RESULTS:
+#+begin_example
+Temp:  100
+Temp:  200
+Temp:  300
+Temp:  400
+Temp:  500
+Temp:  600
+Temp:  700
+Temp:  800
+Temp:  900
+Temp:  950
+Temp:  1000
+Temp:  1100
+Temp:  1200
+Temp:  1300
+Temp:  1400
+Temp:  1500
+Temp:  1600
+#+end_example
+***** Plot outputs                                   :Code:Visualization:
+#+begin_src shell :session *shell* :results output :exports both
+ls
+bash printM.sh
+#+end_src
+
+#+RESULTS:
+: Base	    T1000  T1300  T1600  T400  T700  T950	restart.bccFe100.out
+: README.txt  T1100  T1400  T200	 T500  T800  plot.gnu	runme.sh
+: T100	    T1200  T1500  T300	 T600  T900  printM.sh
+
+#+begin_src python :results output :session *python* :exports both
+import os
+PATH = "UppASD/examples/PhaseDiagrams/bccFe-Tsweep/"
+os.chdir(PATH)
+os.system('ls')
+#+end_src
+
+#+RESULTS:
+: Base	    T1200  T200  T700	   printM.sh
+: README.txt  T1300  T300  T800	   restart.bccFe100.out
+: T100	    T1400  T400  T900	   runme.sh
+: T1000	    T1500  T500  T950	   thermal.dat
+: T1100	    T1600  T600  plot.gnu  thermal.norm.dat
+
+- Binder cumulant
+  - =U = 1 - <M⁴>/3<M²>²=
+  
+#+begin_src python :async :results output graphics drawer :session *python* :exports both
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+import numpy as np
+
+data = np.loadtxt("thermal.norm.dat")
+
+x = data[:, 0]  # Temperature
+mag = data[:, 1]  # Magnetization
+binder = data[:, 2]  # Binder cumulant
+susc = data[:, 3]  # Susceptibility
+cv = data[:, 4]  # Specific heat
+
+fig, ax = plt.subplots(figsize=(6, 4))
+ax.plot(x, mag, "-o", label="Magnetization")
+ax.plot(x, binder, "-o", label="Binder cumulant")
+ax.plot(x, susc, "-o", label="Susceptibility")
+ax.plot(x, cv, "-o", label="Specific heat")
+
+ax.set_xlim(0, 1600)
+ax.set_ylim(0, 1.1)
+
+ax.set_xlabel("T (K)")
+ax.set_ylabel(r"M/U/$\chi$/$C_v$ (normalized w.r.t. max.)")
+ax.set_title("Fe_BCC (10x10x10)")
+
+ax.spines["top"].set_visible(False)
+ax.spines["right"].set_visible(False)
+ax.legend(frameon=False)
+ax.grid(True, linestyle="--", alpha=0.6)
+
+fig_out = "MT_bccFe.png"
+plt.savefig(fig_out, bbox_inches='tight', dpi=150)
+print(f"#+ATTR_ORG: :width 600")
+print(f"[[file:{PATH+'/'+fig_out}]]")
+plt.savefig(fig_out, dpi=300, bbox_inches="tight")
+#plt.show()
+plt.close('all')
+#+end_src
+
+#+RESULTS:
+:results:
+#+ATTR_ORG: :width 600
+[[file:UppASD/examples/PhaseDiagrams/bccFe-Tsweep//MT_bccFe.png]]
+:end:
+**** BCC Fe phase diagrams
+***** Run heating/cooling simulations                     :Code:Protocol:
+#+begin_src shell :session *shell* :results output :exports both
+mkdir -p bccFe
+cd bccFe
+#+end_src
+
+#+RESULTS:
+
+#+begin_src python :tangle bccFe/run_uppasd.py
+import os
+import subprocess
+import time
+import numpy as np
+
+sd_binary = os.environ.get("SD_BINARY")
+commands = sd_binary.split()
+
+INPSD = lambda simid = 'bccFe', L = 10, temp = 100: \
+"""simid {SIMID}
+ncell     {L}       {L}       {L}               System size            
+BC        P         P         P                 Boundary conditions (0=vacuum, P=periodic)
+cell      1.00000   0.00000   0.00000         
+          0.00000   1.00000   0.00000
+          0.00000   0.00000   1.00000
+Sym       1                                     Symmetry of lattice (0 for no, 1 for cubic, 2 for 2d cubic, 3 for hexagonal)
+
+posfile   ./posfile
+momfile   ./momfile
+exchange  ./jfile
+
+SDEalgh   1                                     SDE solver: 1=midpoint, 2=heun, 3=heun3, 4=Heun_proper, 5=Depondt
+Initmag   1                                     Initial config of moments (1=random, 2=cone, 3=spec., 4=file)
+restartfile ./restart.{SIMID}.out
+Mensemble 5
+
+ip_mode   M                                     Initial phase parameters
+ip_temp   {TEMP}                                --
+ip_mcNstep     10000                            --
+
+mode      S                                     S=SD, M=MC
+temp      {TEMP}                                Measurement phase parameters
+Nstep   20000 
+damping 5.0
+timestep 1.0e-16
+
+do_avrg   Y                                     Measure averages
+
+do_cumu Y
+cumu_step 50
+cumu_buff 10
+
+do_tottraj N                                    Measure moments
+tottraj_step   1000
+
+plotenergy 1
+""".format(SIMID=simid, L=L, TEMP=temp)
+
+POSFILE = \
+"""1 1   0.000000  0.000000  0.000000
+2 1   0.500000  0.500000  0.500000
+"""
+
+MOMFILE = \
+"""1 1 2.23 1.0 0.0 0.0 2.0
+2 1 2.23 1.0 0.0 0.0 2.0
+"""
+
+JFILE = \
+"""1 1  0.5       0.5       0.5       1.33767484769984
+1 1  1.0       0.0       0.0       0.75703576545650
+1 1  1.0       1.0       0.0       -0.05975437643846
+1 1  1.5       0.5       0.5       -0.08819834160658
+"""
+
+def run_Tsweep(L = 10, SIMID = "bccFe100",
+               T_list = None, f_out = "sum.txt", if_append = False):
+    if not if_append:
+        with open(f_out, 'w') as fw:
+            fw.write("#Temp Iter <M> <M^2> <M^4> U_{Binder} \\chi C_v(tot) <E> <E_{exc}> <E_{lsf}>\n")
+
+    if T_list is None:
+        T_list = [100*_ for _ in range(17)]
+
+    for temp in T_list:
+        with open('inpsd.dat', 'w') as fw:
+            fw.write(INPSD(simid=SIMID, L=L, temp=temp))
+        with open('posfile', 'w') as fw:
+            fw.write(POSFILE)
+        with open('momfile', 'w') as fw:
+            fw.write(MOMFILE)
+        with open('jfile', 'w') as fw:
+            fw.write(JFILE)
+    
+        print(f"# L = {L}, T = {temp} K")
+        time_start = time.time()
+        with open("out.log", "w") as fw:
+            subprocess.run(commands,
+                           stdout=fw,
+                           stderr=subprocess.STDOUT,
+                           text=True,)
+        time_end = time.time()
+        print(f">> Runtime: {time_end-time_start:.2f} s")
+    
+        with open(f"cumulants.{SIMID}.out", "r") as fr:
+            lines = fr.readlines()
+            last_line = lines[-1].strip()
+        with open(f_out, 'a') as fa:
+            fa.write(f"{temp} {last_line}\n")
+
+# main program
+for L in [5, 10, 15]:
+    os.system("rm -f restart.*.out")
+    SIMID = f"bccFe{L:03d}"
+    T_list = [0, 200, 400, 600, 800,
+              900, 950, 975, 1000, 1025,
+              1050, 1100, 1200, 1400, 1600]
+    f_out = f"sum_{SIMID}.txt"
+    run_Tsweep(L=L, SIMID=SIMID, T_list=T_list, f_out=f_out)
+    run_Tsweep(L=L, SIMID=SIMID, T_list=T_list[::-1], f_out=f_out, if_append=True)
+#+end_src
+
+#+begin_src shell :session *shell* :results output :exports both
+python3 run_uppasd.py
+#+end_src
+
+#+RESULTS:
+#+begin_example
+L = 5, T = 0 K
+Runtime: 16.48 s
+L = 5, T = 200 K
+Runtime: 19.73 s
+L = 5, T = 400 K
+Runtime: 19.59 s
+L = 5, T = 600 K
+Runtime: 41.07 s
+L = 5, T = 800 K
+Runtime: 31.66 s
+L = 5, T = 900 K
+Runtime: 19.72 s
+L = 5, T = 950 K
+Runtime: 18.86 s
+L = 5, T = 975 K
+Runtime: 20.54 s
+L = 5, T = 1000 K
+Runtime: 17.52 s
+L = 5, T = 1025 K
+Runtime: 20.02 s
+L = 5, T = 1050 K
+Runtime: 15.44 s
+L = 5, T = 1100 K
+Runtime: 15.73 s
+L = 5, T = 1200 K
+Runtime: 15.73 s
+L = 5, T = 1400 K
+Runtime: 16.05 s
+L = 5, T = 1600 K
+Runtime: 15.59 s
+L = 5, T = 1600 K
+Runtime: 15.40 s
+L = 5, T = 1400 K
+Runtime: 15.80 s
+L = 5, T = 1200 K
+Runtime: 16.53 s
+L = 5, T = 1100 K
+Runtime: 23.10 s
+L = 5, T = 1050 K
+Runtime: 19.24 s
+L = 5, T = 1025 K
+Runtime: 17.07 s
+L = 5, T = 1000 K
+Runtime: 20.53 s
+L = 5, T = 975 K
+Runtime: 18.45 s
+L = 5, T = 950 K
+Runtime: 22.88 s
+L = 5, T = 900 K
+Runtime: 14.62 s
+L = 5, T = 800 K
+Runtime: 14.74 s
+L = 5, T = 600 K
+Runtime: 22.84 s
+L = 5, T = 400 K
+Runtime: 23.20 s
+L = 5, T = 200 K
+Runtime: 36.30 s
+L = 5, T = 0 K
+Runtime: 24.08 s
+L = 10, T = 0 K
+Runtime: 79.15 s
+L = 10, T = 200 K
+Runtime: 103.92 s
+L = 10, T = 400 K
+Runtime: 94.44 s
+L = 10, T = 600 K
+Runtime: 92.83 s
+L = 10, T = 800 K
+Runtime: 105.18 s
+L = 10, T = 900 K
+Runtime: 81.53 s
+L = 10, T = 950 K
+Runtime: 90.53 s
+L = 10, T = 975 K
+Runtime: 98.18 s
+L = 10, T = 1000 K
+Runtime: 93.07 s
+L = 10, T = 1025 K
+Runtime: 106.99 s
+L = 10, T = 1050 K
+Runtime: 88.66 s
+L = 10, T = 1100 K
+Runtime: 90.45 s
+L = 10, T = 1200 K
+Runtime: 87.17 s
+L = 10, T = 1400 K
+Runtime: 100.48 s
+L = 10, T = 1600 K
+Runtime: 77.17 s
+L = 10, T = 1600 K
+Runtime: 76.84 s
+L = 10, T = 1400 K
+Runtime: 108.19 s
+L = 10, T = 1200 K
+Runtime: 88.56 s
+L = 10, T = 1100 K
+Runtime: 78.86 s
+L = 10, T = 1050 K
+Runtime: 81.00 s
+L = 10, T = 1025 K
+Runtime: 78.19 s
+L = 10, T = 1000 K
+Runtime: 104.39 s
+L = 10, T = 975 K
+Runtime: 79.30 s
+L = 10, T = 950 K
+Runtime: 103.87 s
+L = 10, T = 900 K
+Runtime: 79.30 s
+L = 10, T = 800 K
+Runtime: 86.00 s
+L = 10, T = 600 K
+Runtime: 93.77 s
+L = 10, T = 400 K
+Runtime: 80.36 s
+L = 10, T = 200 K
+Runtime: 90.90 s
+L = 10, T = 0 K
+Runtime: 91.59 s
+L = 15, T = 0 K
+Runtime: 259.89 s
+L = 15, T = 200 K
+Runtime: 261.95 s
+L = 15, T = 400 K
+Runtime: 212.26 s
+L = 15, T = 600 K
+Runtime: 235.57 s
+L = 15, T = 800 K
+Runtime: 254.55 s
+L = 15, T = 900 K
+Runtime: 213.64 s
+L = 15, T = 950 K
+Runtime: 205.83 s
+L = 15, T = 975 K
+Runtime: 211.67 s
+L = 15, T = 1000 K
+Runtime: 205.17 s
+L = 15, T = 1025 K
+Runtime: 218.46 s
+L = 15, T = 1050 K
+Runtime: 196.89 s
+L = 15, T = 1100 K
+Runtime: 201.01 s
+L = 15, T = 1200 K
+Runtime: 206.46 s
+L = 15, T = 1400 K
+Runtime: 208.31 s
+L = 15, T = 1600 K
+Runtime: 210.68 s
+L = 15, T = 1600 K
+Runtime: 210.11 s
+L = 15, T = 1400 K
+Runtime: 199.87 s
+L = 15, T = 1200 K
+Runtime: 215.69 s
+L = 15, T = 1100 K
+Runtime: 199.70 s
+L = 15, T = 1050 K
+Runtime: 200.52 s
+L = 15, T = 1025 K
+Runtime: 218.13 s
+L = 15, T = 1000 K
+Runtime: 220.07 s
+L = 15, T = 975 K
+Runtime: 198.69 s
+L = 15, T = 950 K
+Runtime: 245.90 s
+L = 15, T = 900 K
+Runtime: 357.80 s
+L = 15, T = 800 K
+Runtime: 375.83 s
+L = 15, T = 600 K
+Runtime: 293.11 s
+L = 15, T = 400 K
+Runtime: 240.87 s
+L = 15, T = 200 K
+Runtime: 260.94 s
+L = 15, T = 0 K
+Runtime: 225.20 s
+#+end_example
+***** Plot outputs                                   :Code:Visualization:
+****** M-T phasee diagrams
+#+begin_src python :results output :session *python* :exports both
+import os
+PATH = "bccFe/"
+os.chdir(PATH)
+os.system('ls')
+#+end_src
+
+#+RESULTS:
+#+begin_example
+MT_bccFe005.png		 inp.bccFe005.json	 stdenergy.bccFe005.out
+MT_bccFe010.png		 inp.bccFe010.json	 stdenergy.bccFe010.out
+MT_bccFe015.png		 inp.bccFe015.json	 stdenergy.bccFe015.out
+MT_comp.png		 inpsd.dat		 sum_bccFe005.txt
+averages.bccFe005.out	 jfile			 sum_bccFe010.txt
+averages.bccFe010.out	 mcinitial.bccFe005.out  sum_bccFe015.txt
+averages.bccFe015.out	 mcinitial.bccFe010.out  totenergy.bccFe005.out
+cumulants.bccFe005.json  mcinitial.bccFe015.out  totenergy.bccFe010.out
+cumulants.bccFe005.out	 momfile		 totenergy.bccFe015.out
+cumulants.bccFe010.json  out.log		 uppasd.bccFe005.yaml
+cumulants.bccFe010.out	 posfile		 uppasd.bccFe010.yaml
+cumulants.bccFe015.json  restart.bccFe015.out	 uppasd.bccFe015.yaml
+cumulants.bccFe015.out	 run_uppasd.py
+#+end_example
+
+#+begin_src python :async :results output graphics drawer :session *python* :exports both
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+import numpy as np
+
+def load_sum(f_sum = "sum.txt"):
+    data = np.loadtxt(f_sum)
+    T_all = data[:, 0]  # Temperature
+    M_all = data[:, 2]  # Magnetization
+    U_all = data[:, 5]  # Binder cumulant
+    S_all = data[:, 6]  # Susceptibility
+    cv_all = data[:, 7] # Specific heat
+    return T_all, M_all, U_all, S_all, cv_all
+
+def plot_sum(f_sum = "sum.txt"):
+    SIMID = f_sum.split('.')[0][4:]
+    T_all, M_all, U_all, S_all, cv_all = load_sum(f_sum)
+    
+    fig, axes = plt.subplots(4, 1, figsize=(6, 8), sharex=True)
+    ax_mag, ax_susc, ax_cv, ax_u = axes
+    
+    # --- Heating data (Red) ---
+    line_sty = "-o"
+    color = "r"
+    label = "heating"
+    
+    idx0, idx1 = 0, len(T_all) // 2
+    x = T_all[idx0:idx1]         # Temperature
+    mag = M_all[idx0:idx1]       # Magnetization
+    u_binder = U_all[idx0:idx1]  # Binder cumulant
+    susc = S_all[idx0:idx1]      # Susceptibility
+    cv = cv_all[idx0:idx1]       # Specific heat
+    
+    ax_mag.plot(x, mag / mag[0], line_sty, color=color, label=label)
+    ax_susc.plot(x, susc / np.max(susc), line_sty, color=color, label=label)
+    ax_cv.plot(x, cv / np.max(cv), line_sty, color=color, label=label)
+    ax_u.plot(x, u_binder, line_sty, color=color, label=label)
+    
+    # --- Cooling data (Blue) ---
+    line_sty = "--x"
+    color = "b"
+    label = "cooling"
+    
+    idx0, idx1 = len(T_all) // 2, len(T_all)
+    x = T_all[idx0:idx1]         # Temperature
+    mag = M_all[idx0:idx1]       # Magnetization
+    u_binder = U_all[idx0:idx1]  # Binder cumulant
+    susc = S_all[idx0:idx1]      # Susceptibility
+    cv = cv_all[idx0:idx1]       # Specific heat
+    
+    ax_mag.plot(x, mag / mag[-1], line_sty, color=color, label=label)
+    ax_susc.plot(x, susc / np.max(susc), line_sty, color=color, label=label)
+    ax_cv.plot(x, cv / np.max(cv), line_sty, color=color, label=label)
+    ax_u.plot(x, u_binder, line_sty, color=color, label=label)
+    
+    # --- Axis labels & Titles ---
+    fontsize = "x-large"
+    ax_mag.set_ylabel(r"$M / M_{0}$", fontsize=fontsize)
+    ax_susc.set_ylabel(r"$\chi / \chi_{max}$", fontsize=fontsize)
+    ax_cv.set_ylabel(r"$C_v / C_{v,max}$", fontsize=fontsize)
+    ax_u.set_ylabel(r"$U$ (Binder)", fontsize=fontsize)
+    ax_u.set_xlabel("T (K)", fontsize=fontsize)
+    ax_mag.set_title(f"{SIMID}", fontsize=fontsize)
+    
+    # --- Styling ---
+    for ax in axes:
+        ax.spines["top"].set_visible(False)
+        ax.spines["right"].set_visible(False)
+        ax.grid(True, linestyle="--", alpha=0.6)
+        ax.legend(frameon=False, loc="best", fontsize=fontsize)
+    
+    ax_mag.set_ylim(-0.05, 1.1)
+    ax_susc.set_ylim(-0.05, 1.1)
+    ax_cv.set_ylim(-0.05, 1.1)
+    ax_u.set_xlim(0, 1600)
+    
+    fig_out = f"MT_{SIMID}.png"
+    fig.tight_layout()
+    plt.savefig(fig_out, bbox_inches='tight', dpi=150)
+    print(f"#+ATTR_ORG: :width 600")
+    print(f"[[file:{PATH+'/'+fig_out}]]")
+    plt.savefig(fig_out, dpi=300, bbox_inches="tight")
+    #plt.show()
+    plt.close('all')
+
+# main program
+for L in [5, 10, 15]:
+    SIMID = f"bccFe{L:03d}"
+    plot_sum(f"sum_{SIMID}.txt")
+#+end_src
+
+#+RESULTS:
+:results:
+#+ATTR_ORG: :width 600
+[[file:bccFe//MT_bccFe005.png]]
+#+ATTR_ORG: :width 600
+[[file:bccFe//MT_bccFe010.png]]
+
+#+ATTR_ORG: :width 600
+[[file:bccFe//MT_bccFe015.png]]
+:end:
+****** Size effect
+#+begin_src python :async :results output graphics drawer :session *python* :exports both
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+import numpy as np
+
+def load_sum(f_sum = "sum.txt"):
+    data = np.loadtxt(f_sum)
+    T_all = data[:, 0]  # Temperature
+    M_all = data[:, 2]  # Magnetization
+    U_all = data[:, 5]  # Binder cumulant
+    S_all = data[:, 6]  # Susceptibility
+    cv_all = data[:, 7] # Specific heat
+    return T_all, M_all, U_all, S_all, cv_all
+
+def plot_comp_sum(f_sum_list = None):
+    if f_sum_list is None:
+        print("[Error]: Please provide a list of sum_*.txt.")
+        return None
+
+    Data = {}
+    for f_sum in f_sum_list:
+        SIMID = f_sum.split('.')[0][4:]
+        if SIMID not in Data:
+            Data[SIMID] = {}
+        T_all, M_all, U_all, S_all, cv_all = load_sum(f_sum)
+        Data[SIMID]['T'] = T_all
+        Data[SIMID]['M'] = M_all
+        Data[SIMID]['U'] = U_all
+        Data[SIMID]['S'] = S_all
+        Data[SIMID]['cv'] = cv_all
+    
+    fig, axes = plt.subplots(4, 1, figsize=(6, 8), sharex=True)
+    ax_mag, ax_susc, ax_cv, ax_u = axes
+    
+    for SIMID, data in Data.items():
+        T_all = data['T']
+        M_all = data['M']
+        U_all = data['U']
+        S_all = data['S']
+        cv_all = data['cv']
+        
+        # --- Heating data ---
+        idx0, idx1 = 0, len(T_all) // 2
+        x = T_all[idx0:idx1]          # Temperature
+        mag = M_all[idx0:idx1]        # Magnetization
+        u_binder = U_all[idx0:idx1]   # Binder cumulant
+        susc = S_all[idx0:idx1]       # Susceptibility
+        cv = cv_all[idx0:idx1]        # Specific heat
+        
+        line_sty = "o-"
+        label = f"L={SIMID[6:]}"
+        ax_mag.plot(x, mag / mag[0], line_sty, label=label)
+        ax_susc.plot(x, susc / np.max(susc), line_sty, label=label)
+        ax_cv.plot(x, cv / np.max(cv), line_sty, label=label)
+        ax_u.plot(x, u_binder, line_sty, label=label)
+
+    # --- Axis labels & Titles ---
+    fontsize = "x-large"
+    ax_mag.set_ylabel(r"$M / M_{0}$", fontsize=fontsize)
+    ax_susc.set_ylabel(r"$\chi / \chi_{max}$", fontsize=fontsize)
+    ax_cv.set_ylabel(r"$C_v / C_{v,max}$", fontsize=fontsize)
+    ax_u.set_ylabel(r"$U$ (Binder)", fontsize=fontsize)
+    ax_u.set_xlabel("T (K)", fontsize=fontsize)
+    ax_mag.set_title(f"Size effect ({SIMID[0:5]})", fontsize=fontsize)
+    
+    # --- Styling ---
+    for ax in axes:
+        ax.spines["top"].set_visible(False)
+        ax.spines["right"].set_visible(False)
+        ax.grid(True, linestyle="--", alpha=0.6)
+        ax.legend(frameon=False, loc="best", fontsize=fontsize)
+    
+    ax_mag.set_ylim(-0.05, 1.1)
+    ax_susc.set_ylim(-0.05, 1.1)
+    ax_cv.set_ylim(-0.05, 1.1)
+    ax_u.set_xlim(0, 1600)
+    
+    fig_out = "MT_comp.png"
+    fig.tight_layout()
+    plt.savefig(fig_out, bbox_inches='tight', dpi=150)
+    print(f"#+ATTR_ORG: :width 600")
+    print(f"[[file:{PATH+'/'+fig_out}]]")
+    plt.savefig(fig_out, dpi=300, bbox_inches="tight")
+    #plt.show()
+    plt.close('all')
+
+# main program
+f_sim_list = [f"sum_bccFe{L:03d}.txt" for L in [5, 10, 15]]
+plot_comp_sum(f_sim_list)
+#+end_src
+
+#+RESULTS:
+:results:
+#+ATTR_ORG: :width 600
+[[file:bccFe//MT_comp.png]]
+:end:
+
+*** DONE Milestones
+CLOSED: [2026-10-21 Wed 16:09]
+- BCC Fe phase diagrams
+  - L=5,10,15: heating+cooling
+  - M, Susc., Cv, U(Binder cumulant)
