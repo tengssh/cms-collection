@@ -81,3 +81,4 @@ tags: ["Code/Sim", "Code/WF", "Code/Lib", "Code/ML", "App"]
 | [dxtb](https://github.com/grimme-lab/dxtb) | Fully differentiable extended tight-binding framework in PyTorch for molecular property calculations and machine learning integration. | Code/Sim, Code/ML |
 | [feram](https://github.com/t-nissie/feram) | Molecular dynamics simulation of bulk and thin-film ferroelectrics based on a first-principles effective Hamiltonian. | Code/Sim |
 | [OpenFerro](https://github.com/salinelake/OpenFerro) | Lattice Hamiltonian simulation and on-lattice atomistic dynamics using automatic differentiation in JAX. | Code/Sim, Code/Lib |
+| [OpenPFC](https://github.com/VTT-ProperTune/OpenPFC) | Open-source solver for phase field crystal (PFC) type problems. | Code/Sim, Code/Lib |
