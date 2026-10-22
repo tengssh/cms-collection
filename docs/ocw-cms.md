@@ -42,9 +42,10 @@ tags: ["Edu", "App", "Code/ML", "Code/Sim", "Code/Lib"]
 | [The Carpentries Lessons](https://carpentries.org/lessons/) | Foundational coding and data science tutorials for researchers. | Edu |
 | [CodeRefinery lessons](https://coderefinery.org/lessons/) | Lessons on essential software development practices for computational scientists. | Edu |
 | [BestPractices](https://github.com/anthony-wang/BestPractices) | Best practices for materials informatics research. | Edu |
-| [DEEP Inspection for Materials Science](https://seaif-ms.github.io/DEEP-Inspection-Material-Science/) | Workshop lessons on deep learning computer vision methods for defect analysis and inspection. | Edu, Code/ML |
+| [DEEP Inspection for Materials Science](https://learn.swedenaifactory.se/DEEP-Inspection-Material-Science/) | Workshop lessons on deep learning computer vision methods for defect analysis and inspection. | Edu, Code/ML |
 | [Universal MLIPs on HPC: hands-on](https://enccs.github.io/mlip-hands-on/) | Hands-on lessons on universal machine-learned interatomic potentials. | Edu, Code/ML, Code/Sim |
 | [ASE Tutorials](https://ase-workshop-2023.github.io/tutorial/) | Hands-on lesson modules covering atomistic structures, calculators, and simulation workflows using the Atomic Simulation Environment (ASE). | Edu, Code/Lib |
 | [Efficient Materials Modelling on HPC](https://enccs.github.io/max-coe-workshop/) | Training materials and hands-on guides for executing and scaling Quantum ESPRESSO, Siesta, and Yambo simulations on high-performance computing architectures. | Edu, Code/Sim |
 | [Electronic-Structure Simulations for Large-Scale Facilities](https://indico.psi.ch/event/17436/) | Focused workshop on electronic-structure fundamentals, materials property prediction, and automated DFT workflows using AiiDAlab and Quantum ESPRESSO. | Edu, Code/Sim |
 | [SciFM Summer School](https://scifm.ai/summer_school.html) | Summer school and tutorial program on foundation models, generative architectures, and AI agents for scientific discovery. | Edu, Code/ML |
+| [European School on Magnetism (ESM)](https://magnetism.eu/3-esm.htm) | Higher education training school organized by the European Magnetism Association (EMA), providing lectures, practical tutorials, and educational resources on magnetism. | Edu |
