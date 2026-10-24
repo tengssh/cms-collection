@@ -29,3 +29,4 @@ tags: ["Data", "App"]
 | [Atomistic Simulation Methods Ontology (ASMO)](https://github.com/OCDO/asmo) | Ontology defining concepts and metadata for atomic-scale simulation methods, including DFT, molecular dynamics, and Monte Carlo techniques. | Data |
 | [Planar Defects Ontology (PLDO)](https://github.com/OCDO/pldo) | Ontology describing planar defects in crystalline materials, focusing on atomic-scale structure and properties of grain boundaries and stacking faults. | Data |
 | [PROV-O: The PROV Ontology](https://www.w3.org/TR/prov-o/) | OWL2 ontology defining the W3C PROV data model for expressing and interchanging provenance information. | Data |
+| [OntoCrafter – Ontology Engineering](https://www.ontocrafter.eu/en/home/) | Modular platform architecture and reference framework for materials science ontologies, integrating mechanistic material modelling, EU regulatory compliance, and industrial value-chain perspectives. | Data |
