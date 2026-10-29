@@ -85,3 +85,4 @@ tags: ["Code/Sim", "Code/WF", "Code/Lib", "Code/ML", "App"]
 | [BigDFT](https://gitlab.com/l_sim/bigdft-suite) | Density functional theory (DFT) electronic structure calculations based on Daubechies wavelets with cubic and linear-scaling approaches. | Code/Sim, Code/Lib |
 | [PyRETIS](https://gitlab.com/pyretis/pyretis) | Rare-event molecular simulations and path sampling using transition interface sampling and replica exchange transition interface sampling. | Code/Sim, Code/Lib |
 | [SPPARKS](https://github.com/spparks/spparks) | Parallel kinetic and Metropolis Monte Carlo simulator for atomic and mesoscale materials modeling. | Code/Sim, Code/Lib |
+| [WEST](https://github.com/west-code-development/West) | Massively parallel electronic structure and excited-state calculations using many-body perturbation theory (GW, BSE, TDDFT) without empty states. | Code/Sim |
