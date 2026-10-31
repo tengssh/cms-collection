@@ -4,7 +4,7 @@ import pytest
 
 def test_no_side_effects_on_import():
     # Clear target modules from sys.modules to force a re-import and trigger top-level code execution.
-    for mod in ["ingest_md", "chroma_search", "ollama_chat", "chroma_utils"]:
+    for mod in ["ingest_md", "chroma_search", "ollama_chat", "api_chat", "chroma_utils"]:
         sys.modules.pop(mod, None)
         
     with patch("chromadb.PersistentClient") as mock_persistent, \
@@ -16,6 +16,7 @@ def test_no_side_effects_on_import():
          import ingest_md
          import chroma_search
          import ollama_chat
+         import api_chat
          
          # In the refactored code, these should not be called on import.
          # In the old code, they will be called, making this test fail.
