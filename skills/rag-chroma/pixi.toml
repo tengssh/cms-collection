@@ -23,8 +23,15 @@ halo = "*"
 [feature.test.dependencies]
 pytest = "*"
 
+[feature.api.dependencies]
+requests = "*"
+
+[feature.api.pypi-dependencies]
+openai = "*"
+
 [environments]
 test = ["test"]
+api = ["api"]
 
 [tasks]
 ingest = { cmd = "python scripts/ingest_md.py", description = "Ingest documents into Chroma database." }
@@ -33,3 +40,4 @@ clean = { cmd = "rm -rf ./chroma_db", description = "Clean the local Chroma data
 reindex = { depends-on = ["clean", "ingest"], description = "Reindex the Chroma database." }
 test = { cmd="PYTHONPATH=scripts python -m pytest tests", default-environment="test", description = "Run the tests." }
 chat = { cmd = "python scripts/ollama_chat.py", description = "Chat with the Chroma database using Ollama." }
+chat-api = { cmd = "python scripts/api_chat.py", default-environment = "api", description = "Chat with the Chroma database using remote APIs (OpenRouter: openrouter, NVIDIA NIM: nvidia)." }
