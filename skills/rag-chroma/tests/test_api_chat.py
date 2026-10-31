@@ -297,6 +297,55 @@ def test_sanitize_empty_assistant_message_content():
     assert "No information is found" in cleaned[1]["content"]
 
 
+# ==========================================
+# 6. Tests for Listing Available Models
+# ==========================================
+
+def test_fetch_available_models_mocked():
+    from api_chat import fetch_available_models, get_provider_config
+    config = get_provider_config("nvidia")
+
+    mock_resp = MagicMock()
+    mock_resp.json.return_value = {
+        "data": [
+            {"id": "mistralai/mistral-large-4-1t-a52b"},
+            {"id": "01-ai/yi-large"},
+        ]
+    }
+    mock_resp.raise_for_status.return_value = None
+
+    with patch("requests.get", return_value=mock_resp) as mock_get:
+        models = fetch_available_models(config)
+        assert len(models) == 2
+        mock_get.assert_called_once()
+        assert "models" in mock_get.call_args[0][0]
+
+
+def test_list_available_models_all_and_filtered():
+    from api_chat import list_available_models
+
+    mock_data = [
+        {"id": "nvidia/nemotron-3.5-super-vl:free"},
+        {"id": "liquid/lfm-2.5-2.6b:free"},
+        {"id": "meta-llama/llama-3.3-70b-instruct"},
+    ]
+    with patch("api_chat.fetch_available_models", return_value=mock_data):
+        # All models
+        all_models = list_available_models("openrouter", stream_output=False)
+        assert len(all_models) == 3
+        assert "liquid/lfm-2.5-2.6b:free" in all_models
+
+        # Filtered by "free"
+        free_models = list_available_models("openrouter", filter_query="free", stream_output=False)
+        assert len(free_models) == 2
+        assert "meta-llama/llama-3.3-70b-instruct" not in free_models
+
+        # Filtered by "llama"
+        llama_models = list_available_models("openrouter", filter_query="llama", stream_output=False)
+        assert len(llama_models) == 1
+        assert llama_models[0] == "meta-llama/llama-3.3-70b-instruct"
+
+
 def test_no_side_effects_on_import():
     sys.modules.pop("api_chat", None)
     with patch("requests.post") as mock_post, \
