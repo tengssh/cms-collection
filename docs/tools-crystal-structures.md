@@ -25,3 +25,4 @@ tags: ["Code/Lib", "App"]
 | [virp](https://github.com/andypaulchen/virp) | Virtual cell generation from crystal structures containing site disorder. | Code/Lib |
 | [Symmetr](https://github.com/zeleznyj/symmetr) | Determination of symmetry properties for magnetic and nonmagnetic crystals. | Code/Lib |
 | [XCP](https://xcp.hzdr.de/) | Web-based tool for predicting cleavable planes and exfoliable 2D materials from crystal structures. | App |
+| [XtalOpt](https://github.com/xtalopt/XtalOpt) | Crystal structure prediction using a multi-objective variable-composition evolutionary algorithm for global optimization. | Code/Lib, App |
