@@ -110,6 +110,7 @@ class ProviderConfig:
     default_model: str
     client_type: str = "openai"  # "openai" or "requests"
     endpoint_path: str = "/chat/completions"
+    models_path: str = "/models"
     headers: Dict[str, str] = field(default_factory=dict)
     aliases: List[str] = field(default_factory=list)
     description: str = ""
@@ -584,9 +585,121 @@ def start_chat(provider_name: Optional[str] = None, model: Optional[str] = None)
             print(f"Error: {e}\n")
 
 
+def fetch_available_models(provider: ProviderConfig) -> List[Dict[str, Any]]:
+    """
+    Fetches raw model records from the provider's models endpoint.
+    """
+    models_url = f"{provider.base_url.rstrip('/')}{provider.models_path}"
+    headers = {
+        "Content-Type": "application/json",
+        **provider.headers,
+    }
+    try:
+        api_key = get_api_key(provider)
+        headers["Authorization"] = f"Bearer {api_key}"
+    except Exception:
+        pass  # Querying /models does not require auth on OpenRouter & NVIDIA NIM
+
+    resp = requests.get(models_url, headers=headers, timeout=20)
+    resp.raise_for_status()
+    data = resp.json().get("data", [])
+    return data
+
+
+def list_available_models(
+    provider_name: Optional[str] = None,
+    filter_query: Optional[str] = None,
+    stream_output: bool = True,
+) -> List[str]:
+    """
+    Lists available model IDs for the chosen provider, optionally filtered.
+    Returns the list of matching model IDs.
+    """
+    config, default_model = resolve_provider_and_model(provider_name, None)
+
+    if stream_output:
+        print("\n" + "=" * 56)
+        print(f"  Available Models (Provider: {config.name.upper()})")
+        print("=" * 56)
+        print(f"  Endpoint: {config.base_url}{config.models_path}")
+        print(f"  Default : {default_model}")
+        if filter_query:
+            print(f"  Filter  : '{filter_query}'")
+        print("=" * 56 + "\n")
+
+    try:
+        raw_models = fetch_available_models(config)
+    except Exception as e:
+        if stream_output:
+            print(f"Error fetching models from {config.name}: {e}\n")
+        return []
+
+    model_ids = [m.get("id", "") for m in raw_models if m.get("id")]
+    model_ids.sort()
+
+    if filter_query:
+        q = filter_query.lower()
+        model_ids = [mid for mid in model_ids if q in mid.lower()]
+
+    if not model_ids:
+        if stream_output:
+            print(f"No models found matching '{filter_query}'.\n")
+        return []
+
+    free_models = [mid for mid in model_ids if ":free" in mid]
+    other_models = [mid for mid in model_ids if ":free" not in mid]
+
+    if stream_output:
+        if free_models:
+            print(f"--- Free Models ({len(free_models)}) ---")
+            for mid in free_models:
+                marker = " (default)" if mid == default_model else ""
+                print(f"  • {mid}{marker}")
+            print()
+
+        if other_models:
+            section_title = (
+                f"--- Standard Models ({len(other_models)}) ---"
+                if free_models
+                else f"--- Models ({len(other_models)}) ---"
+            )
+            print(section_title)
+            display_limit = 50 if (not filter_query and len(other_models) > 70) else len(other_models)
+            for mid in other_models[:display_limit]:
+                marker = " (default)" if mid == default_model else ""
+                print(f"  • {mid}{marker}")
+            if display_limit < len(other_models):
+                print(f"  ... and {len(other_models) - display_limit} more models.")
+                print(f"\nTip: Filter with `pixi run chat-api {config.name} list <keyword>`")
+            print()
+
+        print(f"Total: {len(model_ids)} model(s)")
+        print(f"Run chat: pixi run chat-api {config.name} <model_id>\n")
+
+    return model_ids
+
+
 if __name__ == "__main__":
     args = [a for a in sys.argv[1:] if not a.startswith("-")]
-    cli_provider = args[0] if len(args) > 0 else None
-    cli_model = args[1] if len(args) > 1 else None
-    start_chat(cli_provider, cli_model)
+
+    # Check for 'list' subcommand
+    if any(a.lower() == "list" for a in args):
+        non_list_args = [a for a in args if a.lower() != "list"]
+        target_provider = non_list_args[0] if len(non_list_args) > 0 else None
+        filter_term = non_list_args[1] if len(non_list_args) > 1 else None
+
+        # If user did `chat-api list glm`, target_provider might be a filter query if not a known provider
+        if target_provider:
+            known_providers = set(_PROVIDER_REGISTRY.keys())
+            for cfg in _PROVIDER_REGISTRY.values():
+                known_providers.update(a.lower() for a in cfg.aliases)
+            if target_provider.lower() not in known_providers:
+                filter_term = target_provider
+                target_provider = None
+
+        list_available_models(target_provider, filter_term)
+    else:
+        cli_provider = args[0] if len(args) > 0 else None
+        cli_model = args[1] if len(args) > 1 else None
+        start_chat(cli_provider, cli_model)
 
