@@ -58,12 +58,37 @@ This example demonstrates how to create vector databases and query using [Chroma
             - `--sections`: Filter results by specific sections (default: `"Curated Lists" "Databases & Datasets" "Tools"`)
             - `--tags`: Filter results by specific tags (default: `None`)
     - Chat
-        - Start the Ollama server (in one terminal)
-            ```bash
-            ollama serve
-            ```
-        - Run the chat (in another terminal)
-            ```bash
-            pixi run chat [model_name]
-            ```
+        - Local Ollama:
+            - Start the Ollama server (in one terminal)
+                ```bash
+                ollama serve
+                ```
+            - Run the chat (in another terminal)
+                ```bash
+                pixi run chat [model_name]
+                ```
+        - Remote APIs (OpenRouter, NVIDIA NIM):
+            - Check available models:
+                ```bash
+                # List models for NVIDIA NIM
+                pixi run chat-api nvidia list
+
+                # List models for OpenRouter (e.g. filter by free models)
+                pixi run chat-api openrouter list free
+                ```
+            - Run the chat:
+                ```bash
+                # Chat with default OpenRouter model
+                pixi run chat-api
+
+                # Chat with NVIDIA NIM
+                pixi run chat-api nvidia
+
+                # Chat with a specific model
+                pixi run chat-api openrouter z-ai/glm-5.3-flash
+                ```
         - Note that AI may hallucinate. Please verify the information.
+
+## Todo
+- Intent
+- Evals/Telemetry
