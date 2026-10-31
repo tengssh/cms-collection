@@ -12,7 +12,7 @@ RAG Chroma is a Retrieval-Augmented Generation (RAG) toolset that indexes, searc
 
 * **Markdown Ingestion:** Parses markdown tables from lists of materials science resources and uploads them to a local or cloud-hosted Chroma collection with vector schemas.
 * **Hybrid Search:** Queries the Chroma DB collection with support for dense vector distances, sparse keyword BM25 indexes, filtering by sections, and tag filtering.
-* **Conversational Agent:** Executes an interactive command-line agent using a tool-calling capable LLM that leverages tool calling to answer technical queries using the ingested materials science database.
+* **Conversational Agent:** Executes an interactive command-line agent using local (Ollama) or remote cloud (OpenRouter, NVIDIA NIM) tool-calling LLMs to answer technical queries using the ingested materials science database.
 
 ## How to use
 
@@ -36,7 +36,19 @@ Ensure the LLM backend (supporting tool calling) is running, then run the tasks 
    ```
 3. **Interactive RAG Chat:**
    ```bash
+   # Local Ollama chat
    pixi run chat
+   pixi run chat [model_name]
+
+   # List available remote models (OpenRouter, NVIDIA NIM)
+   pixi run chat-api nvidia list
+   pixi run chat-api openrouter list free
+   pixi run chat-api [provider] list [filter]
+
+   # Remote API chat
+   pixi run chat-api                                  # Default (OpenRouter)
+   pixi run chat-api nvidia                           # NVIDIA NIM
+   pixi run chat-api [provider] [model_name]          # Custom model
    ```
 4. **Run Verification Tests:**
    ```bash
@@ -48,7 +60,8 @@ Ensure the LLM backend (supporting tool calling) is running, then run the tasks 
 * [chroma_utils.py](./scripts/chroma_utils.py): Centralized module containing connections, collections creation, markdown parser, and query search execution.
 * [ingest_md.py](./scripts/ingest_md.py): Ingestion CLI task.
 * [chroma_search.py](./scripts/chroma_search.py): Search CLI task.
-* [ollama_chat.py](./scripts/ollama_chat.py): Chat agent loop task.
+* [ollama_chat.py](./scripts/ollama_chat.py): Local Ollama chat agent loop task.
+* [api_chat.py](./scripts/api_chat.py): Remote API chat agent supporting OpenRouter and NVIDIA NIM with tool calling, model listing, and rate-limit backoff.
 
 ## Best practices
 
