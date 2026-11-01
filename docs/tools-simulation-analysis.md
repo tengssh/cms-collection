@@ -38,3 +38,5 @@ tags: ["Code/Lib", "Code/Sim", "App"]
 | [Dopyqo](https://github.com/dlr-wf/Dopyqo) | Many-body Hamiltonian construction and electron correlation analysis on top of Quantum ESPRESSO calculations using classical and quantum solvers. | Code/Lib |
 | [ZStar](https://github.com/xdzhu/ZStar) | A unified toolkit for polarization, Born effective charges, dielectric and piezoelectric responses, and infrared and Raman spectra. | Code/Lib, Code/WF |
 | [hiPhive](https://gitlab.com/materials-modeling/hiphive) | Extraction of high-order interatomic force constants from atomistic simulations using cluster space expansion and regularized regression. | Code/Lib, Code/ML |
+| [wien2wannier](https://github.com/wien2wannier/wien2wannier) | Interface connecting WIEN2k (Linearized Augmented Plane Waves (LAPW)) and Wannier90 to compute maximally localized Wannier functions. | Code/Lib |
+| [LCAO2Wannier](https://github.com/wcomaskey/LCAO2Wannier) | Interface connecting the CRYSTAL code (Linear Combination of Atomic Orbitals (LCAO) Gaussian basis) and Wannier90 to compute maximally localized Wannier functions (MLWFs) using analytic overlaps. | Code/Lib |
