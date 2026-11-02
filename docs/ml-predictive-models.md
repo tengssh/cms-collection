@@ -14,7 +14,7 @@ tags: ["Code/ML", "Code/Lib", "App"]
 | [FieldSchNet](https://github.com/atomistic-machine-learning/field_schnet) | Neural network predicting atomic forces and electric field properties. | Code/ML, Code/Lib |
 | [MALA](https://mala-project.github.io/mala/) | Materials learning algorithms framework combining machine learning and density functional theory. | Code/ML, Code/Lib |
 | [RuNNer2](https://gitlab.com/runner-suite/runner2) | High-dimensional neural network potential energy representations for atomistic systems. | Code/ML, Code/Lib |
-| [sGDML](http://www.sgdml.org/) | Symmetric gradient domain machine learning framework for molecular force fields. | Code/ML, Code/Lib |
+| [sGDML](https://github.com/stefanch/sGDML) | Symmetric gradient domain machine learning framework for molecular force fields. | Code/ML, Code/Lib |
 | [SpookyNet](https://github.com/OUnke/SpookyNet) | Neural network potential incorporating electronic degrees of freedom and nonlocal effects. | Code/ML, Code/Lib |
 | [MB-pol](https://paesanigroup.ucsd.edu/many-body-potentials/mb-pol.html) | Data-driven many-body potential model for water simulations. | Code/ML, Code/Lib |
 | [MBX](https://github.com/paesanilab/MBX) | Energy and force calculator for data-driven many-body simulations. | Code/ML, Code/Lib |
