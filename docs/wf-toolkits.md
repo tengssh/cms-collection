@@ -83,6 +83,7 @@ tags: ["Code/WF", "Code/Sim", "Code/ML", "App", "List"]
 | [quacc](https://github.com/Quantum-Accelerators/quacc) | Platform for automating and dispatching computational materials science and quantum chemistry workflows across diverse compute environments. | Code/WF, Code/Lib, Code/ML |
 | [MDCrow](https://github.com/ur-whitelab/MDCrow) | Large Language Model (LLM) agent toolset for automating system setup, simulation execution, and trajectory analysis in molecular dynamics. | Code/WF, Code/ML |
 | [aMACEing_toolkit](https://github.com/jhaens/amaceing_toolkit) | Python package for creating, post-processing, and evaluating quantum chemical calculations for CP2K and machine learning interatomic potentials (MLIPs) including MACE-torch, MatterSim, SevenNet, ORB, and Grace. | Code/WF, Code/Lib, Code/ML |
+| [MatOS](https://github.com/DingyangLyu/MatOS) | Agent operating system for materials research, with a layered scientific asset graph, stateful adaptive workflows, and evidence-driven asset evolution. | Code/WF, Code/ML |
 
 ## Model Context Protocol (MCP) & Skills
 
@@ -93,3 +94,4 @@ tags: ["Code/WF", "Code/Sim", "Code/ML", "App", "List"]
 | [ChatMaterials](https://github.com/chatmaterials) | Agent skills for computational materials science, DFT workflows, and physics-oriented analysis. | Code/WF |
 | [materials-simulation-skills](https://github.com/HeshamFS/materials-simulation-skills) | Agent skills for numerical stability, solvers, meshing, convergence, and simulation workflows in computational materials science. | Code/WF |
 | [scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills) | Collection of validated agent skills and scientific database connectors covering biology, chemistry, medicine, materials science, and research workflows across major agent platforms. | Code/WF |
+| [DefectSkills](https://github.com/zy75-prog/DefectSkills) | Reusable agent skills and reference files for VASP-based point-defect calculations. | Code/WF |
