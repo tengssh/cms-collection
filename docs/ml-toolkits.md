@@ -37,3 +37,4 @@ tags: ["Code/ML", "Code/Lib", "Code/WF", "App"]
 | [MLIPOps](https://github.com/openmm/mlipops) | PyTorch and Triton operations for creating machine learning interatomic potentials. | Code/Lib, Code/ML |
 | [DeePKS-kit](https://github.com/deepmodeling/deepks-kit) | Training, testing, and iterative self-consistent field evaluation of neural network energy and density functional models. | Code/Lib, Code/ML |
 | [aims-PAX](https://github.com/tohenkes/aims-PAX) | Parallel active learning framework for machine learning force fields coupling FHI-aims and MACE. | Code/ML, Code/WF |
+| [assyst](https://github.com/eisenforschung/assyst) | Reference implementation of the Automated Small Symmetric Structure Training (ASSYST) method for generating training datasets for machine learning interatomic potentials (MLIPs). | Code/Lib, Code/ML |
