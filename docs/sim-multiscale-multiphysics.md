@@ -60,6 +60,7 @@ tags: ["Code/Sim", "Code/WF", "Code/Lib", "Code/ML", "App"]
 | [CP-PAW](https://github.com/cp-paw/cp-paw) | Electronic structure calculations and ab initio molecular dynamics based on the projector augmented wave (PAW) method and Car-Parrinello dynamics. | Code/Sim |
 | [NuMagSANS](https://github.com/AdamsMP92/NuMagSANS) | GPU-accelerated computation of nuclear and magnetic small-angle neutron scattering (SANS) cross sections and correlation functions from atomistic and micromagnetic configurations. | Code/Sim, Code/Lib |
 | [DFTK](https://github.com/JuliaMolSim/DFTK.jl) | Density functional theory calculations and algorithm experimentation using plane-wave basis sets in Julia. | Code/Sim, Code/Lib |
+| [Molly.jl](https://github.com/JuliaMolSim/Molly.jl) | Julia package for molecular dynamics and physical simulation with support for GPU acceleration and differentiable simulations. | Code/Sim, Code/Lib |
 | [RMGDFT](https://github.com/RMGDFT/rmgdft) | Electronic structure calculations and modeling of materials and molecules based on real-space grids and pseudopotentials. | Code/Sim |
 | [FEBio](https://github.com/febiosoftware/FEBio) | Nonlinear finite element solver designed for biomechanical applications. | Code/Sim, Code/Lib |
 | [EON](https://github.com/henkelmangroup/eon) | Long-timescale atomic dynamics and rare-event simulations using accelerated dynamics and adaptive kinetic Monte Carlo. | Code/Sim |
