@@ -38,3 +38,8 @@ tags: ["Code/ML", "Code/Lib", "Code/WF", "App"]
 | [DeePKS-kit](https://github.com/deepmodeling/deepks-kit) | Training, testing, and iterative self-consistent field evaluation of neural network energy and density functional models. | Code/Lib, Code/ML |
 | [aims-PAX](https://github.com/tohenkes/aims-PAX) | Parallel active learning framework for machine learning force fields coupling FHI-aims and MACE. | Code/ML, Code/WF |
 | [assyst](https://github.com/eisenforschung/assyst) | Reference implementation of the Automated Small Symmetric Structure Training (ASSYST) method for generating training datasets for machine learning interatomic potentials (MLIPs). | Code/Lib, Code/ML |
+| [ONNX](https://onnx.ai/) | Open standard and runtime ecosystem for representing and executing machine learning models across diverse frameworks and hardware. | Code/Lib, Code/ML |
+| [OpenXLA](https://openxla.org/) | Open-source compiler ecosystem for optimizing and accelerating machine learning models across heterogeneous hardware backends. | Code/Lib, Code/ML |
+| [sphericart](https://github.com/lab-cosmo/sphericart) | Fast evaluation of real spherical harmonics and their Cartesian derivatives for atomistic machine learning representations and interatomic potentials. | Code/Lib, Code/ML |
+| [vesin](https://github.com/luthaf/vesin) | Fast, lightweight neighbor list library for atomistic systems, geometric machine learning, and molecular simulations. | Code/Lib, Code/ML |
+| [torch-pme](https://github.com/lab-cosmo/torch-pme) | Differentiable implementation of particle-mesh and Ewald summation methods for long-range interactions in PyTorch. | Code/Lib, Code/ML |
