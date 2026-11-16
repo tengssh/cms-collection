@@ -28,6 +28,8 @@ tags: ["Code/ML", "Code/Lib", "App"]
 | [PE-MACE](https://github.com/xke123502/PE_MACE) | Potential-embedded MACE interatomic potential. | Code/ML, Code/Lib |
 | [MACE-Field](https://github.com/mdi-group/mace-field) | Extension of the MACE architecture to incorporate external electric fields for dielectric property prediction. | Code/ML, Code/Lib |
 | [GRACE](https://github.com/ICAMS/grace-tensorpotential) | Machine learning interatomic potentials based on the GRACE tensor potential formulation. | Code/ML, Code/Lib |
+| [CACE](https://github.com/BingqingCheng/cace) | Cartesian atomic cluster expansion potentials for molecular simulations. | Code/ML, Code/Lib |
+| [ACEpotentials.jl](https://github.com/ACEsuit/ACEpotentials.jl) | Julia package for creating, fitting, and evaluating atomic cluster expansion (ACE) machine learning interatomic potentials (MLIPs). | Code/ML, Code/Lib |
 | [MatGL](https://github.com/materialyzeai/matgl) | Graph deep learning library for materials properties and interatomic potentials. | Code/ML, Code/Lib |
 | [e3nn](https://e3nn.org/) | Modular PyTorch framework for Euclidean neural networks. | Code/Lib, Code/ML |
 | [Equiformer](https://github.com/atomicarchitects/equiformer) | Equivariant graph attention transformer for 3D atomistic graphs. | Code/ML, Code/Lib |
@@ -39,7 +41,6 @@ tags: ["Code/ML", "Code/Lib", "App"]
 | [Allegro](https://github.com/mir-group/allegro) | Scalable equivariant interatomic potentials for molecular dynamics. | Code/ML, Code/Lib |
 | [Cartesian Allegro](https://github.com/xvzemin/cartesian_allegro) | Cartesian version of the Allegro interatomic potential. | Code/ML, Code/Lib |
 | [TorchMD-Net](https://github.com/torchmd/torchmd-net) | Neural network potentials for molecular systems and molecular dynamics. | Code/ML, Code/Lib |
-| [CACE](https://github.com/BingqingCheng/cace) | Cartesian atomic cluster expansion potentials for molecular simulations. | Code/ML, Code/Lib |
 | [LES](https://github.com/ChengUCB/les) | Latent Ewald summation for long-range interactions in neural network potentials. | Code/ML, Code/Lib |
 | [SO3krates-LR](https://github.com/general-molecular-simulations/so3lr) | Equivariant transformer potential for long-range interactions in molecular simulations. | Code/ML, Code/Lib |
 | [MatterSim](https://github.com/microsoft/mattersim) | Deep learning atomistic model across elements, temperatures, and pressures. | Code/ML, Code/Lib |
