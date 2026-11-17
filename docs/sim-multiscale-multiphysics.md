@@ -40,6 +40,7 @@ tags: ["Code/Sim", "Code/WF", "Code/Lib", "Code/ML", "App"]
 | [PyCalphad](https://github.com/pycalphad/pycalphad) | Thermodynamic property and phase diagram calculations using the CALPHAD method. | Code/Sim, Code/Lib |
 | [exa-pd](https://github.com/ML-AMD/exa-pd) | Parallelizable workflow for constructing multi-element phase diagrams using molecular dynamics and Monte Carlo simulations in LAMMPS coupled with CALPHAD modeling via PyCALPHAD. | Code/Sim, Code/WF |
 | [calphy](https://github.com/ICAMS/calphy) | Automated free energy calculations using thermodynamic integration for solid and liquid phases, based on molecular dynamics simulations via LAMMPS. | Code/Sim, Code/WF, Code/Lib |
+| [ESPEI](https://github.com/PhasesResearchLab/ESPEI) | Automated thermodynamic database development, parameter optimization, and uncertainty quantification within the CALPHAD method using PyCalphad. | Code/Sim, Code/Lib, Code/WF |
 | [dftworks](https://github.com/dftworks/dftworks) | Plane-wave pseudopotential density functional theory simulation package written in Rust. | Code/Sim |
 | [PySCF](https://github.com/pyscf/pyscf) | Ab initio quantum chemistry and electronic structure calculations for molecular and periodic systems. | Code/Sim |
 | [exciting](https://github.com/exciting/exciting) | Full-potential all-electron density functional theory and many-body perturbation theory calculations using the (L)APW+lo method. | Code/Sim |
