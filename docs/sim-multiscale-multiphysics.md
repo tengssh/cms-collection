@@ -88,3 +88,4 @@ tags: ["Code/Sim", "Code/WF", "Code/Lib", "Code/ML", "App"]
 | [SPPARKS](https://github.com/spparks/spparks) | Parallel kinetic and Metropolis Monte Carlo simulator for atomic and mesoscale materials modeling. | Code/Sim, Code/Lib |
 | [WEST](https://github.com/west-code-development/West) | Massively parallel electronic structure and excited-state calculations using many-body perturbation theory (GW, BSE, TDDFT) without empty states. | Code/Sim |
 | [CASINO](https://vallico.net/casinoqmc/) | Quantum Monte Carlo software for electronic structure calculations of atoms, molecules, and solids using variational and diffusion Monte Carlo. | Code/Sim |
+| [MOOSE](https://mooseframework.inl.gov/) | Parallel finite element framework for coupled multiphysics and multiscale simulations. | Code/Sim, Code/Lib |
