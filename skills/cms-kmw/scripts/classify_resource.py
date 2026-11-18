@@ -37,7 +37,7 @@ CRYSTAL_TOOL_KEYWORDS = [
     r"crystal\s+structure", r"space\s+group", r"\bcif\b", r"\bcif2", r"supercell",
     r"grain\s+boundary", r"perovskite", r"random\s+structure\s+search",
     r"crystal\s+visualization", r"xrd\s+fitting", r"x-ray\s+diffraction", r"\bvesta\b", r"\bovito\b",
-    r"\batomsk\b", r"site\s+disorder"
+    r"\batomsk\b", r"site\s+disorder", r"sqs", r"special\s+quasi-random"
 ]
 
 MOLECULAR_TOOL_KEYWORDS = [
