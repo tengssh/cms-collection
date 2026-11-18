@@ -37,6 +37,7 @@ tags: ["Data/Exp", "Data/Comp", "App"]
 | [Material Hub](https://www.materialhub.de/en/) | Search and comparison platform for engineering materials properties, standards, and technical datasheets across metals, polymers, ceramics, and composites. | Data/Exp, App |
 | [Precursor Genome](https://github.com/lauren-walters/precursor-genome) | Experimental dataset of 1,035 pairwise solid-state ceramic synthesis reactions generated autonomously by the A-Lab, including precursor parameters, heating profiles, XRD patterns, and Rietveld refinement outcomes. | Data/Exp |
 | [Mineralogy Database](https://webmineral.com/) | A comprehensive database of mineral species containing crystallography, chemical composition, physical and optical properties, and X-ray powder diffraction data. | Data/Exp, App |
+| [emdatabase](https://electronmicroscopy.github.io/emdatabase/) | Repository and download portal for curated electron microscopy (EM) datasets, 4D-STEM benchmarks, and machine learning model weights. | Data/Exp, App |
 
 ## Computational data
 
