@@ -1,10 +1,10 @@
 ---
-name: Simulation & analysis toolkits
+name: Simulation analysis
 description: Atomistic simulation toolkits, post-processing utilities, electronic structure analysis, and property calculation libraries.
 tags: ["Code/Lib", "Code/Sim", "App"]
 ---
 
-## Simulation & analysis toolkits
+## Simulation analysis
 
 | Item (URL) | Description | Tags |
 | :--------- | :---------- | :--- |
