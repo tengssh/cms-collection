@@ -52,7 +52,8 @@ Given the rapidly evolving nature of this field, the proposed categories are des
 | :--------- | :---------- | :--- |
 | [Crystal structures](./docs/tools-crystal-structures.md) | Generation, transformation, analysis, and visualization tools for crystal structures and periodic systems. | List, Code/Lib, App |
 | [Molecular structures](./docs/tools-molecular-structures.md) | Modeling, packing, coarse-graining, and 3D visualization tools for molecular systems and trajectories. | List, Code/Lib, App |
-| [Simulation & analysis toolkits](./docs/tools-simulation-analysis.md) | Atomistic simulation toolkits, post-processing utilities, electronic structure analysis, and property calculation libraries. | List, Code/Lib, Code/Sim, App |
+| [Simulation analysis](./docs/tools-simulation-analysis.md) | Atomistic simulation toolkits, post-processing utilities, electronic structure analysis, and property calculation libraries. | List, Code/Lib, Code/Sim, App |
+| [Experimental analysis](./docs/tools-experimental-analysis.md) | Data processing, reconstruction, fitting, and visualization tools for experimental characterization. | List, Code/Lib, App |
 
 ## OCW
 

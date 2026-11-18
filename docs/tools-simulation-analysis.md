@@ -23,7 +23,6 @@ tags: ["Code/Lib", "Code/Sim", "App"]
 | [QMatSuite](https://github.com/QMatSuite/QMatSuite) | Graphical user interface for the Quantum ESPRESSO ab-initio simulation suite. | App, Code/Lib |
 | [LOBSTER](https://schmeling.ac.rwth-aachen.de/cohp/index.php) | Chemical-bonding analysis including Crystal Orbital Hamilton Population (COHP) and Overlap Population (COOP) from plane-wave DFT outputs. | Code/Lib |
 | [LobsterPy](https://github.com/JaGeo/LobsterPy) | Automatic bonding analysis and feature generation from [Lobster](https://schmeling.ac.rwth-aachen.de/cohp/index.php) calculations. | Code/Lib, Code/ML |
-| [arpespythontools](https://github.com/pranabdas/arpespythontools) | Explore, analyze, and visualize Angle-Resolved Photoemission Spectroscopy (ARPES) data. | Code/Lib |
 | [MatCalc](https://github.com/materialyzeai/matcalc) | Calculating materials properties from potential energy surfaces using machine learning interatomic potentials and DFT. | Code/Lib, Code/ML |
 | [auto-kappa](https://github.com/phonix-db/auto-kappa) | Automated calculation of anharmonic phonon properties. | Code/WF, Code/Lib |
 | [AMDAT](https://github.com/dssimmons-codes/AMDAT) | C++ toolkit for post-processing molecular dynamics trajectories, with a focus on static and dynamic analyses of amorphous, glassy, and polymer materials. | Code/Lib |
