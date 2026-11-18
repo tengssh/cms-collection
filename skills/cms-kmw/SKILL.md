@@ -58,6 +58,7 @@ Determine the file target based on architectural purpose and domain role:
    - **Crystal Structures (`docs/tools-crystal-structures.md`):** Pre/post-processing tools for crystal structure generation, space group analysis, and 3D visualizers (`Code/Lib`, `App`).
    - **Molecular Structures (`docs/tools-molecular-structures.md`):** Molecular modeling, packing, trajectory visualization, and coarse-graining tools (`Code/Lib`, `App`).
    - **Simulation & Analysis (`docs/tools-simulation-analysis.md`):** Core computational libraries (ASE, Pymatgen), phonon solvers, electronic structure analyzers, and sampling plugins (`Code/Lib`, `Code/Sim`).
+   - **Experimental Analysis (`docs/tools-experimental-analysis.md`):** Data processing, reconstruction, fitting, and visualization tools for experimental characterization (`Code/Lib`, `App`).
 5. **Educational Resources (`ocw-*.md`):**
    - **Educational Resources (`docs/ocw-cms.md`):** Academic courses, interactive simulation applets, computational cookbooks, and research computing lessons (`Edu`).
 6. **Out-of-Scope Backlog (`backlog.md`):**

@@ -80,6 +80,12 @@ WORKFLOW_KEYWORDS = [
     r"automation", r"execution\s+manager", r"run\s+manager", r"aiida", r"jobflow"
 ]
 
+EXPERIMENTAL_ANALYSIS_KEYWORDS = [
+    r"electron\s+microscopy", r"\btem\b", r"\bstem\b", r"4d-stem", r"ptychograph",
+    r"diffraction\s+data", r"xrd\s+fitting", r"x-ray\s+diffraction", r"arpes",
+    r"photoemission", r"spectroscopy\s+data", r"reciprocal\s+space\s+mapping"
+]
+
 SIMULATION_ANALYSIS_TOOLKIT_KEYWORDS = [
     r"atomistic\s+simulation\s+environment", r"pymatgen", r"phonon", r"phonopy",
     r"bader\s+charge", r"crystal\s+orbital", r"cohp", r"lobster", r"post-processing",
@@ -113,6 +119,7 @@ def classify_and_tag(name, description, readme_content=""):
         "ml_toolkit": sum(1 for kw in ML_TOOLKIT_KEYWORDS if re.search(kw, combined_text)),
         "workflow": sum(1 for kw in WORKFLOW_KEYWORDS if re.search(kw, combined_text)),
         "sim_analysis": sum(1 for kw in SIMULATION_ANALYSIS_TOOLKIT_KEYWORDS if re.search(kw, combined_text)),
+        "experimental_analysis": sum(1 for kw in EXPERIMENTAL_ANALYSIS_KEYWORDS if re.search(kw, combined_text)),
         "simulation": sum(1 for kw in SIMULATION_KEYWORDS if re.search(kw, combined_text)),
     }
     
@@ -159,6 +166,10 @@ def classify_and_tag(name, description, readme_content=""):
         target_file = "docs/ml-predictive-models.md"
         tags.extend(["Code/ML", "Code/Lib"])
         rationale = "Machine learning interatomic potential (MLIP) or material property predictor."
+    elif scores["experimental_analysis"] >= 1 and scores["simulation"] == 0:
+        target_file = "docs/tools-experimental-analysis.md"
+        tags.extend(["Code/Lib"])
+        rationale = "Data processing, reconstruction, fitting, or visualization tool for experimental characterization."
     elif scores["crystal_tool"] >= 1 and scores["simulation"] == 0:
         target_file = "docs/tools-crystal-structures.md"
         tags.extend(["Code/Lib"])
