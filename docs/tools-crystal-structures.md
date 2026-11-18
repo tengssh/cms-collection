@@ -17,6 +17,7 @@ tags: ["Code/Lib", "App"]
 | [Ab-initio Interface Materials Simulation Project for Grain Boundaries (AIMSGB)](https://github.com/ksyang2013/aimsgb) | A Python package for generating periodic grain boundary structures. | Code/Lib |
 | [SPuDS - Structure Prediction Diagnostic Software](https://lufaso.domains.unf.edu/spuds/index.html) | A software tool for generating crystal structures of perovskites, including tilting the octahedra. | Code/Lib |
 | [SimplySQS](https://github.com/bracerino/atat-sqs-gui) | An interactive Python package for generating special quasi-random structures (SQS). | Code/Lib, App |
+| [sqsgenerator](https://github.com/dgehringer/sqsgenerator) | Generation of special quasi-random structures (SQS) for solid solutions and configurationally-complex alloys, with an interactive browser-based [web app](https://sqsgen.gehringer.tech/). | Code/Lib, App |
 | [MOFBuilder](https://github.com/chenxili01/MOFBuilder) | A Python package for building Metal-Organic Framework (MOF) structures. | Code/Lib |
 | [pyscal](https://github.com/pyscal/pyscal) | Python library for calculation of local atomic structural environment. | Code/Lib |
 | [CALYPSO](https://www.calypso.cn/home/) | Crystal structure prediction using particle swarm optimization. | Code/Lib |
