@@ -1,0 +1,366 @@
+# -*- mode: org -*-
+# -*- coding: utf-8 -*-
+#+TITLE:       Bayesian optimization using modAL
+#+AUTHOR:      tengssh
+#+LANGUAGE:    en
+#+STARTUP:     indent
+#+TAGS: Text(T) Code(C) Visualization(V) Protocol(P) noexport(n)
+#+OPTIONS: toc:3
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport inlineimages
+#+COLUMNS: %25ITEM %TODO %3PRIORITY %TAGS
+#+PROPERTY: header-args:shell :var VARIABLE="VALUE" :results output
+#+PROPERTY: header-args:python :async yes :python /opt/python/bin/python3
+
+* Project overview
+** Objectives (Who/When/Why)
+The goal is to (M/A)
+- Apply Bayesian optimization on 1D data
+by (T)
+- [W47]20261120
+because (R)
+- Useful active learning techniques
+** Key Results (What/Where/How)
+To be done (S)
+*** DONE Install packages
+CLOSED: [2026-11-17 Tue 21:13]
+*** DONE Generate 1D data
+CLOSED: [2026-11-17 Tue 23:17]
+*** DONE Run Bayesian optimization for 1D data
+CLOSED: [2026-11-18 Wed 19:17]
+* Resources
+- https://github.com/modAL-python/modAL
+  - https://modal-python.readthedocs.io/en/latest/content/examples/bayesian_optimization.html
+- https://gitlab.com/ase/ase
+  - https://docs.ase-lib.org/
+
+* Journal
+** 2026.11.17 17:54
+*** Environment
+**** Shell
+#+begin_src shell :session *shell* :results output :exports both
+alias ls='ls --color=none'
+pixi --version
+#+end_src
+
+#+RESULTS:
+: pixi 0.73.0
+
+**** Python
+#+begin_src shell :session *shell* :results output :exports both
+pixi init
+pixi add "python=3.11"
+pixi add ase
+pixi add "scikit-learn=1.5.*"
+pixi add --pypi "modAL-python @ git+https://github.com/modAL-python/modAL.git"
+#+end_src
+
+#+RESULTS:
+: ✔ Created pixi.toml
+: ✔ Added python=3.11
+: =3.29.0,<4
+: ✔ Added scikit-learn=1.5.*
+: ✔ Added modAL-python @ git+https://github.com/modAL-python/modAL.git
+: Added these as pypi-dependencies.
+
+#+begin_src shell :results output :exports both
+cat pixi.toml
+#+end_src
+
+#+RESULTS:
+#+begin_example
+[workspace]
+authors = ["tengssh <tengssh@users.noreply.github.com>"]
+channels = ["conda-forge"]
+name = "ml-modal-opt"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+python = "3.11.*"
+ase = ">=3.29.0,<4"
+scikit-learn = "1.5.*"
+
+[pypi-dependencies]
+modal-python = { git = "https://github.com/modAL-python/modAL.git" }
+#+end_example
+
+#+begin_src python :results output drawer :session *python* :exports both
+import ase
+import numpy as np
+import sklearn as sl
+from importlib.metadata import version
+for pkg in ["ase", "numpy", "matplotlib", "scikit-learn", "modAL-python"]:
+    print(pkg, version(pkg))
+#+end_src
+
+#+RESULTS:
+:results:
+ase 3.29.0
+numpy 2.4.6
+matplotlib 3.10.9
+scikit-learn 1.5.2
+modAL-python 0.4.2
+:end:
+
+*** Actions
+**** Generate 1D data
+#+begin_src python :results value drawer :session *python* :exports both
+import numpy as np
+from ase.build import bulk
+from ase.calculators.emt import EMT
+
+x_as = np.linspace(3.20, 3.80, 31)
+y_energies = []
+
+for a in x_as:
+    atoms = bulk('Ni', 'fcc', a=a)
+    atoms.calc = EMT()
+    y_energies.append(atoms.get_potential_energy())
+
+X = x_as.reshape(-1, 1)
+y = np.array(y_energies).reshape(-1, 1)
+np.concatenate((X, y), axis=1)
+#+end_src
+
+#+RESULTS:
+:results:
+[[ 3.20000000e+00  4.50930332e-01]
+ [ 3.22000000e+00  3.80333067e-01]
+ [ 3.24000000e+00  3.16573479e-01]
+ [ 3.26000000e+00  2.59355828e-01]
+ [ 3.28000000e+00  2.08397404e-01]
+ [ 3.30000000e+00  1.63434715e-01]
+ [ 3.32000000e+00  1.24230836e-01]
+ [ 3.34000000e+00  9.05810081e-02]
+ [ 3.36000000e+00  6.23010466e-02]
+ [ 3.38000000e+00  3.91661944e-02]
+ [ 3.40000000e+00  2.08075082e-02]
+ [ 3.42000000e+00  6.72183411e-03]
+ [ 3.44000000e+00 -3.50943321e-03]
+ [ 3.46000000e+00 -1.00847982e-02]
+ [ 3.48000000e+00 -1.30858984e-02]
+ [ 3.50000000e+00 -1.25998733e-02]
+ [ 3.52000000e+00 -8.75180067e-03]
+ [ 3.54000000e+00 -1.69314716e-03]
+ [ 3.56000000e+00  8.41352053e-03]
+ [ 3.58000000e+00  2.14039831e-02]
+ [ 3.60000000e+00  3.71171143e-02]
+ [ 3.62000000e+00  5.53971395e-02]
+ [ 3.64000000e+00  7.60948448e-02]
+ [ 3.66000000e+00  9.90685451e-02]
+ [ 3.68000000e+00  1.24185304e-01]
+ [ 3.70000000e+00  1.51322673e-01]
+ [ 3.72000000e+00  1.80370686e-01]
+ [ 3.74000000e+00  2.11231966e-01]
+ [ 3.76000000e+00  2.43814139e-01]
+ [ 3.78000000e+00  2.78006088e-01]
+ [ 3.80000000e+00  3.13646681e-01]]
+:end:
+
+#+begin_src python :results output graphics drawer :session *python* :exports both
+import matplotlib.pyplot as plt
+
+plt.figure(figsize=(6,4))
+plt.plot(x_as, y_energies, '-o')
+plt.xlabel(r'a ($\AA$)')
+plt.ylabel('Energy (eV)')
+plt.grid(True)
+
+fig_out = "energy_landscape.png"
+print("#+ATTR_org: :width 600")
+print(f"[[./{fig_out}]]")
+plt.savefig(fig_out, dpi=150, bbox_inches='tight')
+plt.close('all')
+#+end_src
+
+#+RESULTS:
+:results:
+#+ATTR_org: :width 600
+[[./energy_landscape.png]]
+:end:
+**** Run Bayesian optimization (BO)
+***** Initialize data
+- Initial data points
+#+begin_src python :results value drawer :session *python* :exports both
+X = x_as.reshape(-1, 1)
+y = -1 * np.array(y_energies).reshape(-1, 1) # Minimizing y --> Maximizing -y (get_max())
+
+idx = [3, 6]
+x_init = X[idx, :]
+y_init = y[idx, :]
+np.concatenate((x_init, y_init), axis=1)
+#+end_src
+
+#+RESULTS:
+:results:
+[[ 3.26       -0.25935583]
+ [ 3.32       -0.12423084]]
+:end:
+
+***** Initialize Gaussian process regressor
+#+begin_src python :results output :session *python* :exports both
+from sklearn.gaussian_process import GaussianProcessRegressor
+from sklearn.gaussian_process.kernels import Matern
+
+kernel = Matern(length_scale=1.0)
+regressor = GaussianProcessRegressor(kernel=kernel)
+#+end_src
+
+#+RESULTS:
+
+***** Initialize optimizer using maximum expected improvement
+#+begin_src python :results output :session *python* :exports both
+from modAL.models import BayesianOptimizer
+from modAL.acquisition import optimizer_EI, max_EI
+
+optimizer = BayesianOptimizer(
+    estimator=regressor,
+    X_training=x_init,
+    y_training=y_init,
+    query_strategy=max_EI
+)
+#+end_src
+
+#+RESULTS:
+
+***** Run BO loop
+- =query=: Selects the next x from the provided pool X using acquisition (maximum expected improvement, which balances exploration and exploitation)
+- =teach=: Evaluates true function at x and retrain the surrogate (Gaussian process regressor)
+- =predict=: Calculates posterior mean/std over all X
+- =optimizer_EI=: Calculates acquisition function
+- =get_max=: Returns the maximum estimate from the surrogate mean (pure exploitation)
+- Iterate the process
+
+#+begin_src python :results output :session *python* :exports both
+class BayesOpt:
+    def __init__(self, X: np.ndarray, y: np.ndarray, optimizer: "BayesianOptimizer"):
+        self.X = X
+        self.y = y
+        self.optimizer = optimizer
+        self.i_opt = 0
+
+        self.query_idx = None
+        self.query_inst = None
+        self.X_max, self.y_max = self.optimizer.get_max()
+        self.y_pred, self.y_std = self.optimizer.predict(self.X, return_std=True)
+        self.y_pred, self.y_std = self.y_pred.ravel(), self.y_std.ravel()
+        self.EI = optimizer_EI(self.optimizer, self.X)
+
+    def step(self) -> "BayesOpt":
+        # query
+        self.query_idx, self.query_inst = self.optimizer.query(self.X)
+        x_new = self.X[self.query_idx].reshape(-1, 1)
+        y_new = self.y[self.query_idx].reshape(-1, 1)
+
+        # teach
+        self.optimizer.teach(x_new, y_new)
+
+        # predict
+        self.y_pred, self.y_std = self.optimizer.predict(self.X, return_std=True)
+        self.y_pred, self.y_std = self.y_pred.ravel(), self.y_std.ravel()
+
+        # acquisition
+        self.EI = optimizer_EI(self.optimizer, self.X)
+
+        # get_max
+        self.X_max, self.y_max = self.optimizer.get_max()
+
+        self.i_opt += 1
+        return self
+
+    def plot(self, fig_out: str | None = None):
+        import matplotlib.pyplot as plt
+
+        if fig_out is None:
+            fig_out = f"bo_{self.i_opt}.png"
+
+        with plt.style.context("seaborn-v0_8-white"):
+            fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(6, 6), sharex=True,
+                gridspec_kw={"height_ratios": [2, 1], "hspace": 0.0},
+            )
+
+            # Surrogate
+            ax1.scatter(self.optimizer.X_training, self.optimizer.y_training, c="k", s=50, label="Queried")
+            ax1.scatter(self.X_max, self.y_max, s=100, c="r", label="Current")
+            ax1.plot(self.X.ravel(), self.y_pred, label="GP")
+            ax1.fill_between(self.X.ravel(), self.y_pred - self.y_std, self.y_pred + self.y_std, alpha=0.5)
+            # True function
+            ax1.plot(self.X.ravel(), self.y, c="k", linewidth=2, label="Truth")
+            ax1.set_ylabel(r"-Energy (eV)")
+            ax1.legend(loc="upper left")
+
+            # Acquisition function
+            ax2.plot(self.X.ravel(), self.EI, c="b", label="EI")
+            ax2.axvline(self.X_max[0], color="r", linestyle="-", label="Current max")
+            ax2.axvline(self.X[np.argmax(self.EI)], color="k", linestyle="--", label="Next query")
+            ax2.set_xlabel(r"a ($\AA$)")
+            ax2.set_ylabel("Expected Improvement")
+            ax2.legend(loc="upper center", bbox_to_anchor=(0.5, 1.2), ncol=3)
+
+        print("#+ATTR_org: :width 600")
+        print(f"[[./{fig_out}]]")
+        plt.savefig(fig_out, dpi=150, bbox_inches="tight")
+        plt.close("all")
+#+end_src
+
+#+RESULTS:
+
+#+begin_src python :results output graphics drawer :session *python* :exports both
+BO = BayesOpt(X, y, optimizer)
+y_max_0 = BO.y_max
+BO.plot()
+for i in range(10):
+    print(f">> Iter {BO.i_opt}")
+    BO = BO.step()
+    BO.plot()
+    if np.abs(BO.y_max - y_max_0) <= 0.01 and np.max(BO.y_std) <= 0.035:
+        print("Stop criterion met!")
+        break
+    if BO.y_max > y_max_0:
+        y_max_0 = BO.y_max
+#+end_src
+
+#+RESULTS:
+:results:
+#+ATTR_org: :width 600
+[[./bo_0.png]]
+>> Iter 0
+#+ATTR_org: :width 600
+[[./bo_1.png]]
+>> Iter 1
+#+ATTR_org: :width 600
+[[./bo_2.png]]
+>> Iter 2
+#+ATTR_org: :width 600
+[[./bo_3.png]]
+>> Iter 3
+#+ATTR_org: :width 600
+[[./bo_4.png]]
+>> Iter 4
+#+ATTR_org: :width 600
+[[./bo_5.png]]
+>> Iter 5
+#+ATTR_org: :width 600
+[[./bo_6.png]]
+>> Iter 6
+#+ATTR_org: :width 600
+[[./bo_7.png]]
+Stop criterion met!
+:end:
+***** Compare results
+#+begin_src python :results drawer :session *python* :exports both
+X[np.argmin(y_energies)], BO.X_max
+#+end_src
+
+#+RESULTS:
+:results:
+(array([3.48]), array([3.48]))
+:end:
+
+*** Milestones
+- Installed =ase=, =scikit-learn=, =modAL=
+- Generated 1D data (potential energies of Ni) using the ASE EMT calculator
+- Completed & visualized Bayesian optimization for toy 1D data
