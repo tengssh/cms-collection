@@ -43,3 +43,4 @@ tags: ["Code/ML", "Code/Lib", "Code/WF", "App"]
 | [sphericart](https://github.com/lab-cosmo/sphericart) | Fast evaluation of real spherical harmonics and their Cartesian derivatives for atomistic machine learning representations and interatomic potentials. | Code/Lib, Code/ML |
 | [vesin](https://github.com/luthaf/vesin) | Fast, lightweight neighbor list library for atomistic systems, geometric machine learning, and molecular simulations. | Code/Lib, Code/ML |
 | [torch-pme](https://github.com/lab-cosmo/torch-pme) | Differentiable implementation of particle-mesh and Ewald summation methods for long-range interactions in PyTorch. | Code/Lib, Code/ML |
+| [cuPotential](https://github.com/NVIDIA/cuPotential) | CUDA-X library and OpenMM plugin for GPU-accelerated computation of molecular interactions and force field potentials in atomistic simulations. | Code/Lib, Code/ML |
