@@ -108,3 +108,4 @@ tags: ["Code/ML", "Code/Lib", "App"]
 | [orb-models](https://github.com/orbital-materials/orb-models) | Universal neural network interatomic potentials for atomistic simulations and materials property prediction. | Code/ML, Code/Lib |
 | [mcv2v-cGAN](https://mcv2v-cgan.nipne.ro/) | Electronic charge density prediction using conditional generative adversarial networks (GANs) to accelerate SIESTA DFT calculations for organic molecules. | App, Code/ML |
 | [TugaFF](https://github.com/ppdebreuck/tuga-ff) | Universal graph transformer interatomic potential and ASE calculator for predicting crystal energy, forces, and stress tensors across ambient and high-pressure regimes. | Code/ML, Code/Lib |
+| [UnIPH](https://github.com/Moon-ki8/UnIPH) | Unified learning of interatomic potentials and tight-binding Hamiltonians using equivariant graph neural networks (GNNs). | Code/ML, Code/Lib |
